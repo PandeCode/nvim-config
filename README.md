@@ -3,7 +3,8 @@ pluginConfig/vimify.vim
 ```vim
 let  g:spotify_token = "token"
 ```
-<hr/>
+
+## Other Commands
 ```bash
 sudo pacman -S clang cmake ccls ripgrep fff
 

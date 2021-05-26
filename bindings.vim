@@ -69,18 +69,16 @@ nnoremap <LEADER>fs :w<CR>
 
 autocmd BufWritePre *.py execute ':Black'
 
-autocmd BufWritePre *.js,*json,*.vue,*.ts,*.tsx,*.jsx,*.html,*.css,*.yaml,*.xmlexecute ':Prettier'
-
-"autocmd BufWritePre *.js execute ':Prettier'
-"autocmd BufWritePre *json execute ':Prettier'
-"autocmd BufWritePre *.vue execute ':Prettier'
-"autocmd BufWritePre *.ts execute ':Prettier'
-"autocmd BufWritePre  *.tsx execute ':Prettier'
-"autocmd BufWritePre  *.jsx execute ':Prettier'
-"autocmd BufWritePre  *.html execute ':Prettier'
-"autocmd BufWritePre  *.css execute ':Prettier'
-"autocmd BufWritePre  *.yaml execute ':Prettier'
-"autocmd BufWritePre  *.xml execute ':Prettier'
+autocmd BufWritePre *.js execute ':Prettier'
+autocmd BufWritePre *json execute ':Prettier'
+autocmd BufWritePre *.vue execute ':Prettier'
+autocmd BufWritePre *.ts execute ':Prettier'
+autocmd BufWritePre  *.tsx execute ':Prettier'
+autocmd BufWritePre  *.jsx execute ':Prettier'
+autocmd BufWritePre  *.html execute ':Prettier'
+autocmd BufWritePre  *.css execute ':Prettier'
+autocmd BufWritePre  *.yaml execute ':Prettier'
+autocmd BufWritePre  *.xml execute ':Prettier'
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 

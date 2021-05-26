@@ -1,6 +1,10 @@
 let mapleader = " "
 map <leader>w :w<CR>
 
+imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
+nmap <c-_> :call NERDComment('n', 'toggle')<CR>
+vmap <c-_> :call NERDComment('x', 'toggle')<CR>v
+
 nmap <c-f> :Rg<CR>
 nmap <c-t> :FloatermNew<CR>
 nmap <F5> :GundoToggle<CR>

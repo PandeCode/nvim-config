@@ -7,7 +7,7 @@ set pumblend=20
 
 set encoding=UTF-8
 set tabstop=4
-set noexpandtab
+autocmd VimEnter * execute ':set noexpandtab'
 set autoindent
 set shiftwidth=8
 set scrolloff=3

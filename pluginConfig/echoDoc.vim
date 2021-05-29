@@ -1,5 +1,3 @@
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'popup'
-" To use a custom highlight for the float window,
-" change Pmenu to your highlight group
-highlight link EchoDocFloat Pmenu
+" Or, you could disable showmode alltogether.
+set noshowmode
+let g:echodoc_enable_at_startup = 1

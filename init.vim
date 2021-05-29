@@ -22,6 +22,10 @@ source $HOME/.config/nvim/pluginConfig/vimify.vim
 
 source $HOME/.config/nvim/pluginConfig/neovide.vim
 
+source $HOME/.config/nvim/pluginConfig/docReading.vim
+
+source $HOME/.config/nvim/pluginConfig/doge.vim
+
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/bindings.vim
 

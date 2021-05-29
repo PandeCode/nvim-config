@@ -107,6 +107,11 @@ Plug 'kevinoid/vim-jsonc'
 "Undo tree
 Plug 'sjl/gundo.vim'
 
+"Reading Documents
+Plug 'Konfekt/vim-office'
+
+" Making Documentation
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 call plug#end()
 
 

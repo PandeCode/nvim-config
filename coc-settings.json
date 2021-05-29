@@ -43,7 +43,7 @@
 		"default": "\uf29c"
 	},
 	"python.pythonPath": "python3",
-	"coc.preferences.echodocSupport": true,
+	"suggest.echodocSupport": true,
 	"languageserver": {
 		"go": {
 			"command": "gopls",

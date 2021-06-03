@@ -1,6 +1,6 @@
-# coc-clock
-# coc-spell-checker
-# coc-zi
+" coc-clock
+" coc-spell-checker
+" coc-zi
 let g:coc_global_extensions = ["coc-cmake",
     \ "coc-webpack",
     \ "coc-rainbow-fart",

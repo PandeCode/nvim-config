@@ -70,5 +70,13 @@
 		}
 	},
 	"rainbow-fart.disable-voice-packages": [],
-	"rainbow-fart.locale": ["en"]
+	"rainbow-fart.locale": ["en"],
+	"project.rootPatterns": [
+		".git",
+		"CMakeLists.txt",
+		"package.json",
+		"__pycache__",
+		"main.py",
+		"requirements.txt"
+	]
 }

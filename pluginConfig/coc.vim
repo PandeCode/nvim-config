@@ -1,4 +1,12 @@
+# coc-clock
+# coc-spell-checker
+# coc-zi
 let g:coc_global_extensions = ["coc-cmake",
+    \ "coc-webpack",
+    \ "coc-rainbow-fart",
+    \ "coc-gitignore",
+    \ "coc-svg",
+    \ "coc-project",
     \ "coc-css",
     \ "coc-emmet",
     \ "coc-eslint",

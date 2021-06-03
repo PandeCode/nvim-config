@@ -68,5 +68,7 @@
 				}
 			}
 		}
-	}
+	},
+	"rainbow-fart.disable-voice-packages": [],
+	"rainbow-fart.locale": ["en"]
 }

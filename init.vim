@@ -29,6 +29,8 @@ source $HOME/.config/nvim/pluginConfig/doge.vim
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/bindings.vim
 
+source $HOME/.config/nvim/pluginConfig/inspectorDebug.vim
+
 source $HOME/.config/nvim/pluginConfig/markdown.vim
 source $HOME/.config/nvim/pluginConfig/go.vim
 source $HOME/.config/nvim/pluginConfig/ominisharp.vim

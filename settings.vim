@@ -2,8 +2,10 @@ syntax on
 set guifont=FuraCode\ Nerd\ Font\ Mono
 
 set termguicolors
-set winblend=20
-set pumblend=20
+if has("nvim")
+		set winblend=20
+		set pumblend=20
+endif
 
 set encoding=UTF-8
 set tabstop=4
@@ -38,3 +40,4 @@ set list
 filetype plugin indent on
 
 autocmd VimEnter * execute ':set noexpandtab'
+autocmd BufNew *.py execute ':set noexpandtab'

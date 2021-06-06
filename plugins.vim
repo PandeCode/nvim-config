@@ -116,6 +116,8 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 " Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+" Debugging support
+Plug 'puremourning/vimspector'
 call plug#end()
 
 

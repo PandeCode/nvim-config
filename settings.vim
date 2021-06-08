@@ -38,6 +38,5 @@ set showtabline=2
 set list
 
 filetype plugin indent on
-
-autocmd VimEnter * execute ':set noexpandtab'
-autocmd BufNew *.py execute ':set noexpandtab'
+"autocmd FileType python setlocal noexpandtab
+autocmd FileType * setlocal noexpandtab

@@ -118,6 +118,14 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Debugging support
 Plug 'puremourning/vimspector'
+
+" Rainbow Brackets
+Plug 'luochen1990/rainbow'
+
+" Indent Guide
+Plug 'Yggdroot/indentLine'
+
+
 call plug#end()
 
 

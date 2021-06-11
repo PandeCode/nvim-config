@@ -126,6 +126,9 @@ Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 
 
+" Bazel Support
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 call plug#end()
 
 

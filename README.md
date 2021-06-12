@@ -6,6 +6,8 @@ let  g:spotify_token = "token"
 
 ## Other Commands
 ```bash
+ln -s ~/.config/nvim/vimspector.json ~/.vimspector.json
+
 sudo pacman -S clang cmake ccls ripgrep fff
 
 pip3 install cmakelang cmake-language-server

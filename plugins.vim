@@ -81,8 +81,8 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'psf/black', { 'tag': '19.10b0' }
 
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'nickspoons/vim-sharpenup'
+"Plug 'OmniSharp/omnisharp-vim'
+"Plug 'nickspoons/vim-sharpenup'
 
 " Vim FZF integration, used as OmniSharp selector
 Plug 'junegunn/fzf'

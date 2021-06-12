@@ -78,5 +78,7 @@
 		"__pycache__",
 		"main.py",
 		"requirements.txt"
-	]
+	],
+	"omnisharp.debug.server": true,
+	"omnisharp.path": "omnisharp"
 }

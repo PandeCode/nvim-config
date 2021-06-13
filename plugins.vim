@@ -102,7 +102,7 @@ Plug 'preservim/nerdcommenter'
 " Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
 Plug 'rhysd/vim-clang-format'
-Plug 'kevinoid/vim-jsonc'
+Plug 'neoclide/jsonc.vim'
 
 "Undo tree
 Plug 'sjl/gundo.vim'

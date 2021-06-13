@@ -1,31 +1,222 @@
 {
-  "configurations": {
-    "Vim - run a test": {
-      "adapter": "vscode-cpptools",
-      "configuration": {
-        "type":    "cppdbg",
-        "request": "launch",
-        "program": "${workspaceRoot}/src/vim",
-        "args": [
-          "-f",
-          "-u", "unix.vim",
-          "-U", "NONE",
-          "--noplugin",
-          "--not-a-term",
-          "-S", "runtest.vim",
-          "${Test}.vim"
-        ],
-        "cwd": "${workspaceRoot}/src/testdir",
-        "environment": [
-          { "name": "VIMRUNTIME", "value": "${workspaceRoot}/runtime" }
-        ],
-        "externalConsole": true,
-        "stopAtEntry": true,
-        "MIMode": "lldb",
-        "logging": {
-          "engineLogging": false
-        }
-      }
-    }
-  }
+	"adapters": {
+		"python-remote": {
+			"port": "${port}",
+			"host": "${host}",
+			"launch": {
+				"remote": {
+					"host": "${host}", // Remote host to ssh to (mandatory if not using container)
+					"account": "${account}", // User to connect as (optional)
+
+					// Optional.... Manual additional arguments for ssh
+					// "ssh": {
+					//   "args": [ "-o", "StrictHostKeyChecking=no" ]
+					// },
+
+					// Command to launch the debugee and attach the debugger;
+					// %CMD% replaced with the remote-cmdLine configured in the launch
+					// configuration. (mandatory)
+					"runCommand": [
+						"python",
+						"-m",
+						"debugpy",
+						"--listen",
+						"0.0.0.0:${port}",
+						"--wait-for-client",
+						"%CMD%"
+					]
+
+					// Optional alternative to runCommand (if you need to run multiple
+					// commands)
+					// "runCommands":  [
+					//   [ /* first command */ ],
+					//   [ /* second command */ ]
+					// ]
+				}
+
+				// optional delay to wait after running runCommand(s). This is often
+				// needed because of the way docker handles TCP, or if you're using some
+				// wrapper (e.g. to start the JVM)
+				// "delay": "1000m" // format as per :help sleep
+			},
+			"attach": {
+				"remote": {
+					"host": "${host}", // Remote host to ssh to (mandatory if not using container)
+					"account": "${account}", // User to connect as (optional)
+					// Command to get the PID of the process to attach  (mandatory)
+					"pidCommand": [
+						//
+						// Remember taht you can use ${var} to ask for input. I use this to
+						// call a custom command to returm the PID for a named service, so
+						// here's an examle:
+						//
+						"/path/to/secret/script/GetPIDForService",
+						"${ServiceName}"
+					],
+
+					// Command to attach the debugger; %PID% replaced with output of
+					// pidCommand above (mandatory)
+					"attachCommand": [
+						"python",
+						"-m",
+						"debugpy",
+						"--listen",
+						"0.0.0.0:${port}",
+						"--pid",
+						"%PID%"
+					]
+
+					// Optional alternative to attachCommand (if you need to run multiple
+					// commands)
+					// "attachCommands":  [
+					//   [ /* first command */ ],
+					//   [ /* second command */ ]
+					// ],
+
+					// Optional.... useful with buggy gdbservers to kill -TRAP %PID%
+					// "initCompleteCommand": [
+					//   /* optional command to run after initialized */
+					// ]
+
+					// Optional.... Manual additional arguments for ssh
+					// "ssh": {
+					//   "args": [ "-o", "StrictHostKeyChecking=no" ]
+					// },
+				}
+				// optional delay to wait after running runCommand(s). This is often
+				// needed because of the way docker handles TCP, or if you're using some
+				// wrapper (e.g. to start the JVM)
+				// "delay": "1000m" // format as per :help sleep
+			}
+		},
+		"cpptools-remote": {
+			"command": [
+				"${gadgetDir}/vscode-cpptools/debugAdapters/OpenDebugAD7"
+			],
+			"name": "cppdbg",
+			"configuration": {
+				"type": "cppdbg"
+			},
+			"launch": {
+				"remote": {
+					"host": "${host}",
+					"account": "${account}",
+					"runCommand": [
+						"gdbserver",
+						"--once",
+						"--no-startup-with-shell",
+						"--disable-randomisation",
+						"0.0.0.0:${port}",
+						"%CMD%"
+					]
+				}
+			},
+			"attach": {
+				"remote": {
+					"host": "${host}",
+					"account": "${account}",
+					"pidCommand": [
+						"/path/to/secret/script/GetPIDForService",
+						"${ServiceName}"
+					],
+					"attachCommand": [
+						"gdbserver",
+						"--once",
+						"--attach",
+						"0.0.0.0:${port}",
+						"%PID%"
+					],
+					//
+					// If your application is started by a wrapper script, then you might
+					// need the followin. GDB can't pause an application because it only
+					// sends the signal to the process group leader. Or something.
+					// Basically, if you find that everything just hangs and the
+					// application never attaches, try using the following to manually
+					// force the trap signal.
+					//
+					"initCompleteCommand": ["kill", "-TRAP", "%PID%"]
+				}
+			}
+		}
+	},
+	"configurations": {
+		"Python: Run current script": {
+			"adapter": "debugpy",
+			"configuration": {
+				"request": "launch",
+				"program": "${file}",
+				"args": ["*${args:--update-gadget-config}"],
+				"justMyCode#json": "${justMyCode:true}"
+			}
+		},
+		"Python: Attach To Vim": {
+			"variables": {
+				"port": "5678",
+				"host": "localhost"
+			},
+			"adapter": "multi-session",
+			"configuration": {
+				"request": "attach"
+			}
+		},
+		"Cpp remote launch": {
+			"adapter": "cpptools-remote",
+			"remote-cmdLine": ["/path/to/the/remote/executable", "args..."],
+			"remote-request": "launch",
+			"configuration": {
+				"request": "attach", // yes, attach!
+
+				"program": "/path/to/the/local/executable",
+				"MIMode": "gdb",
+				"miDebuggerAddress": "${host}:${port}"
+			}
+		},
+		"Cpp remote attach": {
+			"adapter": "cpptools-remote",
+			"remote-request": "attach",
+			"configuration": {
+				"request": "attach",
+
+				"program": "/path/to/the/local/executable",
+				"MIMode": "gdb",
+				"miDebuggerAddress": "${host}:${port}"
+			}
+		},
+		"Python remote-launch": {
+			"adapter": "python-remote",
+
+			"remote-request": "launch",
+			"remote-cmdLine": ["${RemoteRoot}/${fileBasename}", "*${args}"],
+
+			"configuration": {
+				"request": "attach",
+				"pathMappings": [
+					{
+						"localRoot": "${workspaceRoot}",
+						"remoteRoot": "${RemoteRoot}"
+					}
+				]
+			}
+		},
+		"Python remote-attach": {
+			"variables": {
+				// Just an example of how to specify a variable manually rather than
+				// vimspector asking for input from the user
+				"ServiceName": "${fileBasenameNoExtension}"
+			},
+
+			"adapter": "python-remote",
+			"remote-request": "attach",
+
+			"configuration": {
+				"request": "attach",
+				"pathMappings": [
+					{
+						"localRoot": "${workspaceRoot}",
+						"remoteRoot": "${RemoteRoot}"
+					}
+				]
+			}
+		}
+	}
 }

@@ -2,6 +2,7 @@
 " coc-spell-checker
 " coc-zi
 let g:coc_global_extensions = ["coc-cmake",
+    \ "coc-explorer",
     \ "coc-webpack",
     \ "coc-rainbow-fart",
     \ "coc-gitignore",

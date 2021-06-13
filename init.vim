@@ -10,7 +10,7 @@ source $HOME/.config/nvim/pluginConfig/airline.vim
 
 source $HOME/.config/nvim/pluginConfig/theme.vim
 
-source $HOME/.config/nvim/pluginConfig/nerdTree.vim
+source $HOME/.config/nvim/pluginConfig/cocExplorer.vim
 source $HOME/.config/nvim/pluginConfig/devicons.vim
 
 source $HOME/.config/nvim/pluginConfig/ctrlp.vim

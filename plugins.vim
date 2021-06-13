@@ -70,10 +70,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dart-lang/dart-vim-plugin'
 
 " Golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" Prettier
-Plug 'prettier/vim-prettier', {'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'typescriptreact', 'javascriptreact'] }
+Plug 'fatih/vim-go'
 
 " Rustlang
 Plug 'rust-lang/rust.vim'
@@ -101,7 +98,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'preservim/nerdcommenter'
 " Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
-Plug 'rhysd/vim-clang-format'
 Plug 'neoclide/jsonc.vim'
 
 "Undo tree
@@ -129,6 +125,10 @@ Plug 'Yggdroot/indentLine'
 " Bazel Support
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plug 'google/vim-glaive'
 call plug#end()
 
 

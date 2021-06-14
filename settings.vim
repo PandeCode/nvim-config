@@ -1,5 +1,5 @@
 syntax on
-set guifont=FuraCode\ Nerd\ Font\ Mono
+set guifont=Fira\ Code
 
 set termguicolors
 if has("nvim")

@@ -93,6 +93,7 @@
 	],
 
 	"explorer.icon.enableVimDevicons": true,
+	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",
 
 	// coc-settings.json

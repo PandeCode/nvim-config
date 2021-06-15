@@ -1,6 +1,6 @@
 autocmd VimEnter * Glaive codefmt black_executable="black"
 autocmd VimEnter * Glaive codefmt prettier_executable="prettier"
-autocmd VimEnter * Glaive codefmt clang_format_executable="clang-format -style=~/.clang_format"
+autocmd VimEnter * Glaive codefmt clang_format_executable="clang-format"
 
 
 augroup autoformat_settings

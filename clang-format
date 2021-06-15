@@ -1,0 +1,23 @@
+IndentWidth: 8
+
+AlignConsecutiveAssignments: AcrossEmptyLines
+AlignConsecutiveBitFields: AcrossEmptyLines
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveMacros: AcrossEmptyLines
+AlignEscapedNewlines: Left
+AlignOperands: Align
+AlignTrailingComments: true
+
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Always
+AllowShortIfStatementsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortLambdasOnASingleLine: All
+
+IndentCaseLabels: false
+
+UseTab: ForContinuationAndIndentation

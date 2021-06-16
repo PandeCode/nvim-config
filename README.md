@@ -13,7 +13,7 @@ ln -s ~/.config/nvim/clang-format ~/.clang-format
 ln -s ~/.config/nvim/.prettierrc ~/.prettierrc
 ln -s ~/.config/nvim/vimspector.json ~/.vimspector.json
 
-sudo pacman -S clang cmake ccls ripgrep fff
+sudo pacman -S clang cmake ccls ripgrep ttf-fira-code
 
 pip3 install cmakelang cmake-language-server
 

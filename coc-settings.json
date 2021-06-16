@@ -91,6 +91,7 @@
 			"url": "https://puremourning.github.io/vimspector/schema/gadgets.schema.json"
 		}
 	],
+	"yaml.schemaStore.enable": true,
 
 	"explorer.icon.enableVimDevicons": true,
 	"explorer.icon.enableNerdfont": true,

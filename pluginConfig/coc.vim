@@ -24,6 +24,7 @@ let g:coc_global_extensions = ["coc-cmake",
     \ "coc-ultisnips",
     \ "coc-vetur",
     \ "coc-vimlsp",
+    \ "coc-yaml",
     \ "coc-xml"]
 
 let g:coc_snippet_next = '<tab>'

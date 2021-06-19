@@ -88,6 +88,7 @@
 		"requirements.txt"
 	],
 	"omnisharp.debug.server": true,
+	"omnisharp.path": "~/Applications/OmniSharp/run",
 	"json.schemas": [
 		{
 			"fileMatch": [".vimspector.json", "vimspector.json"],

@@ -40,3 +40,4 @@ source $HOME/.config/nvim/pluginConfig/go.vim
 source $HOME/.config/nvim/pluginConfig/ominisharp.vim
 source $HOME/.config/nvim/pluginConfig/rust.vim
 source $HOME/.config/nvim/pluginConfig/cppmake.vim
+source $HOME/.config/nvim/pluginConfig/godot.vim

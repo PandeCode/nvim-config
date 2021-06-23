@@ -94,7 +94,11 @@ Plug 'itchyny/vim-cursorword'
 Plug 'antoinemadec/FixCursorHold.nvim'
 
 Plug 'voldikss/vim-floaterm'
+
+Plug 'kana/vim-textobj-user'
 Plug 'preservim/nerdcommenter'
+Plug 'glts/vim-textobj-comment'
+
 " Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
 Plug 'neoclide/jsonc.vim'

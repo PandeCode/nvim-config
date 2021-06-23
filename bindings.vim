@@ -17,6 +17,7 @@ imap <F2> <ESC>:CocCommand document.renameCurrentWord<CR>i
 imap <c-t> <ESC>:FloatermNew<CR>
 imap <F5> <ESC>:GundoToggle<CR>
 
+
 nmap <LEADER>wj <c-w>j
 nmap <LEADER>wh <c-w>h
 nmap <LEADER>wl <c-w>l
@@ -25,6 +26,16 @@ imap <LEADER>wj <ESC><c-w>j
 imap <LEADER>wh <ESC><c-w>h
 imap <LEADER>wk <ESC><c-w>k
 imap <LEADER>wl <ESC><c-w>l
+
+
+nmap <LEADER>wJ <c-w>J
+nmap <LEADER>wH <c-w>H
+nmap <LEADER>wL <c-w>L
+nmap <LEADER>wK <c-w>K
+imap <LEADER>wJ <ESC><c-w>J
+imap <LEADER>wH <ESC><c-w>H
+imap <LEADER>wK <ESC><c-w>K
+imap <LEADER>wL <ESC><c-w>L
 
 nmap <c-d> :bd<CR>
 imap <c-d> <Esc>:bd<CR>a

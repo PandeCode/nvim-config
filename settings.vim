@@ -37,6 +37,7 @@ set t_ut=
 set clipboard=unnamed
 set showtabline=2
 set list
+set updatetime=300
 
 filetype plugin indent on
 "autocmd FileType python setlocal noexpandtab

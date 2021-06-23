@@ -3,10 +3,6 @@ map <leader>w :w<CR>
 
 imap <F4> <ESC>
 
-nmap <c-.> :CocAction<CR>
-imap <c-.> <ESC> :CocAction <CR>i
-vmap <c-.> :CocAction<CR>
-
 imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
 nmap <c-_> :call NERDComment('n', 'toggle')<CR>
 vmap <c-_> :call NERDComment('x', 'toggle')<CR>v
@@ -21,15 +17,14 @@ imap <F2> <ESC>:CocCommand document.renameCurrentWord<CR>i
 imap <c-t> <ESC>:FloatermNew<CR>
 imap <F5> <ESC>:GundoToggle<CR>
 
-nmap <c-j> <c-w>j
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
-nmap <c-k> <c-w>k
-
-imap <c-j> <ESC><c-w>j
-imap <c-h> <ESC><c-w>h
-imap <c-k> <ESC><c-w>k
-imap <c-l> <ESC><c-w>l
+nmap <LEADER>wj <c-w>j
+nmap <LEADER>wh <c-w>h
+nmap <LEADER>wl <c-w>l
+nmap <LEADER>wk <c-w>k
+imap <LEADER>wj <ESC><c-w>j
+imap <LEADER>wh <ESC><c-w>h
+imap <LEADER>wk <ESC><c-w>k
+imap <LEADER>wl <ESC><c-w>l
 
 nmap <c-d> :bd<CR>
 imap <c-d> <Esc>:bd<CR>a
@@ -100,3 +95,8 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu
+
+nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
+nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
+nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
+nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>

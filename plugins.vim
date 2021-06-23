@@ -131,6 +131,10 @@ Plug 'google/vim-glaive'
 
 " Godot
 Plug 'habamax/vim-godot'
+
+" Semantic Highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 call plug#end()
 
 

@@ -66,8 +66,13 @@
 			"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
 			"rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
 			"initializationOptions": {
+				"highlight": { "lsRanges": true },
+
 				"cache": {
 					"directory": "/tmp/ccls"
+				},
+				"client": {
+					"snippetSupport": true
 				}
 			}
 		},

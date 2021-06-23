@@ -82,8 +82,8 @@ autocmd BufNewFile,BufRead *.txt RainbowToggleOff
 nunmap <esc>
 iunmap <esc>
 
-nunmap <F1>
-iunmap <F1>
+nmap <F1> <esc>
+imap <F1> <esc>
 
 nmap <leader>b :Buffers<CR>
 

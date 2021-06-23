@@ -3,6 +3,10 @@ map <leader>w :w<CR>
 
 imap <F4> <ESC>
 
+nmap <c-.> :CocAction<CR>
+imap <c-.> <ESC> :CocAction <CR>i
+vmap <c-.> :CocAction<CR>
+
 imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
 nmap <c-_> :call NERDComment('n', 'toggle')<CR>
 vmap <c-_> :call NERDComment('x', 'toggle')<CR>v
@@ -77,6 +81,9 @@ autocmd BufNewFile,BufRead *.txt RainbowToggleOff
 
 nunmap <esc>
 iunmap <esc>
+
+nunmap <F1>
+iunmap <F1>
 
 nmap <leader>b :Buffers<CR>
 

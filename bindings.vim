@@ -37,8 +37,8 @@ imap <LEADER>wH <ESC><c-w>H
 imap <LEADER>wK <ESC><c-w>K
 imap <LEADER>wL <ESC><c-w>L
 
-nmap <c-d> :bd<CR>
-imap <c-d> <Esc>:bd<CR>a
+nmap <c-d> :bd!<CR>
+imap <c-d> <Esc>:bd!<CR>a
 
 " Save on Ctrl-S
 nmap <c-s> :w<CR>

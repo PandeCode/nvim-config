@@ -6,6 +6,7 @@ source $HOME/.config/nvim/pluginConfig/echoDoc.vim
 source $HOME/.config/nvim/pluginConfig/vista.vim
 
 source $HOME/.config/nvim/pluginConfig/airline.vim
+source $HOME/.config/nvim/pluginConfig/barbar.vim
 " source $HOME/.config/nvim/pluginConfig/lightline.vim
 
 source $HOME/.config/nvim/pluginConfig/theme.vim

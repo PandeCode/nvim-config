@@ -12,7 +12,6 @@ if exists('g:neovide')
 		" let g:neovide_cursor_vfx_particle_phase=1.5
 		" let g:neovide_cursor_vfx_particle_curl=1.0
 
-		let g:neovide_fullscreen=v:true
 		let g:neovide_transparency = 0.98
 		let g:neovide_cursor_vfx_mode = "railgun" " 'railgun' | 'torpedo' | 'pixiedust' | 'sonicboom' | 'ripple' | 'wireframe'
 

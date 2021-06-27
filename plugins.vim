@@ -127,11 +127,11 @@ Plug 'Yggdroot/indentLine'
 
 " Bazel Support
 Plug 'google/vim-maktaba'
-Plug 'bazelbuild/vim-bazel'
-Plug 'google/vim-codefmt'
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
 Plug 'google/vim-glaive'
+Plug 'bazelbuild/vim-bazel'
+
+" Code Formatting
+Plug 'sbdchd/neoformat'
 
 " Godot
 Plug 'habamax/vim-godot'

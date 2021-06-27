@@ -33,7 +33,7 @@ source $HOME/.config/nvim/pluginConfig/rainbowIndex.vim
 
 source $HOME/.config/nvim/pluginConfig/inspectorDebug.vim
 
-source $HOME/.config/nvim/pluginConfig/codefmt.vim
+source $HOME/.config/nvim/pluginConfig/neoformat.vim
 
 source $HOME/.config/nvim/pluginConfig/markdown.vim
 source $HOME/.config/nvim/pluginConfig/go.vim

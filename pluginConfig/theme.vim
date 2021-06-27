@@ -17,3 +17,9 @@ colorscheme material
 
 let g:lightline = { 'colorscheme': 'material_vim' }
 let g:airline_theme = 'material'
+
+" Fix italics in Vim
+if !has('nvim')
+  let &t_ZH="\e[3m"
+  let &t_ZR="\e[23m"
+endif

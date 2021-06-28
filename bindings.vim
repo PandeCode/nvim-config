@@ -77,9 +77,6 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 autocmd BufNewFile,BufRead *.txt RainbowToggleOff
 
-nunmap <esc>
-iunmap <esc>
-
 nmap <F1> <esc>
 imap <F1> <esc>
 

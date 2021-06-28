@@ -145,6 +145,6 @@ Plug 'habamax/vim-godot'
 " Semantic Highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+" Easy Align
+Plug 'junegunn/vim-easy-align'
 call plug#end()
-
-

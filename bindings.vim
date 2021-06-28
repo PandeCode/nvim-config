@@ -83,3 +83,6 @@ imap <F1> <esc>
 nmap <leader>b :Buffers<CR>
 
 command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu
+
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)

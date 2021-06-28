@@ -1,5 +1,5 @@
-nnoremap <leader>[ :BufferPrevious <CR>
-nnoremap <leader>] :BufferNext <CR>
+nnoremap <silent> <space>[ :BufferPrevious<CR>
+nnoremap <silent> <space>] :BufferNext<CR>
 
 " Re-order to previous/next
 nnoremap <silent>    <Space>b< :BufferMovePrevious<CR>

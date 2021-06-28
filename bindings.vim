@@ -66,14 +66,6 @@ command Qw execute ":wq"
 
 command Q execute ":q"
 
-map <leader>[ :bp <CR>
-map <leader>] :bn <CR>
-
-nmap <C-[> :bp <CR>
-nmap <C-]> :bn <CR>
-imap <C-[> <ESC>:bp <CR>
-imap <C-]> <ESC>:bn <CR>
-
 noremap <C-w><Right> :vertical res -3  <CR>
 noremap <C-w><Left> :vertical res +3 <CR>
 noremap <C-w><Down> :res +3 <CR>

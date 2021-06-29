@@ -53,7 +53,8 @@
 	"python.linting.pylintArgs": ["--generate-members"],
 
 	"suggest.echodocSupport": true,
-	//"cmake.lsp.enable": true,
+
+	"clangd.semanticHighlighting": true,
 
 	"cmake.lsp.buildDirectory": "Debug",
 

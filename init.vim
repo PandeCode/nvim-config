@@ -34,6 +34,8 @@ source $HOME/.config/nvim/pluginConfig/rainbowIndex.vim
 
 source $HOME/.config/nvim/pluginConfig/inspectorDebug.vim
 
+source $HOME/.config/nvim/pluginConfig/coolHighlight.vim
+
 source $HOME/.config/nvim/pluginConfig/neoformat.vim
 
 source $HOME/.config/nvim/pluginConfig/markdown.vim

@@ -94,3 +94,6 @@ imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
 noremap <silent> <leader>ff :setlocal foldmethod=syntax<CR>
+
+autocmd VimEnter * nmap <leader>ca :CocAction<CR>
+autocmd VimEnter * vmap <leader>ca :CocAction<CR>

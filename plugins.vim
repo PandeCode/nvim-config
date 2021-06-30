@@ -147,6 +147,9 @@ Plug 'habamax/vim-godot'
 " Semantic Highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
-" Easy Align
+" A simple, easy-to-use Vim alignment plugin.
 Plug 'junegunn/vim-easy-align'
+
+"Fix bad vim word movements eg: CamelCaseACRONYMWords_underscore1234
+Plug 'chaoren/vim-wordmotion'
 call plug#end()

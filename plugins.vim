@@ -18,6 +18,8 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 " Plugins go here like this:
 " Plug '<link>'
+Plug 'folke/which-key.nvim'
+
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 

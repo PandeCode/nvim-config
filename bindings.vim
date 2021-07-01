@@ -97,3 +97,6 @@ noremap <silent> <leader>ff :setlocal foldmethod=syntax<CR>
 
 autocmd VimEnter * nmap <leader>ca :CocAction<CR>
 autocmd VimEnter * vmap <leader>ca :CocAction<CR>
+
+" Let <C-w> use vim word motion
+imap <c-w> <esc>bce

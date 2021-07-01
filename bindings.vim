@@ -1,6 +1,4 @@
 let mapleader = " "
-map <leader>w :w<CR>
-
 imap <F4> <ESC>
 
 imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
@@ -22,11 +20,6 @@ nmap <LEADER>wj <c-w>j
 nmap <LEADER>wh <c-w>h
 nmap <LEADER>wl <c-w>l
 nmap <LEADER>wk <c-w>k
-imap <LEADER>wj <ESC><c-w>j
-imap <LEADER>wh <ESC><c-w>h
-imap <LEADER>wk <ESC><c-w>k
-imap <LEADER>wl <ESC><c-w>l
-
 
 nmap <LEADER>wJ <c-w>J
 nmap <LEADER>wH <c-w>H

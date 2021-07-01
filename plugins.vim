@@ -50,8 +50,6 @@ Plug 'ryanoasis/vim-devicons'
 " Bar
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
 
 "Session Manager
 Plug 'tpope/vim-obsession'

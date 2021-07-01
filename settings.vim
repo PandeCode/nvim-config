@@ -1,5 +1,5 @@
 syntax on
-set guifont=Fira\ Code\ Nerd\ Font,JoyPixels
+set guifont=Fira\ Code\ Nerd\ Font,EmojiOne
 "set guifont="Fira Code Nerd Font"
 
 set termguicolors

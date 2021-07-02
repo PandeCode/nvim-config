@@ -52,8 +52,7 @@ command WQ execute ":wq"
 command Wq execute ":wq"
 command QW execute ":wq"
 command Qw execute ":wq"
-
-command Q execute ":q"
+command Q execute ":q!"
 
 noremap <C-w><Right> :vertical res -3  <CR>
 noremap <C-w><Left> :vertical res +3 <CR>
@@ -68,8 +67,6 @@ autocmd BufNewFile,BufRead *.txt RainbowToggleOff
 
 nmap <F1> <esc>
 imap <F1> <esc>
-
-nmap <leader>b :Buffers<CR>
 
 command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu
 

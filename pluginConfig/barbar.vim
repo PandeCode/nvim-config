@@ -18,6 +18,9 @@ nnoremap <silent>    <Space>6 :BufferGoto 6<CR>
 nnoremap <silent>    <Space>7 :BufferGoto 7<CR>
 nnoremap <silent>    <Space>8 :BufferGoto 8<CR>
 nnoremap <silent>    <Space>9 :BufferLast<CR>
+
+nnoremap <silent>    <Space>` :edit #<CR>
+
 " Close buffer
 nnoremap <silent>    <Space>bc :BufferClose<CR>
 " Wipeout buffer

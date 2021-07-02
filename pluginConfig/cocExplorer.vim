@@ -1,3 +1,7 @@
+let g:netrw_bufsettings = 'nohidden noma nomod nonu nowrap ro buflisted'
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+
 nnoremap <space>e :CocCommand explorer<CR>
 nnoremap <space>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
@@ -100,6 +104,28 @@ augroup CocExplorerCustom
 		autocmd FileType coc-explorer call <SID>init_explorer()
 augroup END
 
-" have vim start coc-explorer if vim started with folder
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'CocCommand explorer' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" CoC Explorer Settings
+augroup MyCocExplorer
+  autocmd!
+  autocmd VimEnter * sil! au! F
+  " set window status line
+  autocmd FileType coc-explorer setl statusline=File-Explorer
+  "quit explorer whein it's the last
+  autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+  " Make sure nothing opened in coc-explorer buffer
+  autocmd BufEnter * if bufname('#') =~# "\[coc-explorer\]-." && winnr('$') > 1 | b# | endif
+  " open if directory specified or if buffer empty
+  autocmd VimEnter * let d = expand('%:p')
+    \ | if argc() == 0
+      \ | exe 'CocCommand explorer --quit-on-open --sources buffer+,file+'
+    \ | elseif isdirectory(d) || (bufname()=='')
+      \ | silent! bd
+      \ | exe 'CocCommand explorer --quit-on-open --sources buffer+,file+ ' . d
+      \ | exe 'cd ' . d
+    \ | else
+      \ | cd %:p:h
+    \ | endif
+  " cd after open
+  autocmd User CocExplorerOpenPost let dir = getcwd() | call CocActionAsync("runCommand", "explorer.doAction", "closest", {"name": "cd", "args": [dir]})
+augroup END

@@ -5,25 +5,25 @@ let g:vista_default_executive = 'coc'
 let g:vista#renderer#enable_icon = 1
 
 let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
+						\   "function": "\uf794",
+						\   "variable": "\uf71b",
+						\  }
 
 
 function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
+		return extend(copy({
+								\   'converters': [incsearch#config#fuzzyword#converter()],
+								\   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+								\   'keymap': {"\<CR>": '<Over>(easymotion)'},
+								\   'is_expr': 0,
+								\   'is_stay': 1
+								\ }), get(a:, 1, {}))
 endfunction
 
 
 
 function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
+		return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 set statusline+=%{NearestMethodOrFunction()}
 

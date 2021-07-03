@@ -57,6 +57,12 @@ function! WindowNumber(...)
 		return 0
 endfunction
 
+
+function! NearestMethodOrFunction(...) abort
+		return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+call airline#add_statusline_func('NearestMethodOrFunction')
+
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 

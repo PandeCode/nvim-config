@@ -16,15 +16,7 @@ imap <c-t> <ESC>:FloatermNew<CR>
 imap <F5> <ESC>:GundoToggle<CR>
 
 
-nmap <LEADER>wj <c-w>j
-nmap <LEADER>wh <c-w>h
-nmap <LEADER>wl <c-w>l
-nmap <LEADER>wk <c-w>k
-
-nmap <LEADER>wJ <c-w>J
-nmap <LEADER>wH <c-w>H
-nmap <LEADER>wL <c-w>L
-nmap <LEADER>wK <c-w>K
+nmap <LEADER>w <c-w>
 
 nmap <c-d> :bd!<CR>
 imap <c-d> <Esc>:bd!<CR>a
@@ -53,11 +45,6 @@ command Wq execute ":wq"
 command QW execute ":wq"
 command Qw execute ":wq"
 command Q execute ":q!"
-
-noremap <C-w><Right> :vertical res -3  <CR>
-noremap <C-w><Left> :vertical res +3 <CR>
-noremap <C-w><Down> :res +3 <CR>
-noremap <C-w><Up> :res -3 <CR>
 
 nnoremap <LEADER>fs :w<CR>
 

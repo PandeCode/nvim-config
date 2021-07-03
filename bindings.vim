@@ -73,3 +73,8 @@ autocmd VimEnter * vmap <leader>ca :CocAction<CR>
 
 " Let <C-w> use vim word motion
 imap <c-w> <esc>bce
+
+augroup Mkdir
+		autocmd!
+		autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+augroup END

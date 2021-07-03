@@ -21,7 +21,6 @@ set incsearch
 set linebreak
 set list
 set noexpandtab
-set nolist
 set number
 set ruler
 set scrolloff=3

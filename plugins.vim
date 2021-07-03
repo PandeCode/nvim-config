@@ -18,6 +18,9 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 " Plugins go here like this:
 " Plug '<link>'
+"
+" Semantic Highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'folke/which-key.nvim'
 
 Plug 'tpope/vim-repeat'
@@ -141,8 +144,6 @@ Plug 'sbdchd/neoformat'
 " Godot
 Plug 'habamax/vim-godot'
 
-" Semantic Highlight
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " A simple, easy-to-use Vim alignment plugin.
 Plug 'junegunn/vim-easy-align'

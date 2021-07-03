@@ -54,7 +54,8 @@
 
 	"suggest.echodocSupport": true,
 
-	"clangd.semanticHighlighting": true,
+	"coc.preferences.semanticTokensHighlights": false,
+	"clangd.semanticHighlighting": false,
 
 	"cmake.lsp.buildDirectory": "Debug",
 

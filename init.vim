@@ -15,7 +15,6 @@ source $HOME/.config/nvim/pluginConfig/cocExplorer.vim
 source $HOME/.config/nvim/pluginConfig/devicons.vim
 
 source $HOME/.config/nvim/pluginConfig/ctrlp.vim
-source $HOME/.config/nvim/pluginConfig/denite.vim
 
 source $HOME/.config/nvim/pluginConfig/search.vim
 

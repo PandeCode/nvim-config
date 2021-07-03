@@ -43,7 +43,6 @@ Plug 'liuchengxu/vista.vim'
 Plug 'Shougo/echodoc.vim'
 
 " File Explorer and Icons
-Plug 'Shougo/denite.nvim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 

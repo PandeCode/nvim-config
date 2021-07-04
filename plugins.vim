@@ -16,9 +16,6 @@ endif
 
 
 call plug#begin('~/.local/share/nvim/plugged')
-" Plugins go here like this:
-" Plug '<link>'
-"
 " Semantic Highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'folke/which-key.nvim'
@@ -150,4 +147,7 @@ Plug 'junegunn/vim-easy-align'
 
 "Fix bad vim word movements eg: CamelCaseACRONYMWords_underscore1234
 Plug 'chaoren/vim-wordmotion'
+
+" Refactor code: lh-refactor is a generic refactoring plugin.
+Plug 'LucHermitte/vim-refactor'
 call plug#end()

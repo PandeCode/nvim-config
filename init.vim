@@ -1,45 +1,45 @@
 source $HOME/.config/nvim/plugins.vim
 
-source $HOME/.config/nvim/pluginConfig/coc.vim
-source $HOME/.config/nvim/pluginConfig/echoDoc.vim
+source $HOME/.config/nvim/config/coc.vim
+source $HOME/.config/nvim/config/echoDoc.vim
 
-source $HOME/.config/nvim/pluginConfig/vista.vim
+source $HOME/.config/nvim/config/vista.vim
 
-source $HOME/.config/nvim/pluginConfig/airline.vim
-source $HOME/.config/nvim/pluginConfig/barbar.vim
-" source $HOME/.config/nvim/pluginConfig/lightline.vim
+source $HOME/.config/nvim/config/airline.vim
+source $HOME/.config/nvim/config/barbar.vim
+" source $HOME/.config/nvim/config/lightline.vim
 
-source $HOME/.config/nvim/pluginConfig/theme.vim
+source $HOME/.config/nvim/config/theme.vim
 
-source $HOME/.config/nvim/pluginConfig/cocExplorer.vim
-source $HOME/.config/nvim/pluginConfig/devicons.vim
+source $HOME/.config/nvim/config/cocExplorer.vim
+source $HOME/.config/nvim/config/devicons.vim
 
-source $HOME/.config/nvim/pluginConfig/ctrlp.vim
+source $HOME/.config/nvim/config/ctrlp.vim
 
-source $HOME/.config/nvim/pluginConfig/search.vim
+source $HOME/.config/nvim/config/search.vim
 
-source $HOME/.config/nvim/pluginConfig/vimify.vim
+source $HOME/.config/nvim/config/vimify.vim
 
-source $HOME/.config/nvim/pluginConfig/neovide.vim
+source $HOME/.config/nvim/config/neovide.vim
 
-source $HOME/.config/nvim/pluginConfig/docReading.vim
+source $HOME/.config/nvim/config/docReading.vim
 
-source $HOME/.config/nvim/pluginConfig/doge.vim
+source $HOME/.config/nvim/config/doge.vim
 
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/bindings.vim
 
-source $HOME/.config/nvim/pluginConfig/rainbowIndex.vim
+source $HOME/.config/nvim/config/rainbowIndex.vim
 
-source $HOME/.config/nvim/pluginConfig/inspectorDebug.vim
+source $HOME/.config/nvim/config/inspectorDebug.vim
 
-source $HOME/.config/nvim/pluginConfig/coolHighlight.vim
+source $HOME/.config/nvim/config/coolHighlight.vim
 
-source $HOME/.config/nvim/pluginConfig/neoformat.vim
+source $HOME/.config/nvim/config/neoformat.vim
 
-source $HOME/.config/nvim/pluginConfig/markdown.vim
-source $HOME/.config/nvim/pluginConfig/go.vim
-source $HOME/.config/nvim/pluginConfig/ominisharp.vim
-source $HOME/.config/nvim/pluginConfig/rust.vim
-source $HOME/.config/nvim/pluginConfig/cppmake.vim
-source $HOME/.config/nvim/pluginConfig/godot.vim
+source $HOME/.config/nvim/config/markdown.vim
+source $HOME/.config/nvim/config/go.vim
+source $HOME/.config/nvim/config/ominisharp.vim
+source $HOME/.config/nvim/config/rust.vim
+source $HOME/.config/nvim/config/cppmake.vim
+source $HOME/.config/nvim/config/godot.vim

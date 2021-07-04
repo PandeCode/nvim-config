@@ -149,5 +149,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'chaoren/vim-wordmotion'
 
 " Refactor code: lh-refactor is a generic refactoring plugin.
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/lh-tags'
+Plug 'LucHermitte/lh-dev'
+Plug 'LucHermitte/lh-style'
+Plug 'LucHermitte/lh-brackets'
 Plug 'LucHermitte/vim-refactor'
 call plug#end()

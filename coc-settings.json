@@ -1,5 +1,5 @@
 {
-	"snippets.ultisnips.enable": false,
+	"snippets.ultisnips.enable": false,   
 	"snippets.textmateSnippetsRoots": [
 		//"~/.config/Code/User/snippets/",
 		"~/.config/nvim/snippets"

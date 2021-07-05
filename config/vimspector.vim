@@ -12,51 +12,35 @@ let g:vimspector_install_gadgets = [ 'vscode-cpptools',
 						\ "CodeLLDB", 
 						\ "local-lua-debugger-vscode"]
 
+nnoremap <space>dd :call vimspector#Launch()<CR>
+nnoremap <space>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <space>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <space>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <space>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <space>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <space>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <space>de :call vimspector#Reset()<CR>
 
-" When debugging, continue. Otherwise start debugging.
-nmap <leader>d<tab> <Plug>VimspectorContinue
-xmap <leader>d<tab> <Plug>VimspectorContinue
+nmap <space>dp <Plug>VimspectorPause
 
-nmap <leader><tab> <Plug>VimspectorContinue
-xmap <leader><tab> <Plug>VimspectorContinue
-" Stop debugging.
-nmap <leader>ds <Plug>VimspectorStop | call vimspector#Reset()
-xmap <leader>ds <Plug>VimspectorStop | call vimspector#Reset()
-" Restart debugging with the same configuration.
-nmap <leader>dr <Plug>VimspectorRestart
-xmap <leader>dr <Plug>VimspectorRestart
-" Pause debuggee.
-nmap <leader>dp <Plug>VimspectorPause
-xmap <leader>dp <Plug>VimspectorPause
-" Toggle line breakpoint on the current line.
-nmap <leader>db <Plug>VimspectorToggleBreakpoint
-xmap <leader>db <Plug>VimspectorToggleBreakpoint
-" Toggle conditional line breakpoint on the current line.
-nmap <leader>dac <Plug>VimspectorToggleConditionalBreakpoint
-xmap <leader>dac <Plug>VimspectorToggleConditionalBreakpoint
-" Add a function breakpoint for the expression under cursor
-nmap <leader>daf <Plug>VimspectorAddFunctionBreakpoint
-xmap <leader>daf <Plug>VimspectorAddFunctionBreakpoint
-" Run to Cursor
-nmap <leader>drc <Plug>VimspectorRunToCursor
-xmap <leader>drc <Plug>VimspectorRunToCursor
-" Step Over
-nmap <leader>dsov <Plug>VimspectorStepOver
-xmap <leader>dsov <Plug>VimspectorStepOver
-" Step Into
-nmap <leader>dsi <Plug>VimspectorStepInto
-xmap <leader>dsi <Plug>VimspectorStepInto
-" Step out of current function scope
-nmap <leader>dsou <Plug>VimspectorStepOut
-xmap <leader>dsou <Plug>VimspectorStepOut
+nnoremap <space>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
+nmap <space>dl <Plug>VimspectorStepInto
+nmap <space>dj <Plug>VimspectorStepOver
+nmap <space>dk <Plug>VimspectorStepOut
+nmap <space>dr <Plug>VimspectorRestart
+nnoremap <space>d<space> :call vimspector#Continue()<CR>
 
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-" for normal mode - the word under the cursor
-" for visual mode, the visually selected text
-nmap <Leader>di <Plug>VimspectorBalloonEval
-xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <space>drc <Plug>VimspectorRunToCursor
+nmap <space>db <Plug>VimspectorToggleBreakpoint
+nmap <space>daf <Plug>VimspectorAddFunctionBreakpoint
+nmap <space>dcbp <Plug>VimspectorToggleConditionalBreakpoint
 
-nmap <Leader>dfu <Plug>VimspectorUpFrame
-nmap <Leader>dfd <Plug>VimspectorDownFrame
+nmap <space>d<tab> <Plug>VimspectorContinue
+nmap <space><tab> <Plug>VimspectorContinue
+
+nmap <space>di <Plug>VimspectorBalloonEval
+
+nmap <space>dfu <Plug>VimspectorUpFrame
+nmap <space>dfd <Plug>VimspectorDownFrame
 

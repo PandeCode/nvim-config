@@ -1,6 +1,35 @@
 {
 	"configurations": {
-		"foo": {},
+		"foo": {
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			}
+		},
+
+		"C++ Launch": {
+			"adapter": "vscode-cpptools",
+			"configuration": {
+				"request": "launch",
+				"program": "${binary}",
+				"args": [],
+				"cwd": "${workspaceFolder}",
+				"environment": [],
+				"externalConsole": true,
+				"MIMode": "lldb"
+			}
+		},
+
+		"C++ Attach": {
+			"adapter": "vscode-cpptools",
+			"configuration": {
+				"request": "attach",
+				"program": "${binary}",
+				"MIMode": "lldb"
+			}
+		},
 
 		"node run": {
 			"adapter": "vscode-node",
@@ -37,7 +66,5 @@
 				"processId": "${processId}"
 			}
 		}
-
-
 	}
 }

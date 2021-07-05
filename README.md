@@ -9,6 +9,7 @@ let  g:spotify_token = "token"
 ## Other Commands
 
 ```bash
+ln -s $HOME/.config/nvim/clangd $HOME/.clangd
 ln -s $HOME/.config/nvim/cmake-format $HOME/.cmake-format
 ln -s $HOME/.config/nvim/clang-format $HOME/.clang-format
 ln -s $HOME/.config/nvim/prettierrc $HOME/.prettierrc

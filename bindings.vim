@@ -78,3 +78,5 @@ augroup Mkdir
 		autocmd!
 		autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

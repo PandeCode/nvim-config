@@ -3,3 +3,5 @@ tags
 pluginConfig/vimify.vim
 tests
 vimspector-config/gadgets
+tags.lock
+tags.temp

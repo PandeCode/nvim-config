@@ -2,3 +2,4 @@ autoload
 tags
 pluginConfig/vimify.vim
 tests
+./vimspector-config/gadgets

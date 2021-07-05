@@ -31,7 +31,7 @@ source $HOME/.config/nvim/bindings.vim
 
 source $HOME/.config/nvim/config/rainbowIndex.vim
 
-source $HOME/.config/nvim/config/inspectorDebug.vim
+source $HOME/.config/nvim/config/vimspector.vim
 
 source $HOME/.config/nvim/config/coolHighlight.vim
 

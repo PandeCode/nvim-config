@@ -1,12 +1,32 @@
 {
 	"configurations": {
-		"attach": {
+		"foo": {},
+
+		"node run": {
 			"adapter": "vscode-node",
-			"default": true,
 			"breakpoints": {
 				"exception": {
 					"all": "N",
-					"uncaught": "N"
+					"uncaught": "Y"
+				}
+			},
+
+			"configuration": {
+				"request": "launch",
+				"protocal": "auto",
+				"stopOnEntry": true,
+				"console": "integratedTerminal",
+				"program": "${file}",
+				"cwd": "${workspaceRoot}"
+			}
+		},
+
+		"node attach": {
+			"adapter": "vscode-node",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
 				}
 			},
 			"configuration": {

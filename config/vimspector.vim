@@ -14,11 +14,14 @@ let g:vimspector_install_gadgets = [ 'vscode-cpptools',
 
 
 " When debugging, continue. Otherwise start debugging.
-nmap <leader>dc <Plug>VimspectorContinue
-xmap <leader>dc <Plug>VimspectorContinue
+nmap <leader>d<tab> <Plug>VimspectorContinue
+xmap <leader>d<tab> <Plug>VimspectorContinue
+
+nmap <leader><tab> <Plug>VimspectorContinue
+xmap <leader><tab> <Plug>VimspectorContinue
 " Stop debugging.
-nmap <leader>ds <Plug>VimspectorStop
-xmap <leader>ds <Plug>VimspectorStop
+nmap <leader>ds <Plug>VimspectorStop | call vimspector#Reset()
+xmap <leader>ds <Plug>VimspectorStop | call vimspector#Reset()
 " Restart debugging with the same configuration.
 nmap <leader>dr <Plug>VimspectorRestart
 xmap <leader>dr <Plug>VimspectorRestart
@@ -26,8 +29,8 @@ xmap <leader>dr <Plug>VimspectorRestart
 nmap <leader>dp <Plug>VimspectorPause
 xmap <leader>dp <Plug>VimspectorPause
 " Toggle line breakpoint on the current line.
-nmap <leader>dab <Plug>VimspectorToggleBreakpoint
-xmap <leader>dab <Plug>VimspectorToggleBreakpoint
+nmap <leader>db <Plug>VimspectorToggleBreakpoint
+xmap <leader>db <Plug>VimspectorToggleBreakpoint
 " Toggle conditional line breakpoint on the current line.
 nmap <leader>dac <Plug>VimspectorToggleConditionalBreakpoint
 xmap <leader>dac <Plug>VimspectorToggleConditionalBreakpoint

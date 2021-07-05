@@ -147,4 +147,8 @@ Plug 'junegunn/vim-easy-align'
 
 "Fix bad vim word movements eg: CamelCaseACRONYMWords_underscore1234
 Plug 'chaoren/vim-wordmotion'
+
+" IN the fricking browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()

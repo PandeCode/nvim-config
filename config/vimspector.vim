@@ -20,6 +20,7 @@ nnoremap <space>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
 nnoremap <space>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
 nnoremap <space>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
 nnoremap <space>de :call vimspector#Reset()<CR>
+nnoremap <space>dq :VimspectorReset<CR>
 
 nmap <space>dp <Plug>VimspectorPause
 

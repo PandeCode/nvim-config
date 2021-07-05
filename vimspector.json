@@ -6,32 +6,117 @@
 					"all": "N",
 					"uncaught": "Y"
 				}
+			},
+			"configuration": {
+				"name": "",
+				"request": "launch",
+				"stopAtEntry": true
 			}
 		},
 
-		"C++ Launch": {
-			"adapter": "vscode-cpptools",
+		"CodeLLDB Launch": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
 			"configuration": {
+				"name": "(lldb) Launch",
+				"type": "cppdbg",
 				"request": "launch",
 				"program": "${binary}",
 				"args": [],
+				"stopAtEntry": false,
 				"cwd": "${workspaceFolder}",
 				"environment": [],
-				"externalConsole": true,
-				"MIMode": "lldb"
+				"MIMode": "lldb",
+				"miDebuggerPath": "/usr/bin/lldb"
 			}
 		},
 
-		"C++ Attach": {
-			"adapter": "vscode-cpptools",
+		"CodeLLDB Attach": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
 			"configuration": {
 				"request": "attach",
 				"program": "${binary}",
-				"MIMode": "lldb"
+				"stopOnEntry": true,
+				"MIMode": "lldb",
+				"miDebuggerPath": "/usr/bin/lldb"
 			}
 		},
 
-		"node run": {
+		"GDB Launch": {
+			"adapter": "vscode-cpptools",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "(gdb) Launch",
+				"type": "cppdbg",
+				"request": "launch",
+				"program": "${binary}",
+				"args": [],
+				"stopAtEntry": true,
+				"cwd": "${workspaceFolder}",
+				"environment": [],
+				"MIMode": "gdb",
+				"miDebuggerPath": "/usr/bin/gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					},
+					{
+						"description": "Auto load symbols when loading an .so file",
+						"text": "set auto-solib-add",
+						"ignoreFailures": false
+					}
+				]
+			}
+		},
+
+		"GDB Attach": {
+			"adapter": "vscode-cpptools",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "attach",
+				"program": "${binary}",
+				"stopOnEntry": true,
+				"MIMode": "gdb",
+				"miDebuggerPath": "/usr/bin/gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					},
+					{
+						"description": "Auto load symbols when loading an .so file",
+						"text": "set auto-solib-add",
+						"ignoreFailures": false
+					}
+				]
+			}
+		},
+
+		"Node Launch": {
 			"adapter": "vscode-node",
 			"breakpoints": {
 				"exception": {
@@ -50,7 +135,7 @@
 			}
 		},
 
-		"node attach": {
+		"Node Attach": {
 			"adapter": "vscode-node",
 			"breakpoints": {
 				"exception": {
@@ -60,6 +145,7 @@
 			},
 			"configuration": {
 				"name": "Attach to Process",
+				"stopOnEntry": true,
 				"type": "node",
 				"request": "attach",
 				"skipFiles": ["<node_internals/**/*.js>"],

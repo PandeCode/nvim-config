@@ -1,0 +1,10 @@
+Debug
+node_modules
+dist
+.git
+dist
+.swp
+.ico
+.svn
+.cache
+.flask_session

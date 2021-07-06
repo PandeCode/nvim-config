@@ -11,6 +11,9 @@ let  g:spotify_token = "token"
 ```bash
 ln -s $HOME/.config/nvim/clang-format $HOME/.clang-format
 ln -s $HOME/.config/nvim/clangd $HOME/.clangd
+ln -s $HOME/.config/nvim/ccls $HOME/.ccls
+ln -s $HOME/.config/nvim/ctags $HOME/.ctags
+ln -s $HOME/.config/nvim/rgignore $HOME/.rgignore
 ln -s $HOME/.config/nvim/cmake-format $HOME/.cmake-format
 ln -s $HOME/.config/nvim/eslintrc $HOME/.eslintrc
 ln -s $HOME/.config/nvim/prettierrc $HOME/.prettierrc

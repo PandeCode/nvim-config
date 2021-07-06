@@ -37,7 +37,8 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 
 " Syntax highlighting and Completion
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
 
 Plug 'liuchengxu/vista.vim'
 Plug 'Shougo/echodoc.vim'

@@ -13,7 +13,7 @@ source $HOME/.config/nvim/config/barbar.vim
 
 source $HOME/.config/nvim/config/theme.vim
 
-source $HOME/.config/nvim/config/cocExplorer.vim
+source $HOME/.config/nvim/config/explorer.vim
 source $HOME/.config/nvim/config/devicons.vim
 
 source $HOME/.config/nvim/config/ctrlp.vim

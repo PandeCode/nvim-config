@@ -1,19 +1,5 @@
 {
 	"configurations": {
-		"foo": {
-			"breakpoints": {
-				"exception": {
-					"all": "N",
-					"uncaught": "Y"
-				}
-			},
-			"configuration": {
-				"name": "",
-				"request": "launch",
-				"stopAtEntry": true
-			}
-		},
-
 		"CodeLLDB Launch": {
 			"adapter": "CodeLLDB",
 			"breakpoints": {
@@ -124,14 +110,14 @@
 					"uncaught": "Y"
 				}
 			},
-
 			"configuration": {
 				"request": "launch",
 				"protocal": "auto",
 				"stopOnEntry": true,
 				"console": "integratedTerminal",
 				"program": "${file}",
-				"cwd": "${workspaceRoot}"
+				"cwd": "${workspaceRoot}",
+				"stopAtEntry": true
 			}
 		},
 
@@ -149,7 +135,170 @@
 				"type": "node",
 				"request": "attach",
 				"skipFiles": ["<node_internals/**/*.js>"],
-				"processId": "${processId}"
+				"processId": "${processId}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Java Attach": {
+			"adapter": "vscode-java",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "attach",
+				"hostName": "${host}",
+				"port": "${port}",
+				"sourcePaths": [
+					"${workspaceRoot}/src/main/java",
+					"${workspaceRoot}/src/test/java"
+				],
+				"stopAtEntry": true
+			}
+		},
+
+		"lua": {
+			"adapter": "lua-local",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"type": "lua-local",
+				"cwd": "${workspaceFolder}",
+				"program": {
+					"lua": "lua",
+					"file": "${file}"
+				},
+				"stopAtEntry": true
+			}
+		},
+
+		"luajit": {
+			"adapter": "lua-local",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"type": "lua-local",
+				"cwd": "${workspaceFolder}",
+				"program": {
+					"lua": "luajit",
+					"file": "${file}"
+				},
+				"stopAtEntry": true
+			}
+		},
+
+		"Chrome launch": {
+			"adapter": "chrome",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"url": "http://localhost:1234/",
+				"webRoot": "${workspaceRoot}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Go run": {
+			"adapter": "vscode-go",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${fileDirname}",
+				"mode": "debug",
+				"dlvToolPath": "$HOME/go/bin/dlv",
+				"stopAtEntry": true
+			}
+		},
+
+		"netcoredbg launch": {
+			"adapter": "netcoredbg",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${dll}",
+				"args": [],
+				"stopAtEntry": true,
+				"cwd": "${workspaceRoot}",
+				"env": {}
+			}
+		},
+
+		"Python Launch": {
+			"adapter": "debugpy",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "debugpy Launch",
+				"type": "python",
+				"request": "launch",
+				"cwd": "${workspaceFolder}",
+				"python": "python3",
+				"stopOnEntry": true,
+				"console": "integratedTerminal",
+				"debugOptions": [],
+				"program": "${file}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Rust launch": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${workspaceRoot}/target/debug/vimspector_test",
+				"stopAtEntry": true
+			}
+		},
+
+		"foo": {
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "",
+				"request": "launch",
+				"stopAtEntry": true
 			}
 		}
 	}

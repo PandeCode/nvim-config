@@ -16,7 +16,7 @@ ln -s $HOME/.config/nvim/prettierrc $HOME/.prettierrc
 ln -s $HOME/.config/nvim/pylintrc $HOME/.pylintrc
 ln -s $HOME/.config/nvim/vimspector.json $HOME/.vimspector.json
 
-sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnailer poppler fontpreview
+sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnailer poppler fontpreview fmui-git
 python3 -m pip install neovim cmakelang cmake-language-server black-but-with-tabs-instead-of-spaces
 python2 -m pip install neovim
 

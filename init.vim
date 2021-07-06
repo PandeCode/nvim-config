@@ -28,6 +28,8 @@ source $HOME/.config/nvim/config/docReading.vim
 
 source $HOME/.config/nvim/config/doge.vim
 
+source $HOME/.config/nvim/config/autoSession.vim
+
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/bindings.vim
 

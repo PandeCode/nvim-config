@@ -27,6 +27,13 @@ noremap <space>tmf <cmd>Telescope media_files<cr>
 
 noremap <space>tvim lua require('telescope').extensions.vimspector.configurations()
 
+noremap <space>tgi <cmd>Telescope gh issues<cr>
+noremap <space>tgpr <cmd>Telescope gh pull_request<cr>
+noremap <space>tgg <cmd>Telescope gh gist<cr>
+noremap <space>tgr <cmd>Telescope gh run<cr>
+
+noremap <space>tss <cmd>Telescope session-lens search_session<cr>
+
 
 lua << EOF
 require('telescope').setup{
@@ -82,8 +89,10 @@ buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
 }
 }
 
-require('telescope').load_extension('coc')
-require('telescope').load_extension('ultisnips')
-require('telescope').load_extension('node_modules')
-require('telescope').load_extension('media_files')
+-- require('telescope').load_extension('coc')
+-- require('telescope').load_extension('gh')
+-- require('telescope').load_extension('media_files')
+-- require('telescope').load_extension('node_modules')
+-- require('telescope').load_extension('ultisnips')
+-- require("telescope").load_extension("session-lens")
 EOF

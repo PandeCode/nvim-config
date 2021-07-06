@@ -151,6 +151,12 @@ Plug 'chaoren/vim-wordmotion'
 " Number toggle
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
+" Sessions
+Plug 'rmagatti/auto-session'
+
+" Cheatsheet
+Plug 'sudormrfbin/cheatsheet.nvim'
+
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -160,4 +166,5 @@ Plug 'fhill2/telescope-ultisnips.nvim'
 Plug 'nvim-telescope/telescope-node-modules.nvim'
 Plug 'nvim-telescope/telescope-vimspector.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
 call plug#end()

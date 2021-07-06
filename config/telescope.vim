@@ -41,7 +41,7 @@ extensions = {
 		media_files = {
 				-- filetypes whitelist
 				-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-				filetypes = {"png", "webp","webm","pdf","mp4",  "jpg", "jpeg"},
+				filetypes = {"png", "webp","webm","pdf","mp4",  "jpg", "jpeg", "mp3"},
 				find_cmd = "rg" -- find command (defaults to `fd`)
 				}
 		},
@@ -89,10 +89,10 @@ buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
 }
 }
 
--- require('telescope').load_extension('coc')
--- require('telescope').load_extension('gh')
--- require('telescope').load_extension('media_files')
--- require('telescope').load_extension('node_modules')
--- require('telescope').load_extension('ultisnips')
+require('telescope').load_extension('coc')
+require('telescope').load_extension('gh')
+require('telescope').load_extension('media_files')
+require('telescope').load_extension('node_modules')
+require('telescope').load_extension('ultisnips')
 -- require("telescope").load_extension("session-lens")
 EOF

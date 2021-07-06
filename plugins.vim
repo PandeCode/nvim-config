@@ -147,4 +147,13 @@ Plug 'junegunn/vim-easy-align'
 
 "Fix bad vim word movements eg: CamelCaseACRONYMWords_underscore1234
 Plug 'chaoren/vim-wordmotion'
+
+" Number toggle
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
 call plug#end()

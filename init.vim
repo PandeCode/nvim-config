@@ -37,7 +37,7 @@ source $HOME/.config/nvim/config/rainbowIndex.vim
 
 source $HOME/.config/nvim/config/vimspector.vim
 
-source $HOME/.config/nvim/config/coolHighlight.vim
+source $HOME/.config/nvim/config/highlight.vim
 
 source $HOME/.config/nvim/config/neoformat.vim
 

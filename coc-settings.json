@@ -111,7 +111,7 @@
 	],
 	"yaml.schemaStore.enable": true,
 
-	"explorer.icon.enableVimDevicons": true,
+	"explorer.icon.source": "nvim-web-devicons",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",
 

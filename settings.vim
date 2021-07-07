@@ -63,3 +63,5 @@ set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
 filetype plugin indent on
+
+highlight Comment cterm=italic gui=italic

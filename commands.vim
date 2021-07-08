@@ -12,3 +12,11 @@ augroup END
 
 " Makes whick key load idk y it doesn't automatically
 autocmd VimEnter * :WhichKey<cr>
+
+
+command -bang W w<bang>
+command -bang WQ wq<bang>
+command -bang Wq wq<bang>
+command -bang QW wq<bang>
+command -bang Qw wq<bang>
+command -bang Q q<bang>

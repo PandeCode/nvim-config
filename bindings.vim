@@ -37,14 +37,6 @@ nmap <A-up> ddkkpk <CR> " Move up
 imap <A-down> <ESC>ddp <CR>a " Move down
 imap <A-up> <ESC>ddkkpk <CR>a " Move up
 
-command W execute ":w"
-
-command WQ execute ":wq"
-command Wq execute ":wq"
-command QW execute ":wq"
-command Qw execute ":wq"
-command Q execute ":q!"
-
 nnoremap <LEADER>fs :w<CR>
 
 nmap <F1> <esc>

@@ -152,7 +152,7 @@ Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " Show the shortcuts in a popup
-Plug 'folke/which-key.nvim', { 'on': '<Plug>WhickKey' }
+Plug 'folke/which-key.nvim'
 
 " Repeat commands that are not native to vim like vim surround
 Plug 'tpope/vim-repeat'

@@ -47,15 +47,8 @@ command Q execute ":q!"
 
 nnoremap <LEADER>fs :w<CR>
 
-autocmd BufNewFile,BufRead *.* set noexpandtab
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.json set filetype=jsonc
-autocmd BufNewFile,BufRead *.txt RainbowToggleOff
-
 nmap <F1> <esc>
 imap <F1> <esc>
-
-command! Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu
 
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
@@ -68,15 +61,5 @@ imap <End> <C-o><End>
 
 noremap <silent> <leader>fm :setlocal foldmethod=syntax<CR>
 
-autocmd VimEnter * nmap <leader>ca :CocAction<CR>
-autocmd VimEnter * vmap <leader>ca :CocAction<CR>
-
 " Let <C-w> use vim word motion
 imap <c-w> <esc>bce
-
-augroup Mkdir
-		autocmd!
-		autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
-augroup END
-
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

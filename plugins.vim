@@ -16,50 +16,51 @@ endif
 
 
 call plug#begin('~/.local/share/nvim/plugged')
-" Semantic Highlight
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'folke/which-key.nvim'
-
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-
-"Theme
-Plug 'kaicataldo/material.vim'
-
-" Ease motion
 Plug 'andymass/vim-matchup'
+
+Plug 'sudormrfbin/cheatsheet.nvim'
+
 Plug 'easymotion/vim-easymotion'
+
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Language defaults
+Plug 'Shougo/echodoc.vim'
+
+Plug 'tpope/vim-obsession'
+Plug 'rmagatti/auto-session'
+
+Plug 'kana/vim-textobj-user'
+Plug 'preservim/nerdcommenter'
+Plug 'glts/vim-textobj-comment'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'mhinz/vim-startify'
+"Plug 'glepnir/dashboard-nvim'
+" Plug 'itchyny/lightline.vim'
+" Plug 'mengelbrecht/lightline-bufferline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Plug 'cosminadrianpopescu/vim-sql-workbench'
+
+" Language defaults for syntax highlighting and other basic stuff
 Plug 'sheerun/vim-polyglot'
 
 " Syntax highlighting and Completion
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
-
+" Show file layout of functions and varibles and other symbols
 Plug 'liuchengxu/vista.vim'
-Plug 'Shougo/echodoc.vim'
 
-" File Explorer and Icons
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ryanoasis/vim-devicons'
-
-" Bar
-Plug 'kyazdani42/nvim-web-devicons'
+" Cool Tabline
 Plug 'romgrk/barbar.nvim'
 
-"Session Manager
-Plug 'tpope/vim-obsession'
+" Much needed tags file management making file searches exponentially faster
 Plug 'ludovicchabant/vim-gutentags'
-
-" Start Page and Status Bar
-Plug 'mhinz/vim-startify'
-" Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Better search
 Plug 'haya14busa/incsearch.vim'
@@ -79,33 +80,26 @@ Plug 'fatih/vim-go'
 " Rustlang
 Plug 'rust-lang/rust.vim'
 
-
-Plug 'psf/black', { 'tag': '19.10b0' }
-
 "Plug 'OmniSharp/omnisharp-vim'
 "Plug 'nickspoons/vim-sharpenup'
-
-" Vim FZF integration, used as OmniSharp selector
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 
 " Spotify
 Plug 'HendrikPetertje/vimify'
 
+" Highlight current word under the cursor in the whole file
 Plug 'itchyny/vim-cursorword'
-" Plug 'cosminadrianpopescu/vim-sql-workbench'
+
 
 " Speed things up
 Plug 'antoinemadec/FixCursorHold.nvim'
 
+" Get a floating terminal
 Plug 'voldikss/vim-floaterm'
-
-Plug 'kana/vim-textobj-user'
-Plug 'preservim/nerdcommenter'
-Plug 'glts/vim-textobj-comment'
 
 " Plug 'edkolev/tmuxline.vim'
 Plug 'cdelledonne/vim-cmake'
+
+" Json with comments support
 Plug 'neoclide/jsonc.vim'
 
 "Undo tree
@@ -126,9 +120,8 @@ Plug 'puremourning/vimspector'
 " Rainbow Brackets
 Plug 'luochen1990/rainbow'
 
-" Indent Guide
+" Indent Guide if spaces are used
 Plug 'Yggdroot/indentLine'
-
 
 " Bazel Support
 Plug 'google/vim-maktaba'
@@ -138,9 +131,8 @@ Plug 'bazelbuild/vim-bazel'
 " Code Formatting
 Plug 'sbdchd/neoformat'
 
-" Godot
+" Gdscript
 Plug 'habamax/vim-godot'
-
 
 " A simple, easy-to-use Vim alignment plugin.
 Plug 'junegunn/vim-easy-align'
@@ -148,14 +140,8 @@ Plug 'junegunn/vim-easy-align'
 "Fix bad vim word movements eg: CamelCaseACRONYMWords_underscore1234
 Plug 'chaoren/vim-wordmotion'
 
-" Number toggle
+" Number toggle 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
-" Sessions
-Plug 'rmagatti/auto-session'
-
-" Cheatsheet
-Plug 'sudormrfbin/cheatsheet.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -167,4 +153,22 @@ Plug 'nvim-telescope/telescope-node-modules.nvim'
 Plug 'nvim-telescope/telescope-vimspector.nvim'
 Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-telescope/telescope-github.nvim'
+
+" Semantic Highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+" Show the shortcuts in a popup
+Plug 'folke/which-key.nvim'
+
+" Repeat commands that are not native to vim like vim surround
+Plug 'tpope/vim-repeat'
+
+" Make brackets and other surrounding stuff
+Plug 'tpope/vim-surround'
+
+" Theme
+Plug 'kaicataldo/material.vim'
+
+" Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 :help speeddating
+Plug 'tpope/vim-speeddating'
 call plug#end()

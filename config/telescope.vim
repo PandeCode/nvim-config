@@ -1,6 +1,6 @@
 " Find files using Telescope command-line sugar.
 nnoremap <space>tf <cmd>Telescope find_files<cr>
-nnoremap <space>tg <cmd>Telescope live_grep<cr>
+nnoremap <space>tl <cmd>Telescope live_grep<cr>
 nnoremap <space>tb <cmd>Telescope buffers<cr>
 nnoremap <space>th <cmd>Telescope help_tags<cr>
 
@@ -33,7 +33,6 @@ noremap <space>tgg <cmd>Telescope gh gist<cr>
 noremap <space>tgr <cmd>Telescope gh run<cr>
 
 noremap <space>tss <cmd>Telescope session-lens search_session<cr>
-
 
 lua << EOF
 require('telescope').setup{

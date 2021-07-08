@@ -225,3 +225,7 @@ nnoremap <silent><nowait> mj  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> mk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> mp  :<C-u>CocListResume<CR>
+
+
+autocmd VimEnter * nmap <leader>ca :CocAction<CR>
+autocmd VimEnter * vmap <leader>ca :CocAction<CR>

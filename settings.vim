@@ -1,12 +1,4 @@
 syntax on
-set guifont=Fira\ Code\ Nerd\ Font,EmojiOne
-"set guifont="Fira Code Nerd Font"
-
-set termguicolors
-if has("nvim")
-		set winblend=20
-		set pumblend=20
-endif
 
 set autoindent
 set backspace=indent,eol,start
@@ -35,6 +27,7 @@ set t_Co=256
 set t_ut=
 set tabstop=4
 set ttyfast
+set timeoutlen=300
 set updatetime=300
 set visualbell
 set wrap
@@ -62,6 +55,17 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
+set guifont=Fira\ Code\ Nerd\ Font,EmojiOne
+set termguicolors
+
+if has("nvim")
+		set winblend=20
+		set pumblend=20
+endif
+
 filetype plugin indent on
 
-highlight Comment cterm=italic gui=italic
+autocmd BufNewFile,BufRead *.* set noexpandtab
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.json set filetype=jsonc
+autocmd BufNewFile,BufRead *.txt RainbowToggleOff

@@ -6,8 +6,8 @@ nnoremap <silent> <space>[ :BufferPrevious<CR>
 nnoremap <silent> <space>] :BufferNext<CR>
 
 " Re-order to previous/next
-nnoremap <silent>    <Space>b< :BufferMovePrevious<CR>
-nnoremap <silent>    <Space>b> :BufferMoveNext<CR>
+nnoremap <silent>    <Space>b[ :BufferMovePrevious<CR>
+nnoremap <silent>    <Space>b] :BufferMoveNext<CR>
 " Goto buffer in position...
 nnoremap <silent>    <Space>1 :BufferGoto 1<CR>
 nnoremap <silent>    <Space>2 :BufferGoto 2<CR>

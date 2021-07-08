@@ -11,7 +11,7 @@ augroup Mkdir
 augroup END
 
 " Makes whick key load idk y it doesn't automatically
-autocmd VimEnter * :WhichKey<cr>
+autocmd VimEnter * WhichKey<ESC>
 
 
 command -bang W w<bang>

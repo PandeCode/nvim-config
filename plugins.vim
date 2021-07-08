@@ -168,4 +168,7 @@ Plug 'kaicataldo/material.vim'
 
 " Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 :help speeddating
 Plug 'tpope/vim-speeddating'
+
+" Darken inactive windows
+Plug 'sunjon/Shade.nvim'
 call plug#end()

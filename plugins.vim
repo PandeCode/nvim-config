@@ -80,9 +80,6 @@ Plug 'rust-lang/rust.vim'
 "Plug 'OmniSharp/omnisharp-vim'
 "Plug 'nickspoons/vim-sharpenup'
 
-" Spotify
-Plug 'HendrikPetertje/vimify'
-
 " Highlight current word under the cursor in the whole file
 Plug 'itchyny/vim-cursorword'
 
@@ -155,7 +152,7 @@ Plug 'nvim-telescope/telescope-github.nvim'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " Show the shortcuts in a popup
-Plug 'folke/which-key.nvim'
+Plug 'folke/which-key.nvim', { 'on': '<Plug>WhickKey' }
 
 " Repeat commands that are not native to vim like vim surround
 Plug 'tpope/vim-repeat'

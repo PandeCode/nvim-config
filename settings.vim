@@ -63,6 +63,10 @@ if has("nvim")
 		set pumblend=20
 endif
 
+" lazy drawing
+set lazyredraw
+set ttyfast
+
 filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.* set noexpandtab

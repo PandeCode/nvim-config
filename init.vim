@@ -22,8 +22,6 @@ source $HOME/.config/nvim/config/ctrlp.vim
 
 source $HOME/.config/nvim/config/search.vim
 
-source $HOME/.config/nvim/config/vimify.vim
-
 source $HOME/.config/nvim/config/neovide.vim
 
 source $HOME/.config/nvim/config/docReading.vim

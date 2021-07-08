@@ -1,12 +1,4 @@
-# Fix
-
-pluginConfig/vimify.vim
-
-```vim
-let  g:spotify_token = "token"
-```
-
-## Other Commands
+## Setup Commands
 
 ```bash
 ln -s $HOME/.config/nvim/dotfiles/.clang-format $HOME/.clang-format

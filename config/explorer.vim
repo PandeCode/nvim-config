@@ -58,14 +58,6 @@ nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 " List all presets
 nnoremap <space>el :CocList explPresets<CR>
 
-autocmd VimEnter *
-						\   if !argc()
-						\ |   Startify
-						\ | endif
-
-" Automaticaly close nvim if NERDTree is only thing left open
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"
 function! s:explorer_cur_dir()
 		let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
 		return fnamemodify(node_info['fullpath'], ':h')

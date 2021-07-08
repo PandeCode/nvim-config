@@ -11,11 +11,6 @@ let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning'
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
 let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 
-function! AirlineInit()
-		let g:airline_section_z = airline#section#create(['%{ObsessionStatus(''$'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
-endfunction
-autocmd User AirlineAfterInit call AirlineInit()
-
 function! CMakeStat()
 		let l:cmake_build_dir = get(g:, 'cmake_build_dir', 'Debug')
 		let l:build_dir = finddir(l:cmake_build_dir, '.;')

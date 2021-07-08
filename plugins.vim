@@ -28,9 +28,6 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'Shougo/echodoc.vim'
 
-Plug 'tpope/vim-obsession'
-Plug 'rmagatti/auto-session'
-
 Plug 'kana/vim-textobj-user'
 Plug 'preservim/nerdcommenter'
 Plug 'glts/vim-textobj-comment'
@@ -38,8 +35,8 @@ Plug 'glts/vim-textobj-comment'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
-Plug 'mhinz/vim-startify'
-"Plug 'glepnir/dashboard-nvim'
+Plug 'glepnir/dashboard-nvim'
+"Plug 'mhinz/vim-startify'
 " Plug 'itchyny/lightline.vim'
 " Plug 'mengelbrecht/lightline-bufferline'
 Plug 'vim-airline/vim-airline'

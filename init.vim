@@ -7,6 +7,8 @@ source $HOME/.config/nvim/config/telescope.vim
 
 source $HOME/.config/nvim/config/vista.vim
 
+source $HOME/.config/nvim/config/dashboard.vim
+
 source $HOME/.config/nvim/config/airline.vim
 source $HOME/.config/nvim/config/barbar.vim
 " source $HOME/.config/nvim/config/lightline.vim
@@ -27,8 +29,6 @@ source $HOME/.config/nvim/config/neovide.vim
 source $HOME/.config/nvim/config/docReading.vim
 
 source $HOME/.config/nvim/config/doge.vim
-
-source $HOME/.config/nvim/config/autoSession.vim
 
 source $HOME/.config/nvim/commands.vim
 source $HOME/.config/nvim/settings.vim

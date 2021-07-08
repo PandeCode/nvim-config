@@ -1,3 +1,6 @@
+nmap <leader>nf :Neoformat<CR>
+vmap <leader>nf :Neoformat<CR>
+
 let blacklist = ['jsonc', 'vim']
 
 autocmd FileType jsonc autocmd BufWritePre <buffer> echo "Hello"

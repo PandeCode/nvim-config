@@ -1,8 +1,8 @@
 " Find files using Telescope command-line sugar.
-nnoremap <space>ff <cmd>Telescope find_files<cr>
-nnoremap <space>fg <cmd>Telescope live_grep<cr>
-nnoremap <space>fb <cmd>Telescope buffers<cr>
-nnoremap <space>fh <cmd>Telescope help_tags<cr>
+nnoremap <space>tf <cmd>Telescope find_files<cr>
+nnoremap <space>tg <cmd>Telescope live_grep<cr>
+nnoremap <space>tb <cmd>Telescope buffers<cr>
+nnoremap <space>th <cmd>Telescope help_tags<cr>
 
 noremap <space>tcm <cmd>Telescope coc mru<cr>
 noremap <space>tcl <cmd>Telescope coc links<cr>

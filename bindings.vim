@@ -7,16 +7,13 @@ imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
 nmap <c-_> :call NERDComment('n', 'toggle')<CR>
 vmap <c-_> :call NERDComment('x', 'toggle')<CR>v
 
-nmap <c-f> :Rg<CR>
 nmap <F2> :CocCommand document.renameCurrentWord<CR>i
 nmap <c-t> :FloatermNew<CR>
 nmap <F5> :GundoToggle<CR>
 
-imap <c-f> <ESC>:Rg<CR>
 imap <F2> <ESC>:CocCommand document.renameCurrentWord<CR>i
 imap <c-t> <ESC>:FloatermNew<CR>
 imap <F5> <ESC>:GundoToggle<CR>
-
 
 nmap <LEADER>w <c-w>
 
@@ -50,6 +47,7 @@ command Q execute ":q!"
 
 nnoremap <LEADER>fs :w<CR>
 
+autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 autocmd BufNewFile,BufRead *.txt RainbowToggleOff

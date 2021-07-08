@@ -28,7 +28,6 @@ Plug 'kaicataldo/material.vim'
 
 " Ease motion
 Plug 'andymass/vim-matchup'
-Plug 'liuchengxu/vim-which-key'
 Plug 'easymotion/vim-easymotion'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }

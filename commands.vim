@@ -10,3 +10,5 @@ augroup Mkdir
 		autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
 
+" Makes whick key load idk y it doesn't automatically
+autocmd VimEnter * :WhichKey<cr>

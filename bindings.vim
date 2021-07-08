@@ -63,3 +63,4 @@ noremap <silent> <leader>fm :setlocal foldmethod=syntax<CR>
 
 " Let <C-w> use vim word motion
 imap <c-w> <esc>bce
+map Q :echo<CR>

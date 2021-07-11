@@ -116,6 +116,9 @@ Plug 'luochen1990/rainbow'
 " Indent Guide if spaces are used
 Plug 'Yggdroot/indentLine'
 
+" i3 config Support
+Plug 'mboughaba/i3config.vim'
+
 " Bazel Support
 Plug 'google/vim-maktaba', {'for': ['bzl', 'bazel']}
 Plug 'google/vim-glaive', {'for': ['bzl', 'bazel']}

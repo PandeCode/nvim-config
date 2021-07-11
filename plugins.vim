@@ -69,13 +69,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Flutter
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin', {'for': ['dart', 'flutter']}
 
 " Golang
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', {'for': ['go', 'golang']}
 
 " Rustlang
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': ['rust', 'cargo']}
 
 "Plug 'OmniSharp/omnisharp-vim'
 "Plug 'nickspoons/vim-sharpenup'
@@ -83,18 +83,17 @@ Plug 'rust-lang/rust.vim'
 " Highlight current word under the cursor in the whole file
 Plug 'itchyny/vim-cursorword'
 
-
 " Speed things up
 Plug 'antoinemadec/FixCursorHold.nvim'
 
 " Get a floating terminal
 Plug 'voldikss/vim-floaterm'
 
-" Plug 'edkolev/tmuxline.vim'
-Plug 'cdelledonne/vim-cmake'
+" CMake Build System Support
+Plug 'cdelledonne/vim-cmake', {'for': ['cpp', 'c', 'cmake']}
 
 " Json with comments support
-Plug 'neoclide/jsonc.vim'
+Plug 'neoclide/jsonc.vim', {'for': ['json', 'jsonc']}
 
 "Undo tree
 Plug 'sjl/gundo.vim'
@@ -103,10 +102,10 @@ Plug 'sjl/gundo.vim'
 Plug 'Konfekt/vim-office'
 
 " Making Documentation
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } , 'for': ['cpp', 'c', 'java', 'python', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'bash', 'ruby', 'php', 'rust', 'groovy']}
 
 " Markdown Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' , 'for': ['markdown', 'md'] }
 
 " Debugging support
 Plug 'puremourning/vimspector'
@@ -118,15 +117,15 @@ Plug 'luochen1990/rainbow'
 Plug 'Yggdroot/indentLine'
 
 " Bazel Support
-Plug 'google/vim-maktaba'
-Plug 'google/vim-glaive'
-Plug 'bazelbuild/vim-bazel'
+Plug 'google/vim-maktaba', {'for': ['bzl', 'bazel']}
+Plug 'google/vim-glaive', {'for': ['bzl', 'bazel']}
+Plug 'bazelbuild/vim-bazel', {'for': ['bzl', 'bazel']}
 
 " Code Formatting
 Plug 'sbdchd/neoformat'
 
 " Gdscript
-Plug 'habamax/vim-godot'
+Plug 'habamax/vim-godot', {'for': ['gdscript']}
 
 " A simple, easy-to-use Vim alignment plugin.
 Plug 'junegunn/vim-easy-align'
@@ -149,7 +148,7 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-telescope/telescope-github.nvim'
 
 " Semantic Highlight
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight', {'for': ['c', 'cpp']}
 
 " Show the shortcuts in a popup
 Plug 'folke/which-key.nvim'
@@ -165,7 +164,4 @@ Plug 'kaicataldo/material.vim'
 
 " Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 :help speeddating
 Plug 'tpope/vim-speeddating'
-
-" Darken inactive windows
-Plug 'sunjon/Shade.nvim'
 call plug#end()

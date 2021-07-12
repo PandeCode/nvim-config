@@ -17,9 +17,6 @@ imap <F5> <ESC>:GundoToggle<CR>
 
 nmap <LEADER>w <c-w>
 
-nmap <c-d> :bd!<CR>
-imap <c-d> <Esc>:bd!<CR>a
-
 " Save on Ctrl-S
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
@@ -54,5 +51,5 @@ imap <End> <C-o><End>
 noremap <silent> <leader>fm :setlocal foldmethod=syntax<CR>
 
 " Let <C-w> use vim word motion
-imap <c-w> <esc>bce
+imap <c-w> <esc>cb
 map Q :echo<CR>

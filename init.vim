@@ -3,6 +3,7 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/echoDoc.vim
 
+source $HOME/.config/nvim/config/sucklessWindowManagement.vim
 source $HOME/.config/nvim/config/telescope.vim
 
 source $HOME/.config/nvim/config/vista.vim

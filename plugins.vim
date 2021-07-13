@@ -160,8 +160,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " Theme
-Plug 'kaicataldo/material.vim'
+Plug 'dracula/vim', { 'as': 'dracula' } 
 
 " Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 :help speeddating
 Plug 'tpope/vim-speeddating'
+
+" Window management
+Plug 'fabi1cazenave/suckless.vim'
 call plug#end()

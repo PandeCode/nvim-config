@@ -10,13 +10,10 @@ if (has('termguicolors'))
 		set termguicolors
 endif
 
-let g:material_terminal_italics = 1
-"'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
-let g:material_theme_style = 'ocean-community'
-colorscheme material
+colorscheme dracula
 
-let g:lightline = { 'colorscheme': 'material_vim' }
-let g:airline_theme = 'material'
+let g:lightline = { 'colorscheme': 'dracula_vim' }
+let g:airline_theme = 'dracula'
 
 " Fix italics in Vim
 if !has('nvim')

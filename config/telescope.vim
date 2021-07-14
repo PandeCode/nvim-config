@@ -4,6 +4,8 @@ nnoremap <space>tl <cmd>Telescope live_grep<cr>
 nnoremap <space>tb <cmd>Telescope buffers<cr>
 nnoremap <space>th <cmd>Telescope help_tags<cr>
 
+nnoremap <space>tt <cmd>Telescope colorsheme<cr>
+
 noremap <space>tcm <cmd>Telescope coc mru<cr>
 noremap <space>tcl <cmd>Telescope coc links<cr>
 noremap <space>tcc <cmd>Telescope coc commands<cr>
@@ -72,7 +74,7 @@ layout_config = {
 file_sorter =  require'telescope.sorters'.get_fuzzy_file,
 file_ignore_patterns = {},
 generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-shorten_path = true,
+path_display = true,
 winblend = 0,
 border = {},
 borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },

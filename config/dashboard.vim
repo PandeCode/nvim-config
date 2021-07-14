@@ -1,5 +1,5 @@
-nmap <Leader>ss :<C-u>SessionSave<CR>
-nmap <Leader>sl :<C-u>SessionLoad<CR>
+nmap <Space>ss :<C-u>SessionSave<CR>
+nmap <Space>sl :<C-u>SessionLoad<CR>
 
 let g:dashboard_default_executive ='telescope'
 let g:indentLine_fileTypeExclude = ['dashboard']
@@ -9,19 +9,18 @@ let g:dashboard_custom_shortcut={
 \ 'find_history'       : 'SPC f h',
 \ 'find_file'          : 'SPC t f',
 \ 'new_file'           : 'SPC c n',
-\ 'change_colorscheme' : 'SPC t c',
+\ 'change_colorscheme' : 'SPC t t',
 \ 'find_word'          : 'SPC f a',
 \ 'book_marks'         : 'SPC f b',
 \ }
 
-nmap <Leader>ss :<C-u>SessionSave<CR>
-nmap <Leader>sl :<C-u>SessionLoad<CR>
-nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
-" Telescope
-nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
-nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
-nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
-nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+nmap <Space>ss :<C-u>SessionSave<CR>
+nmap <Space>sl :<C-u>SessionLoad<CR>
+nmap <Space>fh :DashboardFindHistory<CR>
+"Telescope
+nmap <Space>fa :DashboardFindWord<CR>
+nmap <Space>fb :DashboardJumpMark<CR>
+nmap <Space>cn :DashboardNewFile<CR>
 
 
 let g:dashboard_custom_headerDoom =<< trim END

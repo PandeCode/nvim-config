@@ -72,4 +72,3 @@ filetype plugin indent on
 autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
-autocmd BufNewFile,BufRead *.txt RainbowToggleOff

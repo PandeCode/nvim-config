@@ -10,9 +10,8 @@ source $HOME/.config/nvim/config/vista.vim
 
 source $HOME/.config/nvim/config/dashboard.vim
 
-source $HOME/.config/nvim/config/airline.vim
 source $HOME/.config/nvim/config/barbar.vim
-" source $HOME/.config/nvim/config/lightline.vim
+source $HOME/.config/nvim/config/lightline.vim
 
 source $HOME/.config/nvim/config/theme.vim
 

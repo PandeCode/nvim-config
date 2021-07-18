@@ -36,11 +36,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'glepnir/dashboard-nvim'
-"Plug 'mhinz/vim-startify'
-" Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 " Plug 'cosminadrianpopescu/vim-sql-workbench'
 

@@ -12,7 +12,7 @@ endif
 
 colorscheme dracula
 
-let g:lightline = { 'colorscheme': 'dracula_vim' }
+let g:lightline['colorscheme'] = 'dracula'
 let g:airline_theme = 'dracula'
 
 " Fix italics in Vim

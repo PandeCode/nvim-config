@@ -22,26 +22,27 @@ Plug 'sudormrfbin/cheatsheet.nvim'
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'Shougo/echodoc.vim'
 
 Plug 'kana/vim-textobj-user'
 Plug 'preservim/nerdcommenter'
 Plug 'glts/vim-textobj-comment'
 
+" Select multiple sections of code
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" Icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Welcome Page
 Plug 'glepnir/dashboard-nvim'
+
+" Statusline
 Plug 'itchyny/lightline.vim'
 
-" Plug 'cosminadrianpopescu/vim-sql-workbench'
-
 " Language defaults for syntax highlighting and other basic stuff
-Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Syntax highlighting and Completion
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}

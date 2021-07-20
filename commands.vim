@@ -20,3 +20,10 @@ command -bang Wq wq<bang>
 command -bang QW wq<bang>
 command -bang Qw wq<bang>
 command -bang Q q<bang>
+
+function! Update(...) 
+		PlugUpgrade
+		PlugUpdate
+		CocUpdate
+		TSUpdate
+endfunction

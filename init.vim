@@ -1,5 +1,7 @@
 source $HOME/.config/nvim/plugins.vim
 
+source $HOME/.config/nvim/config/treesitter.vim
+
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/echoDoc.vim
 

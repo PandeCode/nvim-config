@@ -94,10 +94,10 @@ let g:lightline = {
 				\   'left': [
 						\  [ 'mode', 'paste' ],
 						\  [ 'LightlineReadonly', 'LightlineFileName', 'modified' ],
-						\  [ 'LightlineNearestMethodOrFunction' ],
+						\  [ 'LightlineNearestMethodOrFunction', 'LightlineTreesitter' ],
 					\ ],
 				\  'right': [
-						\ ['charvaluehex', 'LightlineLineNumber'],
+						\ ['charvaluehex', 'lineinfo', 'LightlineLineNumber'],
 						\ ['LightlineFileFormat', 'LightlineFileType'],
 						\ ['LightlineCMakeStat', 'LightlineCocStatusDiagnostic', 'LightlineFugitive'], 
 					\ ],
@@ -116,5 +116,6 @@ let g:lightline = {
 				\ 'LightlineLineNumber': 'LightlineLineNumber',
 				\ 'LightlineNearestMethodOrFunction': 'LightlineNearestMethodOrFunction',
 				\ 'LightlineReadonly': 'LightlineReadonly',
+				\ 'LightlineTreesitter': 'nvim_treesitter#statusline',
 		\ },
 \ }

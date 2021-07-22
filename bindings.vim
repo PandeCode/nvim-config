@@ -48,8 +48,6 @@ vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
-noremap <silent> <leader>fm :setlocal foldmethod=syntax<CR>
-
 " Let <C-w> use vim word motion
 imap <c-w> <esc>bce
 map Q :echo<CR>

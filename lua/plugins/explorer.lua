@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 let g:netrw_bufsettings = 'nohidden noma nomod nonu nowrap ro buflisted'
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
@@ -121,3 +122,5 @@ augroup END
   "" cd after open
   "autocmd User CocExplorerOpenPost let dir = getcwd() | call CocActionAsync("runCommand", "explorer.doAction", "closest", {"name": "cd", "args": [dir]})
 "augroup END
+
+]])

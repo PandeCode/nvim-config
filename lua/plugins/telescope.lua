@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 " Find files using Telescope command-line sugar.
 nnoremap <space>tf <cmd>Telescope find_files<cr>
 nnoremap <space>tl <cmd>Telescope live_grep<cr>
@@ -97,3 +98,5 @@ require('telescope').load_extension('node_modules')
 require('telescope').load_extension('ultisnips')
 -- require("telescope").load_extension("session-lens")
 EOF
+
+]])

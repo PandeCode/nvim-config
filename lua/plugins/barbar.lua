@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 autocmd VimEnter * let bufferline.icons = 'both'
 autocmd VimEnter * let bufferline.auto_hide = v:true
 autocmd VimEnter * let bufferline.tabpages = v:true
@@ -68,3 +69,5 @@ nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+
+]])

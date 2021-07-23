@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 function! LightlineCocStatusDiagnostic() abort
 		let info = get(b:, 'coc_diagnostic_info', {})
 		if empty(info) | return '' | endif
@@ -119,3 +120,5 @@ let g:lightline = {
 				\ 'LightlineTreesitter': 'nvim_treesitter#statusline',
 		\ },
 \ }
+
+]])

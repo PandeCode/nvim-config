@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 nmap <Space>ss :<C-u>SessionSave<CR>
 nmap <Space>sl :<C-u>SessionLoad<CR>
 
@@ -703,3 +704,5 @@ function Rand()
 endfunction
 
 let g:dashboard_custom_header = g:dashboard_custom_headers[Rand() % len(g:dashboard_custom_headers)]
+
+]])

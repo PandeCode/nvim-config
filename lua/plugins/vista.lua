@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 
 let g:vista_fzf_preview = ['right:50%']
@@ -20,3 +21,5 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <C-m> :Vista!!<CR> " Toggle side panel `CTRL+m`.
+
+]])

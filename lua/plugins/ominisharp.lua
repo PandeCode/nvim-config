@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 let g:OmniSharp_popup_position = 'peek'
 if has('nvim')
 		let g:OmniSharp_popup_options = {
@@ -38,3 +39,5 @@ augroup OmniSharpIntegrations
 augroup END
 " }}}
 
+
+]])

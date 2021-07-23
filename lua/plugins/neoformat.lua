@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 nmap <leader>nf :Neoformat<CR>
 vmap <leader>nf :Neoformat<CR>
 
@@ -18,3 +19,5 @@ let g:neoformat_enabled_python = ['black']
 let g:neoformat_cmake_cmakeformat = {'args': [], 'stdin': 1, 'exe': 'cmake-format'}
 
 let g:neoformat_only_msg_on_error = 1
+
+]])

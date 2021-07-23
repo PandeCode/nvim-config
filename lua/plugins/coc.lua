@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 " coc-clock
 " coc-spell-checker
 " coc-zi
@@ -229,3 +230,5 @@ nnoremap <silent><nowait> mp  :<C-u>CocListResume<CR>
 
 autocmd VimEnter * nmap <leader>ca :CocAction<CR>
 autocmd VimEnter * vmap <leader>ca :CocAction<CR>
+
+]])

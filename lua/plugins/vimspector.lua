@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 let g:vimspector_base_dir=expand( '$HOME/.config/nvim/vimspector-config' )
 
 let g:vimspector_install_gadgets = [ 'vscode-cpptools',
@@ -45,3 +46,5 @@ nmap <space>di <Plug>VimspectorBalloonEval
 nmap <space>dfu <Plug>VimspectorUpFrame
 nmap <space>dfd <Plug>VimspectorDownFrame
 
+
+]])

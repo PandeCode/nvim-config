@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 if exists('g:did_load_filetypes')
 		if executable('lesspipe.sh')
 				let s:lesspipe_cmd = 'LESSQUIET=1 lesspipe.sh'
@@ -26,3 +27,5 @@ autocmd Filetype pdf
 let g:zipPlugin_ext='*.apk,*.celzip,*.crtx,*.ear,*.gcsx,*.glox,*.gqsx,*.kmz,*.oxt,*.potm,*.potx,*.ppam,*.sldx,*.thmx,*.vdw,*.war,*.wsz,*.xap,*.xlam,*.xlam,*.xltm,*.xltx,*.xpi,*.zip'
 
 let g:loaded_gzip = v:true
+
+]])

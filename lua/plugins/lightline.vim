@@ -1,4 +1,3 @@
-vim.api.nvim_command([[
 function! LightlineCocStatusDiagnostic() abort
 		let info = get(b:, 'coc_diagnostic_info', {})
 		if empty(info) | return '' | endif
@@ -86,6 +85,7 @@ let rightSep= rightSeps[rightIndex]
 let rightSubSep= rightSubSeps[rightIndex]
 
 let g:lightline = {
+\ 'colorscheme' : 'dracula',
 		\ 'enable': {
 		\   'tabline': 0
 		\ },
@@ -120,5 +120,3 @@ let g:lightline = {
 				\ 'LightlineTreesitter': 'nvim_treesitter#statusline',
 		\ },
 \ }
-
-]])

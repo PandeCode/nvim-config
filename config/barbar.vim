@@ -22,7 +22,7 @@ nnoremap <silent>    <M-9> :BufferLast<CR>
 nnoremap <silent>    <M-`> :edit #<CR>
 
 " Close buffer
-nnoremap <silent>    <M-q> :BufferClose<CR>
+nnoremap <silent>    <M-d> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands

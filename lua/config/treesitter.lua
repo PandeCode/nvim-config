@@ -1,4 +1,3 @@
-lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   ignore_install = { }, -- List of parsers to ignore installing
@@ -28,6 +27,3 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
-
-set foldexpr=nvim_treesitter#foldexpr()

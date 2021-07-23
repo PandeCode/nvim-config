@@ -1,3 +1,4 @@
+vim.api.nvim_command([[
 if exists('g:neovide')
 		" --multiGrid
 		" let g:neovide_refresh_rate=140
@@ -17,3 +18,4 @@ if exists('g:neovide')
 
 		autocmd VimEnter * unmap <F4>
 endif
+]])

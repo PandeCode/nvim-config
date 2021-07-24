@@ -22,12 +22,12 @@ require("plugins/treesitter")
 require("plugins/vista")
 require("plugins/lightline")
 
---require("plugins/explorer")
+-- require("plugins/explorer")
 -- require("plugins/docReading")
 -- require("plugins/ominisharp")
 -- require("plugins/vimspector")
 -- require("plugins/go")
-require("plugins/search")
+-- require("plugins/search")
 -- require("plugins/telescope")
 
 -- vim.eval([[

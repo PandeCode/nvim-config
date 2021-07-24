@@ -1,4 +1,5 @@
 syntax on
+filetype plugin indent on
 
 if has("nvim")
 		set winblend=20
@@ -57,8 +58,6 @@ set termguicolors
 " lazy drawing
 set lazyredraw
 set ttyfast
-
-filetype plugin indent on
 
 autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx

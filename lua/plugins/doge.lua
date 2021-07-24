@@ -1,4 +1,4 @@
-vim.api.nvim_command([[
+vim.cmd([[
 let g:doge_doc_standard_python = 'google'
 
 ]])

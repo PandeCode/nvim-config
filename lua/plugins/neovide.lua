@@ -1,4 +1,4 @@
-vim.api.nvim_command(
+vim.cmd(
     [[
 if exists('g:neovide')
 		" --multiGrid

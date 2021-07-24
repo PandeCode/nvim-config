@@ -1,4 +1,4 @@
-vim.api.nvim_command([[
+vim.cmd([[
 nmap <leader>nf :Neoformat<CR>
 vmap <leader>nf :Neoformat<CR>
 

@@ -1,4 +1,5 @@
-vim.api.nvim_command([[
+vim.cmd(
+    [[
 map zz/ <Plug>(incsearch-fuzzy-/)
 map zz? <Plug>(incsearch-fuzzy-?)
 map zzg/ <Plug>(incsearch-fuzzy-stay)
@@ -21,4 +22,5 @@ endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
-]])
+]]
+)

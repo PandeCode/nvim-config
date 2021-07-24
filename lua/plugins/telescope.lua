@@ -1,4 +1,4 @@
-vim.api.nvim_command([[
+vim.cmd([[
 " Find files using Telescope command-line sugar.
 nnoremap <space>tf <cmd>Telescope find_files<cr>
 nnoremap <space>tl <cmd>Telescope live_grep<cr>

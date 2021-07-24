@@ -1,3 +1,5 @@
+vim.cmd(
+    [[
 " Clear Registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 
@@ -27,3 +29,5 @@ function! Update(...)
 		CocUpdate
 		TSUpdate
 endfunction
+]]
+)

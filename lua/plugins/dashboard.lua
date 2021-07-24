@@ -690,7 +690,7 @@ vim.g.dashboard_custom_headers = {
     }
 }
 
-vim.g.dashboard_custom_header = vim.g.dashboard_custom_headers[math.randomseed(0, #(vim.g.dashboard_custom_headers))]
+vim.g.dashboard_custom_header = vim.g.dashboard_custom_headers[10]
 
 vim.g.dashboard_default_executive = "telescope"
 vim.g.indentLine_fileTypeExclude = {"dashboard"}

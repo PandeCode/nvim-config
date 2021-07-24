@@ -1,3 +1,5 @@
+vim.cmd(
+    [[
 " vim-plug auto setup
 let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
 if !filereadable(plugpath)
@@ -162,3 +164,5 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 :help speeddating
 Plug 'tpope/vim-speeddating'
 call plug#end()
+]]
+)

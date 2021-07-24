@@ -1,3 +1,5 @@
+vim.cmd(
+    [[
 let mapleader = " "
 imap <F4> <ESC>
 
@@ -51,3 +53,5 @@ imap <End> <C-o><End>
 " Let <C-w> use vim word motion
 imap <c-w> <esc>bce
 map Q :echo<CR>
+]]
+)

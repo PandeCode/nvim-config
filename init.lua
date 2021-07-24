@@ -1,21 +1,19 @@
 -- vim.eval([[
 ---- vim.api.nvim_eval([[
 ---- vim.api.nvim_exec([[
-vim.cmd(
-    [[
-source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/commands.vim
-source $HOME/.config/nvim/settings.vim
-source $HOME/.config/nvim/bindings.vim
+vim.cmd([[
 
 source $HOME/.config/nvim/lua/plugins/lightline.vim
 
 
 set foldexpr=nvim_treesitter#foldexpr()
-]]
-)
+]])
 
 require("utils")
+require("settings")
+require("keybinds")
+require("packer")
+require("commands")
 
 require("plugins/cppmake")
 require("plugins/neovide")

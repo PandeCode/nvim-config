@@ -1,5 +1,10 @@
 syntax on
 
+if has("nvim")
+		set winblend=20
+		set pumblend=20
+endif
+
 set autoindent
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -39,17 +44,8 @@ set wildmenu
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
-" Nice menu when typing `:find *.py`
-set wildmode=longest,list,full
-set wildmenu
-" Ignore files
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
-set wildignore+=**/.git/*
+set wildignore+=**/Debug/*
+set wildignore+=**/build/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
@@ -57,11 +53,6 @@ set wildignore+=**/.git/*
 
 set guifont=Fira\ Code\ Nerd\ Font,EmojiOne
 set termguicolors
-
-if has("nvim")
-		set winblend=20
-		set pumblend=20
-endif
 
 " lazy drawing
 set lazyredraw

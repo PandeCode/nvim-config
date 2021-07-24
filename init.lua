@@ -13,7 +13,7 @@ source $HOME/.config/nvim/lua/plugins/lightline.vim
 set foldexpr=nvim_treesitter#foldexpr()
 ]])
 
-require("utlis")
+require("utils")
 
 require ( "config/cppmake")
 require ( "config/neovide")
@@ -35,11 +35,8 @@ require("config/rainbowIndex")
 
 
 -- require ( "plugins/explorer")
---require ( "plugins/vista")
+-- require ( "plugins/vista")
 -- require ( "plugins/dashboard")
 -- require ( "plugins/ominisharp")
 -- require ( "plugins/vimspector")
-
-
-
 

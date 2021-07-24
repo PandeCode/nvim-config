@@ -20,18 +20,18 @@ require("plugins/rainbowIndex")
 require("plugins/theme")
 require("plugins/treesitter")
 require("plugins/vista")
+require("plugins/lightline")
 
--- require("plugins/explorer")
+--require("plugins/explorer")
 -- require("plugins/docReading")
 -- require("plugins/ominisharp")
 -- require("plugins/vimspector")
 -- require("plugins/go")
--- require("plugins/search")
+require("plugins/search")
 -- require("plugins/telescope")
 
 -- vim.eval([[
----- vim.api.nvim_eval([[
+-- vim.api.nvim_eval([[
 vim.cmd([[
-source $HOME/.config/nvim/lua/plugins/lightline.vim
 set foldexpr=nvim_treesitter#foldexpr()
 ]])

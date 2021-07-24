@@ -1,3 +1,5 @@
+vim.cmd(
+    [[
 function! LightlineCocStatusDiagnostic() abort
 		let info = get(b:, 'coc_diagnostic_info', {})
 		if empty(info) | return '' | endif
@@ -18,7 +20,6 @@ endfunction
 function! LightlineCMakeStat()
 		let l:cmake_build_dir = get(g:, 'cmake_build_dir', 'Debug')
 		let l:build_dir = finddir(l:cmake_build_dir, '.;')
-
 		let l:retstr = ""
 		if l:build_dir != ""
 				if filereadable(build_dir . '/CMakeCache.txt')
@@ -38,8 +39,9 @@ function! LightlineCMakeStat()
 endfunction
 
 function! LightlineLineNumber()
-		return substitute(line('.'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g'). ' | '.
-								\    substitute(line('$'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g')
+return 1
+"		return substitute(line('.'), '\\d\\@<=\\(\\(\\d\\{3\\}\\)\\+\\)$', ',&', 'g'). ' | '.
+"								\    substitute(line('$'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g')
 endfunction
 
 function! LightLineFileType()
@@ -64,7 +66,7 @@ function! LightlineFileName()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
-"
+
 " Use autocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
@@ -84,39 +86,42 @@ let rightIndex = Rand() % len(rightSeps)
 let rightSep= rightSeps[rightIndex]
 let rightSubSep= rightSubSeps[rightIndex]
 
-let g:lightline = {
-\ 'colorscheme' : 'dracula',
-		\ 'enable': {
-		\   'tabline': 0
-		\ },
-		\ 'separator': { 'left': leftSep, 'right': rightSep },
-		\ 'subseparator': { 'left': leftSubSep, 'right': rightSubSep },
-		\ 'active': {
-				\   'left': [
-						\  [ 'mode', 'paste' ],
-						\  [ 'LightlineReadonly', 'LightlineFileName', 'modified' ],
-						\  [ 'LightlineNearestMethodOrFunction', 'LightlineTreesitter' ],
-					\ ],
-				\  'right': [
-						\ ['charvaluehex', 'lineinfo', 'LightlineLineNumber'],
-						\ ['LightlineFileFormat', 'LightlineFileType'],
-						\ ['LightlineCMakeStat', 'LightlineCocStatusDiagnostic', 'LightlineFugitive'], 
-					\ ],
-		\ },
-		\ 'component': {
-				\   'charvaluehex': '0x%B',
-				\   'lineinfo': '%3l:%-2v%<',
-		  \ },
-		\ 'component_function': {
-				\ 'LightlineCMakeStat': 'LightlineCMakeStat',
-				\ 'LightlineCocStatusDiagnostic': 'LightlineCocStatusDiagnostic',
-				\ 'LightlineFileFormat': 'LightlineFileFormat',
-				\ 'LightlineFileType': 'LightlineFileType',
-				\ 'LightlineFileName': 'LightlineFileName',
-				\ 'LightlineFugitive': 'LightlineFugitive',
-				\ 'LightlineLineNumber': 'LightlineLineNumber',
-				\ 'LightlineNearestMethodOrFunction': 'LightlineNearestMethodOrFunction',
-				\ 'LightlineReadonly': 'LightlineReadonly',
-				\ 'LightlineTreesitter': 'nvim_treesitter#statusline',
-		\ },
-\ }
+]]
+)
+
+vim.g.lightline = {
+    colorscheme = "dracula",
+    enable = {
+        tabline = 0
+    },
+    separator = {left = vim.g.leftSep, right = vim.g.rightSep},
+    subseparator = {left = vim.g.leftSubSep, right = vim.g.rightSubSep},
+    active = {
+        left = {
+            {"mode", "paste"},
+            {"LightlineReadonly", "LightlineFileName", "modified"},
+            {"LightlineNearestMethodOrFunction", "LightlineTreesitter"}
+        },
+        right = {
+            {"charvaluehex", "lineinfo", "linenumber"},
+            {"LightlineFileFormat", "LightlineFileType"},
+            {"LightlineCMakeStat", "LightlineCocStatusDiagnostic", "LightlineFugitive"}
+        }
+    },
+    component = {
+        charvaluehex = "0x%B",
+        lineinfo = "%3l=%-2v%<"
+    },
+    component_function = {
+        LightlineCMakeStat = "LightlineCMakeStat",
+        LightlineCocStatusDiagnostic = "LightlineCocStatusDiagnostic",
+        LightlineFileFormat = "LightlineFileFormat",
+        LightlineFileType = "LightlineFileType",
+        LightlineFileName = "LightlineFileName",
+        LightlineFugitive = "LightlineFugitive",
+        LightlineLineNumber = "LightlineLineNumber",
+        LightlineNearestMethodOrFunction = "LightlineNearestMethodOrFunction",
+        LightlineReadonly = "LightlineReadonly",
+        LightlineTreesitter = "nvim_treesitter#statusline"
+    }
+}

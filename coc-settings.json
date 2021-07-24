@@ -111,6 +111,7 @@
 	],
 	"yaml.schemaStore.enable": true,
 
+	"Lua.diagnostics.globals": ["vim"],
 	"explorer.icon.source": "nvim-web-devicons",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",

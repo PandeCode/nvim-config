@@ -690,7 +690,15 @@ vim.g.dashboard_custom_headers = {
     }
 }
 
-vim.g.dashboard_custom_header = vim.g.dashboard_custom_headers[10]
+vim.cmd(
+    [[
+function Rand() 
+		return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) 
+endfunction
+
+let g:dashboard_custom_header = g:dashboard_custom_headers[Rand() % len(g:dashboard_custom_headers)]
+]]
+)
 
 vim.g.dashboard_default_executive = "telescope"
 vim.g.indentLine_fileTypeExclude = {"dashboard"}

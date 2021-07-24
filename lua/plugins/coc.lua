@@ -31,6 +31,7 @@ let g:coc_global_extensions = ["coc-cmake",
 						\ "coc-yaml",
 						\ "coc-xml"]
 
+
 let g:coc_snippet_next = '<tab>'
 
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -232,5 +233,6 @@ nnoremap <silent><nowait> mp  :<C-u>CocListResume<CR>
 autocmd VimEnter * nmap <leader>ca :CocAction<CR>
 autocmd VimEnter * vmap <leader>ca :CocAction<CR>
 
+autocmd VimEnter * call coc#util#install()
 ]]
 )

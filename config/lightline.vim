@@ -42,7 +42,7 @@ function! LightlineLineNumber()
 								\    substitute(line('$'), '\d\@<=\(\(\d\{3\}\)\+\)$', ',&', 'g')
 endfunction
 
-function! LightLineFileType()
+function! LightlineFileType()
 		return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
@@ -98,7 +98,7 @@ let g:lightline = {
 					\ ],
 				\  'right': [
 						\ ['charvaluehex', 'lineinfo', 'LightlineLineNumber'],
-						\ ['LightlineFileFormat', 'LightlineFileType'],
+						\ ['LightlineFileType', 'LightlineFileFormat'],
 						\ ['LightlineCMakeStat', 'LightlineCocStatusDiagnostic', 'LightlineFugitive'], 
 					\ ],
 		\ },

@@ -22,9 +22,8 @@ utils.opt("w", "relativenumber", true)
 utils.opt("o", "clipboard", "unnamed,unnamedplus")
 
 -- Highlight on yank
-vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
-vim.cmd "hi Normal guibg=NONE"
-vim.cmd(
+cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
+cmd(
     [[
 if has("nvim")
 		set winblend=20

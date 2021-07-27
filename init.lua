@@ -23,12 +23,12 @@ require("plugins/omnisharp")
 require("plugins/rainbowIndex")
 require("plugins/telescope")
 require("plugins/treesitter")
+require("plugins/vimspector")
 require("plugins/vista")
 
-require("plugins/vimspector")
+require("plugins/docReading")
 
 -- require("plugins/explorer")
--- require("plugins/docReading")
 -- require("plugins/go")
 
 -- vim.eval([[

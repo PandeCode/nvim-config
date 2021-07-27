@@ -1,19 +1,5 @@
 vim.cmd(
     [[
-let g:vimspector_base_dir=expand( '$HOME/.config/nvim/vimspector-config' )
-
-let g:vimspector_install_gadgets = [ 'vscode-cpptools',
-						\	"debugpy",
-						\ "vscode-java-debug",
-						\ "java-language-server",
-						\ "netcoredbg",
-						\ "vscode-bash-debug", 
-						\ "vscode-go", 
-						\ "vscode-node-debug2", 
-						\ "debugger-for-chrome",
-						\ "CodeLLDB", 
-						\ "local-lua-debugger-vscode"]
-
 nnoremap <space>dd :call vimspector#Launch()<CR>
 nnoremap <space>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
 nnoremap <space>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
@@ -47,6 +33,20 @@ nmap <space>di <Plug>VimspectorBalloonEval
 nmap <space>dfu <Plug>VimspectorUpFrame
 nmap <space>dfd <Plug>VimspectorDownFrame
 
-
+let g:vimspector_base_dir = expand("$HOME/.config/nvim/vimspector-config")
 ]]
 )
+
+vim.g.vimspector_install_gadgets = {
+    "vscode-cpptools",
+    "debugpy",
+    "vscode-java-debug",
+    "java-language-server",
+    "netcoredbg",
+    "vscode-bash-debug",
+    "vscode-go",
+    "vscode-node-debug2",
+    "debugger-for-chrome",
+    "CodeLLDB",
+    "local-lua-debugger-vscode"
+}

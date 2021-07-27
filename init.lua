@@ -25,10 +25,10 @@ require("plugins/telescope")
 require("plugins/treesitter")
 require("plugins/vista")
 
+require("plugins/vimspector")
+
 -- require("plugins/explorer")
 -- require("plugins/docReading")
--- require("plugins/search")
--- require("plugins/vimspector")
 -- require("plugins/go")
 
 -- vim.eval([[

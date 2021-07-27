@@ -25,11 +25,11 @@ require("plugins/telescope")
 require("plugins/treesitter")
 require("plugins/vimspector")
 require("plugins/vista")
-
 require("plugins/docReading")
 
+require("plugins/go")
+
 -- require("plugins/explorer")
--- require("plugins/go")
 
 -- vim.eval([[
 -- vim.api.nvim_eval([[

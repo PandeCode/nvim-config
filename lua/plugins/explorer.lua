@@ -47,6 +47,5 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.cmd([[
-			source $HOME/.config/nvim/vimscript/plugin/explorer.vim
-
+source $HOME/.config/nvim/vimscript/plugins/explorer.vim
 ]])

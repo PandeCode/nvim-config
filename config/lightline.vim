@@ -1,15 +1,45 @@
-function! LightlineCocStatusDiagnostic() abort
-		let info = get(b:, 'coc_diagnostic_info', {})
-		if empty(info) | return '' | endif
-		let msgs = []
-		if get(info, 'error', 0)
-				call add(msgs, 'E' . info['error'])
-		endif
-		if get(info, 'warning', 0)
-				call add(msgs, 'W' . info['warning'])
-		endif
-		return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+function! s:lightline_coc_diagnostic(kind, sign) abort
+  let info = get(b:, 'coc_diagnostic_info', 0)
+  if empty(info) || get(info, a:kind, 0) == 0
+    return ''
+  endif
+  try
+    let s = g:coc_user_config['diagnostic'][a:sign . 'Sign']
+  catch
+    let s = ''
+  endtry
+  return printf('%s %d', s, info[a:kind])
 endfunction
+
+function! LightlineCocErrors() abort
+  return s:lightline_coc_diagnostic('error', 'error')
+endfunction
+
+function! LightlineCocWarnings() abort
+  return s:lightline_coc_diagnostic('warning', 'warning')
+endfunction
+
+function! LightlineCocInfos() abort
+  return s:lightline_coc_diagnostic('information', 'info')
+endfunction
+
+function! LightlineCocHints() abort
+  return s:lightline_coc_diagnostic('hints', 'hint')
+endfunction
+\ }
+
+"function! LightlineCocStatusDiagnostic() abort
+		"let info = get(b:, 'coc_diagnostic_info', {})
+		"if empty(info) | return '' | endif
+		"let msgs = []
+		"if get(info, 'error', 0)
+				"call add(msgs, 'E' . info['error'])
+		"endif
+		"if get(info, 'warning', 0)
+				"call add(msgs, 'W' . info['warning'])
+		"endif
+		"return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+"endfunction
 
 function! LightlineNearestMethodOrFunction(...) abort
 		return get(b:, 'vista_nearest_method_or_function', '')
@@ -99,16 +129,16 @@ let g:lightline = {
 				\  'right': [
 						\ ['charvaluehex', 'lineinfo', 'LightlineLineNumber'],
 						\ ['LightlineFileType', 'LightlineFileFormat'],
-						\ ['LightlineCMakeStat', 'LightlineCocStatusDiagnostic', 'LightlineFugitive'], 
+						\ ['LightlineCMakeStat', 'LightlineFugitive'], 
+                        \ ['coc_error', 'coc_warning', 'coc_hint', 'coc_info', ],
 					\ ],
 		\ },
 		\ 'component': {
-				\   'charvaluehex': '0x%B',
-				\   'lineinfo': '%3l:%-2v%<',
+				\ 'charvaluehex': '0x%B',
+				\ 'lineinfo': '%3l:%-2v%<',
 		  \ },
 		\ 'component_function': {
 				\ 'LightlineCMakeStat': 'LightlineCMakeStat',
-				\ 'LightlineCocStatusDiagnostic': 'LightlineCocStatusDiagnostic',
 				\ 'LightlineFileFormat': 'LightlineFileFormat',
 				\ 'LightlineFileType': 'LightlineFileType',
 				\ 'LightlineFileName': 'LightlineFileName',
@@ -117,5 +147,21 @@ let g:lightline = {
 				\ 'LightlineNearestMethodOrFunction': 'LightlineNearestMethodOrFunction',
 				\ 'LightlineReadonly': 'LightlineReadonly',
 				\ 'LightlineTreesitter': 'nvim_treesitter#statusline',
+				\ },
+		\ 'component_expand': {
+				\ 'coc_error'        : 'LightlineCocErrors',
+				\ 'coc_warning'      : 'LightlineCocWarnings',
+				\ 'coc_info'         : 'LightlineCocInfos',
+				\ 'coc_hint'         : 'LightlineCocHints',
+				\ 'coc_fix'          : 'LightlineCocFixes',
 		\ },
+		\ 'component_type' : {
+				\ 'coc_error'        : 'error',
+				\ 'coc_warning'      : 'warning',
+				\ 'coc_info'         : 'tabsel',
+				\ 'coc_hint'         : 'middle',
+				\ 'coc_fix'          : 'middle',
+		\ }
 \ }
+
+"\ 'LightlineCocStatusDiagnostic': 'LightlineCocStatusDiagnostic',

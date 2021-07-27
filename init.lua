@@ -12,8 +12,10 @@ require("plugins/coc")
 require("plugins/cppmake")
 require("plugins/dashboard")
 require("plugins/devicons")
+require("plugins/docReading")
 require("plugins/doge")
 require("plugins/echoDoc")
+require("plugins/go")
 require("plugins/godot")
 require("plugins/lightline")
 require("plugins/markdown")
@@ -25,11 +27,8 @@ require("plugins/telescope")
 require("plugins/treesitter")
 require("plugins/vimspector")
 require("plugins/vista")
-require("plugins/docReading")
 
-require("plugins/go")
-
--- require("plugins/explorer")
+require("plugins/explorer")
 
 -- vim.eval([[
 -- vim.api.nvim_eval([[

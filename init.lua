@@ -21,17 +21,15 @@ require("plugins/theme")
 require("plugins/treesitter")
 require("plugins/vista")
 require("plugins/lightline")
+require("plugins/telescope")
 
 -- require("plugins/explorer")
 -- require("plugins/docReading")
 -- require("plugins/ominisharp")
+-- require("plugins/search")
 -- require("plugins/vimspector")
 -- require("plugins/go")
--- require("plugins/search")
--- require("plugins/telescope")
 
 -- vim.eval([[
 -- vim.api.nvim_eval([[
-vim.cmd([[
-set foldexpr=nvim_treesitter#foldexpr()
-]])
+-- vim.cmd([[

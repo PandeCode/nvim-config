@@ -32,4 +32,6 @@ require("plugins/telescope")
 
 -- vim.eval([[
 -- vim.api.nvim_eval([[
--- vim.cmd([[
+vim.cmd([[
+source $HOME/.config/nvim/vimscript/plugins/search.vim
+]])

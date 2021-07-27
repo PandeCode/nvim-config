@@ -89,5 +89,8 @@ set ttyfast
 autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
+
+hi Normal guibg=NONE
+
 ]]
 )

@@ -1,4 +1,3 @@
-vim.cmd "source $HOME/.config/nvim/coc.vim"
 vim.g.coc_global_extensions = {
     "coc-cmake",
     "coc-clangd",
@@ -29,3 +28,5 @@ vim.g.coc_global_extensions = {
     "coc-xml"
 }
 vim.g.coc_snippet_next = "<tab>"
+
+vim.cmd "source $HOME/.config/nvim/vimscript/plugins/coc.vim"

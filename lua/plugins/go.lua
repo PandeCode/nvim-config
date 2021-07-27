@@ -11,3 +11,7 @@ vim.g.go_fmt_command = "goimports"
 
 -- Status line types/signatures
 vim.g.go_auto_type_info = 1
+
+vim.cmd([[
+source $HOME/.config/nvim/vimscript/plugins/go.vim
+]])

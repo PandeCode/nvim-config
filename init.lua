@@ -36,4 +36,8 @@ vim.cmd([[
 source $HOME/.config/nvim/vimscript/plugins/search.vim
 ]])
 
-vim.cmd "hi Normal guibg=NONE"
+vim.cmd([[
+if !exists('g:neovide')
+	hi Normal guibg=NONE
+endif
+]])

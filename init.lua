@@ -35,3 +35,5 @@ require("plugins/explorer")
 vim.cmd([[
 source $HOME/.config/nvim/vimscript/plugins/search.vim
 ]])
+
+vim.cmd "hi Normal guibg=NONE"

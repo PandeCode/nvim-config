@@ -23,11 +23,9 @@ utils.opt("o", "clipboard", "unnamed,unnamedplus")
 
 -- Highlight on yank
 vim.cmd "au TextYankPost * lua vim.highlight.on_yank {on_visual = false}"
+vim.cmd "hi Normal guibg=NONE"
 vim.cmd(
     [[
-syntax on
-filetype plugin indent on
-
 if has("nvim")
 		set winblend=20
 		set pumblend=20
@@ -89,8 +87,5 @@ set ttyfast
 autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
-
-hi Normal guibg=NONE
-
 ]]
 )

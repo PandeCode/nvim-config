@@ -1,5 +1,5 @@
 {
-	"snippets.ultisnips.enable": false,   
+	"snippets.ultisnips.enable": false,
 	"snippets.textmateSnippetsRoots": [
 		//"~/.config/Code/User/snippets/",
 		"~/.config/nvim/snippets"
@@ -60,6 +60,21 @@
 	"cmake.lsp.buildDirectory": "Debug",
 
 	"languageserver": {
+		"glsl": {
+			"command": "glslls",
+			"rootPatterns": ["CMakeLists.txt"],
+			"trace.server": "verbose",
+			"filetypes": [
+				"glsl",
+				"vert",
+				"frag",
+				"tesc",
+				"tese",
+				"geom",
+				"frag",
+				"comp"
+			]
+		},
 		"go": {
 			"command": "gopls",
 			"rootPatterns": ["go.mod"],

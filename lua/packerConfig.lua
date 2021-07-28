@@ -201,5 +201,8 @@ return require("packer").startup(
 
         -- Let <C-A> or in my case <C-I> play nice with dates 2000-08-29 =help speeddating
         use "tpope/vim-speeddating"
+
+        -- GLSL Support
+        use "tikhomirov/vim-glsl"
     end
 )

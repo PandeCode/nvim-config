@@ -1,9 +1,6 @@
 {
 	"snippets.ultisnips.enable": false,
-	"snippets.textmateSnippetsRoots": [
-		//"~/.config/Code/User/snippets/",
-		"~/.config/nvim/snippets"
-	],
+	"snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets"],
 	"diagnostic.messageTarget": "float",
 	"suggest.autoTrigger": "always",
 	"suggest.enablePreview": true,
@@ -62,9 +59,11 @@
 	"languageserver": {
 		"glsl": {
 			"command": "glslls",
+			//"command": "/home/shawn/dev/HSLS/HlslTools/src/ShaderTools.LanguageServer/bin/Debug/net5.0/ShaderTools.LanguageServer",
 			"rootPatterns": ["CMakeLists.txt"],
 			"trace.server": "verbose",
 			"filetypes": [
+				"hlsl",
 				"glsl",
 				"vert",
 				"frag",
@@ -112,8 +111,12 @@
 		"main.py",
 		"requirements.txt"
 	],
+
+	"omnisharp.version": "v1.37.13-1",
+	"omnisharp.trace.server": "verbose",
 	"omnisharp.debug.server": true,
-	"omnisharp.path": "/usr/bin/omnisharp",
+	"omnisharp.path": "/home/shawn/Applications/omnisharp-linux-x86/run",
+
 	"json.schemas": [
 		{
 			"fileMatch": [".vimspector.json", "vimspector.json"],

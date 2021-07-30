@@ -53,6 +53,7 @@ imap <c-w> <esc>bce
 map Q :echo<CR>
 
 noremap Y y$
+
 noremap n nzzzv
 noremap N Nzzzv
 noremap J mzJ`z
@@ -61,3 +62,50 @@ inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
+inoremap [ [<c-g>u
+inoremap ] ]<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+inoremap { {<c-g>u
+inoremap } }<c-g>u
+inoremap " "<c-g>u
+inoremap " "<c-g>u
+
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
+nnoremap <c-j> :m .+1<CR>==
+inoremap <c-k> <esc>:m .-2<CR>==i
+nnoremap <c-k> :m .-2<CR>==
+inoremap <c-j> <esc>:m .+1<CR>==i
+
+" Stop annoying you have one more file to edit
+au VimEnter * args %
+
+"-- Add space bellow or above without leaving normal mode
+nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
+nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
+
+" Use simple ; instead of shift + :
+nnoremap ; :
+vnoremap ; :
+
+" Use this instead of touching Esc key
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+" Better tabbing
+nnoremap < v<gv<esc>
+nnoremap > v>gv<esc>
+vnoremap < <gv
+vnoremap > >gv
+
+vnoremap " <esc>`>a"<esc>`<i"<esc>
+vnoremap ' <esc>`>a'<esc>`<i'<esc>
+vnoremap ( <esc>`>a(<esc>`<i(<esc>
+vnoremap ) <esc>`>a)<esc>`<i)<esc>
+vnoremap [ <esc>`>a[<esc>`<i[<esc>
+vnoremap ] <esc>`>a]<esc>`<i]<esc>
+

@@ -22,10 +22,10 @@ command -bang Wq wq<bang>
 command -bang QW wq<bang>
 command -bang Qw wq<bang>
 command -bang Q q<bang>
+command -bar -complete=file -nargs=1 E :e <args>
 
 function! Update(...) 
-		PlugUpgrade
-		PlugUpdate
+		PackerUpdate
 		CocUpdate
 		TSUpdate
 endfunction

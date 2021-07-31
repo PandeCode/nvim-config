@@ -110,4 +110,4 @@ vnoremap ` <esc>`>a`<esc>`<i`<esc>
 
 vnoremap ( <esc>`>a)<esc>`<i(<esc>
 vnoremap [ <esc>`>a]<esc>`<i[<esc>
-
+vnoremap <c-[> <esc>`>a}<esc>`<i{<esc>

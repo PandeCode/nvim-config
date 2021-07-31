@@ -206,7 +206,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -229,3 +229,5 @@ nnoremap <silent><nowait> mp  :<C-u>CocListResume<CR>
 
 autocmd VimEnter * nmap <leader>ca :CocAction<CR>
 autocmd VimEnter * vmap <leader>ca :CocAction<CR>
+
+autocmd VimEnter * nmap <leader>cr :CocRestart<CR>

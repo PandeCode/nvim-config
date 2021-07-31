@@ -148,7 +148,10 @@ return require("packer").startup(
         }
 
         -- Debugging support
-        use "puremourning/vimspector"
+        use {
+            "puremourning/vimspector",
+            ft = {"cpp", "c", "rust", "javascript", "javascriptreact", "typescript", "typescriptreact", "python"}
+        }
 
         -- Rainbow Brackets
         use "luochen1990/rainbow"

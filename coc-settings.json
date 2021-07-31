@@ -129,7 +129,7 @@
 	],
 	"yaml.schemaStore.enable": true,
 
-	"Lua.diagnostics.globals": ["vim", "use"],
+	"Lua.diagnostics.globals": ["vim", "use", "use_rocks"],
 	"explorer.icon.source": "nvim-web-devicons",
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",

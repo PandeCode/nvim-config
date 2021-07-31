@@ -1,36 +1,3 @@
-" coc-clock
-" coc-spell-checker
-" coc-zi
-let g:coc_global_extensions = ["coc-cmake",
-						\ "coc-clangd",
-						\ "coc-css",
-						\ "coc-emmet",
-						\ "coc-eslint",
-						\ "coc-explorer",
-						\ "coc-flutter",
-						\ "coc-gitignore",
-						\ "coc-html",
-						\ "coc-json",
-						\ "coc-omnisharp",
-						\ "coc-project",
-						\ "coc-pydocstring",
-						\ "coc-pyright",
-						\ "coc-rainbow-fart",
-						\ "coc-sh",
-						\ "coc-snippets",
-						\ "coc-svg",
-						\ "coc-tailwindcss",
-						\ "coc-tslint",
-						\ "coc-tsserver",
-						\ "coc-ultisnips",
-						\ "coc-vetur",
-						\ "coc-vimlsp",
-						\ "coc-webpack",
-						\ "coc-yaml",
-						\ "coc-xml"]
-
-let g:coc_snippet_next = '<tab>'
-
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 set keywordprg=:call\ <SID>show_documentation()

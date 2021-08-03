@@ -48,8 +48,6 @@ vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
-" Let <C-w> use vim word motion
-imap <c-w> <esc>cb
 map Q :echo<CR>
 
 noremap Y y$

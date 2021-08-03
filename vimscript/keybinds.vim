@@ -49,7 +49,7 @@ imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
 " Let <C-w> use vim word motion
-imap <c-w> <esc>bce
+imap <c-w> <esc>cb
 map Q :echo<CR>
 
 noremap Y y$
@@ -110,4 +110,4 @@ vnoremap ` <esc>`>a`<esc>`<i`<esc>
 
 vnoremap ( <esc>`>a)<esc>`<i(<esc>
 vnoremap [ <esc>`>a]<esc>`<i[<esc>
-vnoremap <c-[> <esc>`>a}<esc>`<i{<esc>
+"vnoremap <c-[> <esc>`>a}<esc>`<i{<esc>

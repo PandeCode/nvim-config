@@ -36,8 +36,14 @@ vim.cmd([[
 source $HOME/.config/nvim/vimscript/plugins/search.vim
 ]])
 
-vim.cmd([[
+vim.cmd(
+    [[
 if !exists('g:neovide')
 	hi Normal guibg=NONE
 endif
-]])
+
+
+autocmd BufNewFile,BufRead,VimEnter * set noexpandtab
+autocmd BufNewFile,BufRead,VimEnter *.py set noexpandtab
+]]
+)

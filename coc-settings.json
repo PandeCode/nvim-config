@@ -1,4 +1,5 @@
 {
+		"hover.target": "float",
 	"snippets.ultisnips.enable": false,
 	"snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets"],
 	"diagnostic.messageTarget": "float",

@@ -1,4 +1,4 @@
-function! s:check_back_space() abort
+function! s:check_back_space()
 		let col = col('.') - 1
 		return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
@@ -13,19 +13,17 @@ function! s:show_documentation()
 		endif
 endfunction
 
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
-						\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <CR>
+inoremap <silent><expr> <C-Enter>
 						\ pumvisible() ? coc#_select_confirm() :
 						\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-						\ <SID>check_back_space() ? "\<TAB>" :
+						\ <SID>check_back_space() ? "\<CR>" :
 						\ coc#refresh()
 
 inoremap <silent><expr> <TAB>
 						\ pumvisible() ? "\<C-n>" :
 						\ <SID>check_back_space() ? "\<TAB>" :
 						\ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use `[g` and `]g` to navigate diagnostics Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.

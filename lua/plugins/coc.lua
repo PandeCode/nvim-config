@@ -1,9 +1,11 @@
 vim.g.coc_global_extensions = {
-    "coc-dot-complete",
-    "coc-dash-complete",
-    "coc-cmake",
+    "coc-calc",
     "coc-clangd",
+    "coc-cmake",
     "coc-css",
+    "coc-cssmodules",
+    "coc-dash-complete",
+    "coc-dot-complete",
     "coc-emmet",
     "coc-eslint",
     "coc-explorer",
@@ -25,8 +27,8 @@ vim.g.coc_global_extensions = {
     "coc-vetur",
     "coc-vimlsp",
     "coc-webpack",
+    "coc-xml",
     "coc-yaml",
-    "coc-xml"
 }
 
 vim.g.coc_snippet_next = "<tab>"

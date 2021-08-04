@@ -7,11 +7,9 @@ imap <c-_> <ESC>:call NERDComment('n', 'toggle')<CR>i
 nmap <c-_> :call NERDComment('n', 'toggle')<CR>
 vmap <c-_> :call NERDComment('x', 'toggle')<CR>v
 
-nmap <F2> :CocCommand document.renameCurrentWord<CR>i
 nmap <c-t> :FloatermNew<CR>
 nmap <F5> :GundoToggle<CR>
 
-imap <F2> <ESC>:CocCommand document.renameCurrentWord<CR>i
 imap <c-t> <ESC>:FloatermNew<CR>
 imap <F5> <ESC>:GundoToggle<CR>
 

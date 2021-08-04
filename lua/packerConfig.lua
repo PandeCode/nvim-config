@@ -18,7 +18,10 @@ return require("packer").startup(
         use {
             "neoclide/coc.nvim",
             branch = "master",
-            run = "yarn install --frozen-lockfile"
+            run = "yarn install --frozen-lockfile",
+            config = function()
+                vim.cmd "call coc#util#install()"
+            end
         }
 
         -- Packer can manage itself
@@ -207,5 +210,12 @@ return require("packer").startup(
 
         -- GLSL Support
         use "tikhomirov/vim-glsl"
+
+        use {
+            "glacambre/firenvim",
+            run = function()
+                vim.fn["firenvim#install"](0)
+            end
+        }
     end
 )

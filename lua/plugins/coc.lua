@@ -1,4 +1,6 @@
 vim.g.coc_global_extensions = {
+    "coc-dot-complete",
+    "coc-dash-complete",
     "coc-cmake",
     "coc-clangd",
     "coc-css",
@@ -13,7 +15,6 @@ vim.g.coc_global_extensions = {
     "coc-project",
     "coc-pydocstring",
     "coc-pyright",
-    "coc-rainbow-fart",
     "coc-sh",
     "coc-snippets",
     "coc-svg",
@@ -27,6 +28,7 @@ vim.g.coc_global_extensions = {
     "coc-yaml",
     "coc-xml"
 }
+
 vim.g.coc_snippet_next = "<tab>"
 
 vim.cmd "source $HOME/.config/nvim/vimscript/plugins/coc.vim"

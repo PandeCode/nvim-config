@@ -54,7 +54,7 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
-set guifont=Fira\ Code\ Nerd\ Font,EmojiOne
+set guifont=Fira\ Code\ Nerd\ Font
 set termguicolors
 
 " lazy drawing

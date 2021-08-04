@@ -209,7 +209,15 @@ return require("packer").startup(
         use "tpope/vim-speeddating"
 
         -- GLSL Support
-        use "tikhomirov/vim-glsl"
+        use {
+            "tikhomirov/vim-glsl",
+            ft = {"glsl"}
+        }
+        use {
+            "petrbroz/vim-glsl",
+            as = "pglsl",
+            ft = {"glsl"}
+        }
 
         use {
             "glacambre/firenvim",

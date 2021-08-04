@@ -20,7 +20,7 @@ return require("packer").startup(
             branch = "master",
             run = "yarn install --frozen-lockfile",
             config = function()
-                vim.cmd "call coc#util#install()"
+                --vim.cmd "call coc#util#install()"
             end
         }
 

@@ -12,6 +12,7 @@ set gdefault
 set hidden
 set hlsearch
 set ignorecase
+set inccommand=nosplit
 set incsearch
 set linebreak
 set list
@@ -29,8 +30,8 @@ set splitbelow
 set t_Co=256
 set t_ut=
 set tabstop=4
-set ttyfast
 set timeoutlen=300
+set ttyfast
 set updatetime=300
 set visualbell
 set wrap

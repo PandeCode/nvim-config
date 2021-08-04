@@ -1,6 +1,6 @@
 vim.cmd(
     [[
-noremap <C-m> :Vista!!<CR> " Toggle side panel `CTRL+m`.
+"noremap <C-m> :Vista!!<CR> " Toggle side panel `CTRL+m`.
 
 " function! s:config_easyfuzzymotion(...) abort
 " 		return extend(copy({

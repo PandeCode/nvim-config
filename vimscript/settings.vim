@@ -6,6 +6,7 @@ endif
 set autoindent
 set backspace=indent,eol,start
 set clipboard=unnamed
+set cmdheight=2
 set confirm
 set encoding=UTF-8
 set gdefault
@@ -16,7 +17,9 @@ set inccommand=nosplit
 set incsearch
 set linebreak
 set list
+set nobackup
 set noexpandtab
+set nowritebackup
 set number
 set ruler
 set scrolloff=3
@@ -25,6 +28,7 @@ set shortmess+=c
 set showcmd
 set showmatch
 set showtabline=2
+set signcolumn=yes
 set smartcase
 set splitbelow
 set t_Co=256

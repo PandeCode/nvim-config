@@ -1,23 +1,15 @@
-vim.cmd([[
-nmap <leader>nf :Neoformat<CR>
-vmap <leader>nf :Neoformat<CR>
+vim.cmd "source $HOME/.config/nvim/vimscript/plugins/neoformat.vim"
 
-let blacklist = ['jsonc', 'vim']
+--" Enable alignment
+vim.g.neoformat_basic_format_align = 1
 
-autocmd FileType jsonc autocmd BufWritePre <buffer> echo "Hello"
-"try | undojoin | Neoformat! json prettier | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat! json prettier | endtry
+--" Enable tab to spaces conversion
+vim.g.neoformat_basic_format_retab = 0
 
-augroup fmt
-		autocmd!
-		au BufWritePre * if index(blacklist, &ft) < 0 | try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
+--" Enable trimmming of trailing whitespace
+vim.g.neoformat_basic_format_trim = 1
 
-
-let g:neoformat_enabled_json = ['prettier']
-let g:neoformat_enabled_python = ['black']
-
-let g:neoformat_cmake_cmakeformat = {'args': [], 'stdin': 1, 'exe': 'cmake-format'}
-
-let g:neoformat_only_msg_on_error = 1
-
-]])
+vim.g.neoformat_enabled_json = {"prettier"}
+vim.g.neoformat_enabled_python = {"black"}
+vim.g.neoformat_cmake_cmakeformat = {args = {}, stdin = 1, exe = "cmake-format"}
+vim.g.neoformat_only_msg_on_error = 1

@@ -2,6 +2,77 @@
 Neovim config files. 
 
 ## Packages
+### Native
+
+```bash
+sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnailer poppler fontpreview fmui-git shfmt glsl-language-server
+```
+<table>
+	<tr>
+		<th>Package</th>
+		<th><Description</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+### Python3
+
+```bash
+python3 -m pip install pynvim cmakelang cmake-language-server black-but-with-tabs-instead-of-spaces
+```
+
+#### Python2 (backwards compatibility)
+```bash
+python2 -m pip install pynvim
+```
+<table>
+	<tr>
+		<th>Package</th>
+		<th><Description</th>
+	</tr>
+	<tr>
+		<td>https://github.com/neovim/pynvim</td>
+		<td>Pynvim implements support for python plugins in Nvim. It also works as a library for connecting to and scripting Nvim processes through its msgpack-rpc API.</td>
+	</tr>
+</table>
+
+
+### Node
+```bash
+yarn global add neovim
+```
+<table>
+	<tr>
+		<th>Package</th>
+		<th><Description</th>
+	</tr>
+	<tr>
+		<td>https://yarnpkg.com/package/neovim</td>
+		<td>Neovim client API and neovim remote plugin provider</td>
+	</tr>
+</table>
+
+### Lua
+```bash
+sudo luarocks install --server=https://luarocks.org/dev luaformatter
+```
+
+<table>
+	<tr>
+		<th>Package</th>
+		<th><Description</th>
+	</tr>
+	<tr>
+		<td>https://github.com/Koihik/LuaFormatter</td>
+		<td>Reformats your Lua source code.</td>
+	</tr>
+</table>
+
+
+## Plugins
 <table>
   <tr>
     <th>Plugin</th>

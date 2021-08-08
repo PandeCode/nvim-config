@@ -13,7 +13,7 @@ function! s:show_documentation()
 		endif
 endfunction
 
-inoremap <silent><expr> <C-Enter>
+inoremap <silent><expr> <M-Enter>
 						\ pumvisible() ? coc#_select_confirm() :
 						\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 						\ <SID>check_back_space() ? "\<CR>" :

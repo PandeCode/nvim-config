@@ -41,6 +41,7 @@ vim.cmd(
 if !exists('g:neovide')
 	hi Normal guibg=NONE
 endif
+source $HOME/.config/nvim/vimscript/plugins/firenvim.vim
 
 
 autocmd BufNewFile,BufRead,VimEnter * set noexpandtab

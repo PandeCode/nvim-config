@@ -1,8 +1,8 @@
-if has("nvim")
-		set winblend=20
-		set pumblend=20
-endif
+set guifont=Fira\ Code\ Nerd\ Font
 
+syntax sync minlines=256
+
+set synmaxcol=128
 set autoindent
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -15,12 +15,14 @@ set hlsearch
 set ignorecase
 set inccommand=nosplit
 set incsearch
+set lazyredraw
 set linebreak
 set list
 set nobackup
 set noexpandtab
 set nowritebackup
 set number
+set pumblend=20
 set ruler
 set scrolloff=3
 set shiftwidth=8
@@ -34,10 +36,12 @@ set splitbelow
 set t_Co=256
 set t_ut=
 set tabstop=4
-set timeoutlen=300
+set termguicolors
+set timeoutlen=1000
 set ttyfast
-set updatetime=300
+set updatetime=4000
 set visualbell
+set winblend=20
 set wrap
 
 " Nice menu when typing `:find *.py`
@@ -53,13 +57,6 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
-
-set guifont=Fira\ Code\ Nerd\ Font
-set termguicolors
-
-" lazy drawing
-set lazyredraw
-set ttyfast
 
 autocmd BufNewFile,BufRead *.* set noexpandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx

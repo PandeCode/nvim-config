@@ -1,5 +1,22 @@
 {
 	"configurations": {
+		"Bash Launch": {
+			"adapter": "vscode-bash",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "Bash launch",
+				"program": "${file}",
+				"request": "launch",
+				"stopAtEntry": true,
+				"args": ["*${CommandLineArgs}"]
+			}
+		},
+
 		"CodeLLDB Launch": {
 			"adapter": "CodeLLDB",
 			"breakpoints": {

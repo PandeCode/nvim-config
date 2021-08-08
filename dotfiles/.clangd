@@ -1,2 +1,0 @@
-CompileFlags:                     # Tweak the parse settings
-  Add: [-xc++, -std=c++2a, -g, -pthread, -Wall ,-Wextra ,-pedantic ,-Werror]

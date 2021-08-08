@@ -1,7 +1,11 @@
+plugin/packer_compiled.lua
+
 autoload
-tags
-pluginConfig/vimify.vim
+
 tests
+
 vimspector-config/gadgets
+
+tags
 tags.lock
 tags.temp

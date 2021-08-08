@@ -1,1 +1,3 @@
-vim.cmd "source $HOME/.config/nvim/vimscript/settings.vim"
+vim.cmd ("source $HOME/.config/nvim/vimscript/settings.vim")
+vim.cmd ("au TextYankPost * lua vim.highlight.on_yank {on_visual = false}")
+

@@ -69,13 +69,77 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim"
+  },
   dracula = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/dracula"
   },
+  firenvim = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/firenvim"
+  },
+  indentLine = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/indentLine"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  },
+  rainbow = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/rainbow"
+  },
+  ["vim-cursorword"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-cursorword"
+  },
+  ["vim-easy-align"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-easy-align"
+  },
+  ["vim-easymotion"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-easymotion"
+  },
+  ["vim-matchup"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-matchup"
+  },
+  ["vim-numbertoggle"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-numbertoggle"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-repeat"
+  },
+  ["vim-speeddating"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-speeddating"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-visual-multi"
+  },
+  ["vim-wordmotion"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-wordmotion"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   }
 }
 

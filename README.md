@@ -10,7 +10,7 @@ sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnai
 <table>
 	<tr>
 		<th>Package</th>
-		<th><Description</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td></td>
@@ -31,7 +31,7 @@ python2 -m pip install pynvim
 <table>
 	<tr>
 		<th>Package</th>
-		<th><Description</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td>https://github.com/neovim/pynvim</td>
@@ -47,7 +47,7 @@ yarn global add neovim
 <table>
 	<tr>
 		<th>Package</th>
-		<th><Description</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td>https://yarnpkg.com/package/neovim</td>
@@ -63,7 +63,7 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 <table>
 	<tr>
 		<th>Package</th>
-		<th><Description</th>
+		<th>Description</th>
 	</tr>
 	<tr>
 		<td>https://github.com/Koihik/LuaFormatter</td>

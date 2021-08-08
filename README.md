@@ -1,6 +1,18 @@
 # nvim-config 
 Neovim config files. 
 
+Table of Contents
+=================
+
+* [nvim-config](#nvim-config)
+   * [Packages](#packages)
+      * [Native](#native)
+      * [Python3](#python3)
+         * [Python2 (backwards compatibility)](#python2-backwards-compatibility)
+      * [Node](#node)
+      * [Lua](#lua)
+   * [Plugins](#plugins)
+
 ## Packages
 ### Native
 

@@ -1,0 +1,322 @@
+{
+	"configurations": {
+		"Bash Launch": {
+			"adapter": "vscode-bash",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "Bash launch",
+				"program": "${file}",
+				"request": "launch",
+				"stopAtEntry": true,
+				"args": ["*${CommandLineArgs}"]
+			}
+		},
+
+		"CodeLLDB Launch": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "(lldb) Launch",
+				"type": "cppdbg",
+				"request": "launch",
+				"program": "${binary}",
+				"args": [],
+				"stopAtEntry": false,
+				"cwd": "${workspaceFolder}",
+				"environment": [],
+				"MIMode": "lldb",
+				"miDebuggerPath": "/usr/bin/lldb"
+			}
+		},
+
+		"CodeLLDB Attach": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "attach",
+				"program": "${binary}",
+				"stopOnEntry": true,
+				"MIMode": "lldb",
+				"miDebuggerPath": "/usr/bin/lldb"
+			}
+		},
+
+		"GDB Launch": {
+			"adapter": "vscode-cpptools",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "(gdb) Launch",
+				"type": "cppdbg",
+				"request": "launch",
+				"program": "${binary}",
+				"args": [],
+				"stopAtEntry": true,
+				"cwd": "${workspaceFolder}",
+				"environment": [],
+				"MIMode": "gdb",
+				"miDebuggerPath": "/usr/bin/gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					},
+					{
+						"description": "Auto load symbols when loading an .so file",
+						"text": "set auto-solib-add",
+						"ignoreFailures": false
+					}
+				]
+			}
+		},
+
+		"GDB Attach": {
+			"adapter": "vscode-cpptools",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "attach",
+				"program": "${binary}",
+				"stopOnEntry": true,
+				"MIMode": "gdb",
+				"miDebuggerPath": "/usr/bin/gdb",
+				"setupCommands": [
+					{
+						"description": "Enable pretty-printing for gdb",
+						"text": "-enable-pretty-printing",
+						"ignoreFailures": true
+					},
+					{
+						"description": "Auto load symbols when loading an .so file",
+						"text": "set auto-solib-add",
+						"ignoreFailures": false
+					}
+				]
+			}
+		},
+
+		"Node Launch": {
+			"adapter": "vscode-node",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"protocal": "auto",
+				"stopOnEntry": true,
+				"console": "integratedTerminal",
+				"program": "${file}",
+				"cwd": "${workspaceRoot}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Node Attach": {
+			"adapter": "vscode-node",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "Attach to Process",
+				"stopOnEntry": true,
+				"type": "node",
+				"request": "attach",
+				"skipFiles": ["<node_internals/**/*.js>"],
+				"processId": "${processId}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Java Attach": {
+			"adapter": "vscode-java",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "attach",
+				"hostName": "${host}",
+				"port": "${port}",
+				"sourcePaths": [
+					"${workspaceRoot}/src/main/java",
+					"${workspaceRoot}/src/test/java"
+				],
+				"stopAtEntry": true
+			}
+		},
+
+		"lua": {
+			"adapter": "lua-local",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"type": "lua-local",
+				"cwd": "${workspaceFolder}",
+				"program": {
+					"lua": "lua",
+					"file": "${file}"
+				},
+				"stopAtEntry": true
+			}
+		},
+
+		"luajit": {
+			"adapter": "lua-local",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"type": "lua-local",
+				"cwd": "${workspaceFolder}",
+				"program": {
+					"lua": "luajit",
+					"file": "${file}"
+				},
+				"stopAtEntry": true
+			}
+		},
+
+		"Chrome launch": {
+			"adapter": "chrome",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"url": "http://localhost:1234/",
+				"webRoot": "${workspaceRoot}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Go run": {
+			"adapter": "vscode-go",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${fileDirname}",
+				"mode": "debug",
+				"dlvToolPath": "$HOME/go/bin/dlv",
+				"stopAtEntry": true
+			}
+		},
+
+		"netcoredbg launch": {
+			"adapter": "netcoredbg",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${dll}",
+				"args": [],
+				"stopAtEntry": true,
+				"cwd": "${workspaceRoot}",
+				"env": {}
+			}
+		},
+
+		"Python Launch": {
+			"adapter": "debugpy",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "debugpy Launch",
+				"type": "python",
+				"request": "launch",
+				"cwd": "${workspaceFolder}",
+				"python": "python3",
+				"stopOnEntry": true,
+				"console": "integratedTerminal",
+				"debugOptions": [],
+				"program": "${file}",
+				"stopAtEntry": true
+			}
+		},
+
+		"Rust launch": {
+			"adapter": "CodeLLDB",
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"request": "launch",
+				"program": "${workspaceRoot}/target/debug/vimspector_test",
+				"stopAtEntry": true
+			}
+		},
+
+		"foo": {
+			"breakpoints": {
+				"exception": {
+					"all": "N",
+					"uncaught": "Y"
+				}
+			},
+			"configuration": {
+				"name": "",
+				"request": "launch",
+				"stopAtEntry": true
+			}
+		}
+	}
+}

@@ -25,8 +25,47 @@ sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnai
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td></td>
-		<td></td>
+		<td>https://github.com/freedesktop/poppler</td>
+		<td>This is Poppler, a library for rendering PDF files, and examining or modifying their structure. Poppler originally came from the XPDF sources; please see the file README-XPDF for the original xpdf-3.03 README. (vim-office)</td>
+	</tr>
+	<tr>
+		<td>https://github.com/sdushantha/fontpreview</td>
+		<td> Highly customizable and minimal font previewer written in bash (telescope font preview)</td>
+	</tr>
+	<tr>
+		<td>https://github.com/tmknom/shfmt</td>
+		<td>Dockernized shfmt. This formats shell script.</td>
+	</tr>
+	<tr>
+		<td>https://github.com/svenstaro/glsl-language-server</td>
+		<td>Language server implementation for GLSL (Pending)</td>
+	</tr>
+	<tr>
+		<td>https://github.com/tonsky/FiraCode</td>
+		<td>Free monospaced font with programming ligatures</td>
+	</tr>
+	<tr>
+		<td>https://github.com/universal-ctags/ctags</td>
+		<td>A maintained ctags implementation (vim-gutentags)</td>
+	</tr>
+	<tr>
+		<td>https://github.com/seebye/ueberzug</td>
+		<td>ueberzug is a command line util which allows to display images in combination with X11</td>
+	</tr>
+	<tr>
+		<td>https://github.com/dirkvdb/ffmpegthumbnailer</td>
+		<td>Lightweight video thumbnailer that can be used by file managers to create thumbnails for video files (telescope preview)</td>
+	</tr>
+	<tr>
+		<td>https://github.com/BurntSushi/ripgrep</td>
+		<td>ripgrep recursively searches directories for a regex pattern while respecting your gitignore</td>
+	</tr>
+	<tr>
+		<td>https://github.com/Kitware/CMake</td>
+		<td> CMake is a cross-platform, open-source build system generator.  For full documentation visit the `CMake Home Page`_ and the `CMake Documentation Page`_. The `CMake Community Wiki`_ also references useful guides and recipes.</td>
+.. _`CMake Home Page`: https://cmake.org
+.. _`CMake Documentation Page`: https://cmake.org/documentation
+.. _`CMake Community Wiki`: https://gitlab.kitware.com/cmake/community/-/wikis/home
 	</tr>
 </table>
 
@@ -48,6 +87,19 @@ python2 -m pip install pynvim
 	<tr>
 		<td>https://github.com/neovim/pynvim</td>
 		<td>Pynvim implements support for python plugins in Nvim. It also works as a library for connecting to and scripting Nvim processes through its msgpack-rpc API.</td>
+	</tr>
+	<tr>
+		<td>https://pypi.org/project/cmakelang</td>
+		<td>The cmake-format project provides Quality Assurance (QA) tools for cmake</td>
+	</tr>
+	<tr>
+		<td>https://github.com/regen100/cmake-language-server/td>
+		<td>CMake LSP Implementation </td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters. (BECAUSE TABS RULE OVER SPACES FIGHT ME.)(but you can just install the normal black because they both add the same named binary)</td>
+
 	</tr>
 </table>
 
@@ -91,6 +143,10 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <th>Description</th>
   </tr>
   <tr>
+    <td>https://github.com/wbthomason/packer.nvim</td>
+    <td>A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config</td>
+  </tr>
+   <tr>
     <td>https://github.com/andymass/vim-matchup</td>
     <td>
       match-up is a plugin that lets you highlight, navigate, and operate on
@@ -154,7 +210,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
       re-enables it when you search again
     </td>
   </tr>
-
   <tr>
     <td>https://github.com/Shougo/echodoc.vim</td>
     <td>Displays function signatures from completions in the command line.</td>

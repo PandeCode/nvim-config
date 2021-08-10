@@ -14,7 +14,10 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
 
         use {"dracula/vim", as = "dracula"}
+        use "kyazdani42/nvim-web-devicons"
 
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+        use "romgrk/barbar.nvim"
 
         use "andymass/vim-matchup"
         use "easymotion/vim-easymotion"

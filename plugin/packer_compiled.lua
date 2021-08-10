@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+  },
   dracula = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/dracula"
@@ -88,6 +92,14 @@ _G.packer_plugins = {
   neoformat = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/neoformat"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,

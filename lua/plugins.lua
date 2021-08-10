@@ -15,6 +15,7 @@ return require("packer").startup(
 
         use {"dracula/vim", as = "dracula"}
 
+
         use "andymass/vim-matchup"
         use "easymotion/vim-easymotion"
         use "mg979/vim-visual-multi"
@@ -27,9 +28,11 @@ return require("packer").startup(
         use "chaoren/vim-wordmotion"
         use "jeffkreeftmeijer/vim-numbertoggle"
         use "folke/which-key.nvim"
+
         use "tpope/vim-repeat"
         use "tpope/vim-surround"
         use "tpope/vim-speeddating"
+
         use {
             "glacambre/firenvim",
             run = function()

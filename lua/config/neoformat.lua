@@ -1,5 +1,4 @@
-vim.cmd "source $HOME/.config/nvim/vimscript/plugins/neoformat.vim"
-
+vim.cmd "source $HOME/.config/nvim/vimscript/config/theme.vim"
 --  Enable alignment
 vim.g.neoformat_basic_format_align = 1
 

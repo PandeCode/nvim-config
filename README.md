@@ -1,24 +1,26 @@
-# nvim-config 
-Neovim config files. 
+# nvim-config
 
-Table of Contents
-=================
+Neovim config files.
 
-* [nvim-config](#nvim-config)
-   * [Packages](#packages)
-      * [Native](#native)
-      * [Python3](#python3)
-         * [Python2 (backwards compatibility)](#python2-backwards-compatibility)
-      * [Node](#node)
-      * [Lua](#lua)
-   * [Plugins](#plugins)
+# Table of Contents
+
+-   [nvim-config](#nvim-config)
+    -   [Packages](#packages)
+        -   [Native](#native)
+        -   [Python3](#python3)
+            -   [Python2 (backwards compatibility)](#python2-backwards-compatibility)
+        -   [Node](#node)
+        -   [Lua](#lua)
+    -   [Plugins](#plugins)
 
 ## Packages
+
 ### Native
 
 ```bash
 sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnailer poppler fontpreview fmui-git shfmt glsl-language-server
 ```
+
 <table>
 	<tr>
 		<th>Package</th>
@@ -62,11 +64,9 @@ sudo yay -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnai
 	</tr>
 	<tr>
 		<td>https://github.com/Kitware/CMake</td>
-		<td> CMake is a cross-platform, open-source build system generator.  For full documentation visit the `CMake Home Page`_ and the `CMake Documentation Page`_. The `CMake Community Wiki`_ also references useful guides and recipes.</td>
-.. _`CMake Home Page`: https://cmake.org
-.. _`CMake Documentation Page`: https://cmake.org/documentation
-.. _`CMake Community Wiki`: https://gitlab.kitware.com/cmake/community/-/wikis/home
-	</tr>
+		<td> CMake is a cross-platform, open-source build system generator.  For full documentation visit the https://cmake.org and the https://cmake.org/documentation. The https://gitlab.kitware.com/cmake/community/-/wikis/home also references useful guides and recipes.</td>
+    </tr>
+
 </table>
 
 ### Python3
@@ -76,9 +76,11 @@ python3 -m pip install pynvim cmakelang cmake-language-server black-but-with-tab
 ```
 
 #### Python2 (backwards compatibility)
+
 ```bash
 python2 -m pip install pynvim
 ```
+
 <table>
 	<tr>
 		<th>Package</th>
@@ -93,21 +95,23 @@ python2 -m pip install pynvim
 		<td>The cmake-format project provides Quality Assurance (QA) tools for cmake</td>
 	</tr>
 	<tr>
-		<td>https://github.com/regen100/cmake-language-server/td>
+		<td>https://github.com/regen100/cmake-language-server</td>
 		<td>CMake LSP Implementation </td>
 	</tr>
 	<tr>
-		<td></td>
+		<td>https://pypi.org/project/black-but-with-tabs-instead-of-spaces/</td>
 		<td>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters. (BECAUSE TABS RULE OVER SPACES FIGHT ME.)(but you can just install the normal black because they both add the same named binary)</td>
 
-	</tr>
+    </tr>
+
 </table>
 
-
 ### Node
+
 ```bash
 yarn global add neovim
 ```
+
 <table>
 	<tr>
 		<th>Package</th>
@@ -120,6 +124,7 @@ yarn global add neovim
 </table>
 
 ### Lua
+
 ```bash
 sudo luarocks install --server=https://luarocks.org/dev luaformatter
 ```
@@ -135,8 +140,8 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	</tr>
 </table>
 
-
 ## Plugins
+
 <table>
   <tr>
     <th>Plugin</th>

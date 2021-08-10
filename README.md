@@ -99,11 +99,9 @@ python2 -m pip install pynvim
 		<td>CMake LSP Implementation </td>
 	</tr>
 	<tr>
-		<td>https://pypi.org/project/black-but-with-tabs-instead-of-spaces/</td>
+		<td>https://pypi.org/project/black-but-with-tabs-instead-of-spaces</td>
 		<td>Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters. (BECAUSE TABS RULE OVER SPACES FIGHT ME.)(but you can just install the normal black because they both add the same named binary)</td>
-
-    </tr>
-
+	    </tr>
 </table>
 
 ### Node

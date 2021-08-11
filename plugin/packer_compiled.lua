@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
+  ["cheatsheet.nvim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/cheatsheet.nvim"
+  },
   dracula = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/dracula"
@@ -84,6 +88,10 @@ _G.packer_plugins = {
   firenvim = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/firenvim"
+  },
+  ["gundo.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/gundo.vim"
   },
   indentLine = {
     loaded = true,
@@ -117,10 +125,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/rainbow"
   },
-  ["telescope-coc.nvim"] = {
-    loaded = true,
-    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/telescope-coc.nvim"
-  },
   ["telescope-github.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/telescope-github.nvim"
@@ -149,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-cursorword"
   },
+  ["vim-doge"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vim-doge"
+  },
   ["vim-easy-align"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-easy-align"
@@ -157,6 +166,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-easymotion"
   },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-floaterm"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+  },
   ["vim-matchup"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-matchup"
@@ -164,6 +185,10 @@ _G.packer_plugins = {
   ["vim-numbertoggle"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-numbertoggle"
+  },
+  ["vim-office"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-office"
   },
   ["vim-repeat"] = {
     loaded = true,
@@ -185,6 +210,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-wordmotion"
   },
+  vimspector = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vimspector"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/which-key.nvim"
@@ -192,6 +222,25 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType c ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "c" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-doge'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType java ++once lua require("packer.load")({'vim-doge'}, { ft = "java" }, _G.packer_plugins)]]
+vim.cmd [[au FileType ruby ++once lua require("packer.load")({'vim-doge'}, { ft = "ruby" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bash ++once lua require("packer.load")({'vim-doge'}, { ft = "bash" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType groovy ++once lua require("packer.load")({'vim-doge'}, { ft = "groovy" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "cpp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "javascript" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

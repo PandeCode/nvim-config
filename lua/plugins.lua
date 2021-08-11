@@ -17,24 +17,65 @@ return require("packer").startup(
         use "kyazdani42/nvim-web-devicons"
 
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+
+        use "voldikss/vim-floaterm"
         use "romgrk/barbar.nvim"
 
-        use "andymass/vim-matchup"
-        use "easymotion/vim-easymotion"
-        use "mg979/vim-visual-multi"
-        use "itchyny/vim-cursorword"
         use "antoinemadec/FixCursorHold.nvim"
+
         use "luochen1990/rainbow"
         use "Yggdroot/indentLine"
-        use "sbdchd/neoformat"
-        use "junegunn/vim-easy-align"
-        use "chaoren/vim-wordmotion"
-        use "jeffkreeftmeijer/vim-numbertoggle"
-        use "folke/which-key.nvim"
 
-        use "tpope/vim-repeat"
-        use "tpope/vim-surround"
-        use "tpope/vim-speeddating"
+        use "sbdchd/neoformat"
+
+        use "folke/which-key.nvim"
+        use "sudormrfbin/cheatsheet.nvim"
+
+        use "sjl/gundo.vim"
+
+        use "Konfekt/vim-office"
+
+        use {
+            "kkoomen/vim-doge",
+            ft = {
+                "cpp",
+                "c",
+                "java",
+                "python",
+                "javascript",
+                "typescript",
+                "typescriptreact",
+                "javascriptreact",
+                "bash",
+                "ruby",
+                "php",
+                "rust",
+                "groovy"
+            }
+        }
+
+        use {
+            "puremourning/vimspector",
+            ft = {"cpp", "c", "rust", "javascript", "javascriptreact", "typescript", "typescriptreact", "python"}
+        }
+
+        use {
+            "airblade/vim-gitgutter",
+            "tpope/vim-fugitive"
+        }
+
+        use {
+            "tpope/vim-repeat",
+            "tpope/vim-surround",
+            "tpope/vim-speeddating",
+            "junegunn/vim-easy-align",
+            "chaoren/vim-wordmotion",
+            "jeffkreeftmeijer/vim-numbertoggle",
+            "andymass/vim-matchup",
+            "easymotion/vim-easymotion",
+            "mg979/vim-visual-multi",
+            "itchyny/vim-cursorword"
+        }
 
         use {
             "nvim-telescope/telescope.nvim",

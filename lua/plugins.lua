@@ -37,6 +37,19 @@ return require("packer").startup(
         use "tpope/vim-speeddating"
 
         use {
+            "nvim-telescope/telescope.nvim",
+            requires = {
+                "nvim-lua/popup.nvim",
+                "nvim-lua/plenary.nvim",
+                "fhill2/telescope-ultisnips.nvim",
+                "nvim-telescope/telescope-node-modules.nvim",
+                "nvim-telescope/telescope-vimspector.nvim",
+                "nvim-telescope/telescope-media-files.nvim",
+                "nvim-telescope/telescope-github.nvim"
+            }
+        }
+
+        use {
             "glacambre/firenvim",
             run = function()
                 vim.fn["firenvim#install"](0)

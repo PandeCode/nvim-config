@@ -407,4 +407,32 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>https://github.com/tpope/vim-fugitive</td>
     <td>A Git wrapper so awesome, it should be illegal</td>
   </tr>
-</table>
+  <tr>
+    <td>nvim-lua/plenary.nvim</td>
+    <td>plenary: full; complete; entire; absolute; unqualified. All the lua functions I don't want to write twice. (telescope)</td>
+  </tr>  
+  <tr>
+    <td>nvim-lua/popup.nvim</td>
+    <td>[WIP] An implementation of the Popup API from vim in Neovim. Hope to upstream when complete(telescope)</td>
+  </tr>  
+  <tr>
+    <td>nvim-telescope/telescope.nvim</td>
+    <td>telescope.nvim is a highly extendable fuzzy finder over lists. Built on the latest awesome features from neovim core. Telescope is centered around modularity, allowing for easy customization.</td>
+  </tr>  
+  <tr>
+    <td>nvim-telescope/telescope-node-modules.nvim</td>
+    <td>An extension that provides its users with node packages under node_modules directory (telescope)</td>
+  </tr>  
+  <tr>
+    <td>nvim-telescope/telescope-vimspector.nvim</td>
+    <td>Integration for vimspector with telescope.nvim (telescope)</td>
+  </tr>  
+  <tr>
+    <td>nvim-telescope/telescope-media-files.nvim</td>
+    <td>Telescope extension to preview media files using Ueberzug. (telescope)</td>
+  </tr>  
+  <tr>
+    <td>nvim-telescope/telescope-github.nvim</td>
+    <td>Integration with github cli (telescope)</td>
+  </tr>
+ </table>

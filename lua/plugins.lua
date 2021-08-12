@@ -12,11 +12,9 @@ return require("packer").startup(
     function()
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
+        use "preservim/nerdcommenter"
 
-        use {"dracula/vim", as = "dracula"}
         use "kyazdani42/nvim-web-devicons"
-
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
         use "voldikss/vim-floaterm"
         use "romgrk/barbar.nvim"
@@ -34,6 +32,10 @@ return require("packer").startup(
         use "sjl/gundo.vim"
 
         use "Konfekt/vim-office"
+
+        use {"dracula/vim", as = "dracula"}
+
+        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
         use {
             "kkoomen/vim-doge",

@@ -107,7 +107,7 @@ python2 -m pip install pynvim
 ### Node
 
 ```bash
-yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-language-server
+yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-language-server bash-language-server
 ```
 
 <table>
@@ -122,6 +122,10 @@ yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-l
 	<tr>
 		<td>https://github.com/microsoft/pyright</td>
 		<td>Static type checker for Python</td>
+	</tr>
+	<tr>
+		<td>https://github.com/bash-lsp/bash-language-server</td>
+		<td>Bash language server implementation based on Tree Sitter and its grammar for Bash with explainshell integration.</td>
 	</tr>
 	<tr>
 		<td>https://github.com/bmatcuk/stylelint-lsp</td>

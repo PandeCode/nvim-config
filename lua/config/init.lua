@@ -5,5 +5,4 @@ require("config.treesitter")
 require("config.neoformat")
 require("config.nerdcommenter")
 require("config.barbar")
-
 require("config.telescope")

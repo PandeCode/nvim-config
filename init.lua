@@ -4,3 +4,5 @@ require("keybinds")
 require("settings")
 require("commands")
 require("config")
+
+require("lsp")

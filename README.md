@@ -107,13 +107,29 @@ python2 -m pip install pynvim
 ### Node
 
 ```bash
-yarn global add neovim
+yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-language-server
 ```
 
 <table>
 	<tr>
 		<th>Package</th>
 		<th>Description</th>
+	</tr>
+	<tr>
+		<td>https://github.com/sveltejs/language-tools/tree/master/packages/language-server</td>
+		<td>A language server (implementing the language server protocol) for Svelte.</td>
+	</tr>
+	<tr>
+		<td>https://github.com/microsoft/pyright</td>
+		<td>Static type checker for Python</td>
+	</tr>
+	<tr>
+		<td>https://github.com/bmatcuk/stylelint-lsp</td>
+		<td>A stylelint Language Server</td>
+	</tr>
+	<tr>
+		<td>https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29</td>
+		<td>The TypeScript standalone server (aka tsserver) is a node executable that encapsulates the TypeScript compiler and language services, and exposes them through a JSON protocol. tsserver is well suited for editors and IDE support.</td>
 	</tr>
 	<tr>
 		<td>https://yarnpkg.com/package/neovim</td>

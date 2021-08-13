@@ -31,6 +31,8 @@ return require("packer").startup(
 
         use "sjl/gundo.vim"
 
+        use "neovim/nvim-lspconfig"
+
         use {"Konfekt/vim-office", ft = {"docx", "pdf", "doc"}}
 
         use {"dracula/vim", as = "dracula"}

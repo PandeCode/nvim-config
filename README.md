@@ -132,8 +132,8 @@ yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-l
 		<td>A stylelint Language Server</td>
 	</tr>
 	<tr>
-		<td>https://github.com/Microsoft/TypeScript/wiki/Standalone-Server-%28tsserver%29</td>
-		<td>The TypeScript standalone server (aka tsserver) is a node executable that encapsulates the TypeScript compiler and language services, and exposes them through a JSON protocol. tsserver is well suited for editors and IDE support.</td>
+		<td>https://github.com/typescript-language-server/typescript-language-server</td>
+		<td>Language Server Protocol implementation for TypeScript wrapping tsserver. (also works with js, jsx, tsx)</td>
 	</tr>
 	<tr>
 		<td>https://yarnpkg.com/package/neovim</td>

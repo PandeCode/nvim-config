@@ -15,3 +15,4 @@ require("config.vsnip")
 
 require("config.lualineNvim")
 require("config.tree")
+require("config.dashboard")

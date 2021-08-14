@@ -14,7 +14,7 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
         use "hoob3rt/lualine.nvim"
         use "romainl/vim-cool"
-
+        use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
 
         use "preservim/nerdcommenter"

@@ -267,10 +267,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     </td>
   </tr>
   <tr>
-    <td>https://github.com/liuchengxu/vista.vim</td>
-    <td>cactus Viewer & Finder for LSP symbols and tags</td>
-  </tr>
-  <tr>
     <td>https://github.com/tpope/vim-surround</td>
     <td>
       Surround.vim is all about "surroundings": parentheses, brackets, quotes,
@@ -398,10 +394,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
       (Do)cumentation (Ge)nerator 10+ languages books Generate proper code
       documentation skeletons with a single keypress. zapfire
     </td>
-  </tr>
-  <tr>
-    <td>https://github.com/sjl/gundo.vim</td>
-    <td>A git mirror of gundo.vim</td>
   </tr>
   <tr>
     <td>https://github.com/neoclide/jsonc.vim</td>

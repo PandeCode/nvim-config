@@ -93,13 +93,34 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/dracula"
   },
+  ["echodoc.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/echodoc.vim"
+  },
   firenvim = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/firenvim"
   },
+  ["incsearch-easymotion.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/incsearch-easymotion.vim"
+  },
+  ["incsearch-fuzzy.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/incsearch-fuzzy.vim"
+  },
+  ["incsearch.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/incsearch.vim"
+  },
   indentLine = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/indentLine"
+  },
+  ["jsonc.vim"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/jsonc.vim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -145,6 +166,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  pgsls = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/pgsls"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/plenary.nvim"
@@ -181,6 +207,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["vim-bazel"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vim-bazel"
+  },
+  ["vim-cmake"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vim-cmake"
+  },
   ["vim-cool"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-cool"
@@ -213,6 +249,32 @@ _G.packer_plugins = {
   ["vim-gitgutter"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
+  },
+  ["vim-glaive"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-glaive"
+  },
+  ["vim-glsl"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-glsl"
+  },
+  ["vim-godot"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot"
+  },
+  ["vim-gutentags"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-gutentags"
+  },
+  ["vim-lsp-cxx-highlight"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vim-lsp-cxx-highlight"
+  },
+  ["vim-maktaba"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vim-maktaba"
   },
   ["vim-matchup"] = {
     loaded = true,
@@ -256,6 +318,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/opt/vimspector"
   },
+  ["vista.vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/vista.vim"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/which-key.nvim"
@@ -267,15 +333,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType groovy ++once lua require("packer.load")({'vim-doge'}, { ft = "groovy" }, _G.packer_plugins)]]
-vim.cmd [[au FileType doc ++once lua require("packer.load")({'vim-office'}, { ft = "doc" }, _G.packer_plugins)]]
-vim.cmd [[au FileType pdf ++once lua require("packer.load")({'vim-office'}, { ft = "pdf" }, _G.packer_plugins)]]
-vim.cmd [[au FileType docx ++once lua require("packer.load")({'vim-office'}, { ft = "docx" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "javascript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "cpp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType jsonc ++once lua require("packer.load")({'jsonc.vim'}, { ft = "jsonc" }, _G.packer_plugins)]]
+vim.cmd [[au FileType glsl ++once lua require("packer.load")({'pgsls'}, { ft = "glsl" }, _G.packer_plugins)]]
 vim.cmd [[au FileType java ++once lua require("packer.load")({'vim-doge'}, { ft = "java" }, _G.packer_plugins)]]
 vim.cmd [[au FileType python ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType c ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "c" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "typescript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
@@ -283,12 +345,39 @@ vim.cmd [[au FileType bash ++once lua require("packer.load")({'vim-doge'}, { ft 
 vim.cmd [[au FileType ruby ++once lua require("packer.load")({'vim-doge'}, { ft = "ruby" }, _G.packer_plugins)]]
 vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-doge'}, { ft = "php" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'vimspector', 'vim-doge'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType c ++once lua require("packer.load")({'vimspector', 'vim-cmake', 'vim-doge', 'vim-lsp-cxx-highlight'}, { ft = "c" }, _G.packer_plugins)]]
+vim.cmd [[au FileType pdf ++once lua require("packer.load")({'vim-office'}, { ft = "pdf" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vimspector', 'vim-cmake', 'vim-doge', 'vim-lsp-cxx-highlight'}, { ft = "cpp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cmake ++once lua require("packer.load")({'vim-cmake'}, { ft = "cmake" }, _G.packer_plugins)]]
+vim.cmd [[au FileType groovy ++once lua require("packer.load")({'vim-doge'}, { ft = "groovy" }, _G.packer_plugins)]]
+vim.cmd [[au FileType hlsl ++once lua require("packer.load")({'pgsls'}, { ft = "hlsl" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bzl ++once lua require("packer.load")({'vim-bazel'}, { ft = "bzl" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bazel ++once lua require("packer.load")({'vim-bazel'}, { ft = "bazel" }, _G.packer_plugins)]]
+vim.cmd [[au FileType doc ++once lua require("packer.load")({'vim-office'}, { ft = "doc" }, _G.packer_plugins)]]
+vim.cmd [[au FileType frag ++once lua require("packer.load")({'pgsls'}, { ft = "frag" }, _G.packer_plugins)]]
+vim.cmd [[au FileType vert ++once lua require("packer.load")({'pgsls'}, { ft = "vert" }, _G.packer_plugins)]]
+vim.cmd [[au FileType gdscript ++once lua require("packer.load")({'vim-godot'}, { ft = "gdscript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType gdscript3 ++once lua require("packer.load")({'vim-godot'}, { ft = "gdscript3" }, _G.packer_plugins)]]
+vim.cmd [[au FileType docx ++once lua require("packer.load")({'vim-office'}, { ft = "docx" }, _G.packer_plugins)]]
+vim.cmd [[au FileType json ++once lua require("packer.load")({'jsonc.vim'}, { ft = "json" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
 time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-office/ftdetect/office.vim]], true)
 vim.cmd [[source /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-office/ftdetect/office.vim]]
 time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-office/ftdetect/office.vim]], false)
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/pgsls/ftdetect/glsl.vim]], true)
+vim.cmd [[source /home/shawn/.local/share/nvim/site/pack/packer/opt/pgsls/ftdetect/glsl.vim]]
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/pgsls/ftdetect/glsl.vim]], false)
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gdscript.vim]], true)
+vim.cmd [[source /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gdscript.vim]]
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gdscript.vim]], false)
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gsl.vim]], true)
+vim.cmd [[source /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gsl.vim]]
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/vim-godot/ftdetect/gsl.vim]], false)
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/jsonc.vim/ftdetect/jsonc.vim]], true)
+vim.cmd [[source /home/shawn/.local/share/nvim/site/pack/packer/opt/jsonc.vim/ftdetect/jsonc.vim]]
+time([[Sourcing ftdetect script at: /home/shawn/.local/share/nvim/site/pack/packer/opt/jsonc.vim/ftdetect/jsonc.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

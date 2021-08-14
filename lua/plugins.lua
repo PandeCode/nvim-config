@@ -11,24 +11,53 @@ end
 return require("packer").startup(
     function()
         -- Packer can manage itself
-        use "wbthomason/packer.nvim"
-        use "hoob3rt/lualine.nvim"
-        use "romainl/vim-cool"
-        use "glepnir/dashboard-nvim"
-        use "windwp/nvim-autopairs"
 
-        use "preservim/nerdcommenter"
+        use "wbthomason/packer.nvim"
 
         use "kyazdani42/nvim-web-devicons"
 
-        use "voldikss/vim-floaterm"
-        use "romgrk/barbar.nvim"
-
         use "antoinemadec/FixCursorHold.nvim"
 
-        use "sbdchd/neoformat"
+        use "glepnir/dashboard-nvim"
+        use "romgrk/barbar.nvim"
+        use "hoob3rt/lualine.nvim"
 
         use "kyazdani42/nvim-tree.lua"
+        use "liuchengxu/vista.vim"
+
+        use "voldikss/vim-floaterm"
+
+        use {
+            "haya14busa/incsearch.vim",
+            requires = {
+                "haya14busa/incsearch-easymotion.vim",
+                "haya14busa/incsearch-fuzzy.vim"
+            }
+        }
+
+        use "ludovicchabant/vim-gutentags"
+
+        use {"cdelledonne/vim-cmake", ft = {"c", "cpp", "cmake"}}
+        use {"jackguo380/vim-lsp-cxx-highlight", ft = {"cpp", "c"}}
+
+        use {
+            "bazelbuild/vim-bazel",
+            ft = {"bzl", "bazel"},
+            requires = {
+                "google/vim-maktaba",
+                "google/vim-glaive"
+            }
+        }
+
+        use {"habamax/vim-godot", ft = {"gdscript", "gdscript3"}}
+        use {"neoclide/jsonc.vim", ft = {"json", "jsonc"}}
+
+        use {
+            "petrbroz/vim-glsl",
+            as = "pgsls",
+            ft = {"glsl", "hlsl", "vert", "frag"},
+            requires = {"tikhomirov/vim-glsl"}
+        }
 
         use {
             "luochen1990/rainbow",
@@ -52,7 +81,8 @@ return require("packer").startup(
                 "onsails/lspkind-nvim",
                 "hrsh7th/nvim-compe",
                 "hrsh7th/vim-vsnip",
-                "andersevenrud/compe-tmux"
+                "andersevenrud/compe-tmux",
+                "Shougo/echodoc.vim"
             }
         }
 
@@ -86,6 +116,10 @@ return require("packer").startup(
         }
 
         use {
+            "sbdchd/neoformat",
+            "preservim/nerdcommenter",
+            "romainl/vim-cool",
+            "windwp/nvim-autopairs",
             "tpope/vim-repeat",
             "tpope/vim-surround",
             "tpope/vim-speeddating",

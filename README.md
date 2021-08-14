@@ -486,8 +486,8 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   </tr>
 
   <tr>
-    <td></td>
-    <td></td>
+    <td>https://github.com/kyazdani42/nvim-tree.lua</td>
+    <td>A file explorer tree for neovim written in lua</td>
   </tr>
  
   <tr>

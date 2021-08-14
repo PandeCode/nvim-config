@@ -18,9 +18,11 @@ require("compe").setup {
         buffer = true,
         calc = true,
         nvim_lua = true,
-        tmux = true
-
-        --tabnine = {priority = 0},
+        tmux = {
+            disabled = false,
+            all_panes = false,
+            kind = "Text"
+        }
     }
 }
 
@@ -70,7 +72,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap("i", "<c-space>", "compe#complete()", {expr = true})
 
-vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {expr = true})
+vim.api.nvim_set_keymap("i", "<C-j>", "compe#scroll({ 'delta': +4 })", {expr = true})
+vim.api.nvim_set_keymap("i", "<C-k>", "compe#scroll({ 'delta': -4 })", {expr = true})
 
 vim.cmd "source $HOME/.config/nvim/vimscript/config/compe.vim"

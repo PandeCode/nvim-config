@@ -28,7 +28,7 @@ return require("packer").startup(
 
         use "sbdchd/neoformat"
 
-        use "sjl/gundo.vim"
+        use "kyazdani42/nvim-tree.lua"
 
         use {
             "luochen1990/rainbow",
@@ -51,7 +51,8 @@ return require("packer").startup(
             requires = {
                 "onsails/lspkind-nvim",
                 "hrsh7th/nvim-compe",
-                "hrsh7th/vim-vsnip"
+                "hrsh7th/vim-vsnip",
+                "andersevenrud/compe-tmux"
             }
         }
 

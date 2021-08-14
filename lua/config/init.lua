@@ -10,3 +10,7 @@ require("config.treesitter")
 require("config.autopairs")
 
 require("config.compe")
+
+require("config.vsnip")
+
+require("config.lualineNvim")

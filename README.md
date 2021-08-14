@@ -474,4 +474,25 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>https://github.com/windwp/nvim-autopairs</td>
     <td>autopairs for neovim written by lua</td>
   </tr>
+
+  <tr>
+    <td>https://github.com/hrsh7th/vim-vsnip</td>
+    <td>Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format.</td>
+  </tr>
+
+  <tr>
+    <td>https://github.com/hoob3rt/lualine.nvim</td>
+    <td>A blazing fast and easy to configure neovim statusline plugin written in pure lua.</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+ 
+  <tr>
+    <td></td>
+    <td></td>
+  </tr>
+
  </table>

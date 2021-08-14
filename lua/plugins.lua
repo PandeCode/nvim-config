@@ -12,6 +12,8 @@ return require("packer").startup(
     function()
         -- Packer can manage itself
         use "wbthomason/packer.nvim"
+        use "hoob3rt/lualine.nvim"
+        use "romainl/vim-cool"
 
         use "windwp/nvim-autopairs"
 
@@ -48,7 +50,8 @@ return require("packer").startup(
             "neovim/nvim-lspconfig",
             requires = {
                 "onsails/lspkind-nvim",
-                "hrsh7th/nvim-compe"
+                "hrsh7th/nvim-compe",
+                "hrsh7th/vim-vsnip"
             }
         }
 

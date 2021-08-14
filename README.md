@@ -455,4 +455,23 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>https://github.com/nvim-telescope/telescope-github.nvim</td>
     <td>Integration with github cli (telescope)</td>
   </tr>
+
+  <tr>
+    <td>https://github.com/neovim/nvim-lspconfig</td>
+    <td>Quickstart configurations for the Nvim LSP client</td>
+  </tr>
+  <tr>
+    <td>https://github.com/hrsh7th/nvim-compe</td>
+    <td>Auto completion Lua plugin for nvim</td>
+  </tr>
+
+  <tr>
+    <td>https://github.com/onsails/lspkind-nvim</td>
+    <td>vscode-like pictograms for neovim lsp completion items	</td>
+  </tr>
+
+  <tr>
+    <td>https://github.com/windwp/nvim-autopairs</td>
+    <td>autopairs for neovim written by lua</td>
+  </tr>
  </table>

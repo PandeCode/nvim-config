@@ -1,1 +1,1 @@
-vim.g.vsnip_snippet_dir = "/home/shawn/.config/nvim/snippets"
+vim.g.vsnip_snippet_dir = os.getenv("HOME") .. "/.config/nvim/snippets/"

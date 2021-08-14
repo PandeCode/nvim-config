@@ -1,70 +1,69 @@
 {
-	// https://code.visualstudio.com/docs/editor/userdefinedsnippets
-	"Main file": {
-		"prefix": "main",
-		"description": "Main file Setup",
-		"body": [
-			"#include <iostream>\n",
-			"int main() {",
-			"\tstd::cout << \"$TM_FILENAME_BASE\\n\";",
-			"\treturn 0;",
-			"}"
-		]
-	},
-	"Class header": {
-		"prefix": "classHeader",
-		"description": "Class Header Setup",
-		"body": [
-			"class $TM_FILENAME_BASE {",
-			"\t$1",
-			"\tpublic:",
-			"\t\t$TM_FILENAME_BASE ($2);",
-			"\t\t~$TM_FILENAME_BASE ();",
-			"};",
-			"$3"
-		]
-	},
-	"Class definition": {
-		"prefix": "classDefinition",
-		"description": "Class Header Setup",
-		"body": [
-			"#include \"$TM_FILENAME_BASE.hpp\"\n",
-			"$TM_FILENAME_BASE ($1) {}",
-			"~$TM_FILENAME_BASE () {}",
-			"$2"
-		]
-	},
+		"Main file": {
+				"prefix": "main",
+				"description": "Main file Setup",
+				"body": [
+						"#include <iostream>\n",
+						"int main() {",
+						"\tstd::cout << \"$TM_FILENAME_BASE\\n\";",
+						"\treturn 0;",
+						"}"
+				]
+		},
+		"Class header": {
+				"prefix": "classHeader",
+				"description": "Class Header Setup",
+				"body": [
+						"class $TM_FILENAME_BASE {",
+						"\t$1",
+						"\tpublic:",
+						"\t\t$TM_FILENAME_BASE ($2);",
+						"\t\t~$TM_FILENAME_BASE ();",
+						"};",
+						"$3"
+				]
+		},
+		"Class definition": {
+				"prefix": "classDefinition",
+				"description": "Class Header Setup",
+				"body": [
+						"#include \"$TM_FILENAME_BASE.hpp\"\n",
+						"$TM_FILENAME_BASE ($1) {}",
+						"~$TM_FILENAME_BASE () {}",
+						"$2"
+				]
+		},
 
-	"Operators": {
-		"prefix": "operators",
-		"description": "std::ostream( Output stream ) operators for data",
-		"body": [
-			"template <typename T, size_t size>",
-			"std::ostream& operator<<(std::ostream& stream, const std::array<T, size>& listType) {",
-			"stream << \"{ \";",
-			"for(auto it = listType.begin(); it != listType.end(); it++)",
-			"stream << *it << (std::next(it) != listType.end() ? \", \" : \" }\");",
-			"return stream;",
-			"}",
-			"template <typename T>",
-			"std::ostream& operator<<(std::ostream& stream, const std::vector<T>& listType) {",
-			"stream << \"{ \";",
-			"for(auto it = listType.begin(); it != listType.end(); it++)",
-			"stream << *it << (std::next(it) != listType.end() ? \", \" : \" }\");",
-			"return stream;",
-			"}",
-			"$1"
-		]
-	},
+		"Operators": {
+				"prefix": "operators",
+				"description": "std::ostream( Output stream ) operators for data",
+				"body": [
+						"template <typename T, size_t size>",
+						"std::ostream& operator<<(std::ostream& stream, const std::array<T, size>& listType) {",
+						"stream << \"{ \";",
+						"for(auto it = listType.begin(); it != listType.end(); it++)",
+						"stream << *it << (std::next(it) != listType.end() ? \", \" : \" }\");",
+						"return stream;",
+						"}",
+						"template <typename T>",
+						"std::ostream& operator<<(std::ostream& stream, const std::vector<T>& listType) {",
+						"stream << \"{ \";",
+						"for(auto it = listType.begin(); it != listType.end(); it++)",
+						"stream << *it << (std::next(it) != listType.end() ? \", \" : \" }\");",
+						"return stream;",
+						"}",
+						"$1"
+				]
+		},
 
-	"SFML Render Entity header": {
-		"prefix": "sfmlRenderEntityHeader",
-		"description": "Class Header Setup",
-		"body": []
-	},
-	"SFML Render Entity definition": {
-		"prefix": "sfmlRenderEntityDefinition",
-		"description": "Class Header Setup",
-		"body": []
-	}
+		"SFML Render Entity header": {
+				"prefix": "sfmlRenderEntityHeader",
+				"description": "Class Header Setup",
+				"body": []
+		},
+		"SFML Render Entity definition": {
+				"prefix": "sfmlRenderEntityDefinition",
+				"description": "Class Header Setup",
+				"body": []
+		}
 }

@@ -4,7 +4,7 @@ autoload
 
 tests
 
-vimspector-config/gadgets
+spector/gadgets
 
 tags
 tags.lock

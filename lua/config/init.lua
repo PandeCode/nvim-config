@@ -1,5 +1,5 @@
 require("config.theme")
-require("config.barbar")
+require("config.bufferline")
 require("config.firenvim")
 require("config.lspkind")
 require("config.neoformat")

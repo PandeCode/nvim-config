@@ -249,13 +249,8 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>View and search LSP symbols, tags in Vim/NeoVim.</td>
   </tr>
   <tr>
-    <td>https://github.com/romgrk/barbar.nvim</td>
-    <td>
-      barbar.nvim is a tabline plugin with re-orderable, auto-sizing, clickable
-      tabs, icons, nice highlighting, sort-by commands and a magic
-      jump-to-buffer mode. Plus the tab names are made unique when two filenames
-      match.
-    </td>
+    <td>https://github.com/akinsho/nvim-bufferline.lua</td>
+    <td>A snazzy nail_care buffer line (with minimal tab integration) for Neovim built using lua.</td>
   </tr>
   <tr>
     <td>https://github.com/ludovicchabant/vim-gutentags</td>

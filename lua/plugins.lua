@@ -19,7 +19,7 @@ return require("packer").startup(
         use "antoinemadec/FixCursorHold.nvim"
 
         use "glepnir/dashboard-nvim"
-        use "romgrk/barbar.nvim"
+        use "akinsho/nvim-bufferline.lua"
         use "hoob3rt/lualine.nvim"
 
         use "kyazdani42/nvim-tree.lua"

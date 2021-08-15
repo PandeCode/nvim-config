@@ -96,7 +96,7 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap("n", "g]", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
-    vim.lsp.handlers["textDocument/definition"] = goto_definition("vsplit")
+    --vim.lsp.handlers["textDocument/definition"] = goto_definition("vsplit")
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = border})
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
 

@@ -150,7 +150,7 @@ ins_left {
 }
 
 ins_right {"filetype"}
-ins_right {"readonly"}
+
 ins_left {"location"}
 
 ins_left {"progress", color = {fg = colors.fg, gui = "bold"}}

@@ -139,22 +139,18 @@ yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-l
 		<td>https://yarnpkg.com/package/neovim</td>
 		<td>Neovim client API and neovim remote plugin provider</td>
 	</tr>
-
     <tr>
     	<td>https://github.com/iamcco/vim-language-server</td>
     	<td>VImScript language server, LSP for vim script</td>
     </tr>
-
     <tr>
     	<td>https://github.com/hrsh7th/vscode-langservers-extracted</td>
     	<td>HTML/CSS/JSON language servers extracted from vscode.</td>
     </tr>
-
     <tr>
     	<td>https://github.com/redhat-developer/yaml-language-server</td>
     	<td>Language Server for Yaml Files</td>
     </tr>
-
 </table>
 
 ### Lua

@@ -1,5 +1,6 @@
 NVIM_LSP.stylelint_lsp.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
 
     cmd = {"stylelint-lsp", "--stdio"},

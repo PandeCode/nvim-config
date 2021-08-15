@@ -3,6 +3,7 @@ local omnisharp_bin = os.getenv("HOME") .. "/Applications/omnisharp-linux-x86/ru
 
 NVIM_LSP.omnisharp.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
     cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)},
     filetypes = {"cs", "vb"},

@@ -1,5 +1,6 @@
 NVIM_LSP.bashls.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
     cmd = {"bash-language-server", "start"},
     cmd_env = {

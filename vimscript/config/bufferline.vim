@@ -1,4 +1,4 @@
-nnoremap <M-d> :BufferLineClose<CR>
+nnoremap <M-d> :bd<CR>
 
 " These commands will navigate through buffers in order regardless of which mode you are using
 " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering

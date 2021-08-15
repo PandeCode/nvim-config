@@ -111,10 +111,16 @@ end
 vim.lsp.set_log_level "trace"
 NVIM_LSP = require "lspconfig"
 
+CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
+CAPABILITIES.textDocument.completion.completionItem.snippetSupport = true
+
 require("lsp.bashls")
 require("lsp.clangd")
 require("lsp.cmake")
+require("lsp.cssls")
 require("lsp.gdscript")
+require("lsp.html")
+require("lsp.jsonls")
 require("lsp.omnisharp")
 require("lsp.pyright")
 require("lsp.stylelint_lsp")
@@ -122,3 +128,4 @@ require("lsp.sumneko_lua")
 require("lsp.svelte")
 require("lsp.tsserver")
 require("lsp.vimls")
+require("lsp.yamlls")

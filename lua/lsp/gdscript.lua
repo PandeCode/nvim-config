@@ -1,5 +1,6 @@
 NVIM_LSP.gdscript.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
 
     cmd = {"nc", "localhost", "6008"},

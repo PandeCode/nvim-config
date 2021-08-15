@@ -1,5 +1,6 @@
 NVIM_LSP.tsserver.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
 
     cmd = {"typescript-language-server", "--stdio"},

@@ -1,5 +1,6 @@
 NVIM_LSP.vimls.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
     cmd = {"vim-language-server", "--stdio"},
     filetypes = {"vim"},

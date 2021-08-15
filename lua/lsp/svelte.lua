@@ -1,5 +1,6 @@
 NVIM_LSP.svelte.setup {
     on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
     --
 
     cmd = {"svelteserver", "--stdio"},

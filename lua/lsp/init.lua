@@ -102,8 +102,8 @@ ON_ATTACH = function(_, bufnr)
 
     vim.o.updatetime = 250
 
-    vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
-    vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
+    --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
+    --vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
 end
 
 --vim.api.nvim_set_keymap("i", "<cr>", 'compe#confirm("<cr>")', {expr = true})

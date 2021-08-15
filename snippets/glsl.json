@@ -1,15 +1,4 @@
-/*
-AUTO-COMPLETE SNIPPETS FOR GLSL WITHIN VISUAL CODE STUDIO
-Lewis Lepton
-https://lewislepton.com
-
-useful places that i grabbed info from
-http://www.shaderific.com/glsl
-https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language
-plus various other papers & books
-*/
 {
-		///LOOPS
 		"for": {
 				"prefix": "for",
 				"body": ["for(int $2 = 0; $2 < $3; $2++){", "\t", "}"],
@@ -40,7 +29,6 @@ plus various other papers & books
 				"description": "The keyword break is used inside the body of a loop to abort the whole loop. All statements in the body after the break statement are ignored and the loop is exited without executing any further iteration."
 		},
 
-		///CONDITIONAL EXECUTION
 		"if": {
 				"prefix": "if",
 				"body": ["if($2){", "\t", "}"],
@@ -59,7 +47,6 @@ plus various other papers & books
 				"description": "A check defining if GLES is available"
 		},
 
-		///EXIT EXECUTION
 		"return": {
 				"prefix": "return",
 				"body": "return;",
@@ -72,7 +59,6 @@ plus various other papers & books
 				"description": "The keyword discard is used to define an exceptionally exit for a fragment shader. It is used exit the fragment shader immediately and to signal the OpenGL ES 2.0 pipeline that the respective fragment should not be drawn."
 		},
 
-		///VECTOR TYPES
 		"vec2": {
 				"prefix": "vec2",
 				"body": "vec2($2, $3)",
@@ -91,7 +77,6 @@ plus various other papers & books
 				"description": "The data type vec4 is used for floating point vectors with four components. There are several ways to initialize a vector:\n• Components are specified by providing a scalar value for each component (first example).\n• Components are specified by providing one scalar value. This value is used for all components (the second example is equivalent to the first).\n• Components are specified by providing a combination of vectors and scalars. The respective values are used to initialize the components (the third and fourth example are equivalent). The arguments of the constructor must have at least as many components as the vector that is initialized.\n\nSide note: The vector constructors can be used to cast between different vector types since type conversions are done automatically for each component."
 		},
 
-		//MATRIX TYPES
 		"mat2": {
 				"prefix": "mat2",
 				"body": "mat2($2, $3)",
@@ -110,7 +95,6 @@ plus various other papers & books
 				"description": "The data type mat4 is used for floating point matrices with four times four components in column major order. There are several ways to initialize a matrix:\n• Components are specified by providing a scalar value for each component (first example). The matrix is filled column by column.\n• Components are specified by providing one scalar value. This value is used for the components on the main diagonal (the second example is equivalent to the first).\n• Components are specified by providing a combination of vectors and scalars. The respective values are used to initialize the components column by column. The arguments of the constructor must have at least as many components as the matrix that is initialized."
 		},
 
-		//SAMPLER TYPES
 		"sampler2D": {
 				"prefix": "sampler2D",
 				"body": "uniform sampler2D ${NAME};",
@@ -405,7 +389,6 @@ plus various other papers & books
 				"description": "find the nearest even integer to the parameter - The fractional part of 0.5 will round toward the nearest even integer. For example, both 3.5 and 4.5 will round to 4.0."
 		},
 
-		///STORAGE QUALIFIERS
 		"const": {
 				"prefix": "const",
 				"body": "const",
@@ -430,7 +413,6 @@ plus various other papers & books
 				"description": "The qualifier varying is used to declare variables that are shared between the vertex shader and the fragment shader.\nVarying are used for information that is calculated in the vertex shader and should be handed over to the fragment shader. Both shaders have to declare the varying and the declarations must be identical. The vertex shader initializes the varying for each vertex. After that the per vertex data of the varying is interpolated during rasterization before being handed over to the fragment shader.\nThe varying qualifier can only be used with floating point scalar, floating point vectors and (floating point) matrices as well as arrays containing these types."
 		},
 
-		///PRECISION QUALIFIERS
 		"highp": {
 				"prefix": "highp",
 				"body": "highp",
@@ -455,7 +437,6 @@ plus various other papers & books
 				"description": "The keyword precision is used in conjunction with a precision qualifier and a data type to specify the default precision for that data type. The type has to be an integer or a floating point scalar or a vector or matrix based on these types.\nIn the vertex shader all variables are of highest precision by default. The default can be changed defining another default precision. In the fragment shader a precision qualifier has to be used when declaring a variable unless a default precision has been defined for the specific type.\n\nprecision highp float;\n\nThe actual range corresponding to a precision qualifier is dependent on the specific OpenGL ES implementation. Using a lower precision might have a positive effect on performance (frame rates) and power efficiency but might also cause a loss in rendering quality. The appropriate trade-off can only be determined by testing different precision configurations."
 		},
 
-		///PARAMETER QUALIFIERS
 		"in": {
 				"prefix": "in",
 				"body": "in",
@@ -474,7 +455,6 @@ plus various other papers & books
 				"description": "The qualifier inout is used to mark a parameter as read-write when a function is declared. The parameter will be passed by reference to the function and is initialized, i.e. the value can be read. The value can be modified by the function and the changes are preserved after the function exits.\nThe above function declaration shows the three possible parameter qualifiers. The usage of the read-only qualifier is not necessary since this is the default if no qualifier is specified."
 		},
 
-		///SPECIAL INPUT VARIABLES OF THE FRAGMENT SHADER
 		"gl_FragCoord": {
 				"prefix": "gl_FragCoord",
 				"body": "gl_FragCoord",
@@ -493,14 +473,12 @@ plus various other papers & books
 				"description": "mediump int gl_PointCoord;\n\nThe built-in variable gl_PointCoord is used by the OpenGL ES 2.0 pipeline to hand over the coordinates of a point sprite to the fragment shader. The variable is read-only and the value is calculated and assigned by the OpenGL ES 2.0 pipeline based on the position and radius of the point sprite.\nSide note: A value for this variable is provided by the OpenGL ES 2.0 pipeline only if the rendered primitives are points."
 		},
 
-		///SPECIAL OUTPUT VARIABLES OF THE FRAGMENT SHADER
 		"gl_FragColor": {
 				"prefix": "gl_FragColor",
 				"body": "gl_FragColor",
 				"description": "mediump vec4 gl_FragColor;\n\nThe built-in variable gl_FragColor is used by the fragment shader to hand over the color of the fragment to the OpenGL ES 2.0 pipeline. The variable is pre-declared as shown above that way the variable can be used in the fragment shader for an assignment without prior declaration.\nThe values of the color vector are interpreted in the RGBA color space.\nThe assignment of values to this variable is mandatory for the fragment shader."
 		},
 
-		///BUILT-IN CONSTANTS (FRAGMENT-SHADER)
 		"gl_MaxTextureImageUnits": {
 				"prefix": "gl_MaxTextureImageUnits",
 				"body": "gl_MaxTextureImageUnits",
@@ -519,7 +497,6 @@ plus various other papers & books
 				"description": "const mediump int gl_MaxDrawBuffers = 1\n\nThe built-in constant gl_MaxDrawBuffers provides the maximum number of the available draw buffers. The value of this variable is 1 for all OpenGL ES 2.0 implementations."
 		},
 
-		///FUNCTIONS
 		"function float": {
 				"prefix": "float",
 				"body": ["float ${NAME}(){", "\t", "}"],
@@ -532,14 +509,12 @@ plus various other papers & books
 				"description": "A standard function that can be named whatever you so wish"
 		},
 
-		///START EXECUTION
 		"function main": {
 				"prefix": "void main",
 				"body": ["void main(){", "\t", "}"],
 				"description": "void main(void){\n\t//code\n}\n\nThe keyword main is used to define the main function of a shader. This function is the entry point for the execution of every vertex and fragment shader. The main function takes no parameters and does not return a value."
 		},
 
-		///SCALAR TYPES
 		"void": {
 				"prefix": "void",
 				"body": "void main(void);",
@@ -564,7 +539,6 @@ plus various other papers & books
 				"description": "bool aBool = true;\nbool bBool = bool(aInt);\nbool cBool = bool(aFloat);\n\nThe data type bool is used for boolean values (true or false).\n\nSide note: Implicit type conversions are not supported. Type conversions can be done using constructors as shown in the second and third example."
 		},
 
-		///TEXTURE LOOKUP FUNCTIONS
 		"texture2D": {
 				"prefix": "texture2D",
 				"body": "texture2D",
@@ -680,7 +654,6 @@ plus various other papers & books
 				"description": "rotate"
 		},
 
-		// ampcpmgp / FUNCS
 		"random": {
 				"prefix": "random",
 				"body": [
@@ -698,7 +671,6 @@ plus various other papers & books
 				"description": ""
 		},
 
-		/// SHAPE FUNCTIONS
 		"function circleshape": {
 				"prefix": "circleshape",
 				"body": [

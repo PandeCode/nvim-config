@@ -1,5 +1,6 @@
 vim.cmd("source $HOME/.config/nvim/vimscript/settings.vim")
 
+vim.o.completeopt = "menuone,noselect"
 vim.o.autoindent = true
 vim.o.backspace = "indent,eol,start"
 vim.o.clipboard = "unnamed"

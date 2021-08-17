@@ -18,76 +18,149 @@ return require("packer").startup(
 
         use "antoinemadec/FixCursorHold.nvim"
 
-        use "glepnir/dashboard-nvim"
-        use "akinsho/nvim-bufferline.lua"
-        use "hoob3rt/lualine.nvim"
+        use "luochen1990/rainbow"
+        use "Yggdroot/indentLine"
 
-        use "kyazdani42/nvim-tree.lua"
-        use "liuchengxu/vista.vim"
+        use "folke/which-key.nvim"
+        use "sudormrfbin/cheatsheet.nvim"
+
+        use {
+            "glepnir/dashboard-nvim",
+            config = function()
+                require("config.dashboard")
+            end
+        }
+        use {
+            "akinsho/nvim-bufferline.lua",
+            config = function()
+                require("config.bufferline")
+            end
+        }
+
+        use {
+            "hoob3rt/lualine.nvim",
+            config = function()
+                require("config.lualineNvim")
+            end
+        }
+        use {
+            "kyazdani42/nvim-tree.lua",
+            config = function()
+                require("config.tree")
+            end
+        }
+        use {
+            "liuchengxu/vista.vim",
+            config = function()
+                require("config.vista")
+            end
+        }
 
         use "voldikss/vim-floaterm"
 
-        use {
-            "haya14busa/incsearch.vim",
-            requires = {
-                "haya14busa/incsearch-easymotion.vim",
-                "haya14busa/incsearch-fuzzy.vim"
-            }
-        }
+        use "haya14busa/incsearch.vim"
+        use "haya14busa/incsearch-easymotion.vim"
+        use "haya14busa/incsearch-fuzzy.vim"
 
         use "ludovicchabant/vim-gutentags"
 
-        use {"cdelledonne/vim-cmake", ft = {"c", "cpp", "cmake"}}
-        use {"jackguo380/vim-lsp-cxx-highlight", ft = {"cpp", "c"}}
+        use {
+            "cdelledonne/vim-cmake",
+            ft = {"c", "cpp", "cmake"},
+            config = function()
+                require("config.cmake")
+            end
+        }
+        --use {"jackguo380/vim-lsp-cxx-highlight", ft = {"cpp", "c"}}
 
         use {
+            "google/vim-maktaba",
+            ft = {"bzl", "bazel"}
+        }
+        use {
+            "google/vim-glaive",
+            ft = {"bzl", "bazel"}
+        }
+        use {
             "bazelbuild/vim-bazel",
-            ft = {"bzl", "bazel"},
-            requires = {
-                "google/vim-maktaba",
-                "google/vim-glaive"
-            }
+            ft = {"bzl", "bazel"}
         }
 
-        use {"habamax/vim-godot", ft = {"gdscript", "gdscript3"}}
+        use {
+            "habamax/vim-godot",
+            ft = {"gdscript", "gdscript3"},
+            config = function()
+                require("config.godot")
+            end
+        }
         use {"neoclide/jsonc.vim", ft = {"json", "jsonc"}}
 
         use {
             "petrbroz/vim-glsl",
             as = "pgsls",
             ft = {"glsl", "hlsl", "vert", "frag"},
-            requires = {"tikhomirov/vim-glsl"}
+            requires = {{"tikhomirov/vim-glsl", opt = true}}
         }
 
         use {
-            "luochen1990/rainbow",
-            "Yggdroot/indentLine"
+            "Konfekt/vim-office",
+            ft = {"docx", "pdf", "doc"},
+            config = function()
+                require("config.office")
+            end
         }
 
         use {
-            "folke/which-key.nvim",
-            "sudormrfbin/cheatsheet.nvim"
+            "dracula/vim",
+            as = "dracula",
+            config = function()
+                require("config.theme")
+            end
         }
 
-        use {"Konfekt/vim-office", ft = {"docx", "pdf", "doc"}}
+        --use {
+        --"nvim-treesitter/nvim-treesitter",
+        --run = ":TSUpdate",
+        --config = function()
+        --require("config.treesitter")
+        --end
+        --}
 
-        use {"dracula/vim", as = "dracula"}
-
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+        use "sheerun/vim-polyglot"
 
         use {
             "neovim/nvim-lspconfig",
-            requires = {
-                "onsails/lspkind-nvim",
-                "hrsh7th/nvim-compe",
-                "hrsh7th/vim-vsnip",
-                "andersevenrud/compe-tmux",
-                "Shougo/echodoc.vim"
-            }
+            config = function()
+                require("lsp")
+            end
         }
 
         use {
+            "onsails/lspkind-nvim",
+            config = function()
+                require("config.lspkind")
+            end
+        }
+        use {
+            "hrsh7th/vim-vsnip",
+            config = function()
+                require("config.vsnip")
+            end
+        }
+        use {
+            "hrsh7th/nvim-compe",
+            config = function()
+                require("config.compe")
+            end
+        }
+        use {"andersevenrud/compe-tmux"}
+        use {"Shougo/echodoc.vim"}
+
+        use {
             "kkoomen/vim-doge",
+            config = function()
+                require("config.doge")
+            end,
             ft = {
                 "cpp",
                 "c",
@@ -107,7 +180,10 @@ return require("packer").startup(
 
         use {
             "puremourning/vimspector",
-            ft = {"cpp", "c", "rust", "javascript", "javascriptreact", "typescript", "typescriptreact", "python"}
+            ft = {"cpp", "c", "rust", "javascript", "javascriptreact", "typescript", "typescriptreact", "python"},
+            config = function()
+                require("config.vimspector")
+            end
         }
 
         use {
@@ -116,39 +192,65 @@ return require("packer").startup(
         }
 
         use {
-            "sbdchd/neoformat",
-            "preservim/nerdcommenter",
-            "romainl/vim-cool",
-            "windwp/nvim-autopairs",
-            "tpope/vim-repeat",
-            "tpope/vim-surround",
-            "tpope/vim-speeddating",
-            "junegunn/vim-easy-align",
-            "chaoren/vim-wordmotion",
-            "jeffkreeftmeijer/vim-numbertoggle",
             "andymass/vim-matchup",
-            "easymotion/vim-easymotion",
+            "chaoren/vim-wordmotion",
+            "itchyny/vim-cursorword",
+            "jeffkreeftmeijer/vim-numbertoggle",
+            "junegunn/vim-easy-align",
             "mg979/vim-visual-multi",
-            "itchyny/vim-cursorword"
+            "romainl/vim-cool",
+            "tpope/vim-repeat",
+            "tpope/vim-speeddating",
+            "tpope/vim-surround"
+        }
+        use {
+            "easymotion/vim-easymotion",
+            config = function()
+                require("config.easymotion")
+            end
+        }
+        use {
+            "preservim/nerdcommenter",
+            config = function()
+                require("config.nerdcommenter")
+            end
+        }
+        use {
+            "sbdchd/neoformat",
+            config = function()
+                require("config.neoformat")
+            end
+        }
+        use {
+            "windwp/nvim-autopairs",
+            config = function()
+                require("config.autopairs")
+            end
+        }
+        use {
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim"
         }
 
+        use {"fhill2/telescope-ultisnips.nvim"}
+        use {"nvim-telescope/telescope-node-modules.nvim"}
+        use {"nvim-telescope/telescope-vimspector.nvim"}
+        use {"nvim-telescope/telescope-media-files.nvim"}
+        use {"nvim-telescope/telescope-github.nvim"}
         use {
             "nvim-telescope/telescope.nvim",
-            requires = {
-                "nvim-lua/popup.nvim",
-                "nvim-lua/plenary.nvim",
-                "fhill2/telescope-ultisnips.nvim",
-                "nvim-telescope/telescope-node-modules.nvim",
-                "nvim-telescope/telescope-vimspector.nvim",
-                "nvim-telescope/telescope-media-files.nvim",
-                "nvim-telescope/telescope-github.nvim"
-            }
+            config = function()
+                require("config.telescope")
+            end
         }
 
         use {
             "glacambre/firenvim",
             run = function()
                 vim.fn["firenvim#install"](0)
+            end,
+            config = function()
+                require("config.firenvim")
             end
         }
     end

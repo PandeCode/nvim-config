@@ -1,70 +1,104 @@
 {
-		"Lib Project": {
-				"prefix": "cmake_lib",
-				"description": "Default Setup",
-				"body": [
-						"cmake_minimum_reqiured(VERSION 3.20)\n",
-						"",
-						"project($WORKSPACE_NAME VERSION 1.0 DESCRIPTION \"$WORKSPACE_NAME Description\" LANGUAGES CXX)\n",
-						"",
-						"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
-						"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
-						"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/bin)",
-						"",
-						"file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/src/*)",
-						"set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include)\n",
-						"",
-						"add_library(${PROJECT_NAME} ${SRC_FILES})",
-						"target_include_directories(${PROJECT_NAME} ${INCLUDE_DIRS})"
-				]
-		},
-		"Start Project": {
-				"prefix": "cmake",
-				"description": "Default Setup",
-				"body": [
-						"cmake_minimum_reqiured(VERSION 3.20)\n",
-						"",
-						"project($WORKSPACE_NAME VERSION 1.0 DESCRIPTION \"$WORKSPACE_NAME Description\" LANGUAGES CXX)\n",
-						"",
-						"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)",
-						"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)",
-						"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)",
-						"",
-						"file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/src/*)",
-						"set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include)\n",
-						"",
-						"add_executable(${PROJECT_NAME} ${SRC_FILES})",
-						"target_include_directories(${PROJECT_NAME} ${INCLUDE_DIRS})"
-				]
-		},
-		"Start SFML Project": {
-				"prefix": "sfml",
-				"description": "Default SFML Setup",
-				"body": []
-		},
-		"Start SFML IMGUI Project": {
-				"prefix": "sfml_imgui",
-				"description": "Default SFML IMGUI Setup",
-				"body": []
-		},
-		"Start GLFW Project": {
-				"prefix": "glfw",
-				"description": "Default GLFW Setup",
-				"body": []
-		},
-		"Start OpenGL Project": {
-				"prefix": "opengl",
-				"description": "Default OpenGL Setup",
-				"body": []
-		},
-		"Start OpenCV Project": {
-				"prefix": "opencv",
-				"description": "Default OpenCV Setup",
-				"body": []
-		},
-		"Message": {
-				"prefix": "mes",
-				"body": ["message(\"$1 : \" ${})", "$3"],
-				"description": "Output to console"
-		}
+	"Lib Project": {
+		"prefix": "cmake_lib",
+		"description": "Default Setup",
+		"body": [
+			"cmake_minimum_reqiured(VERSION 3.20)\n",
+			"",
+			"project($WORKSPACE_NAME VERSION 1.0 DESCRIPTION \"$WORKSPACE_NAME Description\" LANGUAGES CXX)\n",
+			"",
+			"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
+			"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
+			"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/bin)",
+			"",
+			"file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/src/*)",
+			"set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include)\n",
+			"",
+			"add_library(${PROJECT_NAME} ${SRC_FILES})",
+			"target_include_directories(${PROJECT_NAME} ${INCLUDE_DIRS})"
+		]
+	},
+	"Start Project": {
+		"prefix": "cmake",
+		"description": "Default Setup",
+		"body": [
+			"cmake_minimum_reqiured(VERSION 3.20)\n",
+			"",
+			"project($WORKSPACE_NAME VERSION 1.0 DESCRIPTION \"$WORKSPACE_NAME Description\" LANGUAGES CXX)\n",
+			"",
+			"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)",
+			"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)",
+			"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)",
+			"",
+			"file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/src/*)",
+			"set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include)\n",
+			"",
+			"add_executable(${PROJECT_NAME} ${SRC_FILES})",
+			"target_include_directories(${PROJECT_NAME} ${INCLUDE_DIRS})"
+		]
+	},
+	"Start SFML Project": {
+		"prefix": "sfml",
+		"description": "Default SFML Setup",
+		"body": []
+	},
+	"Start SFML IMGUI Project": {
+		"prefix": "sfml_imgui",
+		"description": "Default SFML IMGUI Setup",
+		"body": []
+	},
+	"Start GLFW Project": {
+		"prefix": "glfw",
+		"description": "Default GLFW Setup",
+		"body": []
+	},
+	"Start OpenGL Project": {
+		"prefix": "opengl",
+		"description": "Default OpenGL Setup",
+		"body": []
+	},
+	"Start OpenCV Project": {
+		"prefix": "opencv",
+		"description": "Default OpenCV Setup",
+		"body": []
+	},
+	"Message": {
+		"prefix": "mes",
+		"body": ["message(\"$1 : \" ${})", "$3"],
+		"description": "Output to console"
+	},
+
+	"Ext_url": {
+		"prefix": "url",
+		"body": [
+			"include(ExternalProject)",
+			"ExternalProject_Add(${1:googletest}",
+				"\tURL ${2:http://googletest.googlecode.com/files/gtest-1.7.0.zip}",
+				"\tURL_HASH SHA1=${3:f85f6d2481e2c6c4a18539e391aa4ea8ab0394af}",
+				"\tSOURCE_DIR \"${4:${CMAKE_BINARY_DIR}/gtest-src}\"",
+				"\tBINARY_DIR \"${0:${CMAKE_BINARY_DIR}/gtest-build}\"",
+				"\tCONFIGURE_COMMAND \"\"",
+				"\tBUILD_COMMAND \"\"",
+				"\tINSTALL_COMMAND   \"\"",
+				"\tTEST_COMMAND  \"\"",
+				"\t)"
+		]
+	},
+
+	"Ext_git": {
+		"prefix": "git",
+		"body": [
+			"include(ExternalProject)",
+			"ExternalProject_Add(${1:googletest}",
+				"\tGIT_REPOSITORY ${2:https://github.com/google/googletest.git}",
+				"\tGIT_TAG           ${3:master}",
+				"\tSOURCE_DIR        \"${4:${CMAKE_BINARY_DIR}/googletest-src}\"",
+				"\tBINARY_DIR        \"${0:${CMAKE_BINARY_DIR}/googletest-build}\"",
+				"\tCONFIGURE_COMMAND \"\"",
+				"\tBUILD_COMMAND     \"\"",
+				"\tINSTALL_COMMAND     \"\"",
+				"\tTEST_COMMAND      \"\"",
+				"\t)"
+		]
+	}
 }

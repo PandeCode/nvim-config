@@ -198,8 +198,9 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     </td>
   </tr>
   <tr>
-    <td>https://github.com/dracula/vim</td>
-    <td>A dark theme for Vim.</td>
+    <td>https://github.com/marko-cerovac/material.nvim</td>
+    <td>trident Material colorscheme for NeoVim written in Lua with built-in support for native LSP, TreeSitter and many more plugins
+</td>
   </tr>
   <tr>
     <td>https://github.com/sudormrfbin/cheatsheet.nvim</td>

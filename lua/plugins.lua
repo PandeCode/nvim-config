@@ -111,8 +111,7 @@ return require("packer").startup(
         }
 
         use {
-            "dracula/vim",
-            as = "dracula",
+            "marko-cerovac/material.nvim",
             config = function()
                 require("config.theme")
             end

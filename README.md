@@ -491,6 +491,10 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   </tr>
  
   <tr>
+    <td>https://github.com/RishabhRD/nvim-lsputils</td>
+    <td>Better defaults for nvim-lsp actions</td>
+  </tr>
+  <tr>
     <td></td>
     <td></td>
   </tr>

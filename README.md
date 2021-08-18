@@ -495,8 +495,8 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>Better defaults for nvim-lsp actions</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>https://github.com/RishabhRD/popfix</td>
+    <td>Neovim lua API for highly extensible quickfix window. (nvim-lsputils)</td>
   </tr>
 
  </table>

@@ -1,18 +1,20 @@
---NVIM_LSP.pyright.setup {
---on_attach = ON_ATTACH,
---capabilities = CAPABILITIES,
-----
---cmd = {"pyright-langserver", "--stdio"},
---settings = {
---python = {
---analysis = {
---autoSearchPaths = true,
---diagnosticMode = "workspace",
---useLibraryCodeForTypes = true
---}
---}
---}
---}
+NVIM_LSP.pyright.setup {
+    on_attach = ON_ATTACH,
+    capabilities = CAPABILITIES,
+    --
+    cmd = {"pyright-langserver", "--stdio"},
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true, -- Used to automatically add search paths based on some predefined names (like src).
+                diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = true,
+                stubPath = "./typings",
+                typeCheckingMode = "strict" -- Used to specify the level of type checking analysis performed.
+            }
+        }
+    }
+}
 
 --NVIM_LSP.pylsp.setup {
 --on_attach = ON_ATTACH,
@@ -32,11 +34,11 @@
 ----end,
 --}
 
-NVIM_LSP.jedi_language_server.setup {
-    on_attach = ON_ATTACH,
-    capabilities = CAPABILITIES,
-    --
-    cmd = {"jedi-language-server"},
-    filetypes = {"python"}
-    --root_dir = vim's starting directory,
-}
+--NVIM_LSP.jedi_language_server.setup {
+--on_attach = ON_ATTACH,
+--capabilities = CAPABILITIES,
+----
+--cmd = {"jedi-language-server"},
+--filetypes = {"python"}
+----root_dir = vim's starting directory,
+--}

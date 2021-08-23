@@ -1,32 +1,3 @@
-vim.cmd(
-    [[
-function! LightlineCMakeStat()
-		let l:cmake_build_dir = get(g:, 'cmake_build_dir', 'Debug')
-		let l:build_dir = finddir(l:cmake_build_dir, '.;')
-		let l:retstr = ""
-		if l:build_dir != ""
-				if filereadable(build_dir . '/CMakeCache.txt')
-						let cmcache = readfile(build_dir . '/CMakeCache.txt')
-						for line in cmcache
-								if line =~ "CMAKE_BUILD_TYPE"
-										let value = reverse(split(line, '='))[0]
-										let retstr = retstr . value . " "
-								elseif line =~ "RUN_TESTS"
-										let value = reverse(split(line, '='))[0]
-										let retstr = retstr . "T" . value . " "
-								endif
-						endfor
-				endif
-		endif
-		return substitute(retstr, '^\s*\(.\{-}\)\s*$', '\1', '')
-endfunction
-
-function! LightlineReadonly()
-		return &readonly ? '' : ''
-endfunction
-]]
-)
-
 local lualine = require("lualine")
 
 -- Color table for highlights
@@ -176,14 +147,14 @@ ins_left {
 }
 
 ins_left {
-    vim.fn.LightlineReadonly,
-    color = {fg = colors.red, gui = "bold"}
-}
-
-ins_right {
     function()
-        return vim.fn.LightlineCMakeStat()
-    end
+        if tonumber(vim.api.nvim_eval("&readonly")) == 1 then
+            return ""
+        else
+            return ""
+        end
+    end,
+    color = {fg = colors.red, gui = "bold"}
 }
 
 ins_right {"filetype"}

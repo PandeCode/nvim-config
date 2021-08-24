@@ -1,11 +1,5 @@
 vim.cmd "source $HOME/.config/nvim/vimscript/config/telescope.vim"
 
---require("telescope").load_extension("vimspector")
-require("telescope").load_extension("gh")
-require("telescope").load_extension("media_files")
-require("telescope").load_extension("node_modules")
---require("telescope").load_extension("ultisnips")
-
 require("telescope").setup {
     extensions = {
         media_files = {
@@ -57,3 +51,9 @@ require("telescope").setup {
         buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker
     }
 }
+
+--require("telescope").load_extension("vimspector")
+require("telescope").load_extension("gh")
+require("telescope").load_extension("media_files")
+--require("telescope").load_extension("node_modules")
+--require("telescope").load_extension("ultisnips")

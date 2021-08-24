@@ -62,18 +62,6 @@ return require("packer").startup(
         use "haya14busa/incsearch-easymotion.vim"
         use "haya14busa/incsearch-fuzzy.vim"
 
-        use {"fhill2/telescope-ultisnips.nvim"}
-        use {"nvim-telescope/telescope-node-modules.nvim"}
-        use {"nvim-telescope/telescope-vimspector.nvim"}
-        use {"nvim-telescope/telescope-media-files.nvim"}
-        use {"nvim-telescope/telescope-github.nvim"}
-        use {
-            "nvim-telescope/telescope.nvim",
-            config = function()
-                require("config.telescope")
-            end
-        }
-
         use "ludovicchabant/vim-gutentags"
         use "mfussenegger/nvim-dap"
         use "skywind3000/asyncrun.vim"
@@ -82,7 +70,10 @@ return require("packer").startup(
             ft = {"c", "cpp", "cmake"},
             config = function()
                 require("config.cmake")
-            end
+            end,
+            requires = {
+                "nvim-telescope/telescope.nvim"
+            }
         }
 
         use {
@@ -204,6 +195,18 @@ return require("packer").startup(
         use {
             "airblade/vim-gitgutter",
             "tpope/vim-fugitive"
+        }
+
+        use {"fhill2/telescope-ultisnips.nvim"}
+        use {"nvim-telescope/telescope-node-modules.nvim"}
+        use {"nvim-telescope/telescope-vimspector.nvim"}
+        use {"nvim-telescope/telescope-media-files.nvim"}
+        use {"nvim-telescope/telescope-github.nvim"}
+        use {
+            "nvim-telescope/telescope.nvim",
+            config = function()
+                require("config.telescope")
+            end
         }
 
         use {

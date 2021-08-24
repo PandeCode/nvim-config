@@ -1,8 +1,8 @@
-# Select target for running / debugging.
+" Select target for running / debugging.
 nmap <leader>ctt :Telescope cmake select_target
-# Create new CMake project.
+" Create new CMake project.
 nmap <leader>ctp :Telescope cmake create_project
-# Select build type (Release, Debug, etc.).
+" Select build type (Release, Debug, etc.).
 nmap <leader>ctb :Telescope cmake select_build_type
 
 nmap <leader>cg :CMake configure<cr>

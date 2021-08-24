@@ -408,10 +408,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>jsonc syntax support for vim (Pending)</td>
   </tr>
   <tr>
-    <td>https://github.com/cdelledonne/vim-cmake</td>
-    <td>Vim/Neovim plugin for working with CMake projects</td>
-  </tr>
-  <tr>
     <td>https://github.com/voldikss/vim-floaterm</td>
     <td>star2 Terminal manager for (neo)vim</td>
   </tr>
@@ -497,6 +493,20 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <tr>
     <td>https://github.com/RishabhRD/popfix</td>
     <td>Neovim lua API for highly extensible quickfix window. (nvim-lsputils)</td>
+  </tr>
+
+  <tr>
+    <td>https://github.com/mfussenegger/nvim-dap</td>
+    <td>Debug Adapter Protocol client implementation for Neovim (>= 0.5)</td>
+  </tr>
+  <tr>
+	<td>https://github.com/skywind3000/asyncrun.vim<\td>
+	<td>rocket Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!<\td>
+  </tr>
+
+  <tr>
+<td>https://github.com/Shatur/neovim-cmake</td>
+<td>CMake integration for Neovim</td>
   </tr>
 
  </table>

@@ -62,16 +62,28 @@ return require("packer").startup(
         use "haya14busa/incsearch-easymotion.vim"
         use "haya14busa/incsearch-fuzzy.vim"
 
-        use "ludovicchabant/vim-gutentags"
-
+        use {"fhill2/telescope-ultisnips.nvim"}
+        use {"nvim-telescope/telescope-node-modules.nvim"}
+        use {"nvim-telescope/telescope-vimspector.nvim"}
+        use {"nvim-telescope/telescope-media-files.nvim"}
+        use {"nvim-telescope/telescope-github.nvim"}
         use {
-            "cdelledonne/vim-cmake",
+            "nvim-telescope/telescope.nvim",
+            config = function()
+                require("config.telescope")
+            end
+        }
+
+        use "ludovicchabant/vim-gutentags"
+        use "mfussenegger/nvim-dap"
+        use "skywind3000/asyncrun.vim"
+        use {
+            "Shatur/neovim-cmake",
             ft = {"c", "cpp", "cmake"},
             config = function()
                 require("config.cmake")
             end
         }
-        --use {"jackguo380/vim-lsp-cxx-highlight", ft = {"cpp", "c"}}
 
         use {
             "google/vim-maktaba",
@@ -233,18 +245,6 @@ return require("packer").startup(
         use {
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim"
-        }
-
-        use {"fhill2/telescope-ultisnips.nvim"}
-        use {"nvim-telescope/telescope-node-modules.nvim"}
-        use {"nvim-telescope/telescope-vimspector.nvim"}
-        use {"nvim-telescope/telescope-media-files.nvim"}
-        use {"nvim-telescope/telescope-github.nvim"}
-        use {
-            "nvim-telescope/telescope.nvim",
-            config = function()
-                require("config.telescope")
-            end
         }
 
         use {

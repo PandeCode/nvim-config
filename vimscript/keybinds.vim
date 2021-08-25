@@ -75,7 +75,7 @@ inoremap <c-j> <esc>:m .+1<CR>==i
 
 " Stop annoying you have one more file to edit
 if argc()
-		au VimEnter * args %
+	au VimEnter * args %
 endif
 
 "-- Add space bellow or above without leaving normal mode
@@ -103,3 +103,5 @@ vnoremap ` <esc>`>a`<esc>`<i`<esc>
 vnoremap ( <esc>`>a)<esc>`<i(<esc>
 vnoremap [ <esc>`>a]<esc>`<i[<esc>
 "vnoremap <c-[> <esc>`>a}<esc>`<i{<esc>
+"
+nmap <space>ne :set noexpandtab!<cr>

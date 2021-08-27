@@ -1,4 +1,4 @@
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: AlwaysBreak
 AlignConsecutiveAssignments: AcrossEmptyLines
 AlignConsecutiveBitFields: AcrossEmptyLines
 AlignConsecutiveDeclarations: Consecutive

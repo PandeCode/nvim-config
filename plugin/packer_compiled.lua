@@ -77,6 +77,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/asyncrun.vim"
   },
+  ["cheat.sh-vim"] = {
+    loaded = true,
+    path = "/home/shawn/.local/share/nvim/site/pack/packer/start/cheat.sh-vim"
+  },
   ["cheatsheet.nvim"] = {
     loaded = true,
     path = "/home/shawn/.local/share/nvim/site/pack/packer/start/cheatsheet.nvim"
@@ -408,6 +412,10 @@ time([[Config for neoformat]], false)
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23config.lualineNvim\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.dashboard\frequire\0", "config", "dashboard-nvim")
+time([[Config for dashboard-nvim]], false)
 -- Config for: vim-vsnip
 time([[Config for vim-vsnip]], true)
 try_loadstring("\27LJ\1\2,\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\17config.vsnip\frequire\0", "config", "vim-vsnip")
@@ -416,10 +424,6 @@ time([[Config for vim-vsnip]], false)
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.dashboard\frequire\0", "config", "dashboard-nvim")
-time([[Config for dashboard-nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\1\0020\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\21config.autopairs\frequire\0", "config", "nvim-autopairs")
@@ -439,25 +443,25 @@ vim.cmd [[au FileType jsonc ++once lua require("packer.load")({'jsonc.vim'}, { f
 vim.cmd [[au FileType c ++once lua require("packer.load")({'vim-doge', 'vimspector', 'neovim-cmake'}, { ft = "c" }, _G.packer_plugins)]]
 vim.cmd [[au FileType java ++once lua require("packer.load")({'vim-doge'}, { ft = "java" }, _G.packer_plugins)]]
 vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType doc ++once lua require("packer.load")({'vim-office'}, { ft = "doc" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "rust" }, _G.packer_plugins)]]
 vim.cmd [[au FileType gdscript3 ++once lua require("packer.load")({'vim-godot'}, { ft = "gdscript3" }, _G.packer_plugins)]]
 vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vim-doge', 'vimspector', 'neovim-cmake'}, { ft = "cpp" }, _G.packer_plugins)]]
-vim.cmd [[au FileType bazel ++once lua require("packer.load")({'vim-glaive', 'vim-maktaba', 'vim-bazel'}, { ft = "bazel" }, _G.packer_plugins)]]
+vim.cmd [[au FileType groovy ++once lua require("packer.load")({'vim-doge'}, { ft = "groovy" }, _G.packer_plugins)]]
 vim.cmd [[au FileType cmake ++once lua require("packer.load")({'neovim-cmake'}, { ft = "cmake" }, _G.packer_plugins)]]
 vim.cmd [[au FileType ruby ++once lua require("packer.load")({'vim-doge'}, { ft = "ruby" }, _G.packer_plugins)]]
-vim.cmd [[au FileType groovy ++once lua require("packer.load")({'vim-doge'}, { ft = "groovy" }, _G.packer_plugins)]]
+vim.cmd [[au FileType doc ++once lua require("packer.load")({'vim-office'}, { ft = "doc" }, _G.packer_plugins)]]
 vim.cmd [[au FileType docx ++once lua require("packer.load")({'vim-office'}, { ft = "docx" }, _G.packer_plugins)]]
 vim.cmd [[au FileType frag ++once lua require("packer.load")({'pgsls'}, { ft = "frag" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bash ++once lua require("packer.load")({'vim-doge'}, { ft = "bash" }, _G.packer_plugins)]]
 vim.cmd [[au FileType glsl ++once lua require("packer.load")({'pgsls'}, { ft = "glsl" }, _G.packer_plugins)]]
 vim.cmd [[au FileType json ++once lua require("packer.load")({'jsonc.vim'}, { ft = "json" }, _G.packer_plugins)]]
-vim.cmd [[au FileType bash ++once lua require("packer.load")({'vim-doge'}, { ft = "bash" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascript ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-doge'}, { ft = "php" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bazel ++once lua require("packer.load")({'vim-bazel', 'vim-glaive', 'vim-maktaba'}, { ft = "bazel" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'vim-doge', 'vimspector'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType hlsl ++once lua require("packer.load")({'pgsls'}, { ft = "hlsl" }, _G.packer_plugins)]]
-vim.cmd [[au FileType bzl ++once lua require("packer.load")({'vim-glaive', 'vim-maktaba', 'vim-bazel'}, { ft = "bzl" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bzl ++once lua require("packer.load")({'vim-bazel', 'vim-glaive', 'vim-maktaba'}, { ft = "bzl" }, _G.packer_plugins)]]
 vim.cmd [[au FileType vert ++once lua require("packer.load")({'pgsls'}, { ft = "vert" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")

@@ -509,4 +509,9 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 <td>CMake integration for Neovim</td>
   </tr>
 
+  <tr>
+  <td>https://github.com/dbeniamine/cheat.sh-vim</td>
+  <td>This is a highly configurable vim plugin to browse cheat sheet from cheat.sh directly from vim.</td>
+  </tr>
+
  </table>

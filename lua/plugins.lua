@@ -24,6 +24,8 @@ return require("packer").startup(
         use "folke/which-key.nvim"
         use "sudormrfbin/cheatsheet.nvim"
 
+        use "dbeniamine/cheat.sh-vim"
+
         use {
             "glepnir/dashboard-nvim",
             config = function()

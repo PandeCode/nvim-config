@@ -58,7 +58,12 @@ ON_ATTACH = function(_, bufnr)
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
+    buf_set_keymap("n", "<space>ls", "<Cmd>LspStart<CR>", opts)
+    buf_set_keymap("n", "<space>lq", "<Cmd>LspStop<CR>", opts)
+    buf_set_keymap("n", "<space>lr", "<Cmd>LspRestart<CR>", opts)
+    buf_set_keymap("n", "<space>li", "<Cmd>LspInfo<CR>", opts)
     buf_set_keymap("n", "<space>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+
     buf_set_keymap("v", "<space>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -71,10 +76,10 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     buf_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    buf_set_keymap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+    buf_set_keymap("n", "<m-d>", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
     buf_set_keymap("n", "g[", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "g]", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-    buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+    buf_set_keymap("n", "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 
     vim.o.updatetime = 250
 

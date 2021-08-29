@@ -172,7 +172,11 @@
 	"Start SFML Project": {
 		"prefix": "sfml",
 		"description": "Default SFML Setup",
-		"body": []
+		"body": [
+			"find_package(SFML 2.5 COMPONENTS  graphics window system  REQUIRED)",
+			"MESSAGE(\"SFML_DIR: \" \\${SFML_INCLUDE_DIR})",
+			"MESSAGE(\"SFML_INCLUDE_DIR: \" \\${SFML_INCLUDE_DIR})"
+		]
 	},
 
 	"Start SFML IMGUI Project": {
@@ -238,6 +242,7 @@
 			"\t)"
 		]
 	},
+
 	"CPR": {
 		"prefix": "cpr",
 		"body": [

@@ -105,3 +105,4 @@ vnoremap [ <esc>`>a]<esc>`<i[<esc>
 "vnoremap <c-[> <esc>`>a}<esc>`<i{<esc>
 "
 nmap <space>ne :set noexpandtab!<cr>
+map , @a

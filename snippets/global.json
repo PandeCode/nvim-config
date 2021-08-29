@@ -1,0 +1,42 @@
+{
+	"HEADER COLOR": {
+		"description": "HEADER Color",
+		"prefix": "__HEADER",
+		"body": ["\\033[95m"]
+	},
+	"OKBLUE COLOR": {
+		"description": "OKBLUE Color",
+		"prefix": "__OKBLUE",
+		"body": ["\\033[94m"]
+	},
+	"OKGREEN COLOR": {
+		"description": "OKGREEN Color",
+		"prefix": "__OKGREEN",
+		"body": ["\\033[92m"]
+	},
+	"WARNING COLOR": {
+		"description": "WARNING Color",
+		"prefix": "__WARNING",
+		"body": ["\\033[93m"]
+	},
+	"FAIL COLOR": {
+		"description": "FAIL Color",
+		"prefix": "__FAIL",
+		"body": ["\\033[91m"]
+	},
+	"ENDC COLOR": {
+		"description": "ENDC Color",
+		"prefix": "__ENDC",
+		"body": ["\\033[0m"]
+	},
+	"BOLD COLOR": {
+		"description": "BOLD Color",
+		"prefix": "__BOLD",
+		"body": ["\\033[1m"]
+	},
+	"UNDERLINE COLOR": {
+		"description": "UNDERLINE Color",
+		"prefix": "__UNDERLINE",
+		"body": ["\\033[4m"]
+	}
+}

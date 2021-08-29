@@ -3,6 +3,12 @@
 vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
+local opts = {noremap = true, silent = true}
+vim.api.nvim_set_keymap("n", "<space>ls", "<Cmd>LspStart<CR>", opts)
+vim.api.nvim_set_keymap("n", "<space>lq", "<Cmd>LspStop<CR>", opts)
+vim.api.nvim_set_keymap("n", "<space>lr", "<Cmd>LspRestart<CR>", opts)
+vim.api.nvim_set_keymap("n", "<space>li", "<Cmd>LspInfo<CR>", opts)
+
 local border_chars = {
     TOP_LEFT = "┌",
     TOP_RIGHT = "┐",
@@ -58,10 +64,6 @@ ON_ATTACH = function(_, bufnr)
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
-    buf_set_keymap("n", "<space>ls", "<Cmd>LspStart<CR>", opts)
-    buf_set_keymap("n", "<space>lq", "<Cmd>LspStop<CR>", opts)
-    buf_set_keymap("n", "<space>lr", "<Cmd>LspRestart<CR>", opts)
-    buf_set_keymap("n", "<space>li", "<Cmd>LspInfo<CR>", opts)
     buf_set_keymap("n", "<space>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
     buf_set_keymap("v", "<space>a", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
@@ -69,15 +71,20 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    buf_set_keymap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+
+    buf_set_keymap("n", "<m-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("v", "<m-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("i", "<m-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", "<g-k>", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+    buf_set_keymap("v", "<g-k>", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+    buf_set_keymap("i", "<g-k>", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+
     buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
     buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
     buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
     buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     buf_set_keymap("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-    buf_set_keymap("n", "<m-k>", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
     buf_set_keymap("n", "g[", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "g]", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
     buf_set_keymap("n", "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)

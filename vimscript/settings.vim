@@ -9,7 +9,7 @@ filetype indent off
 
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
-
+autocmd BufNewFile,BufRead *.h set filetype=c
 
 set noexpandtab!
 set softtabstop=4

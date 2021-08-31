@@ -28,7 +28,7 @@ nmap <A-up> ddkkpk <CR> " Move up
 imap <A-down> <ESC>ddp <CR>a " Move down
 imap <A-up> <ESC>ddkkpk <CR>a " Move up
 
-nnoremap <LEADER>fs :w<CR>
+nnoremap <LEADER>fs :noautocmd w<CR>
 
 nmap <F1> <esc>
 imap <F1> <esc>

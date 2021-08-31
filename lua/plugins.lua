@@ -122,13 +122,56 @@ return require("packer").startup(
             end
         }
 
-        --use {
-        --"nvim-treesitter/nvim-treesitter",
-        --run = ":TSUpdate",
-        --config = function()
-        --require("config.treesitter")
-        --end
-        --}
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate",
+            config = function()
+                require("config.treesitter")
+            end,
+            ft = {
+                "bash",
+                "c",
+                "c_sharp",
+                "cmake",
+                "comment",
+                "cpp",
+                "css",
+                "dart",
+                "dockerfile",
+                "fish",
+                "gdscript",
+                "go",
+                "gomod",
+                "graphql",
+                "html",
+                "java",
+                "javascript",
+                "javascriptreact",
+                "js",
+                "jsx",
+                "jsdoc",
+                "json5",
+                "kotlin",
+                "lua",
+                "python",
+                "regex",
+                "rst",
+                "ruby",
+                "rust",
+                "scss",
+                "surface",
+                "svelte",
+                "teal",
+                "toml",
+                "ts",
+                "tsx",
+                "typescript",
+                "typescriptreact",
+                "javascript",
+                "vimscript",
+                "yaml"
+            }
+        }
 
         use "sheerun/vim-polyglot"
 

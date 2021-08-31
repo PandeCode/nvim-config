@@ -1,7 +1,44 @@
 vim.cmd "source $HOME/.config/nvim/vimscript/config/treesitter.vim"
 
 require "nvim-treesitter.configs".setup {
-    ensure_installed = "maintained",
+    ensure_installed = {
+        "bash",
+        "c",
+        "c_sharp",
+        "cmake",
+        "comment",
+        "cpp",
+        "css",
+        "dart",
+        "dockerfile",
+        "fish",
+        "gdscript",
+        "go",
+        "gomod",
+        "graphql",
+        "html",
+        "java",
+        "javascript",
+        "jsdoc",
+        "json5",
+        "kotlin",
+        "lua",
+        "python",
+        "regex",
+        "rst",
+        "ruby",
+        "rust",
+        "scss",
+        "surface",
+        "svelte",
+        "teal",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vue",
+        "yaml"
+    },
     ignore_install = {}, -- List of parsers to ignore installing
     indent = {
         enable = true

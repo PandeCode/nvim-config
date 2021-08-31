@@ -173,7 +173,7 @@ return require("packer").startup(
             }
         }
 
-        use "sheerun/vim-polyglot"
+        --use "sheerun/vim-polyglot"
 
         use {
             "neovim/nvim-lspconfig",

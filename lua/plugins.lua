@@ -64,20 +64,6 @@ return require("packer").startup(
         use "haya14busa/incsearch-easymotion.vim"
         use "haya14busa/incsearch-fuzzy.vim"
 
-        use "ludovicchabant/vim-gutentags"
-        use "mfussenegger/nvim-dap"
-        use "skywind3000/asyncrun.vim"
-        use {
-            "Shatur/neovim-cmake",
-            ft = {"c", "cpp", "cmake"},
-            config = function()
-                require("config.cmake")
-            end,
-            requires = {
-                "nvim-telescope/telescope.nvim"
-            }
-        }
-
         use {
             "google/vim-maktaba",
             ft = {"bzl", "bazel"}
@@ -291,12 +277,28 @@ return require("packer").startup(
                 require("config.neoformat")
             end
         }
+
+        use "ludovicchabant/vim-gutentags"
+        use "mfussenegger/nvim-dap"
+        use "skywind3000/asyncrun.vim"
+        use {
+            "Shatur/neovim-cmake",
+            ft = {"c", "cpp", "cmake"},
+            config = function()
+                require("config.cmake")
+            end,
+            requires = {
+                "nvim-telescope/telescope.nvim"
+            }
+        }
+
         use {
             "windwp/nvim-autopairs",
             config = function()
                 require("config.autopairs")
             end
         }
+
         use {
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim"

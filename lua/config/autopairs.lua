@@ -4,9 +4,7 @@ require("nvim-autopairs").setup {
     enable_moveright = true,
     enable_afterquote = true,
     -- add bracket pairs after quote,
-    enable_check_bracket_line = true,
-    --- check bracket in same line,
-    check_ts = false
+    enable_check_bracket_line = true
 }
 
 require("nvim-autopairs.completion.compe").setup(
@@ -91,26 +89,3 @@ npairs.add_rules(
 -- you can exclude filetypes
 npairs.add_rule(Rule("$$", "$$"):with_pair(cond.not_filetypes({"lua"})))
 --- check ./lua/nvim-autopairs/rules/basic.lua
-
-npairs.setup(
-    {
-        check_ts = true,
-        ts_config = {
-            lua = {"string"},
-            -- it will not add pair on that treesitter node
-            javascript = {"template_string"},
-            java = false
-            -- don't check treesitter on java
-        }
-    }
-)
-
---local ts_conds = require("nvim-autopairs.ts-conds")
-
----- press % => %% is only inside comment or string
---npairs.add_rules(
---{
---Rule("%", "%", "lua"):with_pair(ts_conds.is_ts_node({"string", "comment"})),
---Rule("$", "$", "lua"):with_pair(ts_conds.is_not_ts_node({"function"}))
---}
---)

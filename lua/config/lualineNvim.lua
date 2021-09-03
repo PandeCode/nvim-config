@@ -33,6 +33,8 @@ local conditions = {
 local config = {
     options = {
         -- Disable sections and component separators
+        extensions = {"quickfix", "nvim-tree", "fugitive"},
+        options = {disabled_filetypes = {"dasboard"}},
         component_separators = "",
         section_separators = "",
         theme = "material-nvim"

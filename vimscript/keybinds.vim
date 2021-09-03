@@ -6,6 +6,8 @@ map <C-i> <C-a>
 nmap <c-t> :FloatermNew<CR>
 imap <c-t> <ESC>:FloatermNew<CR>
 
+nmap <space>wq :noautocmd wq<cr>
+
 nmap <LEADER>w <c-w>
 
 " Save on Ctrl-S

@@ -19,3 +19,10 @@ autocmd FileType * setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType * set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufNewFile,BufRead,BufAdd,BufCreate,BufFilePre,BufReadPre,BufWrite,BufWritePre * setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd BufNewFile,BufRead,BufAdd,BufCreate,BufFilePre,BufReadPre,BufWrite,BufWritePre * set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+" assumes set ignorecase smartcase;
+augroup dynamic_smartcase
+    autocmd!
+    autocmd CmdLineEnter : set nosmartcase
+    autocmd CmdLineLeave : set smartcase
+augroup END

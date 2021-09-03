@@ -4,10 +4,7 @@ imap <F4> <ESC>
 map <C-i> <C-a>
 
 nmap <c-t> :FloatermNew<CR>
-nmap <F5> :GundoToggle<CR>
-
 imap <c-t> <ESC>:FloatermNew<CR>
-imap <F5> <ESC>:GundoToggle<CR>
 
 nmap <LEADER>w <c-w>
 
@@ -33,80 +30,80 @@ nnoremap <LEADER>fs :noautocmd w<CR>
 nmap <F1> <esc>
 imap <F1> <esc>
 
-nmap ga <Plug>(EasyAlign)
+	nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
-noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
-noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
-vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
-imap <Home> <C-o><Home>
-imap <End> <C-o><End>
+	noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
+	noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
+	vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
+	imap <Home> <C-o><Home>
+	imap <End> <C-o><End>
 
-map Q :echo<CR>
+	map Q :echo<CR>
 
-noremap Y y$
+	noremap Y y$
 
-noremap n nzzzv
-noremap N Nzzzv
-noremap J mzJ`z
+	noremap n nzzzv
+	noremap N Nzzzv
+	noremap J mzJ`z
 
-inoremap , ,<c-g>u
-inoremap . .<c-g>u
-inoremap ! !<c-g>u
-inoremap ? ?<c-g>u
-inoremap [ [<c-g>u
-inoremap ] ]<c-g>u
-inoremap ( (<c-g>u
-inoremap ) )<c-g>u
-inoremap { {<c-g>u
-inoremap } }<c-g>u
-inoremap " "<c-g>u
-inoremap " "<c-g>u
+	inoremap , ,<c-g>u
+	inoremap . .<c-g>u
+	inoremap ! !<c-g>u
+	inoremap ? ?<c-g>u
+	inoremap [ [<c-g>u
+	inoremap ] ]<c-g>u
+	inoremap ( (<c-g>u
+				inoremap ) )<c-g>u
+	inoremap { {<c-g>u
+		inoremap } }<c-g>u
+		inoremap " "<c-g>u
+		inoremap " "<c-g>u
 
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+		nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+		nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-vnoremap <c-j> :m '>+1<CR>gv=gv
-vnoremap <c-k> :m '<-2<CR>gv=gv
-nnoremap <c-j> :m .+1<CR>==
-inoremap <c-k> <esc>:m .-2<CR>==i
-nnoremap <c-k> :m .-2<CR>==
-inoremap <c-j> <esc>:m .+1<CR>==i
+		vnoremap <c-j> :m '>+1<CR>gv=gv
+		vnoremap <c-k> :m '<-2<CR>gv=gv
+		nnoremap <c-j> :m .+1<CR>==
+		inoremap <c-k> <esc>:m .-2<CR>==i
+		nnoremap <c-k> :m .-2<CR>==
+		inoremap <c-j> <esc>:m .+1<CR>==i
 
-" Stop annoying you have one more file to edit
+	" Stop annoying you have one more file to edit
 if argc()
 	au VimEnter * args %
-endif
+	endif
 
-"-- Add space bellow or above without leaving normal mode
-nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
-nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
+	"-- Add space bellow or above without leaving normal mode
+	nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
+	nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
 
-" Use simple ; instead of shift + :
-nnoremap ; :
-vnoremap ; :
+	" Use simple ; instead of shift + :
+	nnoremap ; :
+	vnoremap ; :
 
-" Use this instead of touching Esc key
-inoremap jk <Esc>
-inoremap kj <Esc>
+	" Use this instead of touching Esc key
+	inoremap jk <Esc>
+	inoremap kj <Esc>
 
-" Better tabbing
-nnoremap < v<gv<esc>
-nnoremap > v>gv<esc>
-vnoremap < <gv
-vnoremap > >gv
+	" Better tabbing
+	nnoremap < v<gv<esc>
+	nnoremap > v>gv<esc>
+	vnoremap < <gv
+	vnoremap > >gv
 
-vnoremap " <esc>`>a"<esc>`<i"<esc>
-vnoremap ' <esc>`>a'<esc>`<i'<esc>
-vnoremap ` <esc>`>a`<esc>`<i`<esc>
+	vnoremap " <esc>`>a"<esc>`<i"<esc>
+	vnoremap ' <esc>`>a'<esc>`<i'<esc>
+	vnoremap ` <esc>`>a`<esc>`<i`<esc>
 
-vnoremap ( <esc>`>a)<esc>`<i(<esc>
-vnoremap [ <esc>`>a]<esc>`<i[<esc>
-vnoremap <c-{> <esc>`>a}<esc>`<i{<esc>
+	vnoremap ( <esc>`>a)<esc>`<i(<esc>
+			vnoremap [ <esc>`>a]<esc>`<i[<esc>
+			vnoremap <c-{> <esc>`>a}<esc>`<i{<esc>
 
-vnoremap ) <esc>`>a)<esc>`<i(<esc>
-vnoremap ] <esc>`>a]<esc>`<i[<esc>
-vnoremap <c-}> <esc>`>a}<esc>`<i{<esc>
+			vnoremap ) <esc>`>a)<esc>`<i(<esc>
+			vnoremap ] <esc>`>a]<esc>`<i[<esc>
+			vnoremap <c-}> <esc>`>a}<esc>`<i{<esc>
 
-nmap <space>ne :set noexpandtab!<cr>
-map , @a
+			nmap <space>ne :set noexpandtab!<cr>
+			map , @a

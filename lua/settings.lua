@@ -36,6 +36,8 @@ vim.o.updatetime = 250
 vim.o.visualbell = true
 vim.o.winblend = 20
 vim.o.wrap = true
+vim.o.undofile = true
+vim.o.undodir = "/home/shawn/.cache/nvim/undo"
 
 --" Nice menu when typing `:find *.py`
 vim.o.wildmode = "longest,list,full"
@@ -44,8 +46,8 @@ vim.o.wildmenu = true
 
 vim.o.wildignore =
     "*.pyc" ..
-    "*_build/*" ..
-        "**/coverage/*" ..
-            "**/Debug/*" .. "**/build/*" .. "**/node_modules/*" .. "**/android/*" .. "**/ios/*" .. "**/.git/*"
+    ",*_build/*" ..
+        ",**/coverage/*" ..
+            ",**/Debug/*" .. ",**/build/*" .. ",**/node_modules/*" .. ",**/android/*" .. ",**/ios/*" .. ",**/.git/*"
 
 vim.cmd("source $HOME/.config/nvim/vimscript/settings.vim")

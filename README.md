@@ -500,8 +500,8 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
     <td>Debug Adapter Protocol client implementation for Neovim (>= 0.5)</td>
   </tr>
   <tr>
-	<td>https://github.com/skywind3000/asyncrun.vim<\td>
-	<td>rocket Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!<\td>
+	<td>https://github.com/skywind3000/asyncrun.vim</td>
+	<td>rocket Run Async Shell Commands in Vim 8.0 / NeoVim and Output to the Quickfix Window !!</td>
   </tr>
 
   <tr>
@@ -512,6 +512,11 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <tr>
   <td>https://github.com/dbeniamine/cheat.sh-vim</td>
   <td>This is a highly configurable vim plugin to browse cheat sheet from cheat.sh directly from vim.</td>
+  </tr>
+
+  <tr>
+  <td>https://github.com/simnalamburt/vim-mundo</td>
+  <td>Graph your Vim undo tree in style.</td>
   </tr>
 
  </table>

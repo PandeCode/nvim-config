@@ -123,6 +123,13 @@ return require("packer").startup(
         }
 
         use {
+            "simnalamburt/vim-mundo",
+            config = function()
+                require("config.mundo")
+            end
+        }
+
+        use {
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
             config = function()

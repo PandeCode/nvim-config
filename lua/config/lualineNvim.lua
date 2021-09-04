@@ -19,9 +19,7 @@ local conditions = {
     buffer_not_empty = function()
         return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
     end,
-    hide_in_width = function()
-        return vim.fn.winwidth(0) > 80
-    end,
+    hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
     check_git_workspace = function()
         local filepath = vim.fn.expand("%:p:h")
         local gitdir = vim.fn.finddir(".git", filepath .. ";")
@@ -38,13 +36,13 @@ local config = {
         component_separators = "",
         section_separators = "",
         theme = "material-nvim"
-        --theme = {
+        -- theme = {
         ---- We are going to use lualine_c an lualine_x as left and
         ---- right section. Both are highlighted by c theme .  So we
         ---- are just setting default looks o statusline
-        --normal = {c = {fg = colors.fg, bg = colors.bg}},
-        --inactive = {c = {fg = colors.fg, bg = colors.bg}}
-        --}
+        -- normal = {c = {fg = colors.fg, bg = colors.bg}},
+        -- inactive = {c = {fg = colors.fg, bg = colors.bg}}
+        -- }
     },
     sections = {
         -- these are to remove the defaults
@@ -77,9 +75,7 @@ local function ins_right(component)
     table.insert(config.sections.lualine_x, component)
 end
 ins_left {
-    function()
-        return "▊"
-    end,
+    function() return "▊" end,
     color = {fg = colors.blue}, -- Sets highlighting of component
     left_padding = 0 -- We don't need space before this
 }
@@ -110,7 +106,9 @@ ins_left {
             ["!"] = colors.red,
             t = colors.red
         }
-        vim.api.nvim_command("hi! LualineMode guifg=" .. mode_color[vim.fn.mode()] .. " guibg=" .. colors.bg)
+        vim.api.nvim_command("hi! LualineMode guifg=" ..
+                                 mode_color[vim.fn.mode()] .. " guibg=" ..
+                                 colors.bg)
         return ""
     end,
     color = "LualineMode",
@@ -122,9 +120,7 @@ ins_left {
     function()
         local function format_file_size(file)
             local size = vim.fn.getfsize(file)
-            if size <= 0 then
-                return ""
-            end
+            if size <= 0 then return "" end
             local sufixes = {"b", "k", "m", "g"}
             local i = 1
             while size > 1024 do
@@ -134,9 +130,7 @@ ins_left {
             return string.format("%.1f%s", size, sufixes[i])
         end
         local file = vim.fn.expand("%:p")
-        if string.len(file) == 0 then
-            return ""
-        end
+        if string.len(file) == 0 then return "" end
         return format_file_size(file)
     end,
     condition = conditions.buffer_not_empty
@@ -159,8 +153,6 @@ ins_left {
     color = {fg = colors.red, gui = "bold"}
 }
 
-ins_right {"filetype"}
-
 ins_left {"location"}
 
 ins_left {"progress", color = {fg = colors.fg, gui = "bold"}}
@@ -176,11 +168,7 @@ ins_left {
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
-    function()
-        return "%="
-    end
-}
+ins_left {function() return "%=" end}
 
 ins_left {
     -- Lsp server name .
@@ -188,9 +176,7 @@ ins_left {
         local msg = "No Active Lsp"
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         local clients = vim.lsp.get_active_clients()
-        if next(clients) == nil then
-            return msg
-        end
+        if next(clients) == nil then return msg end
         for _, client in ipairs(clients) do
             local filetypes = client.config.filetypes
             if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
@@ -202,6 +188,13 @@ ins_left {
     icon = " LSP:",
     color = {fg = "#ffffff", gui = "bold"}
 }
+
+ins_right {
+    function() return vim.api.nvim_eval("gutentags#statusline()") end,
+    color = {fg = colors.green, gui = "bold"}
+}
+
+ins_right {"filetype", color = {fg = colors.blue, gui = "bold"}}
 
 -- Add components to right sections
 ins_right {
@@ -236,9 +229,7 @@ ins_right {
 }
 
 ins_right {
-    function()
-        return "▊"
-    end,
+    function() return "▊" end,
     color = {fg = colors.blue},
     right_padding = 0
 }

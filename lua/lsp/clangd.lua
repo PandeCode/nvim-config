@@ -8,7 +8,12 @@ NVIM_LSP.clangd.setup {
 		"--enable-config",
 		"--all-scopes-completion",
 		"--clang-tidy",
-		"--completion-style=bundled"
+		"--completion-style=bundled",
+		"--malloc-trim",
+		"--cross-file-rename",
+		"--header-insertion=iwyu",
+		"--limit-results=0",
+		"--header-insertion-decorators"
 	},
 
 	filetypes = {"c", "cpp"}

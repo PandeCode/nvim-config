@@ -6,14 +6,14 @@ python2 -m pip install pynvim
 
 yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-language-server bash-language-server vim-language-server yaml-language-server vscode-langservers-extracted
 
-ln -s ./dotfiles/.ccls             ~/.ccls
-ln -s ./dotfiles/.clang-format     ~/.clang-format
-ln -s ./dotfiles/.cmake-format     ~/.cmake-format
-ln -s ./dotfiles/.ctags            ~/.ctags
-ln -s ./dotfiles/.eslintrc         ~/.eslintrc
-ln -s ./dotfiles/.lua-format       ~/.lua-format
-ln -s ./dotfiles/.prettierrc       ~/.prettierrc
-ln -s ./dotfiles/.pylintrc         ~/.pylintrc
-ln -s ./dotfiles/.rgignore         ~/.rgignore
-ln -s ./dotfiles/.vimspector.json  ~/.vimspector.json
+ln -s ~/.config/nvim/dotfiles/.ccls             ~/.ccls
+ln -s ~/.config/nvim/dotfiles/.clang-format     ~/.clang-format
+ln -s ~/.config/nvim/dotfiles/.cmake-format     ~/.cmake-format
+ln -s ~/.config/nvim/dotfiles/.ctags            ~/.ctags
+ln -s ~/.config/nvim/dotfiles/.eslintrc         ~/.eslintrc
+ln -s ~/.config/nvim/dotfiles/.lua-format       ~/.lua-format
+ln -s ~/.config/nvim/dotfiles/.prettierrc       ~/.prettierrc
+ln -s ~/.config/nvim/dotfiles/.pylintrc         ~/.pylintrc
+ln -s ~/.config/nvim/dotfiles/.rgignore         ~/.rgignore
+ln -s ~/.config/nvim/dotfiles/.vimspector.json  ~/.vimspector.json
 

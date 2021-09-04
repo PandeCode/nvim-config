@@ -1,5 +1,3 @@
-vim.cmd "source $HOME/.config/nvim/vimscript/config/neoformat.vim"
-
 --  Enable alignment
 vim.g.neoformat_basic_format_align = 1
 
@@ -11,7 +9,7 @@ vim.g.neoformat_basic_format_trim = 1
 
 vim.g.neoformat_lua_luaformat = {
 	exe = "lua-format",
-	args = {"--config", "~/.lua-format"},
+args = {"--config", "~/.lua-format"},
 	stdin = 1
 }
 
@@ -20,3 +18,5 @@ vim.g.neoformat_enabled_json = {"prettier"}
 vim.g.neoformat_enabled_python = {"black"}
 vim.g.neoformat_cmake_cmakeformat = {args = {}, stdin = 1, exe = "cmake-format"}
 vim.g.neoformat_only_msg_on_error = 0
+
+vim.api.nvim_set_keymap("n", "<Space>ff", ":Neoformat<CR>",{noremap=true})

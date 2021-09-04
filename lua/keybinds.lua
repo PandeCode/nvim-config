@@ -1,5 +1,7 @@
 -- vim.cmd "source $HOME/.config/nvim/vimscript/keybinds.vim"
 vim.api.nvim_set_keymap("", "<C-i>", "<C-a>", {noremap = true})
+vim.api.nvim_set_keymap("", ",", "@a", {noremap = true})
+vim.api.nvim_set_keymap("", "Q", ":echo<CR>", {noremap = true})
 
 vim.api.nvim_set_keymap("n", "<c-t>", ":FloatermNew<CR>", {noremap = true})
 vim.api.nvim_set_keymap("i", "<c-t>", "<ESC>:FloatermNew<CR>", {noremap = true})
@@ -18,20 +20,13 @@ vim.api.nvim_set_keymap("c", "<c-v>", "<c-r>+", {noremap = true})
 -- use <c-r> to insert original character without triggering things like auto-pairs
 vim.api.nvim_set_keymap("i", "<c-r>", "<c-v>", {noremap = true})
 
--- Move down
-vim.api.nvim_set_keymap("n", "<A-down>", "ddp<CR>", {noremap = true})
-vim.api.nvim_set_keymap("i", "<A-down>", "<ESC>ddp <CR>a", {noremap = true})
--- Move up
-vim.api.nvim_set_keymap("n", "<A-up>", "ddkkpk <CR>", {noremap = true})
-vim.api.nvim_set_keymap("i", "<A-up>", "<ESC>ddkkpk <CR>a", {noremap = true})
-
-vim.api.nvim_set_keymap("n", "<space>fs",  ":noautocmd w<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<space>fs", ":noautocmd w<CR>", {noremap = true})
 
 vim.api.nvim_set_keymap("n", "<F1>", "<esc>", {noremap = true})
 vim.api.nvim_set_keymap("i", "<F1>", "<esc>", {noremap = true})
 
-vim.api.nvim_set_keymap("n", "a", "<Plug>(EasyAlign)", {noremap = true})
-vim.api.nvim_set_keymap("x", "a", "<Plug>(EasyAlign)", {noremap = true})
+vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", {noremap = true})
+vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", {noremap = true})
 
 vim.api.nvim_set_keymap(
 	"n", "<Home>", " (col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')",
@@ -47,8 +42,6 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap("i", "<Home>", "<C-o><Home>", {noremap = false})
 vim.api.nvim_set_keymap("i", "<End> ", "<C-o><End>", {noremap = false})
-
-vim.api.nvim_set_keymap("", "Q", ":echo<CR>", {noremap = true})
 
 vim.api.nvim_set_keymap("n", "Y", "y$", {noremap = true})
 
@@ -99,8 +92,8 @@ vim.api.nvim_set_keymap("n", ";", ":", {noremap = true})
 vim.api.nvim_set_keymap("v", ";", ":", {noremap = true})
 
 -- Use this instead of touching Esc key
-vim.api.nvim_set_keymap("i", "k", "<Esc>", {noremap = true})
-vim.api.nvim_set_keymap("i", "j", "<Esc>", {noremap = true})
+vim.api.nvim_set_keymap("i", "kj", "<Esc>", {noremap = true})
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", {noremap = true})
 
 -- Better tabbing
 vim.api.nvim_set_keymap("n", "<", "v<gv<esc>", {noremap = true})
@@ -127,4 +120,6 @@ vim.api.nvim_set_keymap(
 	"n", "<space>ne", ":set noexpandtab!<cr>", {noremap = true}
 )
 
-vim.api.nvim_set_keymap("", ",", "@a", {noremap = true})
+vim.api.nvim_set_keymap(
+	"n", "<space>et", ":set expandtab!<cr>", {noremap = true}
+)

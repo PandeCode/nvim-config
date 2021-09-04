@@ -6,7 +6,7 @@ vmap <Space>nf :Neoformat<CR>
 "autocmd BufWritePre * undojoin | Neoformat
 "augroup END
 
-let blacklist = ['tmux', 'conf', 'jsonc', 'desktop']
+let blacklist = ['tmux', 'conf', 'jsonc', 'desktop', 'make', 'vim']
 
 augroup fmt
 autocmd!

@@ -26,3 +26,9 @@ augroup dynamic_smartcase
     autocmd CmdLineEnter : set nosmartcase
     autocmd CmdLineLeave : set smartcase
 augroup END
+
+
+" Stop annoying you have one more file to edit
+if argc()
+	au VimEnter * args %
+endif

@@ -92,4 +92,32 @@ require("bufferline").setup {
     }
 }
 
-vim.cmd "source $HOME/.config/nvim/vimscript/config/bufferline.vim"
+vim.api.nvim_set_keymap("n", "<M-d>", ":bd!<CR>", {noremap=true, silent=true})
+
+-- These commands will navigate through buffers in order regardless of which mode you are using
+-- e.g. if you change the order of buffers", ":bnext and", ":bprevious will not respect the custom ordering
+vim.api.nvim_set_keymap("n", "<space>]", ":BufferLineCycleNext<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<space>[", ":BufferLineCyclePrev<CR>", {noremap=true, silent=true})
+
+-- These commands will move the current buffer backwards or forwards in the bufferline
+vim.api.nvim_set_keymap("n", "<space>b]", ":BufferLineMoveNext<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<space>b[", ":BufferLineMovePrev<CR>", {noremap=true, silent=true})
+
+-- These commands will sort buffers by directory, language, or a custom criteria
+vim.api.nvim_set_keymap("n", "<space>be", ":BufferLineSortByExtension<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<space>bd", ":BufferLineSortByDirectory<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<space>bs", ":BufferLineSortByTabs<CR>", {noremap=true, silent=true})
+-- vim.api.nvim_set_keymap("n", "bs", ":lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>", {noremap=true, silent=true})
+
+-- Goto buffer in position...
+vim.api.nvim_set_keymap("n", "<silent><space>1", "<Cmd>BufferLineGoToBuffer 1<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>2", "<Cmd>BufferLineGoToBuffer 2<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>3", "<Cmd>BufferLineGoToBuffer 3<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>4", "<Cmd>BufferLineGoToBuffer 4<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>5", "<Cmd>BufferLineGoToBuffer 5<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>6", "<Cmd>BufferLineGoToBuffer 6<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>7", "<Cmd>BufferLineGoToBuffer 7<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>8", "<Cmd>BufferLineGoToBuffer 8<CR>", {noremap=true, silent=true})
+vim.api.nvim_set_keymap("n", "<silent><space>9", "<Cmd>BufferLineGoToBuffer 9<CR>", {noremap=true, silent=true})
+
+vim.api.nvim_set_keymap("n", "<silent>    <Space>` :edit #<CR>", {noremap=true})

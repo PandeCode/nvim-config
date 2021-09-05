@@ -18,12 +18,6 @@ return require("packer").startup(
 
 		use "ap/vim-css-color"
 
-		use {
-			"bfredl/nvim-luadev",
-			ft = {"lua"},
-			config = function() require("config.luadev") end
-		}
-
 		use "kyazdani42/nvim-web-devicons"
 
 		use "antoinemadec/FixCursorHold.nvim"
@@ -37,9 +31,16 @@ return require("packer").startup(
 		use "dbeniamine/cheat.sh-vim"
 
 		use {
+			"bfredl/nvim-luadev",
+			ft = {"lua"},
+			config = function() require("config.luadev") end
+		}
+
+		use {
 			"glepnir/dashboard-nvim",
 			config = function() require("config.dashboard") end
 		}
+
 		use {
 			"akinsho/nvim-bufferline.lua",
 			config = function() require("config.bufferline") end

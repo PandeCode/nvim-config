@@ -519,4 +519,14 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <td>Graph your Vim undo tree in style.</td>
   </tr>
 
+  <tr>
+  <td>https://github.com/ap/vim-css-color</td>
+  <td>Preview colours in source code while editing</td>
+  </tr>
+
+  <tr>
+  <td>https://github.com/bfredl/nvim-luadev</td>
+  <td>REPL/debug console for nvim lua plugins</td>
+  </tr>
+
  </table>

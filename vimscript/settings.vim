@@ -1,7 +1,6 @@
 set t_Co=256
 set t_ut=
 
-source $HOME/.config/nvim/vimscript/config/spotify.vim
 set shortmess+="c"
 
 syntax sync minlines=256

@@ -56,7 +56,10 @@ return require("packer").startup(
 		}
 		use {"liuchengxu/vista.vim", config = function() require("config.vista") end}
 
-		use "voldikss/vim-floaterm"
+		use {
+			"voldikss/vim-floaterm",
+			config = function() require("config.floatterm") end
+		}
 
 		use "haya14busa/incsearch.vim"
 		use "haya14busa/incsearch-easymotion.vim"
@@ -214,12 +217,16 @@ return require("packer").startup(
 			"chaoren/vim-wordmotion",
 			"itchyny/vim-cursorword",
 			"jeffkreeftmeijer/vim-numbertoggle",
-			"junegunn/vim-easy-align",
 			"mg979/vim-visual-multi",
 			"romainl/vim-cool",
 			"tpope/vim-repeat",
 			"tpope/vim-speeddating",
 			"tpope/vim-surround"
+		}
+
+		use {
+			"junegunn/vim-easy-align",
+			config = function() require("config.easyalign") end
 		}
 		use {
 			"easymotion/vim-easymotion",

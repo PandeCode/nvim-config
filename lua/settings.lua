@@ -1,8 +1,12 @@
-vim.o.completeopt = "menuone,noselect"
+vim.g.python_host_skip_check=1
+vim.g.loaded_python3_provider=1
+
 vim.o.autoindent = true
 vim.o.backspace = "indent,eol,start"
+vim.o.backup = false
 vim.o.clipboard = "unnamed"
 vim.o.cmdheight = 1
+vim.o.completeopt = "menuone,noselect"
 vim.o.confirm = true
 vim.o.encoding = "UTF-8"
 vim.o.gdefault = true
@@ -15,8 +19,6 @@ vim.o.incsearch = true
 vim.o.lazyredraw = true
 vim.o.linebreak = true
 vim.o.list = true
-vim.o.backup = false
-vim.o.writebackup = false
 vim.o.number = true
 vim.o.pumblend = 20
 vim.o.ruler = true
@@ -32,12 +34,13 @@ vim.o.synmaxcol = 128
 vim.o.termguicolors = true
 vim.o.timeoutlen = 1000
 vim.o.ttyfast = true
+vim.o.undodir = "/home/shawn/.cache/nvim/undo"
+vim.o.undofile = true
 vim.o.updatetime = 250
 vim.o.visualbell = true
 vim.o.winblend = 20
 vim.o.wrap = true
-vim.o.undofile = true
-vim.o.undodir = "/home/shawn/.cache/nvim/undo"
+vim.o.writebackup = false
 
 --" Nice menu when typing `:find *.py`
 vim.o.wildmode = "longest,list,full"

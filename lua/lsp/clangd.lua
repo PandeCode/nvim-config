@@ -18,3 +18,12 @@ NVIM_LSP.clangd.setup {
 
 	filetypes = {"c", "cpp"}
 }
+
+-- NVIM_LSP.ccls.setup {
+-- on_attach = ON_ATTACH,
+-- capabilities = CAPABILITIES,
+----
+-- cmd = {"ccls"},
+
+-- filetypes = {"c", "cpp"}
+-- }

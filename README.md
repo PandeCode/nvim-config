@@ -529,4 +529,9 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <td>REPL/debug console for nvim lua plugins</td>
   </tr>
 
+  <tr>
+  <td>https://github.com/Iron-E/nvim-libmodal</td>
+  <td>Create new "modes" for Neovim!</td>
+  </tr>
+
  </table>

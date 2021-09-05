@@ -22,6 +22,8 @@ return require("packer").startup(
 
 		use "antoinemadec/FixCursorHold.nvim"
 
+		use { "Iron-E/nvim-libmodal" , config=function ()require("config.nvimLibmodal")end}
+
 		use "luochen1990/rainbow"
 		use "Yggdroot/indentLine"
 

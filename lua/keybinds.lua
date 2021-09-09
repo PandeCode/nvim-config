@@ -101,3 +101,9 @@ vim.api.nvim_set_keymap(v,  "<c-}>",     "<esc>`>a}<esc>`<i{<esc>",             
 
 vim.api.nvim_set_keymap(n,  "<space>ne", ":set noexpandtab!<cr>",                                        noremap)
 vim.api.nvim_set_keymap(n,  "<space>et", ":set expandtab!<cr>",                                          noremap)
+
+vim.api.nvim_set_keymap(
+	n, "<space>bt",
+	[[:highlight Normal     ctermbg=NONE guibg=NONE | highlight LineNr     ctermbg=NONE guibg=NONE | highlight SignColumn ctermbg=NONE guibg=NONE]],
+	noremap
+)

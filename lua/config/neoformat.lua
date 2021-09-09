@@ -20,3 +20,4 @@ vim.g.neoformat_cmake_cmakeformat = {args = {}, stdin = 1, exe = "cmake-format"}
 vim.g.neoformat_only_msg_on_error = 0
 
 vim.api.nvim_set_keymap("n", "<Space>ff", ":Neoformat<CR>", {noremap = true})
+vim.api.nvim_set_keymap("v", "<Space>ff", ":Neoformat<CR>", {noremap = true})

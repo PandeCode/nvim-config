@@ -83,7 +83,7 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap("i", "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               opts)
 
     buf_set_keymap("n", "<space>la",       "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",                       opts)
-    buf_set_keymap("n", "<space>lrm",      "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                    opts)
+    buf_set_keymap("n", "<space>ld",       "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                    opts)
     buf_set_keymap("n", "<space>ll",       "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
     buf_set_keymap("n", "<space>lD",       "<cmd>lua vim.lsp.buf.type_definition()<CR>",                            opts)
     buf_set_keymap("n", "<F2>",            "<cmd>lua vim.lsp.buf.rename()<CR>",                                     opts)

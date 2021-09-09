@@ -1,5 +1,3 @@
-noremap <C-m> :Vista!!<CR> " Toggle side panel `CTRL+m`.
-
 function! s:config_easyfuzzymotion(...) abort
 		return extend(copy({
 								\   'converters': [incsearch#config#fuzzyword#converter()],
@@ -9,4 +7,3 @@ function! s:config_easyfuzzymotion(...) abort
 								\   'is_stay': 1
 								\ }), get(a:, 1, {}))
 endfunction
-

@@ -101,3 +101,5 @@ vim.api.nvim_set_keymap(v,  "<c-}>",     "<esc>`>a}<esc>`<i{<esc>",             
 
 vim.api.nvim_set_keymap(n,  "<space>ne", ":set noexpandtab!<cr>",                                        noremap)
 vim.api.nvim_set_keymap(n,  "<space>et", ":set expandtab!<cr>",                                          noremap)
+
+vim.api.nvim_set_keymap(n,  "<space>sf", ":source %<cr>",                                          noremap)

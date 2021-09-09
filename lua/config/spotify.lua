@@ -1,4 +1,6 @@
-local popup = require("plenary.popup");
+require("plenary.reload").reload_module("popup")
+
+local popup = require("popup");
 
 Spotify = {
 	__dbusBase = "AsyncRun dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.",
@@ -15,10 +17,24 @@ Spotify = {
 		currentSong = string.gsub(
 			              string.sub(currentSong, 53, string.len(currentSong)), "\n", ""
 		              );
+
+		-- vim.cmd ("Echo \"" .. currentSong .."\"")
+
 		popup.create(
-			currentSong,
-			{line = 3, col = 11, minwidth = 20, border = {}, pos = "topright"}
+			currentSong, {
+				enter = false,
+				-- line = 3,
+				-- col = 11,
+				-- minwidth = 20,
+				-- cursorline = true,
+				title = "Spotify",
+				border = {},
+				padding = {},
+				pos = "botright",
+				time = 2000,
+			}
 		);
+
 	end,
 
 	pause = function()

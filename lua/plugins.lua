@@ -10,6 +10,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute "packadd packer.nvim"
 end
 
+vim.api.nvim_set_keymap(
+	"n", "<space>ps", "<cmd>PackerSync<cr>", {noremap = true, silent = true}
+)
+
 return require("packer").startup(
 	       function()
 		-- Packer can manage itself
@@ -22,7 +26,10 @@ return require("packer").startup(
 
 		use "antoinemadec/FixCursorHold.nvim"
 
-		use { "Iron-E/nvim-libmodal" , config=function ()require("config.nvimLibmodal")end}
+		use {
+			"Iron-E/nvim-libmodal",
+			config = function() require("config.nvimLibmodal") end
+		}
 
 		use "luochen1990/rainbow"
 		use "Yggdroot/indentLine"

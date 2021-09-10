@@ -93,16 +93,15 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap("n", "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",                         opts)
 
     --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
-    --vim.cmd [[ autocmd CursorHold * lua PrintDiagnostics() ]]
 end
-
---vim.api.nvim_set_keymap("i", "<cr>", 'compe#confirm("<cr>")', {expr = true})
 
 vim.lsp.set_log_level "trace"
 NVIM_LSP = require "lspconfig"
 
 CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
 CAPABILITIES.textDocument.completion.completionItem.snippetSupport = true
+--CAPABILITIES.textDocument.semanticHighlightingCapabilities.semanticHighlighting = true
+CAPABILITIES.window.workDoneProgress = true;
 
 require("lsp.bashls")
 require("lsp.clangd")

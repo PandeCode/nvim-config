@@ -11,6 +11,9 @@ vim.api.nvim_set_keymap("",  "<C-d>",     "<C-x>",                              
 vim.api.nvim_set_keymap("",  "<C-i>",     "<C-a>",                                                        noremap)
 vim.api.nvim_set_keymap("",  ",",         "@a",                                                           noremap)
 
+vim.api.nvim_set_keymap(n,   "E",         "$",                                                            noremapExpr)
+vim.api.nvim_set_keymap(n,   "W",         "$",                                                            noremapExpr)
+
 vim.api.nvim_set_keymap(n,   "<Home>",    " (col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremapExpr)
 vim.api.nvim_set_keymap(n,   "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",      noremapExpr)
 vim.api.nvim_set_keymap(v,   "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')",     noremapExpr)

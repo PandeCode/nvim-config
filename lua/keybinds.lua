@@ -7,6 +7,8 @@ local noremap       = { noremap=true              }
 local noremapSilent = { noremap=true, silent=true }
 local noremapExpr   = { noremap=true, expr=true   }
 
+vim.api.nvim_set_keymap("",  "<SPACE>fe",     "<CMD>edit<CR>",                                                noremap)
+
 vim.api.nvim_set_keymap("",  "<C-d>",     "<C-x>",                                                        noremap)
 vim.api.nvim_set_keymap("",  "<C-i>",     "<C-a>",                                                        noremap)
 vim.api.nvim_set_keymap("",  ",",         "@a",                                                           noremap)

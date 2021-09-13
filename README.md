@@ -2,17 +2,6 @@
 
 Neovim config files.
 
-# Table of Contents
-
--   [nvim-config](#nvim-config)
-    -   [Packages](#packages)
-        -   [Native](#native)
-        -   [Python3](#python3)
-            -   [Python2 (backwards compatibility)](#python2-backwards-compatibility)
-        -   [Node](#node)
-        -   [Lua](#lua)
-    -   [Plugins](#plugins)
-
 ## Packages
 
 ### Native
@@ -532,6 +521,11 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <tr>
   <td>https://github.com/Iron-E/nvim-libmodal</td>
   <td>Create new "modes" for Neovim!</td>
+  </tr>
+
+  <tr>
+  <td>https://github.com/wakatime/wakatime</td>
+  <td>wakatime for progress tracking</td>
   </tr>
 
  </table>

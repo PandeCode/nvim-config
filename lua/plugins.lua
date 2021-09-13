@@ -269,6 +269,8 @@ return require("packer").startup(
 			run = function() vim.fn["firenvim#install"](0) end,
 			config = function() require("config.firenvim") end
 		}
+
+		use "wakatime/vim-wakatime"
 	end
        )
 

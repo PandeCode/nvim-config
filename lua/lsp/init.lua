@@ -6,6 +6,7 @@ vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]
 local opts = {noremap = true, silent = true}
 
 vim.api.nvim_set_keymap("n", "<space>ls", "<Cmd>LspStart<CR>",   opts)
+vim.api.nvim_set_keymap("n", "<F4>",      "<Cmd>LspStop<CR>",    opts)
 vim.api.nvim_set_keymap("n", "<space>lq", "<Cmd>LspStop<CR>",    opts)
 vim.api.nvim_set_keymap("n", "<space>lr", "<Cmd>LspRestart<CR>", opts)
 vim.api.nvim_set_keymap("n", "<space>li", "<Cmd>LspInfo<CR>",    opts)

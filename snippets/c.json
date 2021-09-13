@@ -1,0 +1,15 @@
+{
+		"Main file": {
+				"prefix": "main",
+				"description": "Main file Setup",
+				"body": [
+						"#include <stdio.h>",
+						"",
+						"int main() {",
+						"\tprintf(\"$TM_FILENAME_BASE\\n\");",
+						"",
+						"\treturn 0;",
+						"}"
+				]
+		}
+}

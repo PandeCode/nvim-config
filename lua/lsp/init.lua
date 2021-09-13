@@ -101,8 +101,15 @@ NVIM_LSP = require "lspconfig"
 
 CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
 CAPABILITIES.textDocument.completion.completionItem.snippetSupport = true
---CAPABILITIES.textDocument.semanticHighlightingCapabilities.semanticHighlighting = true
+CAPABILITIES.textDocument.semanticHighlightingCapabilities= {semanticHighlighting = true}
 CAPABILITIES.window.workDoneProgress = true;
+CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 
 require("lsp.bashls")
 require("lsp.clangd")

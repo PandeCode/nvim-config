@@ -28,7 +28,6 @@ vim.api.nvim_set_keymap(n,   "gg",        "gg0",                                
 vim.api.nvim_set_keymap(n,   "G",         "G<End>",                                                       noremap)
 vim.api.nvim_set_keymap(n,   "Y",         "y$",                                                           noremap)
 
-vim.api.nvim_set_keymap(n,   "<space>wq", ":noautocmd wq<cr>",                                            noremap)
 vim.api.nvim_set_keymap(n,   "<LEADER>w", "<c-w>",                                                        noremap)
 
 -- Save on Ctrl-S

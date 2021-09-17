@@ -1,19 +1,26 @@
 NVIM_LSP.clangd.setup {
-	on_attach = ON_ATTACH,
+	on_attach = function()
+		ON_ATTACH()
+
+		vim.api.nvim_buf_set_keymap(
+			0, "n", "<space>fh", "<Cmd>ClangdSwitchSourceHeader<CR>",
+			{noremap = true, silent = true}
+		)
+	end,
 	capabilities = CAPABILITIES,
 	--
 	cmd = {
 		"clangd",
-		"--background-index",
-		"--enable-config",
 		"--all-scopes-completion",
+		"--background-index",
 		"--clang-tidy",
 		"--completion-style=bundled",
-		"--malloc-trim",
 		"--cross-file-rename",
+		"--enable-config",
+		"--header-insertion-decorators",
 		"--header-insertion=iwyu",
 		"--limit-results=0",
-		"--header-insertion-decorators"
+		"--malloc-trim"
 	},
 
 	filetypes = {"c", "cpp"}

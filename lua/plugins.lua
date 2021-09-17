@@ -271,6 +271,7 @@ return require("packer").startup(
 		}
 
 		use "wakatime/vim-wakatime"
+		use { "andweeb/presence.nvim" ,config=function()require("config.discord")end}
 	end
        )
 

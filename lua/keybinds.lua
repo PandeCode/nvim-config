@@ -25,8 +25,8 @@ vim.api.nvim_set_keymap(i,   "<End> ",    "<C-o><End>",                         
 vim.api.nvim_set_keymap(n,   "H",         "<C-o><Home>",                                                  {})
 vim.api.nvim_set_keymap(n,   "L",         "<C-o><End>",                                                   {})
 vim.api.nvim_set_keymap(n,   "gg",        "gg0",                                                          noremap)
-vim.api.nvim_set_keymap(n,   "G",         "G<End>",                                                       noremap)
-vim.api.nvim_set_keymap(n,   "Y",         "y$",                                                           noremap)
+vim.api.nvim_set_keymap("",   "G",         "G<End>",                                                       noremap)
+vim.api.nvim_set_keymap("",   "Y",         "y$",                                                           noremap)
 
 vim.api.nvim_set_keymap(n,   "<LEADER>w", "<c-w>",                                                        noremap)
 

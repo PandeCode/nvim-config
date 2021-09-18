@@ -3,27 +3,25 @@ vim.g.mapleader  = " "
 local n             = "n"
 local i             = "i"
 local v             = "v"
+local none          = {};
 local noremap       = { noremap=true              }
 local noremapSilent = { noremap=true, silent=true }
 local noremapExpr   = { noremap=true, expr=true   }
 
-vim.api.nvim_set_keymap("",  "<SPACE>fe",     "<CMD>edit<CR>",                                                noremap)
+vim.api.nvim_set_keymap("",  "<SPACE>fe", "<CMD>edit<CR>",                                                noremap)
 
-vim.api.nvim_set_keymap("",  "<C-d>",     "<C-x>",                                                        noremap)
-vim.api.nvim_set_keymap("",  "<C-i>",     "<C-a>",                                                        noremap)
-vim.api.nvim_set_keymap("",  ",",         "@a",                                                           noremap)
-
+vim.api.nvim_set_keymap(v,   "<SPACE>cf", "c// clang-format off\r<c-o>p// clang-format on" ,       noremap)
 vim.api.nvim_set_keymap(n,   "E",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,   "W",         "$",                                                            noremap)
 
 vim.api.nvim_set_keymap(n,   "<Home>",    " (col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremapExpr)
 vim.api.nvim_set_keymap(n,   "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",      noremapExpr)
 vim.api.nvim_set_keymap(v,   "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')",     noremapExpr)
-vim.api.nvim_set_keymap(i,   "<Home>",    "<C-o><Home>",                                                  {})
-vim.api.nvim_set_keymap(i,   "<End> ",    "<C-o><End>",                                                   {})
+vim.api.nvim_set_keymap(i,   "<Home>",    "<C-o><Home>",                                                  none)
+vim.api.nvim_set_keymap(i,   "<End> ",    "<C-o><End>",                                                   none)
 
-vim.api.nvim_set_keymap(n,   "H",         "<C-o><Home>",                                                  {})
-vim.api.nvim_set_keymap(n,   "L",         "<C-o><End>",                                                   {})
+vim.api.nvim_set_keymap(n,   "H",         "<C-o><Home>",                                                  none)
+vim.api.nvim_set_keymap(n,   "L",         "<C-o><End>",                                                   none)
 vim.api.nvim_set_keymap(n,   "gg",        "gg0",                                                          noremap)
 vim.api.nvim_set_keymap("",   "G",         "G<End>",                                                       noremap)
 vim.api.nvim_set_keymap("",   "Y",         "y$",                                                           noremap)

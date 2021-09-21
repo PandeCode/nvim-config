@@ -251,7 +251,7 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	<td>View and search LSP symbols, tags in Vim/NeoVim.</td>
   </tr>
   <tr>
-	<td>https://github.com/akinsho/nvim-bufferline.lua</td>
+	<td>https://github.com/akinsho/bufferline.nvim</td>
 	<td>A snazzy nail_care buffer line (with minimal tab integration) for Neovim built using lua.</td>
   </tr>
   <tr>

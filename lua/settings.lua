@@ -33,6 +33,7 @@ vim.o.splitbelow = true
 vim.o.synmaxcol = 128
 vim.o.termguicolors = true
 vim.o.timeoutlen = 1000
+--vim.o.ttimeoutlen = 0
 vim.o.ttyfast = true
 vim.o.undodir = "/home/shawn/.cache/nvim/undo"
 vim.o.undofile = true

@@ -15,6 +15,7 @@ vim.api.nvim_set_keymap("",    "<SPACE>fe", "<CMD>edit<CR>",                    
 vim.api.nvim_set_keymap(v,     "<SPACE>cf", "c// clang-format off\r<c-o>p// clang-format on",               noremap)
 vim.api.nvim_set_keymap(n,     "E",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,     "W",         "$",                                                            noremap)
+vim.api.nvim_set_keymap(n,     "B",         "0",                                                            noremap)
 
 vim.api.nvim_set_keymap(n,     "<Home>",    " (col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremapExpr)
 vim.api.nvim_set_keymap(n,     "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",      noremapExpr)

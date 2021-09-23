@@ -1,10 +1,8 @@
-plugin/packer_compiled.lua
+lua/packer_compiled.lua
 
 autoload
 
 tests
-
-spector/gadgets
 
 tags
 tags.lock

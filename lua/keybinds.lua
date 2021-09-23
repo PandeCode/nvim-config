@@ -1,4 +1,4 @@
-vim.g.mapleader  = " "
+vim.g.mapleader = " "
 
 -- Black
 --# fmt: off
@@ -15,7 +15,7 @@ vim.g.mapleader  = " "
 local n             = "n"
 local i             = "i"
 local v             = "v"
-local none          = {};
+local none          = {}
 local noremap       = { noremap=true              }
 local noremapSilent = { noremap=true, silent=true }
 local noremapExpr   = { noremap=true, expr=true   }
@@ -24,13 +24,11 @@ vim.api.nvim_set_keymap("n", "Q", "", none)
 
 vim.api.nvim_set_keymap("",    "<SPACE>fe", "<CMD>edit<CR>",                                                noremap)
 
-vim.api.nvim_set_keymap(v,     "<SPACE>cf", "c// clang-format off\r<c-o>p// clang-format on",               noremap)
-
 vim.api.nvim_set_keymap(n,     "E",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,     "W",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,     "B",         "0",                                                            noremap)
 
-vim.api.nvim_set_keymap(n,     "<Home>",    " (col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremapExpr)
+vim.api.nvim_set_keymap(n,     "<Home>",    "(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremapExpr)
 vim.api.nvim_set_keymap(n,     "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",      noremapExpr)
 vim.api.nvim_set_keymap(v,     "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')",     noremapExpr)
 vim.api.nvim_set_keymap(i,     "<Home>",    "<C-o><Home>",                                                  none)
@@ -106,11 +104,10 @@ vim.api.nvim_set_keymap(n,     ">",         "v>gv<esc>",                        
 vim.api.nvim_set_keymap(v,     "<",         "<gv",                                                          noremap)
 vim.api.nvim_set_keymap(v,     ">",         ">gv",                                                          noremap)
 
-vim.api.nvim_set_keymap(v,     "\"",        "<esc>`>a'<esc>`<i'<esc>",                                      noremap)
 vim.api.nvim_set_keymap(v,     "`",         "<esc>`>a`<esc>`<i`<esc>",                                      noremap)
 
 vim.api.nvim_set_keymap(v,     "(",         "<esc>`>a)<esc>`<i(<esc>",                                      noremap)
-vim.api.nvim_set_keymap(v,     "'",         "<esc>`>a]<esc>`<i[<esc>",                                      noremap)
+vim.api.nvim_set_keymap(v,     "'",         "<esc>`>a'<esc>`<i'<esc>",                                      noremap)
 vim.api.nvim_set_keymap(v,     "<c-{>",     "<esc>`>a}<esc>`<i{<esc>",                                      noremap)
 
 vim.api.nvim_set_keymap(v,     ")",         "<esc>`>a)<esc>`<i(<esc>",                                      noremap)

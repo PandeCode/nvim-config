@@ -1,6 +1,6 @@
+local packer = require("packer")
 local execute = vim.api.nvim_command
 local fn = vim.fn
-
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -10,10 +10,12 @@ end
 
 vim.api.nvim_set_keymap("n", "<space>ps", "<cmd>PackerSync<cr>", { noremap = true, silent = true })
 
-return require("packer").startup(function()
+
+return packer.startup(function()
 	-- Packer can manage itself
 
 	use("wbthomason/packer.nvim")
+	--use("lewis6991/impatient.nvim")
 
 	use("ap/vim-css-color")
 
@@ -256,8 +258,10 @@ return require("packer").startup(function()
 			"theHamsta/nvim-dap-virtual-text",
 			"rcarriga/nvim-dap-ui",
 			"nvim-telescope/telescope-dap.nvim",
+			"jbyuki/one-small-step-for-vimkind",
 		},
 		ft = {
+			"lua",
 			"cpp",
 			"c",
 			"rust",

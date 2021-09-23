@@ -1,5 +1,6 @@
 Dap = require("dap")
 
+require("dapConfig.nlua")
 require("dapConfig.cpp")
 require("dapConfig.python")
 require("dapConfig.node")

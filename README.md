@@ -536,4 +536,13 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	  <td>https://github.com/andweeb/presence.nvim</td>
 	  <td>Discord Rich Presence for Neovim<td/>
   </tr>
+  <tr>
+	  <td>https://github.com/jbyuki/one-small-step-for-vimkind</td>
+	  <td>Debug adapter for Neovim plugins<td/>
+  </tr>
+  <tr>
+	  <td>https://github.com/lewis6991/impatient.nvim<td/>
+	  <td>Improve startup time for Neovim<td/>
+  </tr>
+
  </table>

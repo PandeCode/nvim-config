@@ -432,7 +432,10 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	<td>https://github.com/nvim-telescope/telescope-github.nvim</td>
 	<td>Integration with github cli (telescope)</td>
   </tr>
-
+  <tr>
+	<td>https://github.com/nvim-telescope/telescope-dap.nvim</td>
+	<td>Integration for nvim-dap with telescope.nvim </td>
+  </tr>
   <tr>
 	<td>https://github.com/neovim/nvim-lspconfig</td>
 	<td>Quickstart configurations for the Nvim LSP client</td>
@@ -521,20 +524,16 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	  <td>https://github.com/bfredl/nvim-luadev</td>
 	  <td>REPL/debug console for nvim lua plugins</td>
   </tr>
-
   <tr>
 	  <td>https://github.com/Iron-E/nvim-libmodal</td>
 	  <td>Create new "modes" for Neovim!</td>
   </tr>
-
   <tr>
 	  <td>https://github.com/wakatime/wakatime</td>
 	  <td>wakatime for progress tracking</td>
   </tr>
-
   <tr>
 	  <td>https://github.com/andweeb/presence.nvim</td>
 	  <td>Discord Rich Presence for Neovim<td/>
   </tr>
-
  </table>

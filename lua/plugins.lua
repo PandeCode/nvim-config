@@ -235,8 +235,28 @@ return require("packer").startup(function()
 	})
 
 	use({
+		"nvim-telescope/telescope-node-modules.nvim",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+		config = function()
+			require("telescope").load_extension("node_modules")
+		end,
+	})
+	use({ "nvim-telescope/telescope-media-files.nvim" })
+	use({ "nvim-telescope/telescope-github.nvim" })
+	use({
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("config.telescope")
+		end,
+	})
+
+	use({
 		"mfussenegger/nvim-dap",
-		requires = { "theHamsta/nvim-dap-virtual-text", "rcarriga/nvim-dap-ui" },
+		requires = {
+			"theHamsta/nvim-dap-virtual-text",
+			"rcarriga/nvim-dap-ui",
+			"nvim-telescope/telescope-dap.nvim",
+		},
 		ft = {
 			"cpp",
 			"c",
@@ -253,38 +273,6 @@ return require("packer").startup(function()
 	})
 
 	use({ "airblade/vim-gitgutter", "tpope/vim-fugitive" })
-
-	use({
-		"nvim-telescope/telescope-node-modules.nvim",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		config = function()
-			require("telescope").load_extension("node_modules")
-		end,
-	})
-	use({ "nvim-telescope/telescope-media-files.nvim" })
-	use({ "nvim-telescope/telescope-github.nvim" })
-	use({
-		"nvim-telescope/telescope-dap.nvim",
-	ft = {
-			"cpp",
-			"c",
-			"rust",
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-			"python",
-		},
-		requires = {
-			"mfussenegger/nvim-dap",
-		},
-	})
-	use({
-		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("config.telescope")
-		end,
-	})
 
 	use({
 		"andymass/vim-matchup",

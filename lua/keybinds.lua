@@ -1,5 +1,17 @@
 vim.g.mapleader  = " "
 
+-- Black
+--# fmt: off
+--# fmt: on
+--Clang Format
+--// clang-format off
+--// clang-format on
+--Sty Lua
+-- stylua: ignore start
+-- stylua: ignore end
+
+-- stylua: ignore start
+
 local n             = "n"
 local i             = "i"
 local v             = "v"
@@ -13,6 +25,7 @@ vim.api.nvim_set_keymap("n", "Q", "", none)
 vim.api.nvim_set_keymap("",    "<SPACE>fe", "<CMD>edit<CR>",                                                noremap)
 
 vim.api.nvim_set_keymap(v,     "<SPACE>cf", "c// clang-format off\r<c-o>p// clang-format on",               noremap)
+
 vim.api.nvim_set_keymap(n,     "E",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,     "W",         "$",                                                            noremap)
 vim.api.nvim_set_keymap(n,     "B",         "0",                                                            noremap)
@@ -108,3 +121,4 @@ vim.api.nvim_set_keymap(n,     "<space>ne", ":set noexpandtab!<cr>",            
 vim.api.nvim_set_keymap(n,     "<space>et", ":set expandtab!<cr>",                                          noremap)
 
 vim.api.nvim_set_keymap(n,     "<space>sf", ":source %<cr>",                                                noremap)
+-- stylua: ignore end

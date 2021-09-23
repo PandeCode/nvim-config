@@ -15,5 +15,4 @@ ln -s ~/.config/nvim/dotfiles/.lua-format       ~/.lua-format
 ln -s ~/.config/nvim/dotfiles/.prettierrc       ~/.prettierrc
 ln -s ~/.config/nvim/dotfiles/.pylintrc         ~/.pylintrc
 ln -s ~/.config/nvim/dotfiles/.rgignore         ~/.rgignore
-ln -s ~/.config/nvim/dotfiles/.vimspector.json  ~/.vimspector.json
 

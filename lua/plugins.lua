@@ -195,7 +195,8 @@ return require("packer").startup(
 		}
 
 		use {
-			"puremourning/vimspector",
+		 "mfussenegger/nvim-dap",
+			requires ={ "theHamsta/nvim-dap-virtual-text", "rcarriga/nvim-dap-ui"},
 			ft = {
 				"cpp",
 				"c",
@@ -206,14 +207,13 @@ return require("packer").startup(
 				"typescriptreact",
 				"python"
 			},
-			config = function() require("config.vimspector") end
+			config = function() require("config.dapConfig") end
 		}
 
 		use {"airblade/vim-gitgutter", "tpope/vim-fugitive"}
 
 		use {"fhill2/telescope-ultisnips.nvim"}
 		use {"nvim-telescope/telescope-node-modules.nvim"}
-		use {"nvim-telescope/telescope-vimspector.nvim"}
 		use {"nvim-telescope/telescope-media-files.nvim"}
 		use {"nvim-telescope/telescope-github.nvim"}
 		use {
@@ -248,7 +248,6 @@ return require("packer").startup(
 		use {"sbdchd/neoformat", config = function() require("config.neoformat") end}
 
 		use "ludovicchabant/vim-gutentags"
-		use "mfussenegger/nvim-dap"
 		use "skywind3000/asyncrun.vim"
 		use {
 			"Shatur/neovim-cmake",

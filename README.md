@@ -382,10 +382,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	</td>
   </tr>
   <tr>
-	<td>https://github.com/puremourning/vimspector</td>
-	<td>vimspector - A multi-language debugging system for Vim</td>
-  </tr>
-  <tr>
 	<td>https://github.com/kkoomen/vim-doge</td>
 	<td>
 	  (Do)cumentation (Ge)nerator 10+ languages books Generate proper code
@@ -427,10 +423,6 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <tr>
 	<td>https://github.com/nvim-telescope/telescope-node-modules.nvim</td>
 	<td>An extension that provides its users with node packages under node_modules directory (telescope)</td>
-  </tr>  
-  <tr>
-	<td>https://github.com/nvim-telescope/telescope-vimspector.nvim</td>
-	<td>Integration for vimspector with telescope.nvim (telescope)</td>
   </tr>  
   <tr>
 	<td>https://github.com/nvim-telescope/telescope-media-files.nvim</td>
@@ -488,6 +480,16 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
   <tr>
 	<td>https://github.com/mfussenegger/nvim-dap</td>
 	<td>Debug Adapter Protocol client implementation for Neovim (>= 0.5)</td>
+  </tr>
+
+  <tr>
+	<td>https://github.com/rcarriga/nvim-dap-ui</td>
+	<td>A UI for nvim-dap</td>
+  </tr>
+
+  <tr>
+	<td>https://github.com/theHamsta/nvim-dap-virtual-text</td>
+	<td>This plugin adds virtual text support to nvim-dap. nvim-treesitter is used to find variable definitions.</td>
   </tr>
 
   <tr>

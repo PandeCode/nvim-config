@@ -48,7 +48,7 @@ vim.g.lsp_utils_symbols_opts = {
 }
 
 --vim.lsp.handlers["textDocument/codeAction"]     = require "lsputil.codeAction".code_action_handler
-vim.lsp.handlers["textDocument/references"]     = require "lsputil.locations".references_handler
+--vim.lsp.handlers["textDocument/references"]     = require "lsputil.locations".references_handler
 --vim.lsp.handlers["textDocument/definition"]     = require "lsputil.locations".definition_handler
 --vim.lsp.handlers["textDocument/declaration"]    = require "lsputil.locations".declaration_handler
 --vim.lsp.handlers["textDocument/typeDefinition"] = require "lsputil.locations".typeDefinition_handler

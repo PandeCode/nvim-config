@@ -27,7 +27,6 @@ vim.api.nvim_set_keymap("n", "<space>tgg",  "<cmd>Telescope gh gist<cr>",       
 vim.api.nvim_set_keymap("n", "<space>tgr",  "<cmd>Telescope gh run<cr>",                      {noremap= true, silent=true})
 vim.api.nvim_set_keymap("n", "<space>tss",  "<cmd>Telescope session-lens search_session<cr>", {noremap= true, silent=true})
 
-vim.api.nvim_set_keymap("n", "<space>tvim", "lua require('telescope').extensions.vimspector.configurations()", {noremap= true, silent=true})
 
 require("telescope").setup {
     extensions = {
@@ -81,7 +80,6 @@ require("telescope").setup {
     }
 }
 
---require("telescope").load_extension("vimspector")
 require("telescope").load_extension("gh")
 require("telescope").load_extension("media_files")
 --require("telescope").load_extension("node_modules")

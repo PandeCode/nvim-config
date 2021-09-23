@@ -10,349 +10,359 @@ end
 
 vim.api.nvim_set_keymap("n", "<space>ps", "<cmd>PackerSync<cr>", { noremap = true, silent = true })
 
+return packer.startup{config={
+    -- Move to lua dir so impatient.nvim can cache it
+	 compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+	   },
+	   function()
 
-return packer.startup(function()
-	-- Packer can manage itself
+-- Packer can manage itself
+use("wbthomason/packer.nvim")
+use({
+"lewis6991/impatient.nvim",
+config = function()
+require("impatient")
 
-	use("wbthomason/packer.nvim")
-	--use("lewis6991/impatient.nvim")
+require("impatient").enable_profile()
+end,
+})
 
-	use("ap/vim-css-color")
+use("ap/vim-css-color")
 
-	use("kyazdani42/nvim-web-devicons")
+use("kyazdani42/nvim-web-devicons")
 
-	use("antoinemadec/FixCursorHold.nvim")
+use("antoinemadec/FixCursorHold.nvim")
 
-	use({
-		"Iron-E/nvim-libmodal",
-		config = function()
-			require("config.nvimLibmodal")
-		end,
-	})
+use({
+"Iron-E/nvim-libmodal",
+config = function()
+require("config.nvimLibmodal")
+end,
+})
 
-	use("luochen1990/rainbow")
-	use("Yggdroot/indentLine")
+use("luochen1990/rainbow")
+use("Yggdroot/indentLine")
 
-	use("folke/which-key.nvim")
-	use("sudormrfbin/cheatsheet.nvim")
+use("folke/which-key.nvim")
+use("sudormrfbin/cheatsheet.nvim")
 
-	use("dbeniamine/cheat.sh-vim")
+use("dbeniamine/cheat.sh-vim")
 
-	use({
-		"bfredl/nvim-luadev",
-		ft = { "lua" },
-		config = function()
-			require("config.luadev")
-		end,
-	})
+use({
+"bfredl/nvim-luadev",
+ft = { "lua" },
+config = function()
+require("config.luadev")
+end,
+})
 
-	use({
-		"glepnir/dashboard-nvim",
-		config = function()
-			require("config.dashboard")
-		end,
-	})
+use({
+"glepnir/dashboard-nvim",
+config = function()
+require("config.dashboard")
+end,
+})
 
-	use({
-		"akinsho/bufferline.nvim",
-		config = function()
-			require("config.bufferline")
-		end,
-	})
+use({
+"akinsho/bufferline.nvim",
+config = function()
+require("config.bufferline")
+end,
+})
 
-	use({
-		"hoob3rt/lualine.nvim",
-		config = function()
-			require("config.lualineNvim")
-		end,
-	})
-	use({
-		"kyazdani42/nvim-tree.lua",
-		config = function()
-			require("config.tree")
-		end,
-	})
-	use({
-		"liuchengxu/vista.vim",
-		config = function()
-			require("config.vista")
-		end,
-	})
+use({
+"hoob3rt/lualine.nvim",
+config = function()
+require("config.lualineNvim")
+end,
+})
+use({
+"kyazdani42/nvim-tree.lua",
+config = function()
+require("config.tree")
+end,
+})
+use({
+"liuchengxu/vista.vim",
+config = function()
+require("config.vista")
+end,
+})
 
-	use({
-		"voldikss/vim-floaterm",
-		config = function()
-			require("config.floatterm")
-		end,
-	})
+use({
+"voldikss/vim-floaterm",
+config = function()
+require("config.floatterm")
+end,
+})
 
-	use("haya14busa/incsearch.vim")
-	use("haya14busa/incsearch-easymotion.vim")
-	use("haya14busa/incsearch-fuzzy.vim")
+use("haya14busa/incsearch.vim")
+use("haya14busa/incsearch-easymotion.vim")
+use("haya14busa/incsearch-fuzzy.vim")
 
-	use({ "google/vim-maktaba", ft = { "bzl", "bazel" } })
-	use({ "google/vim-glaive", ft = { "bzl", "bazel" } })
-	use({ "bazelbuild/vim-bazel", ft = { "bzl", "bazel" } })
+use({ "google/vim-maktaba", ft = { "bzl", "bazel" } })
+use({ "google/vim-glaive", ft = { "bzl", "bazel" } })
+use({ "bazelbuild/vim-bazel", ft = { "bzl", "bazel" } })
 
-	use({
-		"habamax/vim-godot",
-		ft = { "gdscript", "gdscript3" },
-		config = function()
-			require("config.godot")
-		end,
-	})
-	use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
+use({
+"habamax/vim-godot",
+ft = { "gdscript", "gdscript3" },
+config = function()
+require("config.godot")
+end,
+})
+use({ "neoclide/jsonc.vim", ft = { "json", "jsonc" } })
 
-	use({
-		"petrbroz/vim-glsl",
-		as = "pgsls",
-		ft = { "glsl", "hlsl", "vert", "frag" },
-		requires = { { "tikhomirov/vim-glsl", opt = true } },
-	})
+use({
+"petrbroz/vim-glsl",
+as = "pgsls",
+ft = { "glsl", "hlsl", "vert", "frag" },
+requires = { { "tikhomirov/vim-glsl", opt = true } },
+})
 
-	use({
-		"Konfekt/vim-office",
-		ft = { "docx", "pdf", "doc" },
-		config = function()
-			require("config.office")
-		end,
-	})
+use({
+"Konfekt/vim-office",
+ft = { "docx", "pdf", "doc" },
+config = function()
+require("config.office")
+end,
+})
 
-	use({
-		"marko-cerovac/material.nvim",
-		config = function()
-			require("config.theme")
-		end,
-	})
+use({
+"marko-cerovac/material.nvim",
+config = function()
+require("config.theme")
+end,
+})
 
-	use({
-		"simnalamburt/vim-mundo",
-		config = function()
-			require("config.mundo")
-		end,
-	})
+use({
+"simnalamburt/vim-mundo",
+config = function()
+require("config.mundo")
+end,
+})
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require("config.treesitter")
-		end,
-		ft = {
-			"bash",
-			"c",
-			"c_sharp",
-			"cmake",
-			"comment",
-			"cpp",
-			"css",
-			"dart",
-			"dockerfile",
-			"fish",
-			"gdscript",
-			"go",
-			"gomod",
-			"graphql",
-			"html",
-			"java",
-			"javascript",
-			"javascriptreact",
-			"js",
-			"jsx",
-			"jsdoc",
-			"json5",
-			"kotlin",
-			"lua",
-			"python",
-			"regex",
-			"rst",
-			"ruby",
-			"rust",
-			"scss",
-			"surface",
-			"svelte",
-			"teal",
-			"toml",
-			"ts",
-			"tsx",
-			"typescript",
-			"typescriptreact",
-			"javascript",
-			"vimscript",
-			"yaml",
-		},
-	})
+use({
+"nvim-treesitter/nvim-treesitter",
+run = ":TSUpdate",
+config = function()
+require("config.treesitter")
+end,
+ft = {
+"bash",
+"c",
+"c_sharp",
+"cmake",
+"comment",
+"cpp",
+"css",
+"dart",
+"dockerfile",
+"fish",
+"gdscript",
+"go",
+"gomod",
+"graphql",
+"html",
+"java",
+"javascript",
+"javascriptreact",
+"js",
+"jsx",
+"jsdoc",
+"json5",
+"kotlin",
+"lua",
+"python",
+"regex",
+"rst",
+"ruby",
+"rust",
+"scss",
+"surface",
+"svelte",
+"teal",
+"toml",
+"ts",
+"tsx",
+"typescript",
+"typescriptreact",
+"javascript",
+"vimscript",
+"yaml",
+},
+})
 
-	-- use "sheerun/vim-polyglot"
+-- use "sheerun/vim-polyglot"
 
-	use({
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("lsp")
-		end,
-		requires = { "RishabhRD/popfix", "RishabhRD/nvim-lsputils" },
-	})
+use({
+"neovim/nvim-lspconfig",
+config = function()
+require("lsp")
+end,
+requires = { "RishabhRD/popfix", "RishabhRD/nvim-lsputils" },
+})
 
-	use({
-		"onsails/lspkind-nvim",
-		config = function()
-			require("config.lspkind")
-		end,
-	})
-	use({
-		"hrsh7th/vim-vsnip",
-		config = function()
-			require("config.vsnip")
-		end,
-	})
-	use({
-		"hrsh7th/nvim-compe",
-		config = function()
-			require("config.compe")
-		end,
-	})
-	use({ "andersevenrud/compe-tmux" })
-	use({ "Shougo/echodoc.vim" })
+use({
+"onsails/lspkind-nvim",
+config = function()
+require("config.lspkind")
+end,
+})
+use({
+"hrsh7th/vim-vsnip",
+config = function()
+require("config.vsnip")
+end,
+})
+use({
+"hrsh7th/nvim-compe",
+config = function()
+require("config.compe")
+end,
+})
+use({ "andersevenrud/compe-tmux" })
+use({ "Shougo/echodoc.vim" })
 
-	use({
-		"kkoomen/vim-doge",
-		config = function()
-			require("config.doge")
-		end,
-		ft = {
-			"cpp",
-			"c",
-			"java",
-			"python",
-			"javascript",
-			"typescript",
-			"typescriptreact",
-			"javascriptreact",
-			"bash",
-			"ruby",
-			"php",
-			"rust",
-			"groovy",
-		},
-	})
+use({
+"kkoomen/vim-doge",
+config = function()
+require("config.doge")
+end,
+ft = {
+"cpp",
+"c",
+"java",
+"python",
+"javascript",
+"typescript",
+"typescriptreact",
+"javascriptreact",
+"bash",
+"ruby",
+"php",
+"rust",
+"groovy",
+},
+})
 
-	use({
-		"nvim-telescope/telescope-node-modules.nvim",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		config = function()
-			require("telescope").load_extension("node_modules")
-		end,
-	})
-	use({ "nvim-telescope/telescope-media-files.nvim" })
-	use({ "nvim-telescope/telescope-github.nvim" })
-	use({
-		"nvim-telescope/telescope.nvim",
-		config = function()
-			require("config.telescope")
-		end,
-	})
+use({
+"nvim-telescope/telescope-node-modules.nvim",
+ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+config = function()
+require("telescope").load_extension("node_modules")
+end,
+})
+use({ "nvim-telescope/telescope-media-files.nvim" })
+use({ "nvim-telescope/telescope-github.nvim" })
+use({
+"nvim-telescope/telescope.nvim",
+config = function()
+require("config.telescope")
+end,
+})
 
-	use({
-		"mfussenegger/nvim-dap",
-		requires = {
-			"theHamsta/nvim-dap-virtual-text",
-			"rcarriga/nvim-dap-ui",
-			"nvim-telescope/telescope-dap.nvim",
-			"jbyuki/one-small-step-for-vimkind",
-		},
-		ft = {
-			"lua",
-			"cpp",
-			"c",
-			"rust",
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-			"python",
-		},
-		config = function()
-			require("dapConfig")
-		end,
-	})
+use({
+"mfussenegger/nvim-dap",
+requires = {
+"theHamsta/nvim-dap-virtual-text",
+"rcarriga/nvim-dap-ui",
+"nvim-telescope/telescope-dap.nvim",
+"jbyuki/one-small-step-for-vimkind",
+},
+ft = {
+"lua",
+"cpp",
+"c",
+"rust",
+"javascript",
+"javascriptreact",
+"typescript",
+"typescriptreact",
+"python",
+},
+config = function()
+require("dapConfig")
+end,
+})
 
-	use({ "airblade/vim-gitgutter", "tpope/vim-fugitive" })
+use({ "airblade/vim-gitgutter", "tpope/vim-fugitive" })
 
-	use({
-		"andymass/vim-matchup",
-		"chaoren/vim-wordmotion",
-		"itchyny/vim-cursorword",
-		"jeffkreeftmeijer/vim-numbertoggle",
-		"mg979/vim-visual-multi",
-		"romainl/vim-cool",
-		"tpope/vim-repeat",
-		"tpope/vim-speeddating",
-		"tpope/vim-surround",
-	})
+use({
+"andymass/vim-matchup",
+"chaoren/vim-wordmotion",
+"itchyny/vim-cursorword",
+"jeffkreeftmeijer/vim-numbertoggle",
+"mg979/vim-visual-multi",
+"romainl/vim-cool",
+"tpope/vim-repeat",
+"tpope/vim-speeddating",
+"tpope/vim-surround",
+})
 
-	use({
-		"junegunn/vim-easy-align",
-		config = function()
-			require("config.easyalign")
-		end,
-	})
-	use({
-		"easymotion/vim-easymotion",
-		config = function()
-			require("config.easymotion")
-		end,
-	})
-	use({
-		"preservim/nerdcommenter",
-		config = function()
-			require("config.nerdcommenter")
-		end,
-	})
-	use({
-		"sbdchd/neoformat",
-		config = function()
-			require("config.neoformat")
-		end,
-	})
+use({
+"junegunn/vim-easy-align",
+config = function()
+require("config.easyalign")
+end,
+})
+use({
+"easymotion/vim-easymotion",
+config = function()
+require("config.easymotion")
+end,
+})
+use({
+"preservim/nerdcommenter",
+config = function()
+require("config.nerdcommenter")
+end,
+})
+use({
+"sbdchd/neoformat",
+config = function()
+require("config.neoformat")
+end,
+})
 
-	use("ludovicchabant/vim-gutentags")
-	use("skywind3000/asyncrun.vim")
-	use({
-		"Shatur/neovim-cmake",
-		ft = { "c", "cpp", "cmake" },
-		config = function()
-			require("config.cmake")
-		end,
-		requires = { "nvim-telescope/telescope.nvim" },
-	})
+use("ludovicchabant/vim-gutentags")
+use("skywind3000/asyncrun.vim")
+use({
+"Shatur/neovim-cmake",
+ft = { "c", "cpp", "cmake" },
+config = function()
+require("config.cmake")
+end,
+requires = { "nvim-telescope/telescope.nvim" },
+})
 
-	use({
-		"windwp/nvim-autopairs",
-		config = function()
-			require("config.autopairs")
-		end,
-	})
+use({
+"windwp/nvim-autopairs",
+config = function()
+require("config.autopairs")
+end,
+})
 
-	use({ "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" })
+use({ "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" })
 
-	use({
-		"glacambre/firenvim",
-		run = function()
-			vim.fn["firenvim#install"](0)
-		end,
-		config = function()
-			require("config.firenvim")
-		end,
-	})
+use({
+"glacambre/firenvim",
+run = function()
+vim.fn["firenvim#install"](0)
+end,
+config = function()
+require("config.firenvim")
+end,
+})
 
-	use("wakatime/vim-wakatime")
-	use({
-		"andweeb/presence.nvim",
-		config = function()
-			require("config.discord")
-		end,
-	})
-end)
+use("wakatime/vim-wakatime")
+use({
+"andweeb/presence.nvim",
+config = function()
+require("config.discord")
+end,
+})
+end }
 
 -- use {
 -- 'myusername/example',        -- The plugin location string

@@ -1,4 +1,5 @@
 require("plugins")
+require('packer_compiled')
 
 require("settings")
 require("commands")

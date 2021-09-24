@@ -18,11 +18,11 @@ vim.api.nvim_set_keymap(n, "<space>tds", "<CMD>:Telescope dap configurations<CR>
 vim.api.nvim_set_keymap(n, "<space>tdl", "<CMD>:Telescope dap list_breakpoints<CR>",      noremap)
 vim.api.nvim_set_keymap(n, "<space>tdv", "<CMD>:Telescope dap variables<CR>",             noremap)
 vim.api.nvim_set_keymap(n, "<space>tdf", "<CMD>:Telescope dap frames<CR>",                noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dc",  "<CMP>lua require'dap'.continue()<CR>",          noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>db",  "<CMP>lua require'dap'.toggle_breakpoint()<CR>", noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>do",  "<CMP>lua require'dap'.repl.open()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dsi", "<CMP>lua require'dap'.step_into()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dso", "<CMP>lua require'dap'.step_over()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>d<SPACE>",  "<CMD>lua require'dap'.continue()<CR>",          noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>db",  "<CMD>lua require'dap'.toggle_breakpoint()<CR>", noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dr",  "<CMD>lua require'dap'.repl.open()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dj", "<CMD>lua require'dap'.step_into()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dn", "<CMD>lua require'dap'.step_over()<CR>",         noremap)
 
 -- stylua: ignore end
 

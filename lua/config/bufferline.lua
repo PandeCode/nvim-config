@@ -96,6 +96,8 @@ local n = "n"
 local noremap = {noremap=true}
 local noremapSilent = {noremap=true, silent=true}
 
+vim.api.nvim_set_keymap(n, "<SPACE>bh", ":lua require('bufferline').toggle_bufferline() <CR>", noremapSilent)
+
 vim.api.nvim_set_keymap(n, "<M-d>", ":bd!<CR>", noremapSilent)
 
 -- These commands will navigate through buffers in order regardless of which mode you are using

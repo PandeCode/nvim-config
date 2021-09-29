@@ -1,3 +1,4 @@
+Dapui = require("dapui")
 Dap = require("dap")
 
 require("dapConfig.nlua")
@@ -12,27 +13,30 @@ local n = "n"
 require("telescope").load_extension("dap")
 
 -- stylua: ignore start
-
-vim.api.nvim_set_keymap(n, "<space>tdc", "<CMD>:Telescope dap commands<CR>",              noremap)
-vim.api.nvim_set_keymap(n, "<space>tds", "<CMD>:Telescope dap configurations<CR>",        noremap)
-vim.api.nvim_set_keymap(n, "<space>tdl", "<CMD>:Telescope dap list_breakpoints<CR>",      noremap)
-vim.api.nvim_set_keymap(n, "<space>tdv", "<CMD>:Telescope dap variables<CR>",             noremap)
-vim.api.nvim_set_keymap(n, "<space>tdf", "<CMD>:Telescope dap frames<CR>",                noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>d<SPACE>",  "<CMD>lua require'dap'.continue()<CR>",          noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>db",  "<CMD>lua require'dap'.toggle_breakpoint()<CR>", noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dr",  "<CMD>lua require'dap'.repl.open()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dj", "<CMD>lua require'dap'.step_into()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dn", "<CMD>lua require'dap'.step_over()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<space>tdc",      "<CMD>:Telescope dap commands<CR>",              noremap)
+vim.api.nvim_set_keymap(n, "<space>tds",      "<CMD>:Telescope dap configurations<CR>",        noremap)
+vim.api.nvim_set_keymap(n, "<space>tdl",      "<CMD>:Telescope dap list_breakpoints<CR>",      noremap)
+vim.api.nvim_set_keymap(n, "<space>tdv",      "<CMD>:Telescope dap variables<CR>",             noremap)
+vim.api.nvim_set_keymap(n, "<space>tdf",      "<CMD>:Telescope dap frames<CR>",                noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>d<SPACE>", "<CMD>lua require'dap'.continue()<CR>",          noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>db",       "<CMD>lua require'dap'.toggle_breakpoint()<CR>", noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dr",       "<CMD>lua require'dap'.repl.open()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dj",       "<CMD>lua require'dap'.step_into()<CR>",         noremap)
+vim.api.nvim_set_keymap(n, "<SPACE>dn",       "<CMD>lua require'dap'.step_over()<CR>",         noremap)
 
 -- stylua: ignore end
 
-Dap.adapters.netcoredbg = {
-	type = "executable",
-	command = "/path/to/dotnet/netcoredbg/netcoredbg",
-	args = { "--interpreter=vscode" },
-}
+Dap.listeners.after.event_initialized["dapui_config"] = function()
+	Dapui.open()
+end
+Dap.listeners.before.event_terminated["dapui_config"] = function()
+	Dapui.close()
+end
+Dap.listeners.before.event_exited["dapui_config"] = function()
+	Dapui.close()
+end
 
-require("dapui").setup({
+Dapui.setup({
 	icons = { expanded = "▾", collapsed = "▸" },
 	mappings = {
 		-- Use a table to apply multiple mappings
@@ -43,7 +47,7 @@ require("dapui").setup({
 		repl = "r",
 	},
 	sidebar = {
-		open_on_start = true,
+		open_on_start = false,
 		-- You can change the order of elements in the sidebar
 		elements = {
 			-- Provide as ID strings or tables with "id" and "size" keys
@@ -59,7 +63,7 @@ require("dapui").setup({
 		position = "left", -- Can be "left", "right", "top", "bottom"
 	},
 	tray = {
-		open_on_start = true,
+		open_on_start = false,
 		elements = { "repl" },
 		size = 10,
 		position = "bottom", -- Can be "left", "right", "top", "bottom"
@@ -73,7 +77,7 @@ require("dapui").setup({
 })
 
 -- virtual text deactivated (default)
-vim.g.dap_virtual_text = false
+vim.g.dap_virtual_text = true
 -- show virtual text for current frame (recommended)
 vim.g.dap_virtual_text = true
 -- request variable values for all frames (experimental)

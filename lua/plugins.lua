@@ -355,6 +355,8 @@ return packer.startup({
 				require("config.discord")
 			end,
 		})
+
+		use_rocks("http")
 	end,
 })
 

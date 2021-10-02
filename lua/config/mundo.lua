@@ -12,4 +12,4 @@ vim.g.mundo_preview_statusline = nil -- (windows use the default statusline)
 vim.g.mundo_auto_preview       = 1 -- (auto preview diff)
 vim.g.mundo_playback_delay     = 60
 
-vim.api.nvim_set_keymap("n", "<C-u>", "<CMD>MundoToggle<CR>", {noremap = true})
+vim.api.nvim_set_keymap(Keys.NoneStr, "<C-u>", "<CMD>MundoToggle<CR>", Keys.Noremap)

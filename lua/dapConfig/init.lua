@@ -1,29 +1,12 @@
 Dapui = require("dapui")
 Dap = require("dap")
 
-require("dapConfig.nlua")
-require("dapConfig.cpp")
-require("dapConfig.python")
-require("dapConfig.node")
-require("dapConfig.netcore")
-
-local noremap = { noremap = true }
-local n = "n"
-
-require("telescope").load_extension("dap")
-
 -- stylua: ignore start
-vim.api.nvim_set_keymap(n, "<space>tdc",      "<CMD>:Telescope dap commands<CR>",              noremap)
-vim.api.nvim_set_keymap(n, "<space>tds",      "<CMD>:Telescope dap configurations<CR>",        noremap)
-vim.api.nvim_set_keymap(n, "<space>tdl",      "<CMD>:Telescope dap list_breakpoints<CR>",      noremap)
-vim.api.nvim_set_keymap(n, "<space>tdv",      "<CMD>:Telescope dap variables<CR>",             noremap)
-vim.api.nvim_set_keymap(n, "<space>tdf",      "<CMD>:Telescope dap frames<CR>",                noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>d<SPACE>", "<CMD>lua require'dap'.continue()<CR>",          noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>db",       "<CMD>lua require'dap'.toggle_breakpoint()<CR>", noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dr",       "<CMD>lua require'dap'.repl.open()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dj",       "<CMD>lua require'dap'.step_into()<CR>",         noremap)
-vim.api.nvim_set_keymap(n, "<SPACE>dn",       "<CMD>lua require'dap'.step_over()<CR>",         noremap)
-
+RequireForFileType("lua",                                                                 'dapConfig.nlua'  )
+RequireForFileType("cpp,rust,c",                                                          'dapConfig.cpp'  )
+RequireForFileType("python",                                                              'dapConfig.python'  )
+RequireForFileType("js,ts,typescript,javascript,javascriptreact,typescriptreact,jsx,tsx", 'dapConfig.node'  )
+RequireForFileType("csharp",                                                              'dapConfig.netcore'  )
 -- stylua: ignore end
 
 Dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -86,3 +69,18 @@ vim.g.dap_virtual_text = "all frames"
 -- Exception virtual text can be deactivated via
 -- require'nvim-dap-virtual-text'
 -- require'dap'.listeners.after.exceptionInfo['nvim-dap-virtual-text'] = function() end
+
+require("telescope").load_extension("dap")
+-- stylua: ignore start
+vim.api.nvim_set_keymap(Keys.N, "<space>tdc",      "<CMD>:Telescope dap commands<CR>",              Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<space>tds",      "<CMD>:Telescope dap configurations<CR>",        Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<space>tdl",      "<CMD>:Telescope dap list_breakpoints<CR>",      Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<space>tdv",      "<CMD>:Telescope dap variables<CR>",             Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<space>tdf",      "<CMD>:Telescope dap frames<CR>",                Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>d<SPACE>", "<CMD>lua require'dap'.continue()<CR>",          Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>db",       "<CMD>lua require'dap'.toggle_breakpoint()<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>dr",       "<CMD>lua require'dap'.repl.open()<CR>",         Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>dj",       "<CMD>lua require'dap'.step_into()<CR>",         Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>dn",       "<CMD>lua require'dap'.step_over()<CR>",         Keys.Noremap)
+-- stylua: ignore end
+

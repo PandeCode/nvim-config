@@ -1,16 +1,12 @@
 -- You can find your log at $HOME/.cache/nvim/lsp.log. Please paste in a github issue under a details tag as described in the issue template.
 
-vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-
-local opts = {noremap = true, silent = true}
-
-vim.api.nvim_set_keymap("n", "<space>ls", "<Cmd>LspStart<CR>",   opts)
-vim.api.nvim_set_keymap("n", "<F4>",      "<Cmd>LspStop<CR>",    opts)
-vim.api.nvim_set_keymap("n", "<space>lq", "<Cmd>LspStop<CR>",    opts)
-vim.api.nvim_set_keymap("n", "<space>lr", "<Cmd>LspRestart<CR>", opts)
-vim.api.nvim_set_keymap("n", "<space>li", "<Cmd>LspInfo<CR>",    opts)
-
+-- stylua: ignore start
+vim.api.nvim_set_keymap(Keys.N, "<space>ls", "<Cmd>LspStart<CR>",   Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N, "<F4>",      "<Cmd>LspStop<CR>",    Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N, "<space>lq", "<Cmd>LspStop<CR>",    Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N, "<space>lr", "<Cmd>LspRestart<CR>", Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N, "<space>li", "<Cmd>LspInfo<CR>",    Keys.NoremapSilent)
+-- stylua: ignore end
 local border_chars = {
     TOP_LEFT       = "┌",
     TOP_RIGHT      = "┐",
@@ -67,32 +63,32 @@ ON_ATTACH = function(_, bufnr)
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- Mappings.
+-- stylua: ignore start
+    buf_set_keymap(Keys.N, "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
 
-    buf_set_keymap("n", "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                opts)
+    buf_set_keymap(Keys.V, "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "gD",              "<Cmd>lua vim.lsp.buf.declaration()<CR>",                                Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "gd",              "<Cmd>lua vim.lsp.buf.definition()<CR>",                                 Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "K",               "<Cmd>lua vim.lsp.buf.hover()<CR>",                                      Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "gi",              "<cmd>lua vim.lsp.buf.implementation()<CR>",                             Keys.NoremapSilent)
 
-    buf_set_keymap("v", "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                opts)
-    buf_set_keymap("n", "gD",              "<Cmd>lua vim.lsp.buf.declaration()<CR>",                                opts)
-    buf_set_keymap("n", "gd",              "<Cmd>lua vim.lsp.buf.definition()<CR>",                                 opts)
-    buf_set_keymap("n", "K",               "<Cmd>lua vim.lsp.buf.hover()<CR>",                                      opts)
-    buf_set_keymap("n", "gi",              "<cmd>lua vim.lsp.buf.implementation()<CR>",                             opts)
+    buf_set_keymap(Keys.N, "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             Keys.NoremapSilent)
+    buf_set_keymap(Keys.V, "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             Keys.NoremapSilent)
+    buf_set_keymap(Keys.I, "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               Keys.NoremapSilent)
+    buf_set_keymap(Keys.V, "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               Keys.NoremapSilent)
+    buf_set_keymap(Keys.I, "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               Keys.NoremapSilent)
 
-    buf_set_keymap("n", "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             opts)
-    buf_set_keymap("v", "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             opts)
-    buf_set_keymap("i", "<m-k>",           "<cmd>lua vim.lsp.buf.signature_help()<CR>",                             opts)
-    buf_set_keymap("n", "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               opts)
-    buf_set_keymap("v", "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               opts)
-    buf_set_keymap("i", "<g-k>",           "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",               opts)
-
-    buf_set_keymap("n", "<space>la",       "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",                       opts)
-    buf_set_keymap("n", "<space>ld",       "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                    opts)
-    buf_set_keymap("n", "<space>ll",       "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-    buf_set_keymap("n", "<space>lD",       "<cmd>lua vim.lsp.buf.type_definition()<CR>",                            opts)
-    buf_set_keymap("n", "<F2>",            "<cmd>lua vim.lsp.buf.rename()<CR>",                                     opts)
-    buf_set_keymap("n", "gr",              "<cmd>lua vim.lsp.buf.references()<CR>",                                 opts)
-    buf_set_keymap("n", "g[",              "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",                           opts)
-    buf_set_keymap("n", "g]",              "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",                           opts)
-    buf_set_keymap("n", "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",                         opts)
-
+    buf_set_keymap(Keys.N, "<space>la",       "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",                       Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>ld",       "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",                    Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>ll",       "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>lD",       "<cmd>lua vim.lsp.buf.type_definition()<CR>",                            Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<F2>",            "<cmd>lua vim.lsp.buf.rename()<CR>",                                     Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "gr",              "<cmd>lua vim.lsp.buf.references()<CR>",                                 Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "g[",              "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",                           Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "g]",              "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",                           Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",                         Keys.NoremapSilent)
+-- stylua: ignore end
     --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 end
 
@@ -111,20 +107,24 @@ CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-require("lsp.bashls")
-require("lsp.clangd")
-require("lsp.cmake")
-require("lsp.cssls")
-require("lsp.emmet")
-require("lsp.gdscript")
-require("lsp.html")
-require("lsp.jsonls")
-require("lsp.omnisharp")
-require("lsp.rust")
-require("lsp.pyright")
-require("lsp.stylelint_lsp")
-require("lsp.sumneko_lua")
-require("lsp.svelte")
-require("lsp.tsserver")
-require("lsp.vimls")
-require("lsp.yamlls")
+-- stylua: ignore start
+
+RequireForFileType("bash",                                                                'lsp.bashls');
+RequireForFileType("cpp,c",                                                               'lsp.clangd');
+RequireForFileType("cmake",                                                               'lsp.cmake');
+RequireForFileType("css,sass,less",                                                       'lsp.cssls');
+RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt",           'lsp.emmet');
+RequireForFileType("gdscript",                                                            'lsp.gdscript');
+RequireForFileType("html",                                                                'lsp.html');
+RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
+RequireForFileType("csharp",                                                              'lsp.omnisharp');
+RequireForFileType("rust",                                                                'lsp.rust');
+RequireForFileType("python",                                                              'lsp.pyright');
+RequireForFileType("css,jsx,tsx,typescriptreact,javascriptreact",                         'lsp.stylelint_lsp');
+RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
+RequireForFileType("svelte",                                                              'lsp.svelte');
+RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
+RequireForFileType("vimscript",                                                           'lsp.vimls');
+RequireForFileType("yaml",                                                                'lsp.yamlls');
+
+-- stylua: ignore end

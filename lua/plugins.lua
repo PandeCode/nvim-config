@@ -8,7 +8,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	execute("packadd packer.nvim")
 end
 
-vim.api.nvim_set_keymap("n", "<space>ps", "<cmd>PackerSync<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(Keys.N, "<space>ps", "<cmd>PackerSync<cr>", Keys.NoremapSilent)
 
 return packer.startup({
 	config = {
@@ -22,7 +22,6 @@ return packer.startup({
 			"lewis6991/impatient.nvim",
 			config = function()
 				require("impatient")
-
 				require("impatient").enable_profile()
 			end,
 		})
@@ -201,6 +200,36 @@ return packer.startup({
 				require("lsp")
 			end,
 			requires = { "RishabhRD/popfix", "RishabhRD/nvim-lsputils" },
+			ft = {
+				"bash",
+				"c",
+				"cmake",
+				"cpp",
+				"csharp",
+				"css",
+				"gdscript",
+				"html",
+				"javascript",
+				"javascriptreact",
+				"js",
+				"json",
+				"jsonc",
+				"jsx",
+				"less",
+				"lua",
+				"python",
+				"rust",
+				"sass",
+				"svelte",
+				"text",
+				"ts",
+				"tsx",
+				"txt",
+				"typescript",
+				"typescriptreact",
+				"vimscript",
+				"yaml",
+			},
 		})
 
 		use({

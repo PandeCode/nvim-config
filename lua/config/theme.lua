@@ -2,6 +2,9 @@ vim.g.material_style = "deep ocean"
 
 vim.cmd [[colorscheme material]]
 
+vim.cmd [[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
 require("material").setup(
 	{
 
@@ -50,6 +53,6 @@ function ToggleBackground()
 end
 
 vim.api.nvim_set_keymap(
-	"n", "<space>bt", ":lua ToggleBackground()<cr>",
+	Keys.N, "<space>bt", ":lua ToggleBackground()<cr>",
 	{noremap = true, silent = true}
 )

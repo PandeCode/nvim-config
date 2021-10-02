@@ -139,11 +139,10 @@ Spotify = {
 	},
 }
 
-local noremap = { noremap = true, silent = true }
 
 -- stylua: ignore start
-vim.api.nvim_set_keymap("n",      "<space>si",       "<cmd>lua Spotify.dbus.info()<cr>",      noremap)
-vim.api.nvim_set_keymap("n",      "<space>sn",       "<cmd>lua Spotify.dbus.next()<cr>",      noremap)
-vim.api.nvim_set_keymap("n",      "<space>sp",       "<cmd>lua Spotify.dbus.previous()<cr>",      noremap)
-vim.api.nvim_set_keymap("n",      "<space>s<space>", "<cmd>lua Spotify.dbus.playPause()<cr>", noremap)
+vim.api.nvim_set_keymap(Keys.N,      "<SPACE>si",       "<CMD>lua Spotify.dbus.info()<CR>",      Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N,      "<SPACE>sn",       "<CMD>lua Spotify.dbus.next()<CR>",      Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N,      "<SPACE>sp",       "<CMD>lua Spotify.dbus.previous()<CR>",      Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N,      "<SPACE>s<SPACE>", "<CMD>lua Spotify.dbus.playPause()<CR>", Keys.NoremapSilent)
 -- stylua: ignore end

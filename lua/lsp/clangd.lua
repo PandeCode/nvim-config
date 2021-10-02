@@ -3,8 +3,8 @@ NVIM_LSP.clangd.setup {
 		ON_ATTACH()
 
 		vim.api.nvim_buf_set_keymap(
-			0, "n", "<space>fh", "<Cmd>ClangdSwitchSourceHeader<CR>",
-			{noremap = true, silent = true}
+			0, Keys.N, "<space>fh", "<Cmd>ClangdSwitchSourceHeader<CR>",
+			Keys.NoremapSilent
 		)
 	end,
 	capabilities = CAPABILITIES,

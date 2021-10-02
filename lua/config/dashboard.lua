@@ -3,18 +3,6 @@ vim.cmd "autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer
 
 vim.cmd(
     [[
-nmap <Space>ss :<C-u>SessionSave<CR>
-nmap <Space>sl :<C-u>SessionLoad<CR>
-
-nmap <Space>ss :<C-u>SessionSave<CR>
-nmap <Space>sl :<C-u>SessionLoad<CR>
-nmap <Space>fh :DashboardFindHistory<CR>
-
-"Telescope
-nmap <Space>fa :DashboardFindWord<CR>
-nmap <Space>fb :DashboardJumpMark<CR>
-nmap <Space>cn :DashboardNewFile<CR>
-
 let g:dashboard_custom_headerDoom =<< trim END
 		=================     ===============     ===============   ========  ========
 		\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
@@ -704,14 +692,25 @@ let g:dashboard_custom_header = g:dashboard_custom_headers[Rand() % len(g:dashbo
 )
 
 vim.g.dashboard_default_executive = "telescope"
-vim.g.indentLine_fileTypeExclude = {"dashboard"}
+vim.g.indentLine_fileTypeExclude  = {"dashboard"}
 
 vim.g.dashboard_custom_shortcut = {
-    last_session = "SPC s l",
-    find_history = "SPC f h",
-    find_file = "SPC t f",
-    new_file = "SPC c n",
-    change_colorscheme = "SPC t t",
-    find_word = "SPC f a",
-    book_marks = "SPC f b"
+    last_session                = "SPC s l",
+    find_history                = "SPC f h",
+    find_file                   = "SPC t f",
+    new_file                    = "SPC c n",
+    change_colorscheme          = "SPC t t",
+    find_word                   = "SPC f a",
+    book_marks                  = "SPC f b"
 }
+
+vim.api.nvim_set_keymap(Keys.N, "<Space>ss", "<CMD><C-u>SessionSave<CR>",     Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>sl", "<CMD><C-u>SessionLoad<CR>",     Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>fh", "<CMD>DashboardFindHistory<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>fa", "<CMD>DashboardFindWord<CR>",    Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>fb", "<CMD>DashboardJumpMark<CR>",    Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>cn", "<CMD>DashboardNewFile<CR>",     Keys.Noremap)
+
+
+-- Telescope
+

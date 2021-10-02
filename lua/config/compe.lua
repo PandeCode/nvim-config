@@ -61,14 +61,14 @@ _G.s_tab_complete = function()
 	end
 end
 
-vim.api.nvim_set_keymap("i",  "<Tab>",     "v:lua.tab_complete()",                                                {expr = true})
-vim.api.nvim_set_keymap("s",  "<Tab>",     "v:lua.tab_complete()",                                                {expr = true})
-vim.api.nvim_set_keymap("i",  "<S-Tab>",   "v:lua.s_tab_complete()",                                              {expr = true})
-vim.api.nvim_set_keymap("s",  "<S-Tab>",   "v:lua.s_tab_complete()",                                              {expr = true})
+vim.api.nvim_set_keymap(Keys.I,  "<Tab>",     "v:lua.tab_complete()",                                                Keys.Expr)
+vim.api.nvim_set_keymap(Keys.S,  "<Tab>",     "v:lua.tab_complete()",                                                Keys.Expr)
+vim.api.nvim_set_keymap(Keys.I,  "<S-Tab>",   "v:lua.s_tab_complete()",                                              Keys.Expr)
+vim.api.nvim_set_keymap(Keys.S,  "<S-Tab>",   "v:lua.s_tab_complete()",                                              Keys.Expr)
 
-vim.api.nvim_set_keymap( "i", "<cr>",      "compe#confirm(luaeval(\"require 'nvim-autopairs'.autopairs_cr()\"))", {expr = true})
-vim.api.nvim_set_keymap("i",  "<c-space>", "compe#complete()",                                                    {expr = true})
-vim.api.nvim_set_keymap( "i", "<C-j>",     "compe#scroll({ 'delta': +4 })",                                       {expr = true})
-vim.api.nvim_set_keymap( "i", "<C-k>",     "compe#scroll({ 'delta': -4 })",                                       {expr = true})
+vim.api.nvim_set_keymap(Keys.I, "<cr>",      "compe#confirm(luaeval(\"require 'nvim-autopairs'.autopairs_cr()\"))", Keys.Expr)
+vim.api.nvim_set_keymap(Keys.I, "<c-space>", "compe#complete()",                                                    Keys.Expr)
+vim.api.nvim_set_keymap(Keys.I, "<C-j>",     "compe#scroll({ 'delta': +4 })",                                       Keys.Expr)
+vim.api.nvim_set_keymap(Keys.I, "<C-k>",     "compe#scroll({ 'delta': -4 })",                                       Keys.Expr)
 
 vim.cmd "source $HOME/.config/nvim/vimscript/config/compe.vim"

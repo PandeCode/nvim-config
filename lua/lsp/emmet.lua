@@ -14,7 +14,9 @@ if not lspconfig.emmet_ls then
 				"jsx",
 				"tsx",
 				"javascriptreact",
-				"typescriptreact"
+				"typescriptreact",
+				"text"
+				"txt"
 			},
 			root_dir = function(fname) return vim.loop.cwd() end,
 			settings = {}

@@ -1,15 +1,15 @@
 vim.api.nvim_set_keymap(
-	"n", "<Space>ld<Space>", ":Luadev<CR>", {noremap = true}
+	Keys.N, "<Space>ld<Space>", ":Luadev<CR>", Keys.Noremap
 )
 vim.api.nvim_set_keymap(
-	"n", "<Space>ldl", "<Plug>(Luadev-RunLine)", {noremap = true}
+	Keys.N, "<Space>ldl", "<Plug>(Luadev-RunLine)", Keys.Noremap
 )
 vim.api.nvim_set_keymap(
-	"n", "<Space>ldr", "<Plug>(Luadev-Run)", {noremap = true}
+	Keys.N, "<Space>ldr", "<Plug>(Luadev-Run)", Keys.Noremap
 )
 vim.api.nvim_set_keymap(
-	"n", "<Space>ldw", "<Plug>(Luadev-RunWord)", {noremap = true}
+	Keys.N, "<Space>ldw", "<Plug>(Luadev-RunWord)", Keys.Noremap
 )
 vim.api.nvim_set_keymap(
-	"n", "<Space>ldc", "<Plug>(Luadev-Complete)", {noremap = true}
+	Keys.N, "<Space>ldc", "<Plug>(Luadev-Complete)", Keys.Noremap
 )

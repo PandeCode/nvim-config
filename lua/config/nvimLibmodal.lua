@@ -14,7 +14,7 @@ function CallWinResizeMode()
 end
 
 vim.api.nvim_set_keymap(
-	"n", "<leader>wr", ":lua CallWinResizeMode()<cr>", {noremap = true}
+	Keys.N, "<leader>wr", ":lua CallWinResizeMode()<cr>", Keys.Noremap
 )
 
 local WinMoveMode   = {
@@ -33,5 +33,5 @@ function CallWinMoveMode()
 end
 
 vim.api.nvim_set_keymap(
-	"n", "<leader>wm", ":lua CallWinMoveMode()<cr>", {noremap = true}
+	Keys.N, "<leader>wm", ":lua CallWinMoveMode()<cr>", Keys.Noremap
 )

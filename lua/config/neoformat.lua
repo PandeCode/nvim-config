@@ -20,18 +20,21 @@ vim.g.neoformat_stylua = {
 }
 
 vim.g.neoformat_enabled_lua             = { "stylua" }
-vim.g.neoformat_enabled_json            = { "prettier" }
+
 vim.g.neoformat_enabled_js              = { "prettier" }
-vim.g.neoformat_enabled_ts              = { "prettier" }
-vim.g.neoformat_enabled_jsx             = { "prettier" }
-vim.g.neoformat_enabled_tsx             = { "prettier" }
-vim.g.neoformat_enabled_typescript      = { "prettier" }
-vim.g.neoformat_enabled_javascript      = { "prettier" }
-vim.g.neoformat_enabled_typescriptreact = { "prettier" }
-vim.g.neoformat_enabled_javascriptreact = { "prettier" }
+
+vim.g.neoformat_enabled_json            = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_ts              = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_jsx             = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_tsx             = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_typescript      = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_javascript      = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_typescriptreact = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_javascriptreact = vim.g.neoformat_enabled_js
+
 vim.g.neoformat_enabled_python          = { "black" }
 vim.g.neoformat_cmake_cmakeformat       = { args = {}, stdin = 1, exe = "cmake-format" }
 vim.g.neoformat_only_msg_on_error       = 0
 
-vim.api.nvim_set_keymap("n", "<Space>ff", ":Neoformat<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<Space>ff", ":Neoformat<CR>", { noremap = true })
+vim.api.nvim_set_keymap(Keys.N, "<Space>ff", ":Neoformat<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<Space>ff", ":Neoformat<CR>", Keys.Noremap)

@@ -2,15 +2,18 @@ require("plenary.reload").reload_module("popup")
 
 local popup = require("popup")
 local http_request = require("http.request")
-local socket_http = require("http.compat.socket")
 local commandBaseUri = "http://localhost:8080/command/"
+
+---@diagnostic disable-next-line: unused-function
+local function printHeaders(headers)
+	for lua_field, lua_value in headers:each() do
+		print(lua_field, lua_value)
+	end
+end
 
 local function httpGet(uri)
 	local new_http_variable = http_request.new_from_uri(uri)
 	local headers, stream = assert(new_http_variable:go())
-	--for lua_field, lua_value in headers:each() do
-	--print(lua_field, lua_value)
-	--end
 	local body_http_variable = assert(stream:get_body_as_string())
 	return body_http_variable, headers
 end
@@ -115,27 +118,31 @@ Spotify = {
 			httpGet(commandBaseUri .. "dislikeCurrent")
 		end,
 	},
+
 	websocket = {
 		client = nil,
+		clientServer = "ws://localhost:8080/client/ws",
 
 		connectWs = function()
-			local new_http_variable = http_request.new_from_uri("http://localhost:8080/client/ws")
-			local headers, stream = assert(new_http_variable:go())
-
-			--local body, code = assert(socket_http.request("http://localhost:8080/client/ws"))
-			--print(code, #body) --> 200, 2514
-
-			for lua_field, lua_value in headers:each() do
-				print(lua_field, lua_value)
+			if Spotify.websocket.client == nil then
+				Spotify.websocket.client = nil
+			return true
 			end
-			local body_http_variable = assert(stream:get_body_as_string())
-			print(body_http_variable)
+			return false
 		end,
+
 		playPauseWs = function()
-			Spotify.websocket.connectWs()
+			assert(Spotify.websocket.connectWs())
+			Spotify.websocket.client.send('{"type": "command", "message": "playPause"}')
 		end,
-		pauseWs = function() end,
-		playWs = function() end,
+		pauseWs = function()
+			assert(Spotify.websocket.connectWs())
+			Spotify.websocket.client.send('{"type": "command", "message": "pause"}')
+		end,
+		playWs = function()
+			assert(Spotify.websocket.connectWs())
+			Spotify.websocket.client.send('{"type": "command", "message": "play"}')
+		end,
 	},
 }
 

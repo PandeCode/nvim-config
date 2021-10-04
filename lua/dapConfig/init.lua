@@ -1,13 +1,17 @@
 Dapui = require("dapui")
 Dap = require("dap")
 
--- stylua: ignore start
-RequireForFileType("lua",                                                                 'dapConfig.nlua'  )
-RequireForFileType("cpp,rust,c",                                                          'dapConfig.cpp'  )
-RequireForFileType("python",                                                              'dapConfig.python'  )
-RequireForFileType("js,ts,typescript,javascript,javascriptreact,typescriptreact,jsx,tsx", 'dapConfig.node'  )
-RequireForFileType("csharp",                                                              'dapConfig.netcore'  )
--- stylua: ignore end
+local dap_install = require("dap-install")
+
+dap_install.config("ccppr_lldb", {})
+dap_install.config("chrome", {})
+dap_install.config("lua", {})
+dap_install.config("jsnode", {})
+dap_install.config("python", {})
+
+dap_install.setup({
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+})
 
 Dap.listeners.after.event_initialized["dapui_config"] = function()
 	Dapui.open()
@@ -83,4 +87,3 @@ vim.api.nvim_set_keymap(Keys.N, "<SPACE>dr",       "<CMD>lua require'dap'.repl.o
 vim.api.nvim_set_keymap(Keys.N, "<SPACE>dj",       "<CMD>lua require'dap'.step_into()<CR>",         Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.N, "<SPACE>dn",       "<CMD>lua require'dap'.step_over()<CR>",         Keys.Noremap)
 -- stylua: ignore end
-

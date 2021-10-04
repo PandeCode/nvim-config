@@ -433,6 +433,10 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	<td>Integration for nvim-dap with telescope.nvim </td>
   </tr>
   <tr>
+	<td>https://github.com/Pocco81/DAPInstall.nvim</td>
+	<td>A NeoVim plugin for managing several debuggers for Nvim-dap.</td>
+  </tr>
+  <tr>
 	<td>https://github.com/neovim/nvim-lspconfig</td>
 	<td>Quickstart configurations for the Nvim LSP client</td>
   </tr>

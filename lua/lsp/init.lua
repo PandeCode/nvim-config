@@ -109,7 +109,7 @@ CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
 
 -- stylua: ignore start
 
-RequireForFileType("bash",                                                                'lsp.bashls');
+RequireForFileType("sh,inc,bash,command",                                                 'lsp.bashls');
 RequireForFileType("cpp,c",                                                               'lsp.clangd');
 RequireForFileType("cmake",                                                               'lsp.cmake');
 RequireForFileType("css,sass,less",                                                       'lsp.cssls');

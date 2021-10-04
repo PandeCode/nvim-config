@@ -201,6 +201,7 @@ return packer.startup({
 			end,
 			requires = { "RishabhRD/popfix", "RishabhRD/nvim-lsputils" },
 			ft = {
+				"sh",
 				"bash",
 				"c",
 				"cmake",
@@ -287,6 +288,7 @@ return packer.startup({
 		use({
 			"mfussenegger/nvim-dap",
 			requires = {
+				"Pocco81/DAPInstall.nvim",
 				"theHamsta/nvim-dap-virtual-text",
 				"rcarriga/nvim-dap-ui",
 				"nvim-telescope/telescope-dap.nvim",

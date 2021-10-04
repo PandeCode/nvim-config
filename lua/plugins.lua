@@ -306,7 +306,7 @@ return packer.startup({
 				"python",
 			},
 			config = function()
-				require("dapConfig")
+				require("config.dapConfig")
 			end,
 		})
 

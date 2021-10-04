@@ -387,6 +387,14 @@ return packer.startup({
 			end,
 		})
 
+		use({
+			"folke/todo-comments.nvim",
+			requires = "nvim-lua/plenary.nvim",
+			config = function()
+				require("config.todo")
+			end,
+		})
+
 		use_rocks("http")
 	end,
 })

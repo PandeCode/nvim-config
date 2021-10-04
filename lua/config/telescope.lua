@@ -7,7 +7,7 @@ vim.api.nvim_set_keymap(n, "<space>tf",   "<CMD>Telescope find_files<CR>",      
 vim.api.nvim_set_keymap(n, "<space>tl",   "<CMD>Telescope live_grep<CR>",                   noremapSilent)
 vim.api.nvim_set_keymap(n, "<space>tb",   "<CMD>Telescope buffers<CR>",                     noremapSilent)
 vim.api.nvim_set_keymap(n, "<space>th",   "<CMD>Telescope help_tags<CR>",                   noremapSilent)
-vim.api.nvim_set_keymap(n, "<space>tt",   "<CMD>Telescope colorsheme<CR>",                  noremapSilent)
+vim.api.nvim_set_keymap(n, "<space>tc",   "<CMD>Telescope colorsheme<CR>",                  noremapSilent)
 vim.api.nvim_set_keymap(n, "<space>tmf",  "<CMD>Telescope media_files<CR>",                 noremapSilent)
 vim.api.nvim_set_keymap(n, "<space>tgi",  "<CMD>Telescope gh issues<CR>",                   noremapSilent)
 vim.api.nvim_set_keymap(n, "<space>tgpr", "<CMD>Telescope gh pull_request<CR>",             noremapSilent)

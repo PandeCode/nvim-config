@@ -545,4 +545,19 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 	  <td>Improve startup time for Neovim<td/>
   </tr>
 
+  <tr>
+	  <td>https://github.com/folke/todo-comments.nvim<td/>
+	  <td>Highlight, list and search todo comments in your projects.<td/>
+  </tr>
+
+  <tr>
+	  <td><td/>
+	  <td><td/>
+  </tr>
+
+  <tr>
+	  <td><td/>
+	  <td><td/>
+  </tr>
+
  </table>

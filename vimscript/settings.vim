@@ -6,6 +6,9 @@ set shortmess+="c"
 syntax sync minlines=256
 filetype indent off
 
+autocmd BufNewFile,BufRead *.frag set filetype=glsl
+autocmd BufNewFile,BufRead *.vert set filetype=glsl
+
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 autocmd BufNewFile,BufRead *.h set filetype=c

@@ -107,6 +107,10 @@ CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
+FLAGS = {
+	debounce_text_changes = 500,
+}
+
 -- stylua: ignore start
 
 RequireForFileType("sh,inc,bash,command",                                                 'lsp.bashls');
@@ -126,5 +130,7 @@ RequireForFileType("svelte",                                                    
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
 RequireForFileType("vimscript",                                                           'lsp.vimls');
 RequireForFileType("yaml",                                                                'lsp.yamlls');
+RequireForFileType("glsl,vert,frag,hlsl",                                                 'lsp.glsl');
 
 -- stylua: ignore end
+

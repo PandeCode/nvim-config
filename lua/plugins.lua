@@ -230,6 +230,9 @@ return packer.startup({
 				"typescriptreact",
 				"vimscript",
 				"yaml",
+				"glsl",
+				"vert",
+				"frag",
 			},
 		})
 

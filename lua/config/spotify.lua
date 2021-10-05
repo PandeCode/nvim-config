@@ -2,9 +2,10 @@ require("plenary.reload").reload_module("popup")
 
 local popup = require("popup")
 local http_request = require("http.request")
+local http_websocket = require("http.websocket")
 local commandBaseUri = "http://localhost:8080/command/"
 
----@diagnostic disable-next-line: unused-function
+---@diagnostic disable-next-line: unused-function, unused-local
 local function printHeaders(headers)
 	for lua_field, lua_value in headers:each() do
 		print(lua_field, lua_value)
@@ -120,28 +121,85 @@ Spotify = {
 	},
 
 	websocket = {
-		client = nil,
 		clientServer = "ws://localhost:8080/client/ws",
+		client = nil,
+		reset = function()
+			Spotify.websocket.client = nil
+		end,
 
-		connectWs = function()
+		connect = function()
 			if Spotify.websocket.client == nil then
-				Spotify.websocket.client = nil
-			return true
+				Spotify.websocket.client = http_websocket.new_from_uri(Spotify.websocket.clientServer)
+				Spotify.websocket.client:connect()
+				return true
 			end
-			return false
+			return true
 		end,
 
-		playPauseWs = function()
-			assert(Spotify.websocket.connectWs())
-			Spotify.websocket.client.send('{"type": "command", "message": "playPause"}')
+		code = function(code)
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "code", "message": "' .. code .. '"}')
 		end,
-		pauseWs = function()
-			assert(Spotify.websocket.connectWs())
-			Spotify.websocket.client.send('{"type": "command", "message": "pause"}')
+
+		next = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "next"}')
 		end,
-		playWs = function()
-			assert(Spotify.websocket.connectWs())
-			Spotify.websocket.client.send('{"type": "command", "message": "play"}')
+		play = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "play"}')
+		end,
+		pause = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "pause"}')
+		end,
+		previous = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "previous"}')
+		end,
+		playPause = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "playPause"}')
+		end,
+		playState = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "playState"}')
+		end,
+		likeCurrent = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "likeCurrent"}')
+		end,
+		enableRepeat = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "enableRepeat"}')
+		end,
+		repeatStatus = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "repeatStatus"}')
+		end,
+		toggleShuffle = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "toggleShuffle"}')
+		end,
+		dislikeCurrent = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "dislikeCurrent"}')
+		end,
+		isCurrentLiked = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "isCurrentLiked"}')
+		end,
+		enableRepeatOne = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "enableRepeatOne"}')
+		end,
+		disableRepeatOne = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "disableRepeatOne"}')
+		end,
+		toggleLikeCurrent = function()
+			assert(Spotify.websocket.connect())
+			Spotify.websocket.client:send('{"type": "command", "message": "toggleLikeCurrent"}')
 		end,
 	},
 }

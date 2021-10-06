@@ -7,6 +7,18 @@ vim.g.neoformat_basic_format_retab = 0
 -- " Enable trimmming of trailing whitespace
 vim.g.neoformat_basic_format_trim = 1
 
+vim.g.neoformat_sh_shfmt = {
+	exe = "shfmt",
+	stdin = 1,
+	args = {
+		"-sr", -- Redirect operators will be followed by a space.
+		"-ci", -- Switch cases will be indented.
+		"-s", -- Simplify the code.
+		"-i",  -- Indent: 0 for tabs (default), >0 for number of spaces.
+		"0",
+	},
+}
+
 vim.g.neoformat_stylua = {
 	exe = "stylua",
 	stdin = 1,
@@ -18,6 +30,8 @@ vim.g.neoformat_stylua = {
 		"-",
 	},
 }
+
+vim.g.neoformat_enabled_sh             = { "shfmt" }
 
 vim.g.neoformat_enabled_lua             = { "stylua" }
 

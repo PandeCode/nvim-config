@@ -1,6 +1,8 @@
 require("plenary.reload").reload_module("popup")
 
 local popup = require("popup")
+
+local http_headers = require("http.headers")
 local http_request = require("http.request")
 local http_websocket = require("http.websocket")
 local commandBaseUri = "http://localhost:8080/command/"
@@ -117,6 +119,19 @@ Spotify = {
 		end,
 		dislikeCurrent = function()
 			httpGet(commandBaseUri .. "dislikeCurrent")
+		end,
+		code = function(text)
+			local requestHeaders = http_headers.new()
+			requestHeaders:append("Content-Type", "application/json")
+			requestHeaders:append("Accept", "application/json")
+			requestHeaders:append(":method", "POST")
+
+			local request = http_request.new_from_uri("http://localhost:8080/code", requestHeaders)
+			request:set_body('{"command": "' .. text .. '"}')
+
+			local headers, stream = assert(request:go())
+			local body_http_variable = assert(stream:get_body_as_string())
+			return body_http_variable, headers
 		end,
 	},
 

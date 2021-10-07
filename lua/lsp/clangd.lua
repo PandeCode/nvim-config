@@ -2,7 +2,7 @@ NVIM_LSP.clangd.setup({
 	on_attach = function()
 		ON_ATTACH()
 
-		vim.api.nvim_buf_set_keymap(0, Keys.N, "<space>fh", "<Cmd>ClangdSwitchSourceHeader<CR>", Keys.NoremapSilent)
+		vim.api.nvim_buf_set_keymap(0, Keys.N, "<space>gh", "<Cmd>ClangdSwitchSourceHeader<CR>", Keys.NoremapSilent)
 	end,
 	capabilities = CAPABILITIES,
 	flags = FLAGS;

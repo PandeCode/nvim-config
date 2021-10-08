@@ -133,6 +133,12 @@ Spotify = {
 			local body_http_variable = assert(stream:get_body_as_string())
 			return body_http_variable, headers
 		end,
+		reload = function()
+			Spotify.http.code("location.href=location.href")
+		end,
+		displayNone = function()
+			Spotify.http.code("document.querySelector('html').style.display='none'")
+		end,
 	},
 
 	websocket = {
@@ -216,6 +222,14 @@ Spotify = {
 			assert(Spotify.websocket.connect())
 			Spotify.websocket.client:send('{"type": "command", "message": "toggleLikeCurrent"}')
 		end,
+
+		reload = function()
+			Spotify.websocket.code("location.href=location.href")
+		end,
+		displayNone = function()
+			Spotify.websocket.code("document.querySelector('html').style.display='none'")
+		end,
+
 	},
 }
 

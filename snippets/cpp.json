@@ -30,8 +30,8 @@
 		"description": "Class Header Setup",
 		"body": [
 			"#include \"$TM_FILENAME_BASE.hpp\"\n",
-			"$TM_FILENAME_BASE ($1) {}",
-			"~$TM_FILENAME_BASE () {}",
+			"$TM_FILENAME_BASE::$TM_FILENAME_BASE ($1) {}",
+			"$TM_FILENAME_BASE::~$TM_FILENAME_BASE () {}",
 			"$2"
 		]
 	},

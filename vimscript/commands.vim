@@ -24,5 +24,6 @@ autocmd Filetype cpp,c vnoremap <buffer> <SPACE>cf <esc>`>a// clang-format on<es
 autocmd Filetype lua   vnoremap <buffer> <SPACE>cf <esc>`>a-- stylua: ignore end<esc>`<i-- stylua: ignore start<esc>
 autocmd Filetype py    vnoremap <buffer> <SPACE>cf <esc>`>a# fmt: on<esc>`<i# fmt: off<esc>
 
-
+autocmd Filetype rust  vnoremap <buffer> <SPACE>cf <esc>`<i#[rustfmt::skip]<esc>
+autocmd Filetype js,ts,tsx,jsx,vue,json,svelte,javascriptreact,typescriptreact  vnoremap <buffer> <SPACE>cf <esc>`<i// prettier-ignore<esc>
 

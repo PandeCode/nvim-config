@@ -8,12 +8,12 @@ vim.api.nvim_set_keymap(Keys.N, "<space>lr", "<Cmd>LspRestart<CR>", Keys.Noremap
 vim.api.nvim_set_keymap(Keys.N, "<space>li", "<Cmd>LspInfo<CR>",    Keys.NoremapSilent)
 -- stylua: ignore end
 local border_chars = {
-    TOP_LEFT       = "┌",
-    TOP_RIGHT      = "┐",
+    TOP_LEFT       = "╭", -- ┌
+    TOP_RIGHT      = "╮", -- ┐
     MID_HORIZONTAL = "─",
     MID_VERTICAL   = "│",
-    BOTTOM_LEFT    = "└",
-    BOTTOM_RIGHT   = "┘"
+    BOTTOM_LEFT    = "╰", -- └
+    BOTTOM_RIGHT   = "╯" -- ┘
 }
 
 vim.g.lsp_utils_location_opts = {

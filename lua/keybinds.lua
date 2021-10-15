@@ -23,6 +23,8 @@ vim.api.nvim_set_keymap(Keys.NoneStr, "G",         "G<End>",                    
 vim.api.nvim_set_keymap(Keys.NoneStr, "Y",         "y$",                                                          Keys.Noremap)
 
 vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w", "<c-w>",                                                       Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w|", "<CMD>vsplit<CR>",                                            Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w_", "<CMD>split<CR>",                                             Keys.Noremap)
 
 -- Save on Ctrl-S
 vim.api.nvim_set_keymap(Keys.N,       "<c-s>",     ":w<CR>",                                                      Keys.Noremap)

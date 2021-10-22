@@ -6,6 +6,8 @@ set shortmess+="c"
 syntax sync minlines=256
 filetype indent off
 
+autocmd BufNewFile,BufRead *.keys set filetype=keys
+
 autocmd BufNewFile,BufRead *.frag set filetype=glsl
 autocmd BufNewFile,BufRead *.vert set filetype=glsl
 

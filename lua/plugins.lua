@@ -188,6 +188,7 @@ return packer.startup({
 				"typescriptreact",
 				"javascript",
 				"vimscript",
+				"vim",
 				"yaml",
 			},
 		})

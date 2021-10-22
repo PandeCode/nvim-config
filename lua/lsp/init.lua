@@ -128,7 +128,7 @@ RequireForFileType("css,jsx,tsx,typescriptreact,javascriptreact",               
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
 RequireForFileType("svelte",                                                              'lsp.svelte');
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
-RequireForFileType("vimscript",                                                           'lsp.vimls');
+RequireForFileType("vimscript,vim",                                                       'lsp.vimls');
 RequireForFileType("yaml",                                                                'lsp.yamlls');
 RequireForFileType("glsl,vert,frag,hlsl",                                                 'lsp.glsl');
 

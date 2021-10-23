@@ -1,28 +1,19 @@
+filetype indent on
+
 set t_Co=256
 set t_ut=
-
 set shortmess+="c"
+set noet ci pi sts=0 sw=4 ts=4
 
 syntax sync minlines=256
-filetype indent off
 
 autocmd BufNewFile,BufRead *.keys set filetype=keys
-
 autocmd BufNewFile,BufRead *.frag set filetype=glsl
 autocmd BufNewFile,BufRead *.vert set filetype=glsl
-
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 autocmd BufNewFile,BufRead *.h set filetype=c
 
-set noexpandtab!
-set softtabstop=4
-set tabstop=4
-
-autocmd FileType * setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd FileType * set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd BufNewFile,BufRead,BufAdd,BufCreate,BufFilePre,BufReadPre,BufWrite,BufWritePre * setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-autocmd BufNewFile,BufRead,BufAdd,BufCreate,BufFilePre,BufReadPre,BufWrite,BufWritePre * set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " assumes set ignorecase smartcase;
 augroup dynamic_smartcase

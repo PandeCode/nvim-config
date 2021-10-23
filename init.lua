@@ -6,3 +6,5 @@ require("settings")
 require("commands")
 require("keybinds")
 require("config.spotify")
+
+vim.g.python_recommended_style = 0

@@ -6,9 +6,11 @@
 			"from sys import exit",
 			"from fire import Fire # type: ignore",
 			"",
+			"",
 			"def main() -> int:",
 			"\tprint('Hello, $TM_FILENAME_BASE!')",
 			"\treturn 0",
+			"",
 			"",
 			"if __name__ == '__main__':",
 			"\texit(Fire(main)) # type: ignore"

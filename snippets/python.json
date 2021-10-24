@@ -4,7 +4,7 @@
 		"description": "Start a python main file",
 		"body": [
 			"from sys import exit",
-			"from fire import Fire # type: ignore",
+			"from fire import Fire  # type: ignore",
 			"",
 			"",
 			"def main() -> int:",
@@ -13,7 +13,7 @@
 			"",
 			"",
 			"if __name__ == '__main__':",
-			"\texit(Fire(main)) # type: ignore"
+			"\texit(Fire(main))  # type: ignore"
 		]
 	},
 	"pygame init": {

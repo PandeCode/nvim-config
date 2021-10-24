@@ -3,7 +3,7 @@
 		"prefix": "main",
 		"description": "Start a python main file",
 		"body": [
-			"#!/bin/evn python3",
+			"#!/bin/env python3",
 			"from fire import Fire  # type: ignore",
 			"",
 			"",
@@ -20,7 +20,7 @@
 		"prefix": "pyg",
 		"description": "Start a pygame project",
 		"body": [
-			"#!/bin/evn python3",
+			"#!/bin/env python3",
 			"import pygame",
 			"pygame.init()",
 			"",
@@ -49,7 +49,7 @@
 	"pygame_gui": {
 		"prefix": "pyggui",
 		"body": [
-			"#!/bin/evn python3",
+			"#!/bin/env python3",
 			"import pygame",
 			"from pygame import Rect",
 			"import pygame_gui",

@@ -1,3 +1,5 @@
+[FORMAT]
+indent-string=\t
 disable=
     too-many-instance-attributes,
     len-as-condition,

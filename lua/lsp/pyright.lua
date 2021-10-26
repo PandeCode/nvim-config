@@ -10,7 +10,7 @@ NVIM_LSP.pyright.setup({
 				autoSearchPaths = true, -- Used to automatically add search paths based on some predefined names (like src).
 				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
-				stubPath = "./typings",
+				stubPath = vim.fn.expand("~") .. "/.cache/typings",
 				typeCheckingMode = "strict", -- Used to specify the level of type checking analysis performed.
 			},
 		},

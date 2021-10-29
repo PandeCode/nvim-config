@@ -111,8 +111,12 @@ vim.api.nvim_set_keymap(n, "<space>b[", ":BufferLineMovePrev<CR>", noremapSilent
 
 -- These commands will sort buffers by directory, language, or a custom criteria
 vim.api.nvim_set_keymap(n, "<space>be", ":BufferLineSortByExtension<CR>", noremapSilent)
-vim.api.nvim_set_keymap(n, "<space>bd", ":BufferLineSortByDirectory<CR>", noremapSilent)
-vim.api.nvim_set_keymap(n, "<space>bs", ":BufferLineSortByTabs<CR>", noremapSilent)
+vim.api.nvim_set_keymap(n, "<space>bst", ":BufferLineSortByTabs<CR>", noremapSilent)
+vim.api.nvim_set_keymap(n, "<space>bsd", ":BufferLineSortByDirectory<CR>", noremapSilent)
+
+vim.api.nvim_set_keymap(n, "<space>bd", ":bd!<CR>", noremapSilent)
+vim.api.nvim_set_keymap(n, "<space>bp", ":bp<CR>", noremapSilent)
+vim.api.nvim_set_keymap(n, "<space>bn", ":bn<CR>", noremapSilent)
 -- vim.api.nvim_set_keymap(n, "bs", ":lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>", noremapSilent)
 
 -- Goto buffer in position...

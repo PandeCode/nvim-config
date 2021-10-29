@@ -50,5 +50,5 @@ vim.g.neoformat_enabled_python          = { "black" }
 vim.g.neoformat_cmake_cmakeformat       = { args = {}, stdin = 1, exe = "cmake-format" }
 vim.g.neoformat_only_msg_on_error       = 0
 
-vim.api.nvim_set_keymap(Keys.N, "<Space>ff", ":Neoformat<CR>", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.V, "<Space>ff", ":Neoformat<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<Space>cf", ":Neoformat<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<Space>cf", ":Neoformat<CR>", Keys.Noremap)

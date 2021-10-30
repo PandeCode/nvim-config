@@ -64,9 +64,9 @@ ON_ATTACH = function(_, bufnr)
 
     -- Mappings.
 -- stylua: ignore start
-    buf_set_keymap(Keys.N, "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>ca",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
 
-    buf_set_keymap(Keys.V, "<space>a",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
+    buf_set_keymap(Keys.V, "<space>ca",        "<Cmd>lua vim.lsp.buf.code_action()<CR>",                                Keys.NoremapSilent)
     buf_set_keymap(Keys.N, "gD",              "<Cmd>lua vim.lsp.buf.declaration()<CR>",                                Keys.NoremapSilent)
     buf_set_keymap(Keys.N, "gd",              "<Cmd>lua vim.lsp.buf.definition()<CR>",                                 Keys.NoremapSilent)
     buf_set_keymap(Keys.N, "K",               "<Cmd>lua vim.lsp.buf.hover()<CR>",                                      Keys.NoremapSilent)

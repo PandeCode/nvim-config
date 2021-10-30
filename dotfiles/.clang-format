@@ -1,5 +1,5 @@
 AlignAfterOpenBracket: AlwaysBreak
-AlignArrayOfStructures: Right
+AlignArrayOfStructures: Left
 AlignConsecutiveAssignments: AcrossEmptyLines
 AlignConsecutiveBitFields: AcrossEmptyLines
 AlignConsecutiveDeclarations: Consecutive

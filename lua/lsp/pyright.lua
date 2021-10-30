@@ -11,7 +11,7 @@ NVIM_LSP.pyright.setup({
 				diagnosticMode = "openFilesOnly",
 				useLibraryCodeForTypes = true,
 				stubPath = vim.fn.expand("~") .. "/.cache/typings",
-				typeCheckingMode = "strict", -- Used to specify the level of type checking analysis performed.
+				typeCheckingMode = "basic", -- Used to specify the level of type checking analysis performed.
 			},
 		},
 	},

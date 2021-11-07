@@ -7,6 +7,6 @@ NVIM_LSP.bashls.setup({
 	cmd_env = {
 		GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)",
 	},
-	filetypes = { "sh" },
+	filetypes = { "sh", "bash" },
 	--root_dir = vim's starting directory
 })

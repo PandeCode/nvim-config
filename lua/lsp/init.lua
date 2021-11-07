@@ -113,7 +113,7 @@ FLAGS = {
 
 -- stylua: ignore start
 
-RequireForFileType("sh,inc,bash,command",                                                 'lsp.bashls');
+RequireForFileType("fish,sh,inc,bash,command",                                                 'lsp.bashls');
 RequireForFileType("cpp,c",                                                               'lsp.clangd');
 RequireForFileType("cmake",                                                               'lsp.cmake');
 RequireForFileType("css,sass,less",                                                       'lsp.cssls');

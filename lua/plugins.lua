@@ -148,6 +148,7 @@ return packer.startup({
 				require("config.treesitter")
 			end,
 			ft = {
+				"sh",
 				"bash",
 				"c",
 				"c_sharp",
@@ -272,6 +273,7 @@ return packer.startup({
 				"typescript",
 				"typescriptreact",
 				"javascriptreact",
+				"sh",
 				"bash",
 				"ruby",
 				"php",

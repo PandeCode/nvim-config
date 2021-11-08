@@ -355,7 +355,12 @@ return packer.startup({
 			end,
 		})
 
-		use("ludovicchabant/vim-gutentags")
+		use({
+			"ludovicchabant/vim-gutentags",
+			config = function()
+				vim.g.gutentags_cache_dir = vim.fn.expand("~") .. "/.cache/ctags"
+			end,
+		})
 		use("skywind3000/asyncrun.vim")
 		use({
 			"Shatur/neovim-cmake",

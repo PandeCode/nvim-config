@@ -66,7 +66,7 @@ vim.api.nvim_set_keymap(Keys.S,  "<Tab>",     "v:lua.tab_complete()",           
 vim.api.nvim_set_keymap(Keys.I,  "<S-Tab>",   "v:lua.s_tab_complete()",                                              Keys.Expr)
 vim.api.nvim_set_keymap(Keys.S,  "<S-Tab>",   "v:lua.s_tab_complete()",                                              Keys.Expr)
 
-vim.api.nvim_set_keymap(Keys.I, "<cr>",      "compe#confirm(luaeval(\"require 'nvim-autopairs'.autopairs_cr()\"))", Keys.Expr)
+--vim.api.nvim_set_keymap(Keys.I, "<cr>",      "compe#confirm(luaeval(\"require 'nvim-autopairs'.autopairs_cr()\"))", Keys.Expr)
 vim.api.nvim_set_keymap(Keys.I, "<c-space>", "compe#complete()",                                                    Keys.Expr)
 vim.api.nvim_set_keymap(Keys.I, "<C-j>",     "compe#scroll({ 'delta': +4 })",                                       Keys.Expr)
 vim.api.nvim_set_keymap(Keys.I, "<C-k>",     "compe#scroll({ 'delta': -4 })",                                       Keys.Expr)

@@ -237,7 +237,6 @@ return packer.startup({
 				"frag",
 			},
 		})
-
 		use({
 			"onsails/lspkind-nvim",
 			config = function()
@@ -250,15 +249,22 @@ return packer.startup({
 				require("config.vsnip")
 			end,
 		})
-		use({
-			"hrsh7th/nvim-compe",
-			config = function()
-				require("config.compe")
-			end,
-		})
-		use({ "andersevenrud/compe-tmux" })
-		use({ "Shougo/echodoc.vim" })
 
+		use({
+			"hrsh7th/nvim-cmp",
+			config = function()
+				require("config.cmpConfig")
+			end,
+			requires = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-cmdline",
+				"hrsh7th/cmp-vsnip",
+			},
+		})
+
+		use({ "Shougo/echodoc.vim" })
 		use({
 			"kkoomen/vim-doge",
 			config = function()

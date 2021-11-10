@@ -32,6 +32,7 @@ cmp.setup({
 		-- { name = 'snippy' }, -- For snippy users.
 	}, {
 		{ name = "buffer" },
+		{ name = "path" },
 	}),
 })
 
@@ -46,7 +47,6 @@ cmp.setup.cmdline("/", {
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
 		{ name = "path" },
-	}, {
 		{ name = "cmdline" },
 	}),
 })

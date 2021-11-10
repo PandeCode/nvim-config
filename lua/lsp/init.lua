@@ -95,7 +95,8 @@ end
 vim.lsp.set_log_level "trace"
 NVIM_LSP = require "lspconfig"
 
-CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
+--CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
+CAPABILITIES = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 CAPABILITIES.textDocument.completion.completionItem.snippetSupport = true
 CAPABILITIES.textDocument.semanticHighlightingCapabilities= {semanticHighlighting = true}
 CAPABILITIES.window.workDoneProgress = true;
@@ -113,7 +114,7 @@ FLAGS = {
 
 -- stylua: ignore start
 
-RequireForFileType("fish,sh,inc,bash,command",                                                 'lsp.bashls');
+RequireForFileType("fish,sh,inc,bash,command",                                            'lsp.bashls');
 RequireForFileType("cpp,c",                                                               'lsp.clangd');
 RequireForFileType("cmake",                                                               'lsp.cmake');
 RequireForFileType("css,sass,less",                                                       'lsp.cssls');

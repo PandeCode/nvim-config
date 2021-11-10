@@ -2,6 +2,12 @@
 local cmp = require("cmp")
 
 cmp.setup({
+	completion = {
+		completeopt = "menu,menuone,noinsert",
+	},
+	formatting = {
+		format = require("lspkind").cmp_format(),
+	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
 		expand = function(args)
@@ -34,6 +40,13 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 	}),
+})
+
+-- Use buffer source for `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline("?", {
+	sources = {
+		{ name = "buffer" },
+	},
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

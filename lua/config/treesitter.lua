@@ -10,6 +10,7 @@ require "nvim-treesitter.configs".setup {
         "cpp",
         "css",
         "dart",
+        "haskell",
         "dockerfile",
         "fish",
         "gdscript",

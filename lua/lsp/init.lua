@@ -114,24 +114,25 @@ FLAGS = {
 
 -- stylua: ignore start
 
-RequireForFileType("fish,sh,inc,bash,command",                                            'lsp.bashls');
-RequireForFileType("cpp,c",                                                               'lsp.clangd');
 RequireForFileType("cmake",                                                               'lsp.cmake');
-RequireForFileType("css,sass,less",                                                       'lsp.cssls');
-RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt",           'lsp.emmet');
-RequireForFileType("gdscript",                                                            'lsp.gdscript');
-RequireForFileType("html",                                                                'lsp.html');
-RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
+RequireForFileType("cpp,c",                                                               'lsp.clangd');
 RequireForFileType("csharp",                                                              'lsp.omnisharp');
-RequireForFileType("rust",                                                                'lsp.rust');
-RequireForFileType("python",                                                              'lsp.pyright');
 RequireForFileType("css,jsx,tsx,typescriptreact,javascriptreact",                         'lsp.stylelint_lsp');
+RequireForFileType("css,sass,less",                                                       'lsp.cssls');
+RequireForFileType("fish,sh,inc,bash,command",                                            'lsp.bashls');
+RequireForFileType("gdscript",                                                            'lsp.gdscript');
+RequireForFileType("glsl,vert,frag,hlsl",                                                 'lsp.glsl');
+RequireForFileType("haskell,lhaskell",                                                    'lsp.haskell');
+RequireForFileType("html",                                                                'lsp.html');
+RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt",           'lsp.emmet');
+RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
+RequireForFileType("python",                                                              'lsp.pyright');
+RequireForFileType("rust",                                                                'lsp.rust');
 RequireForFileType("svelte",                                                              'lsp.svelte');
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
 RequireForFileType("vimscript,vim",                                                       'lsp.vimls');
 RequireForFileType("yaml",                                                                'lsp.yamlls');
-RequireForFileType("glsl,vert,frag,hlsl",                                                 'lsp.glsl');
 
 -- stylua: ignore end
 

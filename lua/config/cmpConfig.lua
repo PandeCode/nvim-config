@@ -2,9 +2,9 @@
 local cmp = require("cmp")
 
 cmp.setup({
-	completion = {
-		completeopt = "menu,menuone,noinsert",
-	},
+	--completion = {
+		--completeopt = "menu,menuone,noinsert",
+	--},
 	formatting = {
 		format = require("lspkind").cmp_format(),
 	},

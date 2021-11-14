@@ -1,6 +1,8 @@
 vim.cmd("source $HOME/.config/nvim/vimscript/config/tree.vim")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>e", "<CMD>:NvimTreeToggle<CR>", Keys.NoremapSilent)
+
 -- following options are the default
 require("nvim-tree").setup({
 

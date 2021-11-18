@@ -5,6 +5,8 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-i>",     "<c-a>",                                                       Keys.None)
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-x>",     "<c-d>",                                                       Keys.None)
 
+vim.api.nvim_set_keymap(Keys.N,       "L",         "$",                                                            Keys.None)
+vim.api.nvim_set_keymap(Keys.N,       "H",         "^",                                                            Keys.None)
 vim.api.nvim_set_keymap(Keys.N,       "Q",         "",                                                            Keys.None)
 
 vim.api.nvim_set_keymap(Keys.NoneStr, "<SPACE>fe", "<CMD>edit<CR>",                                               Keys.Noremap)

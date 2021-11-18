@@ -3,7 +3,7 @@ require("lspconfig").hls.setup({
 	capabilities = CAPABILITIES,
 	flags = FLAGS,
 
-	--root_dir = NVIM_LSP.util.root_pattern(".git", "*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"),
+	root_dir = NVIM_LSP.util.root_pattern(".git", "*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"),
 	--cmd = { "haskell-language-server-wrapper", "--lsp" },
 	--filetypes = { "haskell", "lhaskell" },
 	--lspinfo = function on_stdout(_, data, _)

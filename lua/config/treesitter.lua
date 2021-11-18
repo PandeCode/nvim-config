@@ -24,6 +24,8 @@ require "nvim-treesitter.configs".setup {
         "json5",
         "kotlin",
         "lua",
+        "org",
+        "query",
         "python",
         "regex",
         "rst",

@@ -1,15 +1,26 @@
 {
-		"Main file": {
-				"prefix": "main",
-				"description": "Main file Setup",
-				"body": [
-						"#include <stdio.h>",
-						"",
-						"int main() {",
-						"\tprintf(\"$TM_FILENAME_BASE\\n\");",
-						"",
-						"\treturn 0;",
-						"}"
-				]
-		}
+	"Main file": {
+		"prefix": "main",
+		"description": "Main file Setup",
+		"body": [
+			"#include <stdio.h>",
+			"",
+			"int main(int argc, const char* argc[]) {",
+			"\tprintf(\"$TM_FILENAME_BASE\\n\");",
+			"",
+			"\treturn 0;",
+			"}"
+		]
+	},
+	"If Def Guards": {
+		"prefix": "#ifdef",
+		"description": "If def guards",
+		"body": [
+			"#ifndef ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H",
+			"\t#define ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H",
+			"\t",
+			"\t",
+			"#endif // ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H"
+		]
+	}
 }

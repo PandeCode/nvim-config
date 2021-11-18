@@ -195,6 +195,14 @@ return packer.startup({
 				"yaml",
 			},
 		})
+		use({ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } })
+
+		use({
+			"kristijanhusak/orgmode.nvim",
+			config = function()
+				require("config.orgmode")
+			end,
+		})
 
 		-- use "sheerun/vim-polyglot"
 

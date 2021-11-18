@@ -3,7 +3,7 @@ local cmp = require("cmp")
 
 cmp.setup({
 	--completion = {
-		--completeopt = "menu,menuone,noinsert",
+	--completeopt = "menu,menuone,noinsert",
 	--},
 	formatting = {
 		format = require("lspkind").cmp_format(),
@@ -31,6 +31,7 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 	},
 	sources = cmp.config.sources({
+		{ name = "orgmode" },
 		{ name = "nvim_lsp" },
 		{ name = "vsnip" }, -- For vsnip users.
 		-- { name = 'luasnip' }, -- For luasnip users.

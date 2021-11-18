@@ -13,10 +13,6 @@ function CallWinResizeMode()
 	require("libmodal").mode.enter("WinResizeMode", WinResizeMode)
 end
 
-vim.api.nvim_set_keymap(
-	Keys.N, "<leader>wr", ":lua CallWinResizeMode()<cr>", Keys.Noremap
-)
-
 local WinMoveMode   = {
 	["j"]       = "wincmd J",
 	["<down>"]  = "wincmd J",
@@ -32,6 +28,4 @@ function CallWinMoveMode()
 	require("libmodal").mode.enter("WinMoveMode", WinMoveMode)
 end
 
-vim.api.nvim_set_keymap(
-	Keys.N, "<leader>wm", ":lua CallWinMoveMode()<cr>", Keys.Noremap
-)
+LIB_MODAL = true

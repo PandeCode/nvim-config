@@ -175,6 +175,7 @@ return packer.startup({
 				"json5",
 				"kotlin",
 				"lua",
+				"org",
 				"python",
 				"regex",
 				"rst",
@@ -199,9 +200,13 @@ return packer.startup({
 
 		use({
 			"kristijanhusak/orgmode.nvim",
+			ft = {
+				"org",
+			},
 			config = function()
 				require("config.orgmode")
 			end,
+			requires = { "akinsho/org-bullets.nvim" },
 		})
 
 		-- use "sheerun/vim-polyglot"

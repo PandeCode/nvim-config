@@ -2,18 +2,14 @@ vim.g.mapleader = " "
 
 -- stylua: ignore start
 
-vim.api.nvim_set_keymap(Keys.NoneStr, "<c-i>",     "<c-a>",                                                       Keys.None)
-vim.api.nvim_set_keymap(Keys.NoneStr, "<c-x>",     "<c-d>",                                                       Keys.None)
+vim.api.nvim_set_keymap(Keys.NoneStr, "<c-i>",     "<c-a>",                                                       Keys.Noremap) -- increament
+vim.api.nvim_set_keymap(Keys.NoneStr, "<c-d>",     "<c-x>",                                                       Keys.Noremap) -- decreament
 
 vim.api.nvim_set_keymap(Keys.N,       "L",         "$",                                                            Keys.None)
 vim.api.nvim_set_keymap(Keys.N,       "H",         "^",                                                            Keys.None)
-vim.api.nvim_set_keymap(Keys.N,       "Q",         "",                                                            Keys.None)
+vim.api.nvim_set_keymap(Keys.N,       "Q",         "",                                                            Keys.None) -- Disable visual mode
 
 vim.api.nvim_set_keymap(Keys.NoneStr, "<SPACE>fe", "<CMD>edit<CR>",                                               Keys.Noremap)
-
-vim.api.nvim_set_keymap(Keys.N,       "E",         "$",                                                           Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N,       "W",         "$",                                                           Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N,       "B",         "0",                                                           Keys.Noremap)
 
 vim.api.nvim_set_keymap(Keys.N,       "<Home>",    "(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", Keys.NoremapExpr)
 vim.api.nvim_set_keymap(Keys.N,       "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",     Keys.NoremapExpr)
@@ -21,8 +17,6 @@ vim.api.nvim_set_keymap(Keys.V,       "<End>",     "(col('.') == match(getline('
 vim.api.nvim_set_keymap(Keys.I,       "<Home>",    "<C-o><Home>",                                                 Keys.None)
 vim.api.nvim_set_keymap(Keys.I,       "<End> ",    "<C-o><End>",                                                  Keys.None)
 
-vim.api.nvim_set_keymap(Keys.N,       "H",         "<C-o><Home>",                                                 Keys.None)
-vim.api.nvim_set_keymap(Keys.N,       "L",         "<C-o><End>",                                                  Keys.None)
 vim.api.nvim_set_keymap(Keys.N,       "gg",        "gg0",                                                         Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.NoneStr, "G",         "G<End>",                                                      Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.NoneStr, "Y",         "y$",                                                          Keys.Noremap)
@@ -31,15 +25,16 @@ vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w", "<c-w>",                     
 vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w|", "<CMD>vsplit<CR>",                                            Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.N,       "<LEADER>w_", "<CMD>split<CR>",                                             Keys.Noremap)
 
--- Save on Ctrl-S
-vim.api.nvim_set_keymap(Keys.N,       "<c-s>",     ":w<CR>",                                                      Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.I,       "<c-s>",     "<Esc>:w<CR>a",                                                Keys.Noremap)
 -- system clipboard
 vim.api.nvim_set_keymap(Keys.N,       "<c-c>",     "\"+y\"",                                                      Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.V,       "<c-c>",     "\"+y\"",                                                      Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.N,       "<c-v>",     "\"+p\"",                                                      Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.I,       "<c-v>",     "<c-r>+",                                                      Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.C,       "<c-v>",     "<c-r>+",                                                      Keys.Noremap)
+
+vim.api.nvim_set_keymap(Keys.N,       "<c-x>",     "<c-c>d",                                                      Keys.None)
+vim.api.nvim_set_keymap(Keys.I,       "<c-x>",     "<c-c>d",                                                      Keys.None)
+vim.api.nvim_set_keymap(Keys.C,       "<c-x>",     "<c-c>d",                                                      Keys.None)
 
 -- use <c-r> to insert original character without triggering things like auto-pairs
 vim.api.nvim_set_keymap(Keys.I,       "<c-r>",     "<c-v>",                                                       Keys.Noremap)
@@ -108,3 +103,8 @@ vim.api.nvim_set_keymap(Keys.N,       "<space>et", ":set expandtab!<cr>",       
 
 vim.api.nvim_set_keymap(Keys.N,       "<space>sf", ":source %<cr>",                                               Keys.Noremap)
 -- stylua: ignore end
+
+if LIB_MODAL then
+	vim.api.nvim_set_keymap(Keys.N, "<leader>wm", ":lua CallWinMoveMode()<cr>", Keys.Noremap)
+	vim.api.nvim_set_keymap(Keys.N, "<leader>wr", ":lua CallWinResizeMode()<cr>", Keys.Noremap)
+end

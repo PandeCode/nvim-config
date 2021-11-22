@@ -1,3 +1,5 @@
+sound effects on events like opera gx (lua sound module)
+
 https://github.com/ThePrimeagen/refactoring.nvim/blob/master/lua/refactoring/query.lua
 https://tree-sitter.github.io/tree-sitter/using-parsers#query-syntax
 https://tree-sitter.github.io/tree-sitter/playground

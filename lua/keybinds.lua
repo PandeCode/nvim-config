@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 -- stylua: ignore start
 
-vim.api.nvim_set_keymap(Keys.N,       "<LEADER><F2>",     "<CMD>%s/\\<<C-r><C-w>\\>/",                                      Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER><F2>",     "*:%s//",                                      Keys.Noremap)
 
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-i>",     "<c-a>",                                                       Keys.Noremap) -- increament
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-d>",     "<c-x>",                                                       Keys.Noremap) -- decreament

@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 -- stylua: ignore start
 
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER><F2>",     "<CMD>%s/\\<<C-r><C-w>\\>/",                                      Keys.Noremap)
+
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-i>",     "<c-a>",                                                       Keys.Noremap) -- increament
 vim.api.nvim_set_keymap(Keys.NoneStr, "<c-d>",     "<c-x>",                                                       Keys.Noremap) -- decreament
 
@@ -9,7 +11,7 @@ vim.api.nvim_set_keymap(Keys.N,       "L",         "$",                         
 vim.api.nvim_set_keymap(Keys.N,       "H",         "^",                                                            Keys.None)
 vim.api.nvim_set_keymap(Keys.N,       "Q",         "",                                                            Keys.None) -- Disable visual mode
 
-vim.api.nvim_set_keymap(Keys.NoneStr, "<SPACE>fe", "<CMD>edit<CR>",                                               Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.NoneStr, "<LEADER>fe", "<CMD>edit<CR>",                                               Keys.Noremap)
 
 vim.api.nvim_set_keymap(Keys.N,       "<Home>",    "(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", Keys.NoremapExpr)
 vim.api.nvim_set_keymap(Keys.N,       "<End>",     "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",     Keys.NoremapExpr)
@@ -39,7 +41,7 @@ vim.api.nvim_set_keymap(Keys.C,       "<c-x>",     "<c-c>d",                    
 -- use <c-r> to insert original character without triggering things like auto-pairs
 vim.api.nvim_set_keymap(Keys.I,       "<c-r>",     "<c-v>",                                                       Keys.Noremap)
 
-vim.api.nvim_set_keymap(Keys.N,       "<space>fs", ":noautocmd w<CR>",                                            Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>fs", ":noautocmd w<CR>",                                            Keys.Noremap)
 
 vim.api.nvim_set_keymap(Keys.N,       "<F1>",      "<esc>",                                                       Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.I,       "<F1>",      "<esc>",                                                       Keys.Noremap)
@@ -71,8 +73,8 @@ vim.api.nvim_set_keymap(Keys.N,       "<c-k>",     ":m .-1<CR>==",              
 vim.api.nvim_set_keymap(Keys.I,       "<c-j>",     "<esc>:m .+1<CR>==i",                                          Keys.Noremap)
 
 -- Add space bellow or above without leaving normal mode
-vim.api.nvim_set_keymap(Keys.N,       "[<space>",  ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>",                Keys.NoremapSilent)
-vim.api.nvim_set_keymap(Keys.N,       "]<space>",  ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>",                Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N,       "[<LEADER>",  ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>",                Keys.NoremapSilent)
+vim.api.nvim_set_keymap(Keys.N,       "]<LEADER>",  ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>",                Keys.NoremapSilent)
 
 -- Use simple ; instead of shift + :
 vim.api.nvim_set_keymap(Keys.N,       ";",         ":",                                                           Keys.Noremap)
@@ -98,13 +100,13 @@ vim.api.nvim_set_keymap(Keys.V,       ")",         "<esc>`>a)<esc>`<i(<esc>",   
 vim.api.nvim_set_keymap(Keys.V,       "]",         "<esc>`>a]<esc>`<i[<esc>",                                     Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.V,       "<c-}>",     "<esc>`>a}<esc>`<i{<esc>",                                     Keys.Noremap)
 
-vim.api.nvim_set_keymap(Keys.N,       "<space>ne", ":set noexpandtab!<cr>",                                       Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N,       "<space>et", ":set expandtab!<cr>",                                         Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>ne", ":set noexpandtab!<cr>",                                       Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>et", ":set expandtab!<cr>",                                         Keys.Noremap)
 
-vim.api.nvim_set_keymap(Keys.N,       "<space>sf", ":source %<cr>",                                               Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N,       "<LEADER>sf", ":source %<cr>",                                               Keys.Noremap)
 -- stylua: ignore end
 
 if LIB_MODAL then
-	vim.api.nvim_set_keymap(Keys.N, "<leader>wm", ":lua CallWinMoveMode()<cr>", Keys.Noremap)
-	vim.api.nvim_set_keymap(Keys.N, "<leader>wr", ":lua CallWinResizeMode()<cr>", Keys.Noremap)
+	vim.api.nvim_set_keymap(Keys.N, "<LEADER>wm", ":lua CallWinMoveMode()<cr>", Keys.Noremap)
+	vim.api.nvim_set_keymap(Keys.N, "<LEADER>wr", ":lua CallWinResizeMode()<cr>", Keys.Noremap)
 end

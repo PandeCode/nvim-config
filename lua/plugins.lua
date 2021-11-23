@@ -315,10 +315,11 @@ return packer.startup({
 		})
 
 		use({
-			"mfussenegger/nvim-dap",
+
+			"theHamsta/nvim-dap-virtual-text",
 			requires = {
+				"mfussenegger/nvim-dap",
 				"Pocco81/DAPInstall.nvim",
-				"theHamsta/nvim-dap-virtual-text",
 				"rcarriga/nvim-dap-ui",
 				"nvim-telescope/telescope-dap.nvim",
 				"jbyuki/one-small-step-for-vimkind",

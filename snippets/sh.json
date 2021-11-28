@@ -1,4 +1,20 @@
 {
+	"if_array_contains": {
+		"prefix": "if_array_contains",
+		"body": [
+			"if [[ \" ${array[*]} \" =~ \" ${value} \" ]]; then",
+			"    # whatever you want to do when array contains value",
+			"fi"
+		]
+	},
+	"if_array_not_contains": {
+		"prefix": "if_array_not_contains",
+		"body": [
+			"if [[ ! \" ${array[*]} \" =~ \" ${value} \" ]]; then",
+			"    # whatever you want to do when array doesn't contain value",
+			"fi"
+		]
+	},
 	"Startup file+": {
 		"prefix": "#!/bin/sh",
 		"description": "Main file Setup",

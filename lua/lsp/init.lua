@@ -92,7 +92,7 @@ ON_ATTACH = function(_, bufnr)
     --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 end
 
-vim.lsp.set_log_level "trace"
+vim.lsp.set_log_level "warn"
 NVIM_LSP = require "lspconfig"
 
 --CAPABILITIES = vim.lsp.protocol.make_client_capabilities()

@@ -6,7 +6,7 @@
 			"#include <iostream>",
 			"",
 			"int main(int argc, const char* argv[]) {",
-			"\tstd::cout << \"main\n\";",
+			"\tstd::cout << \"main\\n\";",
 			"",
 			"\tfor(std::uint8_t i = 0; i < argc; i++)",
 			"\t\tstd::cout << argv[i];",

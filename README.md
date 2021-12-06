@@ -150,5 +150,4 @@ sudo luarocks install --server=https://luarocks.org/dev luaformatter
 | https://github.com/jbyuki/one-small-step-for-vimkind          | Debug adapter for Neovim plugins                                                                                                                          |
 | https://github.com/lewis6991/impatient.nvim                   | Improve startup time for Neovim                                                                                                                           |
 | https://github.com/folke/todo-comments.nvim                   | Highlight, list and search todo comments in your projects.                                                                                                |
-
-
+| https://github.com/github/copilot.vim/                        | Neovim plugin for GitHub Copilot                                                                                                                          |

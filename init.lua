@@ -8,3 +8,4 @@ require("commands")
 require("keybinds")
 require("settings")
 
+require("config.copilot")

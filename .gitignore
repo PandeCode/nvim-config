@@ -7,3 +7,5 @@ tests
 tags
 tags.lock
 tags.temp
+
+pack/github/start/copilot.vim

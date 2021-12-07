@@ -203,6 +203,14 @@ ins_left({
 
 ins_right({
 	function()
+		return GetCopilotInfo();
+	end,
+	update_in_insert = false, -- Update diagnostics in insert mode
+	color = { fg = colors.cyan, gui = "bold" },
+})
+
+ins_right({
+	function()
 		return vim.api.nvim_eval("nvim_treesitter#statusline(90)")
 	end,
 	color = { fg = colors.green, gui = "bold" },

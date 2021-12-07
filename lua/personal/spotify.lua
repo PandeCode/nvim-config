@@ -1,6 +1,4 @@
-require("plenary.reload").reload_module("popup")
-
-local popup = require("popup")
+local notify = require("notify")
 
 local http_headers = require("http.headers")
 local http_request = require("http.request")
@@ -32,18 +30,9 @@ Spotify = {
 		info = function()
 			local currentSong = vim.api.nvim_exec("!playerctl --player=spotify metadata artist title", true)
 			currentSong = string.gsub(string.sub(currentSong, 53, string.len(currentSong)), "\n", "")
-			-- vim.cmd ("Echo \"" .. currentSong .."\"")
-			popup.create(currentSong, {
-				enter = false,
-				-- line = 3,
-				-- col = 11,
-				-- minwidth = 20,
-				-- cursorline = true,
+
+			notify(currentSong, "info", {
 				title = "Spotify",
-				border = {},
-				padding = {},
-				pos = "botright",
-				time = 2000,
 			})
 		end,
 		pause = function()
@@ -229,7 +218,6 @@ Spotify = {
 		displayNone = function()
 			Spotify.websocket.code("document.querySelector('html').style.display='none'")
 		end,
-
 	},
 }
 

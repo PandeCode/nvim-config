@@ -7,6 +7,7 @@ set noet ci pi sts=0 sw=4 ts=4
 
 syntax sync minlines=256
 
+autocmd BufNewFile,BufRead *.yuck set filetype=yuck
 autocmd BufNewFile,BufRead *.keys set filetype=keys
 autocmd BufNewFile,BufRead *.frag set filetype=glsl
 autocmd BufNewFile,BufRead *.vert set filetype=glsl

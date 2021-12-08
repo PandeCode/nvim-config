@@ -526,6 +526,8 @@ return packer.startup({
 			end,
 		})
 
+		use({ "elkowar/yuck.vim", ft = { "yuck" } })
+
 		use_rocks("http")
 	end,
 })

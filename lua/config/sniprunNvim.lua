@@ -1,6 +1,6 @@
-vim.api.nvim_set_keymap(Keys.N, "<LEADER>crl", "<Plug>SnipRun", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.V, "<LEADER>cro", "<Plug>SnipRunOperator", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.V, "<LEADER>cr", "<Plug>SnipRun", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<LEADER>crl", "<Plug>SnipRun",         Keys.Noremap)
+-- vim.api.nvim_set_keymap(Keys.V, "<LEADER>cro", "<Plug>SnipRunOperator", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<LEADER>cr",  "<Plug>SnipRun",         Keys.Noremap)
 
 require("sniprun").setup({
 	selected_interpreters = {}, --# use those instead of the default for the current filetype

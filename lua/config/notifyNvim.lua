@@ -16,7 +16,8 @@ require("notify").setup({
 
   -- For stages that change opacity this is treated as the highlight behind the window
   -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
-  background_colour = "Normal",
+  -- background_colour = "Normal",
+  background_colour = "#000000",
 
   -- Minimum width for notification windows
   minimum_width = 50,

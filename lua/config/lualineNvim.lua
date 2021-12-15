@@ -165,7 +165,7 @@ ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
 ins_left({
 	"diagnostics",
-	sources = { "nvim_lsp" },
+	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", info = " " },
 	color_error = colors.red,
 	color_warn = colors.yellow,
@@ -183,7 +183,7 @@ ins_left({
 ins_left({
 	-- Lsp server name .
 	function()
-		local msg = "No Active Lsp"
+		local msg = "N/A"
 		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 		local clients = vim.lsp.get_active_clients()
 		if next(clients) == nil then
@@ -199,14 +199,6 @@ ins_left({
 	end,
 	icon = " LSP:",
 	color = { fg = "#ffffff", gui = "bold" },
-})
-
-ins_right({
-	function()
-		return GetCopilotInfo();
-	end,
-	update_in_insert = false, -- Update diagnostics in insert mode
-	color = { fg = colors.cyan, gui = "bold" },
 })
 
 ins_right({

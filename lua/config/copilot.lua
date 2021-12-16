@@ -18,6 +18,7 @@ vim.g.copilot_filetypes = {
 	lua    = true,
 	org    = true,
 	python = true,
+	rust   = true,
 	scss   = true,
 	sh     = true,
 	ts     = true,

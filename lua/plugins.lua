@@ -122,7 +122,19 @@ return packer.startup({
 			end,
 		})
 
-		use("luochen1990/rainbow")
+		use({
+			"luochen1990/rainbow",
+			config = function()
+				vim.g.rainbow_active = 1 -- set to 0 if you want to enable it later via :RainbowToggle
+				vim.cmd([[augroup rainbow]])
+				vim.cmd([[	au BufEnter *     hi      TSPunctBracket NONE]])
+				vim.cmd([[	au BufEnter *     hi link TSPunctBracket nonexistenthl]])
+				vim.cmd([[	au BufEnter *.lua hi      TSConstructor  NONE]])
+				vim.cmd([[	au BufEnter *.lua hi link TSConstructor  nonexistenthl]])
+				vim.cmd([[augroup END]])
+			end,
+		})
+
 		use("Yggdroot/indentLine")
 
 		use("folke/which-key.nvim")

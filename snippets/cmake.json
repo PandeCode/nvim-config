@@ -134,7 +134,7 @@
 			"message(\"PROJECT_LIBRARIES      : \" \\${PROJECT_LIBRARIES})",
 			"message(\"SRC_FILES              : \" \\${SRC_FILES})",
 			"",
-			"add_library(\\${PROJECT_NAME} \\${SRC_FILES})",
+			"add_executable(\\${PROJECT_NAME} \\${SRC_FILES})",
 			"target_include_directories(\\${PROJECT_NAME} PUBLIC \\${INCLUDE_DIRS})",
 			"target_link_libraries(\\${PROJECT_NAME} PUBLIC \\${PROJECT_LIBRARIES})",
 			"target_compile_options(\\${PROJECT_NAME} PUBLIC -pthread)"

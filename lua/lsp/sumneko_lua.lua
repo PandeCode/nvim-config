@@ -21,8 +21,13 @@ elseif cwd == "/home/shawn/.config/awesome" or cwd == "/home/shawn/dotfiles/conf
 	lua_type = "awesome"
 
 	globals = { "awesome", "tag", "screen", "client", "taglist_buttons", "mouse" }
-	libraries = { "/usr/share/awesome/lib" }
-	runtime_path = { "/usr/share/awesome/lib/?.lua", "/usr/share/awesome/lib/?/init.lua" }
+	libraries = { "/usr/share/awesome/lib", vim.fn.expand("$HOME/.config/awesome") }
+	runtime_path = {
+		"/usr/share/awesome/lib/?.lua",
+		"/usr/share/awesome/lib/?/init.lua",
+		vim.fn.expand("$HOME/.config/awesome/?.lua"),
+		vim.fn.expand("$HOME/.config/awesome/?/init.lua"),
+	}
 	version = "Lua 5.3"
 end
 

@@ -1,24 +1,19 @@
---local configs = require("lspconfig/configs")
+local configs = require("lspconfig/configs")
 
---if not NVIM_LSP.glsl_ls then
-	--configs.glsl_ls = {
-		--default_config = {
-			--cmd = { "glslls", "-v", "--stdin" },
-			--filetypes = { "glsl", "hlsl", "vert", "frag" },
-			-----@diagnostic disable-next-line: unused-local
-			--root_dir = function(fname)
-				--return vim.loop.cwd()
-			--end,
-			--settings = {},
-		--},
-	--}
---end
+if not NVIM_LSP.glsl then
+	configs.glsl_ls = {
+		default_config = {
+			cmd = { "glslls", "--stdin" },
+			filetypes = { "glsl", "hlsl", "vert", "frag" },
+			---@diagnostic disable-next-line: unused-local
+			root_dir = function(fname)
+				return vim.loop.cwd()
+			end,
 
---local capabilities = vim.lsp.protocol.make_client_capabilities()
---capabilities.
+    		single_file_support = true,
+			settings = {},
+		},
+	}
+end
 
---NVIM_LSP.glsl_ls.setup({ on_attach = ON_ATTACH, capabilities = capabilities, flags = FLAGS })
-
-
-
-
+NVIM_LSP.glsl.setup({ on_attach = ON_ATTACH, capabilities = CAPABILITIES, flags = FLAGS })

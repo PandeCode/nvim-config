@@ -1,6 +1,6 @@
 vim.g.python_recommended_style = 0
-vim.g.python_host_skip_check=1
-vim.g.loaded_python3_provider=1
+vim.g.python_host_skip_check = 1
+vim.g.loaded_python3_provider = 1
 
 vim.o.autoindent = true
 vim.o.backspace = "indent,eol,start"
@@ -49,10 +49,14 @@ vim.o.wildmode = "longest,list,full"
 vim.o.wildmenu = true
 --" Ignore files
 
-vim.o.wildignore =
-    "*.pyc" ..
-    ",*_build/*" ..
-        ",**/coverage/*" ..
-            ",**/Debug/*" .. ",**/build/*" .. ",**/node_modules/*" .. ",**/android/*" .. ",**/ios/*" .. ",**/.git/*"
+vim.o.wildignore = "*.pyc"
+	.. ",*_build/*"
+	.. ",**/coverage/*"
+	.. ",**/Debug/*"
+	.. ",**/build/*"
+	.. ",**/node_modules/*"
+	.. ",**/android/*"
+	.. ",**/ios/*"
+	.. ",**/.git/*"
 
 vim.cmd("source $HOME/.config/nvim/vimscript/settings.vim")

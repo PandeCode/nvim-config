@@ -1,4 +1,11 @@
 {
+	"for_json": {
+		"prefix": "for_json",
+		"body": [
+			"for i in $(seq 0 $(($(jq '.items | length' <<< $data) - 1))); do",
+			"done"
+		]
+	},
 	"if_array_contains": {
 		"prefix": "if_array_contains",
 		"body": [

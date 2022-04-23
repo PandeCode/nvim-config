@@ -1,8 +1,8 @@
 local notify = require("notify")
 
-local http_headers = require("http.headers")
-local http_request = require("http.request")
-local http_websocket = require("http.websocket")
+-- local http_headers = require("http.headers")
+-- local http_request = require("http.request")
+-- local http_websocket = require("http.websocket")
 local commandBaseUri = "http://localhost:8080/command/"
 
 ---@diagnostic disable-next-line: unused-function, unused-local

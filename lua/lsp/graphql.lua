@@ -1,0 +1,9 @@
+-- NVIM_LSP.graphql.setup({
+--     on_attach    = ON_ATTACH,
+--     capabilities = CAPABILITIES,
+--     flags        = FLAGS,
+--     --
+--     -- cmd       = { "graphql-lsp", "server", "-m", "stream" }
+--     -- filetypes = { "graphql", "typescriptreact", "javascriptreact" },
+--     -- root_dir  = root_pattern('.git', '.graphqlrc*', '.graphql.config.*')})
+-- }

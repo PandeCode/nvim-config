@@ -1,5 +1,5 @@
-Dapui = require("dapui")
-Dap = require("dap")
+local Dapui = require("dapui")
+local Dap = require("dap")
 
 local dap_install = require("dap-install")
 

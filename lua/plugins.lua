@@ -79,6 +79,9 @@ return packer.startup({
 	function()
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
+
+		use_rocks("http")
+
 		use({
 			"lewis6991/impatient.nvim",
 			config = function()
@@ -350,10 +353,10 @@ return packer.startup({
 			},
 		})
 		use({
-			"onsails/lspkind-nvim",
-			config = function()
-				require("config.lspkind")
-			end,
+				"onsails/lspkind-nvim",
+				config = function()
+						require("config.lspkind")
+				end,
 		})
 		use({
 			"hrsh7th/vim-vsnip",
@@ -368,11 +371,14 @@ return packer.startup({
 				require("config.cmpConfig")
 			end,
 			requires = {
-				"hrsh7th/cmp-nvim-lsp",
 				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-cmdline",
+				"hrsh7th/cmp-emoji",
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-vsnip",
+				"max397574/cmp-greek",
+				"ray-x/cmp-treesitter"
 			},
 		})
 
@@ -410,29 +416,29 @@ return packer.startup({
 		})
 
 		use({
-
-			"theHamsta/nvim-dap-virtual-text",
-			requires = {
-				"mfussenegger/nvim-dap",
-				"Pocco81/DAPInstall.nvim",
-				"rcarriga/nvim-dap-ui",
-				"nvim-telescope/telescope-dap.nvim",
-				"jbyuki/one-small-step-for-vimkind",
-			},
-			ft = {
-				"lua",
-				"cpp",
-				"c",
-				"rust",
-				"javascript",
-				"javascriptreact",
-				"typescript",
-				"typescriptreact",
-				"python",
-			},
-			config = function()
-				require("config.dapConfig")
-			end,
+				"Pocco81/dap-buddy.nvim",
+				branch = "dev", -- TODO: Idiot changed the name of the repo and broke alot of  shit. (dev branch still works)
+				requires = {
+						"mfussenegger/nvim-dap",
+						"rcarriga/nvim-dap-ui",
+						"theHamsta/nvim-dap-virtual-text",
+						"jbyuki/one-small-step-for-vimkind",
+						"nvim-telescope/telescope-dap.nvim",
+				},
+				ft = {
+						"lua",
+						"cpp",
+						"c",
+						"rust",
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"python",
+				},
+				config = function()
+						require("config.dapConfig")
+				end,
 		})
 
 		use({ "airblade/vim-gitgutter", "tpope/vim-fugitive" })
@@ -540,7 +546,14 @@ return packer.startup({
 
 		use({ "elkowar/yuck.vim", ft = { "yuck" } })
 
-		use_rocks("http")
+		use({ "jparise/vim-graphql", ft = {
+			"graphql",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		}, })
+
 	end,
 })
 

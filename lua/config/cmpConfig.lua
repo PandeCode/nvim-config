@@ -1,12 +1,27 @@
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 
+local lspkind = require("lspkind")
+
 cmp.setup({
 	--completion = {
 	--completeopt = "menu,menuone,noinsert",
 	--},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	formatting = {
-		format = require("lspkind").cmp_format(),
+		format = lspkind.cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
 	},
 	snippet = {
 		-- REQUIRED - you must specify a snippet engine
@@ -37,6 +52,11 @@ cmp.setup({
 		-- { name = 'luasnip' }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
+
+		{ name = "emoji" },
+		{ name = "greek" },
+		{ name = "nvim_lua" },
+		{ name = "treesitter" },
 	}, {
 		{ name = "buffer" },
 		{ name = "path" },
@@ -64,10 +84,3 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
-
----- Setup lspconfig.
---local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
----- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
---require("lspconfig")["<YOUR_LSP_SERVER>"].setup({
---capabilities = capabilities,
---})

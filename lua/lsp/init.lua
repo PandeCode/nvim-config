@@ -122,6 +122,7 @@ RequireForFileType("css,sass,less",                                             
 RequireForFileType("fish,sh,inc,bash,command",                                            'lsp.bashls');
 RequireForFileType("gdscript",                                                            'lsp.gdscript');
 RequireForFileType("glsl,vert,frag,hlsl",                                                 'lsp.glsl');
+RequireForFileType("graphql,typescriptreact,javascriptreact",                             'lsp.graphql');
 RequireForFileType("haskell,lhaskell",                                                    'lsp.haskell');
 RequireForFileType("html",                                                                'lsp.html');
 RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt",           'lsp.emmet');

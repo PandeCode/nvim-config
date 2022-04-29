@@ -353,11 +353,12 @@ return packer.startup({
 			},
 		})
 		use({
-				"onsails/lspkind-nvim",
-				config = function()
-						require("config.lspkind")
-				end,
+			"onsails/lspkind-nvim",
+			config = function()
+				require("config.lspkind")
+			end,
 		})
+
 		use({
 			"hrsh7th/vim-vsnip",
 			config = function()
@@ -378,11 +379,13 @@ return packer.startup({
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-vsnip",
 				"max397574/cmp-greek",
-				"ray-x/cmp-treesitter"
+				"ray-x/cmp-treesitter",
 			},
 		})
 
 		use({ "Shougo/echodoc.vim" })
+
+
 		use({
 			"kkoomen/vim-doge",
 			config = function()
@@ -416,29 +419,29 @@ return packer.startup({
 		})
 
 		use({
-				"Pocco81/dap-buddy.nvim",
-				branch = "dev", -- TODO: Idiot changed the name of the repo and broke alot of  shit. (dev branch still works)
-				requires = {
-						"mfussenegger/nvim-dap",
-						"rcarriga/nvim-dap-ui",
-						"theHamsta/nvim-dap-virtual-text",
-						"jbyuki/one-small-step-for-vimkind",
-						"nvim-telescope/telescope-dap.nvim",
-				},
-				ft = {
-						"lua",
-						"cpp",
-						"c",
-						"rust",
-						"javascript",
-						"javascriptreact",
-						"typescript",
-						"typescriptreact",
-						"python",
-				},
-				config = function()
-						require("config.dapConfig")
-				end,
+			"Pocco81/dap-buddy.nvim",
+			branch = "dev", -- TODO: Idiot changed the name of the repo and broke alot of  shit. (dev branch still works)
+			requires = {
+				"mfussenegger/nvim-dap",
+				"rcarriga/nvim-dap-ui",
+				"theHamsta/nvim-dap-virtual-text",
+				"jbyuki/one-small-step-for-vimkind",
+				"nvim-telescope/telescope-dap.nvim",
+			},
+			ft = {
+				"lua",
+				"cpp",
+				"c",
+				"rust",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"python",
+			},
+			config = function()
+				require("config.dapConfig")
+			end,
 		})
 
 		use({ "airblade/vim-gitgutter", "tpope/vim-fugitive" })
@@ -546,14 +549,30 @@ return packer.startup({
 
 		use({ "elkowar/yuck.vim", ft = { "yuck" } })
 
-		use({ "jparise/vim-graphql", ft = {
-			"graphql",
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		}, })
+		use({
+			"jparise/vim-graphql",
+			ft = {
+				"graphql",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+			},
+		})
 
+		-- use({
+		--     "folke/trouble.nvim",
+		--     requires = "kyazdani42/nvim-web-devicons",
+		--     config = function()
+		--         require("config.trouble")
+		--     end,
+		-- })
+		-- use({
+		--     "mrjones2014/legendary.nvim",
+		--     config = function()
+		--         require("config.legendary")
+		--     end,
+		-- })
 	end,
 })
 

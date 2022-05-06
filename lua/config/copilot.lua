@@ -9,6 +9,7 @@ end
 vim.g.copilot_filetypes = {
 	["*"]               = false,
 	bash                = true,
+	c                   = true,
 	cpp                 = true,
 	css                 = true,
 	glsl                = true,

@@ -11,6 +11,7 @@ vim.g.copilot_filetypes = {
 	bash                = true,
 	cpp                 = true,
 	css                 = true,
+	glsl                = true,
 	html                = true,
 	javascript          = true,
 	javascriptreact     = true,

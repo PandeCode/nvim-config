@@ -11,7 +11,7 @@ sudo paru -S ccls clang cmake ctags ffmpegthumbnailer fmui-git fontpreview glsl-
 ```
 
 | Package                                                                              | Description                                                                                                     |
-|--------------------------------------------------------------------------------------|-:-------------------------------------------------------------------------------------------------------------:-|
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [https://github.com/BurntSushi/ripgrep](ushi/ripgrep)                                | ripgrep recursively searches directories for a regex pattern while respecting your gitignore                    |
 | [https://github.com/Kitware/CMake](CMake)                                            | Best C/C++ project mangaer                                                                                      |
 | [https://github.com/dirkvdb/ffmpegthumbnailer](ffmpegthumbnailer)                    | Lightweight video thumbnailer used by file managers to create thumbnails for video files (telescope preview)    |
@@ -50,7 +50,7 @@ yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-l
 ```
 
 | Package                                                                                                                                | Description                                                                                                        |
-|----------------------------------------------------------------------------------------------------------------------------------------|-:----------------------------------------------------------------------------------------------------------------:-|
+|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | [https://github.com/bash-lsp/bash-language-server](bash-language-server)                                                               | Bash language server implementation based on Tree Sitter and its grammar for Bash with explainshell integration.   |
 | [https://github.com/bmatcuk/stylelint-lsp](stylelint-lsp)                                                                              | A stylelint Language Server                                                                                        |
 | [https://github.com/hrsh7th/vscode-langservers-extracted](vscode-langservers-extracted)                                                | HTML/CSS/JSON language servers extracted from vscode.                                                              |
@@ -68,13 +68,13 @@ yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-l
 sudo luarocks install --server=https://luarocks.org/dev luaformatter
 ```
 | Package                                                | Description                       |
-|--------------------------------------------------------|-:-------------------------------:-|
+|--------------------------------------------------------|---------------------------------|
 | [https://github.com/Koihik/LuaFormatter](LuaFormatter) | Reformats your Lua source code.   |
 
 ## Plugins
 
 | Plugin                                                                                       | Description                                                                                                                                                  |
-| -------------------------------------------------------------------------------------------- | -:--------------------------------------------------------------------------------------------------------------------------------------------------------:- |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [https://github.com/Iron-E/nvim-libmodal](nvim-libmodal)                                     | Create new "modes" for Neovim!                                                                                                                               |
 | [https://github.com/Pocco81/dap-buddy.nvim](dap-buddy.nvim)                                | A NeoVim plugin for managing several debuggers for Nvim-dap.                                                                                                 |
 | [https://github.com/RishabhRD/nvim-lsputils](nvim-lsputils)                                  | Better defaults for nvim-lsp actions                                                                                                                         |

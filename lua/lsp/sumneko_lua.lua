@@ -16,7 +16,7 @@ if cwd == "/home/shawn/.config/nvim" or cwd == "/home/shawn/dotfiles/config/nvim
 	globals = { "vim", "use", "use_rocks" }
 	libraries = vim.api.nvim_get_runtime_file("", true)
 	runtime_path = vim.split(package.path, ";")
-	version = "LuaJIT"
+	version = "Lua5.1"
 elseif cwd == "/home/shawn/.config/awesome" or cwd == "/home/shawn/dotfiles/config/awesome" then
 	lua_type = "awesome"
 
@@ -28,7 +28,7 @@ elseif cwd == "/home/shawn/.config/awesome" or cwd == "/home/shawn/dotfiles/conf
 		vim.fn.expand("$HOME/.config/awesome/?.lua"),
 		vim.fn.expand("$HOME/.config/awesome/?/init.lua"),
 	}
-	version = "Lua 5.3"
+	version = "Lua 5.4"
 end
 
 table.insert(runtime_path, "?.lua")

@@ -1,5 +1,15 @@
 local notify = require("notify")
 
+vim.api.nvim_exec(
+	[[
+let _PATH=$PATH
+let $PATH=$HOME
+let $PATH.='/Applications/nodejs/node-v16.17.0-linux-x64/bin/:'
+let $PATH.=_PATH
+]],
+	false
+)
+
 function CopilotInfo()
 	notify(vim.api.nvim_exec("Copilot status", true), "info", {
 		title = "Copilot",
@@ -7,38 +17,37 @@ function CopilotInfo()
 end
 
 vim.g.copilot_filetypes = {
-	["*"]               = false,
-	bash                = true,
-	c                   = true,
-	cpp                 = true,
-	css                 = true,
-	glsl                = true,
-	html                = true,
-	javascript          = true,
-	javascriptreact     = true,
-	js                  = true,
-	jsx                 = true,
-	less                = true,
-	lua                 = true,
-	org                 = true,
-	python              = true,
-	rust                = true,
-	scss                = true,
-	sh                  = true,
-	ts                  = true,
-	tsx                 = true,
-	txt                 = true,
-	typescript          = true,
-	typescriptreact     = true,
-	yuck                = true,
-	zsh                 = true,
+	["*"] = false,
+	bash = true,
+	c = true,
+	cpp = true,
+	css = true,
+	glsl = true,
+	html = true,
+	javascript = true,
+	javascriptreact = true,
+	js = true,
+	jsx = true,
+	less = true,
+	lua = true,
+	org = true,
+	python = true,
+	rust = true,
+	scss = true,
+	sh = true,
+	ts = true,
+	tsx = true,
+	txt = true,
+	typescript = true,
+	typescriptreact = true,
+	yuck = true,
+	zsh = true,
 }
 
 vim.g.copilot_no_tab_map = true
 
-vim.api.nvim_set_keymap(Keys.I, "<C-c>",     'copilot#Accept("<CR>")',                     Keys.NoremapSilentExprScript)
+vim.api.nvim_set_keymap(Keys.I, "<C-c>", 'copilot#Accept("<CR>")', Keys.NoremapSilentExprScript)
 
-vim.api.nvim_set_keymap(Keys.N, "<SPACE>ci", "<CMD>lua CopilotInfo()<CR>",                 Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>ci", "<CMD>lua CopilotInfo()<CR>", Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.N, "<SPACE>cd", "<CMD>lua vim.b.copilot_enabled = false<CR>", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N, "<SPACE>ce", "<CMD>lua vim.b.copilot_enabled = true<CR>",  Keys.Noremap)
-
+vim.api.nvim_set_keymap(Keys.N, "<SPACE>ce", "<CMD>lua vim.b.copilot_enabled = true<CR>", Keys.Noremap)

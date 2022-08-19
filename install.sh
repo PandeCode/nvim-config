@@ -4,7 +4,7 @@ paru -S clang cmake ccls ripgrep ttf-fira-code ctags ueberzug ffmpegthumbnailer 
 python3 -m pip install pynvim cmakelang cmake-language-server black-but-with-tabs-instead-of-spaces
 python2 -m pip install pynvim
 
-yarn global add neovim pyright stylelint-lsp svelte-language-server typescript-language-server bash-language-server vim-language-server yaml-language-server vscode-langservers-extracted
+pnpm -g install neovim pyright stylelint-lsp svelte-language-server typescript-language-server bash-language-server vim-language-server yaml-language-server vscode-langservers-extracted
 
 ln -s ~/.config/nvim/dotfiles/.ccls             ~/.ccls
 ln -s ~/.config/nvim/dotfiles/.clang-format     ~/.clang-format

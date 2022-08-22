@@ -90,12 +90,12 @@ return packer.startup({
 			end,
 		})
 
-		use({
-			"github/copilot.vim",
-			config = function()
-				require("config.copilot")
-			end,
-		})
+		-- use({
+		--     "github/copilot.vim",
+		--     config = function()
+		--         require("config.copilot")
+		--     end,
+		-- })
 
 		use({
 			"michaelb/sniprun",

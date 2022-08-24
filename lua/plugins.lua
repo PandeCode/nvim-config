@@ -360,6 +360,14 @@ return packer.startup({
 		})
 
 		use({
+			"p00f/clangd_extensions.nvim",
+			ft = { "c", "c++", "cpp" },
+			config = function()
+				require("config.clangd_e")
+			end
+		})
+
+		use({
 			"hrsh7th/vim-vsnip",
 			config = function()
 				require("config.vsnip")

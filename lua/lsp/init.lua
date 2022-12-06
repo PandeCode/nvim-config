@@ -96,10 +96,10 @@ vim.lsp.set_log_level "warn"
 NVIM_LSP = require "lspconfig"
 
 --CAPABILITIES = vim.lsp.protocol.make_client_capabilities()
-CAPABILITIES = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- CAPABILITIES = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+CAPABILITIES = require('cmp_nvim_lsp').default_capabilities()
 CAPABILITIES.textDocument.completion.completionItem.snippetSupport = true
 CAPABILITIES.textDocument.semanticHighlightingCapabilities= {semanticHighlighting = true}
-CAPABILITIES.window.workDoneProgress = true;
 CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
   properties = {
     'documentation',
@@ -128,7 +128,7 @@ RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt", 
 RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
 RequireForFileType("python",                                                              'lsp.pyright');
-RequireForFileType("rust",                                                                'lsp.rust');
+RequireForFileType("rust,rs,toml",                                                        'lsp.rust');
 RequireForFileType("svelte",                                                              'lsp.svelte');
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
 RequireForFileType("vimscript,vim",                                                       'lsp.vimls');

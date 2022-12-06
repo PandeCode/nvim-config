@@ -5,7 +5,7 @@
 		"body": [
 			"#include <stdio.h>",
 			"",
-			"int main(int argc, const char* argc[]) {",
+			"int main(int argc, const char* argv[]) {",
 			"\tprintf(\"$TM_FILENAME_BASE\\n\");",
 			"",
 			"\treturn 0;",

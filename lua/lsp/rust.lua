@@ -10,5 +10,5 @@ NVIM_LSP.rust_analyzer.setup({
 	}),
 	},
 
-	filetypes = { "rust", "toml" },
+	filetypes = { "rust" },
 })

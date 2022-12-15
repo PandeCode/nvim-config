@@ -82,6 +82,8 @@ return packer.startup({
 
 		use_rocks("http")
 
+		use("aduros/ai.vim")
+
 		use({
 			"lewis6991/impatient.nvim",
 			config = function()

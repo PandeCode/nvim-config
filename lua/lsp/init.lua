@@ -128,7 +128,7 @@ RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt", 
 RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
 RequireForFileType("python",                                                              'lsp.pyright');
-RequireForFileType("rust,rs,toml",                                                        'lsp.rust');
+RequireForFileType("rust,rs",                                                              'lsp.rust');
 RequireForFileType("svelte",                                                              'lsp.svelte');
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
 RequireForFileType("vimscript,vim",                                                       'lsp.vimls');

@@ -1,7 +1,7 @@
 {
 	"Yew class": {
 		"prefix": "class",
-		"body": ["class=classes!(\"\".to_owned())"]
+		"body": ["class={classes!(\"$1\".to_owned())}"]
 	},
 
 	"New Yew function component": {

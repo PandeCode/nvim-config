@@ -13,11 +13,16 @@ if not NVIM_LSP.emmet_ls then
 				"typescriptreact",
 				"text",
 				"txt",
+				"rust",
 			},
 			root_dir = function(fname)
 				return vim.loop.cwd()
 			end,
-			settings = {},
+			settings = {
+				includeLanguages = {
+					rust = "html",
+				}
+			},
 		},
 	}
 end

@@ -354,10 +354,19 @@ return packer.startup({
 				"frag",
 			},
 		})
+
 		use({
 			"onsails/lspkind-nvim",
 			config = function()
 				require("config.lspkind")
+			end,
+		})
+
+		use({
+			"simrat39/rust-tools.nvim",
+			ft = { "rust" },
+			config = function()
+				require("config.rust_tools")
 			end,
 		})
 

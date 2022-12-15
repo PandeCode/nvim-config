@@ -85,9 +85,9 @@ ON_ATTACH = function(_, bufnr)
     buf_set_keymap(Keys.N, "<space>lD",       "<cmd>lua vim.lsp.buf.type_definition()<CR>",                            Keys.NoremapSilent)
     buf_set_keymap(Keys.N, "<F2>",            "<cmd>lua vim.lsp.buf.rename()<CR>",                                     Keys.NoremapSilent)
     buf_set_keymap(Keys.N, "gr",              "<cmd>lua vim.lsp.buf.references()<CR>",                                 Keys.NoremapSilent)
-    buf_set_keymap(Keys.N, "g[",              "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",                           Keys.NoremapSilent)
-    buf_set_keymap(Keys.N, "g]",              "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",                           Keys.NoremapSilent)
-    buf_set_keymap(Keys.N, "<space>g<space>", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",                         Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "g[",              "<cmd>lua vim.diagnostic.goto_prev()<CR>",                           Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "g]",              "<cmd>lua vim.diagnostic.goto_next()<CR>",                           Keys.NoremapSilent)
+    buf_set_keymap(Keys.N, "<space>g<space>", "<cmd>lua vim.diagnostic.set_loclist()<CR>",                         Keys.NoremapSilent)
 -- stylua: ignore end
     --vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.lsp.diagnostic.show_line_diagnostics({focusable=false})]]
 end
@@ -108,7 +108,7 @@ CAPABILITIES.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-FLAGS = {
+FLAGS = {CAPABILITIES,
 	debounce_text_changes = 500,
 }
 
@@ -128,7 +128,7 @@ RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt", 
 RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
 RequireForFileType("python",                                                              'lsp.pyright');
-RequireForFileType("rust,rs",                                                              'lsp.rust');
+-- RequireForFileType("rust,rs",                                                              'lsp.rust'); -- Rust Tools Handles this
 RequireForFileType("svelte",                                                              'lsp.svelte');
 RequireForFileType("ts,js,javascript,typescript,javascriptreact,typescriptreact,jsx,tsx", 'lsp.tsserver');
 RequireForFileType("vimscript,vim",                                                       'lsp.vimls');

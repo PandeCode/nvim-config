@@ -1,7 +1,6 @@
-vim.cmd "source $HOME/.config/nvim/vimscript/config/neovide.vim"
-
 if vim.g.neovide ~= nil then
-	-- --multiGrid
+	vim.cmd "hi Normal guibg=NONE"
+	-- multiGrid
 	-- let g:neovide_refresh_rate=140
 	-- let g:neovide_no_idle=v:true
 	-- let g:neovide_cursor_animation_length=0.13

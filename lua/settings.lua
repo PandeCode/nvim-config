@@ -11,7 +11,7 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.o.confirm = true
 vim.o.encoding = "UTF-8"
 vim.o.gdefault = true
-vim.o.guifont = "Fira Code Nerd Font"
+vim.o.guifont = "Comic Shanns"
 vim.o.hidden = true
 vim.o.hlsearch = true
 vim.o.ignorecase = true
@@ -45,8 +45,8 @@ vim.o.wrap = true
 vim.o.writebackup = false
 
 --" Nice menu when typing `:find *.py`
-vim.o.wildmode = "longest,list,full"
-vim.o.wildmenu = true
+-- vim.o.wildmode = "longest,list,full"
+-- vim.o.wildmenu = true
 --" Ignore files
 
 vim.o.wildignore = "*.pyc"

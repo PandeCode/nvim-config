@@ -7,3 +7,5 @@ require("personal")
 require("commands")
 require("keybinds")
 require("settings")
+
+require("config.neovide")

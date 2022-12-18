@@ -5,7 +5,7 @@ require("clangd_extensions").setup {
 	on_attach = function(client, bufnr)
 		ON_ATTACH(client, bufnr)
 
-		vim.api.nvim_buf_set_keymap(0, Keys.N, "<space>gh", "<Cmd>ClangdSwitchSourceHeader<CR>", Keys.NoremapSilent)
+		vim.api.nvim_buf_set_keymap(bufnr, Keys.N, "<space>gh", "<Cmd>ClangdSwitchSourceHeader<CR>", Keys.NoremapSilent)
 	end,
 	capabilities = CAPABILITIES,
 	flags = FLAGS;

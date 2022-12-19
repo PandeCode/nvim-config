@@ -205,6 +205,16 @@ local opts = {
 		flags = {
 			debounce_text_changes = 500,
 		},
+
+		settings = {
+			["rust-analyzer"] = {
+				inlayHints = {
+					lifetimeElisionHints  = { enable =  true },
+					expressionAdjustmentHints = { enable = true }
+				},
+			}
+		}
+
 	}, -- rust-analyzer options
 
 	-- debugging stuff

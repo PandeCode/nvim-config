@@ -1,3 +1,7 @@
+function RandFrom(list)
+	return list[math.random(1, #list)]
+end
+
 function Dump(o)
 	if type(o) == "table" then
 		local s = "{ "

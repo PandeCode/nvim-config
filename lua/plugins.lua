@@ -375,7 +375,14 @@ return packer.startup({
 			ft = { "c", "c++", "cpp" },
 			config = function()
 				require("config.clangd_e")
-			end
+			end,
+		})
+
+		use({
+			"j-hui/fidget.nvim",
+			config = function()
+				require("config.fidget_config")
+			end,
 		})
 
 		use({
@@ -403,7 +410,6 @@ return packer.startup({
 		})
 
 		use({ "Shougo/echodoc.vim" })
-
 
 		use({
 			"kkoomen/vim-doge",

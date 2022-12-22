@@ -409,7 +409,10 @@ return packer.startup({
 			},
 		})
 
-		use({ "Shougo/echodoc.vim" })
+		use({ 
+			"Shougo/echodoc.vim",
+			config = function() require("config.echodoc") end,
+		})
 
 		use({
 			"kkoomen/vim-doge",

@@ -2,6 +2,7 @@ vim.cmd "source $HOME/.config/nvim/vimscript/config/treesitter.vim"
 
 require "nvim-treesitter.configs".setup {
     ensure_installed = {
+        "help",
         "bash",
         "c",
         "c_sharp",

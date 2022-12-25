@@ -5,7 +5,7 @@ NVIM_LSP.glslls.setup({
 
 	-- cmd = { "glslls", "--stdin" },
 	filetypes = { "glsl", "hlsl", "vert", "frag" },
-	-- root_dir = function(fname) return vim.loop.cwd() end,
+	root_dir = function(fname) return vim.loop.cwd() end,
 	-- single_file_support = true,
 	-- settings = {},
 })

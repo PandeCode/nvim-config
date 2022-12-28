@@ -105,7 +105,14 @@ set_keymap(Keys.V,       "<c-}>",     "<esc>`>a}<esc>`<i{<esc>",                
 set_keymap(Keys.N,       "<LEADER>ne", ":set noexpandtab!<cr>",                                       Keys.Noremap)
 set_keymap(Keys.N,       "<LEADER>et", ":set expandtab!<cr>",                                         Keys.Noremap)
 
-set_keymap(Keys.N,       "<LEADER>sf", ":source %<cr>",                                               Keys.Noremap)
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = {"*.vim", "*.lua"},
+	group = vim.api.nvim_create_augroup("LuaVimscript", {clear = true}),
+	callback = function()
+		set_keymap(Keys.N, "<LEADER>sf", ":source %<cr>", Keys.Noremap)
+	end,
+})
+
 -- stylua: ignore end
 
 if LIB_MODAL then

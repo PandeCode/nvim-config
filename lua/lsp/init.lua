@@ -114,6 +114,7 @@ FLAGS = {CAPABILITIES,
 
 -- stylua: ignore start
 
+-- RequireForFileType("cpp,c",                                                               'lsp.ccls');
 RequireForFileType("cmake",                                                               'lsp.cmake');
 RequireForFileType("csharp",                                                              'lsp.omnisharp');
 RequireForFileType("css,jsx,tsx,typescriptreact,javascriptreact",                         'lsp.stylelint_lsp');

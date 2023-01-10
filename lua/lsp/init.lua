@@ -126,7 +126,7 @@ RequireForFileType("graphql,typescriptreact,javascriptreact",                   
 RequireForFileType("haskell,lhaskell",                                                    'lsp.haskell');
 RequireForFileType("html",                                                                'lsp.html');
 RequireForFileType("html,css,jsx,tsx,javascriptreact,typescriptreact,text,txt",           'lsp.emmet');
-RequireForFileType("json,jsonc",                                                          'lsp.jsonls');
+RequireForFileType("json,json5,jsonc",                                                    'lsp.jsonls');
 RequireForFileType("lua",                                                                 'lsp.sumneko_lua');
 RequireForFileType("python",                                                              'lsp.pyright');
 -- RequireForFileType("rust,rs",                                                              'lsp.rust'); -- Rust Tools Handles this

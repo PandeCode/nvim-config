@@ -333,6 +333,7 @@ return packer.startup({
 				"javascriptreact",
 				"js",
 				"json",
+				"json5",
 				"jsonc",
 				"jsx",
 				"less",

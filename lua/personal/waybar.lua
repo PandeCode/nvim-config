@@ -17,5 +17,5 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("waybar_config_json5", { clear = true }),
 	pattern = "*/.config/waybar/config",
-	command = [[set ft=json5]],
+	command = [[set ft=jsonc]],
 })

@@ -21,6 +21,10 @@ function RequireForFileType(ft, module)
 	vim.cmd("autocmd Filetype " .. ft .. " lua require('" .. module .. "')")
 end
 
+function RequireForPattern(pattern, module)
+	vim.cmd("autocmd BufEnter " .. pattern .. " lua require('" .. module .. "')")
+end
+
 Keys = {
 	C = "c",
 	I = "i",

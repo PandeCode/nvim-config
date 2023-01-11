@@ -589,6 +589,13 @@ return packer.startup({
 			},
 		})
 
+		use({
+			"theRealCarneiro/hyprland-vim-syntax",
+			ft = {
+				"hypr"
+			}
+		})
+
 		-- use({
 		--     "folke/trouble.nvim",
 		--     requires = "kyazdani42/nvim-web-devicons",

@@ -22,7 +22,7 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.json set filetype=jsonc
 autocmd BufNewFile,BufRead *.h set filetype=c
 autocmd BufNewFile,BufRead */.config/hypr/**/*.conf set filetype=hypr
-
+autocmd BufNewFile,BufRead */.config/sway/**/*.conf set filetype=swayconf
 
 " assumes set ignorecase smartcase;
 augroup dynamic_smartcase

@@ -3,6 +3,8 @@ local set_keymap = vim.api.nvim_set_keymap
 
 -- stylua: ignore start
 
+set_keymap(Keys.N,       "<LEADER>p",     "\"_dP",                                   Keys.Noremap)
+
 set_keymap(Keys.N,       "<LEADER>gf",     ":e <cfile><cr>",                                   Keys.Noremap)
 set_keymap(Keys.N,       "<LEADER><F2>",     "*:%s//",                                      Keys.Noremap)
 

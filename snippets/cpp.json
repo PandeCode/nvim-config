@@ -1,4 +1,28 @@
 {
+	"cout": {
+		"prefix": "cout",
+		"description": "cout",
+		"body": ["std::cout << $1 << std::endl;"]
+	},
+	"cerr": {
+		"prefix": "cerr",
+		"description": "cerr",
+		"body": ["std::cerr << $1 << std::endl;"]
+	},
+
+	"read_file_string": {
+		"prefix": "read_file_string",
+		"description": "Read file into string",
+		"body": [
+			"std::ifstream file(filename);",
+			"if(!file.is_open()) throw std::runtime_error(\"Failed to open file: \" + filename);",
+			"file.seekg(0, std::ios::end);",
+			"size_t size = file.tellg();",
+			"file.seekg(0, std::ios::beg);",
+			"std::string result(size, '\\0');",
+			"file.read(result.data(), size);"
+		]
+	},
 	"Main file+": {
 		"prefix": "main+",
 		"description": "Main file Setup",

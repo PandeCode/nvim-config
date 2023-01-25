@@ -235,9 +235,9 @@ return packer.startup({
 		})
 
 		use({
-			"simnalamburt/vim-mundo",
+			"mbbill/undotree",
 			config = function()
-				require("config.mundo")
+				require("config.undotree")
 			end,
 		})
 

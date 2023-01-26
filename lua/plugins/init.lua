@@ -105,7 +105,9 @@ local plugins = {
 	},
 	"saadparwaiz1/cmp_luasnip",
 
-	{"hrsh7th/nvim-cmp", config = RequireFn("plugins.nvim_cmp_conf")}
+	{"hrsh7th/nvim-cmp", config = RequireFn("plugins.nvim_cmp_conf")},
+
+	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
 
 }
 

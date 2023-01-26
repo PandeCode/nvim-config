@@ -109,6 +109,8 @@ local plugins = {
 
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
 
+	{  "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") }
+
 }
 
 require("lazy").setup(plugins, opt)

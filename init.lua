@@ -1,11 +1,8 @@
 require("utils")
-require("plugins")
-require("packer_compiled")
 
-require("personal")
-
+require("options")
+require("autocmds")
+require("bindings")
 require("commands")
-require("keybinds")
-require("settings")
 
-require("config.neovide")
+require("plugins")

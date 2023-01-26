@@ -1,0 +1,6 @@
+-- Auto make dir for new files without parent dirs
+-- augroup Mkdir
+--     autocmd!
+--     autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+-- augroup END
+--

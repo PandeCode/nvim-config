@@ -1,96 +1,26 @@
--- vim.cmd("source $HOME/.config/nvim/vimscript/commands.vim"):
-
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ on_visual = false })
-	end,
-})
-
-local wrap_format_stop_blocks = {
-	{ "lua", "-- stylua: ignore start", "-- stylua: ignore end" },
-	{ "python", "# fmt: off", "# fmt: on" },
-	{ { "haskell", "lhaskell" }, "{- ORMOLU_DISABLE -}", "{- ORMOLU_ENABLE -}" },
-	{ { "cpp", "c" }, "// clang-format off", "// clang-format on" },
-}
-
-local top_format_stop_blocks = {
+-- Clear Registers
+vim.cmd.command(
 	{
-		{
-			"js",
-			"ts",
-			"tsx",
-			"jsx",
-			"vue",
-			"json",
-			"svelte",
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
+		args = {
+			"WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor"
 		},
-		"// prettier-ignore",
-	},
-	{ "rust", "#[rustfmt::skip]" },
-}
+		bang = true
+	}
+)
 
-function add_wrap_format_stop_block(filetypes, start, stop)
-	filetypes = type(filetypes) == "table" and filetypes or { filetypes }
+-- Scratch Buffer
+vim.cmd.command(
+	{
+		args = {"Scratch new | setlocal bt=nofile bh=wipe nobl noswapfile nu"},
+		bang = true
+	}
+)
 
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = filetypes,
-		callback = function(tbl)
-			vim.keymap.set(
-				"v",
-				"<SPACE>fo",
-				"vnoremap <buffer> <SPACE>fo <esc>`>a" .. stop .. "<esc>`<i" .. start .. "<esc>",
-				{ buffer = tbl.buf }
-			)
-		end,
-	})
+vim.cmd.command({args = {"-bang W  noautocmd w"}, bang = true})
+vim.cmd.command({args = {"-bang WQ noautocmd wq"}, bang = true})
+vim.cmd.command({args = {"-bang Wq noautocmd wq"}, bang = true})
+vim.cmd.command({args = {"-bang QW noautocmd wq"}, bang = true})
+vim.cmd.command({args = {"-bang Qw noautocmd wq"}, bang = true})
+vim.cmd.command({args = {"-bang Q  noautocmd  q"}, bang = true})
 
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = filetypes,
-		callback = function(tbl)
-			vim.keymap.set("n", "<SPACE>fo", "<esc>{o" .. start .. "<esc>}O" .. stop .. "<esc>", { buffer = tbl.buf })
-		end,
-	})
-end
-
-function add_top_format_stop_block(filetypes, top)
-	filetypes = type(filetypes) == "table" and filetypes or { filetypes }
-
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = filetypes,
-		callback = function(tbl)
-			vim.keymap.set(
-				"v",
-				"<SPACE>fo",
-				"<esc>`<i" .. top .. "<esc>",
-				{ buffer = tbl.buf }
-			)
-		end,
-	})
-
-	vim.api.nvim_create_autocmd("Filetype", {
-		pattern = filetypes,
-		callback = function(tbl)
-			vim.keymap.set(
-				"n",
-				"<SPACE>fo",
-				"<esc>{o" .. top .. "<esc>",
-				{ buffer = tbl.buf }
-			)
-		end,
-	})
-end
-
-for _, wrap_format_stop_block in ipairs(wrap_format_stop_blocks) do
-	-- PrintTable(wrap_format_stop_block)
-	add_wrap_format_stop_block(wrap_format_stop_block[1], wrap_format_stop_block[2], wrap_format_stop_block[3])
-end
-
-for _, top_format_stop_block in ipairs(top_format_stop_blocks) do
-	-- PrintTable(top_format_stop_block)
-	add_top_format_stop_block(top_format_stop_block[1], top_format_stop_block[2])
-end
+vim.cmd.command({args = {"-bar -complete=file", "-nargs=1 E :e <args>"}})

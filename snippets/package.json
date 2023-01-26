@@ -1,0 +1,19 @@
+{
+	"name": "my_snippets",
+	"contributes": {
+		"snippets" : [
+		{ "language": "c", path: "./c.json" },
+		{ "language": "cmake", path: "./cmake.json" },
+		{ "language": "cpp", path: "./cpp.json" },
+		{ "language": "global", path: "./global.json" },
+		{ "language": "glsl", path: "./glsl.json" },
+		{ "language": "go", path: "./go.json" },
+		{ "language": "lua", path: "./lua.json" },
+		{ "language": "package", path: "./package.json" },
+		{ "language": "python", path: "./python.json" },
+		{ "language": "rust", path: "./rust.json" },
+		{ "language": "sh", path: "./sh.json" },
+		{ "language": "typescriptreact", path: "./typescriptreact.json" }
+				]
+	}
+}

@@ -1,8 +1,5 @@
-lua/packer_compiled.lua
-
-autoload
-
 tests
+test
 
 tags
 tags.lock

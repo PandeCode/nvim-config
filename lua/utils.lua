@@ -1,10 +1,14 @@
-function RandFrom(list) return list[math.random(1, #list)] end
+function RandFrom(list)
+	return list[math.random(1, #list)]
+end
 
 function Dump(o)
 	if type(o) == "table" then
 		local s = "{ "
 		for k, v in pairs(o) do
-			if type(k) ~= "number" then k = "\"" .. k .. "\"" end
+			if type(k) ~= "number" then
+				k = '"' .. k .. '"'
+			end
 			s = s .. "[" .. k .. "] = " .. Dump(v) .. ","
 		end
 		return s .. "} "
@@ -13,15 +17,49 @@ function Dump(o)
 	end
 end
 
+function PrintError(text)
+	vim.cmd.echohl({ args = { "ErrorMsg" } })
+	vim.cmd.echomsg({ args = { "'" .. text .. "'" } })
+	vim.cmd.echohl({ args = { "None" } })
+end
+
+function Prequire(path)
+	local status, lib = pcall(require, "path")
+	if status then
+		return lib
+	else
+		PrintError("Error Loading: '" .. path .. "'")
+		return nil
+	end
+end
+
 function RequireForFileType(ft, module)
-	vim.cmd("autocmd Filetype " .. ft .. " lua require('" .. module .. "')")
+	vim.api.nvim_create_autocmd({
+		"Filetype",
+	}, {
+		pattern = ft,
+		callback = function()
+			require(module)
+		end,
+	})
 end
 
 function RequireForPattern(pattern, module)
-	vim.cmd("autocmd BufEnter " .. pattern .. " lua require('" .. module .. "')")
+	vim.api.nvim_create_autocmd({
+		"BufEnter",
+	}, {
+		pattern = pattern,
+		callback = function()
+			require(module)
+		end,
+	})
 end
 
-function RequireFn(file) return function() require(file) end end
+function RequireFn(file)
+	return function()
+		require(file)
+	end
+end
 
 Keys = {
 	C = "c",
@@ -33,19 +71,19 @@ Keys = {
 	NoneStr = "",
 
 	None = {},
-	Expr = {expr = true},
-	Silent = {silent = true},
-	SilentExpr = {expr = true, silent = true},
-	Noremap = {noremap = true},
-	NoremapExpr = {noremap = true, expr = true},
-	NoremapSilent = {noremap = true, silent = true},
-	NoremapSilentExpr = {noremap = true, expr = true, silent = true},
+	Expr = { expr = true },
+	Silent = { silent = true },
+	SilentExpr = { expr = true, silent = true },
+	Noremap = { noremap = true },
+	NoremapExpr = { noremap = true, expr = true },
+	NoremapSilent = { noremap = true, silent = true },
+	NoremapSilentExpr = { noremap = true, expr = true, silent = true },
 	NoremapSilentExprScript = {
 		noremap = true,
 		silent = true,
 		script = true,
-		expr = true
-	}
+		expr = true,
+	},
 }
 ---A helper function to print a table's contents.
 ---@param tbl table @The table to print.
@@ -60,11 +98,13 @@ function PrintTable(tbl, depth, n)
 		return
 	end
 
-	if n == 0 then print(" ") end
+	if n == 0 then
+		print(" ")
+	end
 
 	for key, value in pairs(tbl) do
 		if key and type(key) == "number" or type(key) == "string" then
-			key = string.format("[\"%s\"]", key)
+			key = string.format('["%s"]', key)
 
 			if type(value) == "table" then
 				if next(value) then
@@ -76,7 +116,7 @@ function PrintTable(tbl, depth, n)
 				end
 			else
 				if type(value) == "string" then
-					value = string.format("\"%s\"", value)
+					value = string.format('"%s"', value)
 				else
 					value = tostring(value)
 				end
@@ -86,5 +126,7 @@ function PrintTable(tbl, depth, n)
 		end
 	end
 
-	if n == 0 then print(" ") end
+	if n == 0 then
+		print(" ")
+	end
 end

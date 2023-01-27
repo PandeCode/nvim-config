@@ -7,6 +7,16 @@ set_keymap(Keys.N, "<LEADER>bp", "<CMD>bp<CR>", Keys.Noremap)
 set_keymap(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
 set_keymap(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
 
+set_keymap(Keys.N, "<LEADER>1", "<CMD>buf 1<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>2", "<CMD>buf 2<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>3", "<CMD>buf 3<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>4", "<CMD>buf 4<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>5", "<CMD>buf 5<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>6", "<CMD>buf 6<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>7", "<CMD>buf 7<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>8", "<CMD>buf 8<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>9", "<CMD>buf 9<CR>", Keys.Noremap)
+
 set_keymap(Keys.N, "<LEADER>p", "\"_dP", Keys.Noremap)
 
 set_keymap(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.Noremap)
@@ -58,7 +68,7 @@ set_keymap(Keys.C, "<c-x>", "<c-c>d", Keys.None)
 -- use <c-r> to insert original character without triggering things like auto-pairs
 set_keymap(Keys.I, "<c-r>", "<c-v>", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>fs", ":noautocmd w<CR>", Keys.Noremap)
+set_keymap(Keys.N, "<LEADER>fs", ":w<CR>", Keys.Noremap)
 
 set_keymap(Keys.N, "<F1>", "<esc>", Keys.Noremap)
 set_keymap(Keys.I, "<F1>", "<esc>", Keys.Noremap)

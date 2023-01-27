@@ -16,11 +16,11 @@ vim.cmd.command(
 	}
 )
 
-vim.cmd.command({args = {"-bang W  noautocmd w"}, bang = true})
-vim.cmd.command({args = {"-bang WQ noautocmd wq"}, bang = true})
-vim.cmd.command({args = {"-bang Wq noautocmd wq"}, bang = true})
-vim.cmd.command({args = {"-bang QW noautocmd wq"}, bang = true})
-vim.cmd.command({args = {"-bang Qw noautocmd wq"}, bang = true})
-vim.cmd.command({args = {"-bang Q  noautocmd  q"}, bang = true})
+vim.cmd.command({args = {"-bang W  w"}, bang = true})
+vim.cmd.command({args = {"-bang WQ wq"}, bang = true})
+vim.cmd.command({args = {"-bang Wq wq"}, bang = true})
+vim.cmd.command({args = {"-bang QW wq"}, bang = true})
+vim.cmd.command({args = {"-bang Qw wq"}, bang = true})
+vim.cmd.command({args = {"-bang Q   q"}, bang = true})
 
 vim.cmd.command({args = {"-bar -complete=file", "-nargs=1 E :e <args>"}})

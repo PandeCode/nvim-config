@@ -144,6 +144,14 @@ local plugins = {
 		},
 		prority = 41,
 	},
+
+	{ "nvim-lua/plenary.nvim", prority = 40 },
+
+	{ 
+		"nvim-telescope/telescope.nvim",
+		prority = 39,
+		config = RequireFn("plugins.telescope_conf"),
+ 	 },
 }
 
 require("lazy").setup(plugins, opt)

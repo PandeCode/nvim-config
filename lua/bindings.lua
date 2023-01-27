@@ -1,152 +1,126 @@
 vim.g.mapleader = " "
-local set_keymap = vim.api.nvim_set_keymap
-
 -- stylua: ignore start
 
-set_keymap(Keys.N, "<LEADER>bp", "<CMD>bp<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
+-- Buffer
+vim.keymap.set(Keys.N, "<LEADER>bp", "<CMD>bp<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<A-d>", "<CMD>bd<CR>", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>1", "<CMD>buf 1<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>2", "<CMD>buf 2<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>3", "<CMD>buf 3<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>4", "<CMD>buf 4<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>5", "<CMD>buf 5<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>6", "<CMD>buf 6<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>7", "<CMD>buf 7<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>8", "<CMD>buf 8<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>9", "<CMD>buf 9<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>`", "<CMD>edit #<CR>", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>p", "\"_dP", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>p", '"_dP', Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER><F2>", "*:%s//", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER><F2>", "*:%s//", Keys.Noremap)
 
-set_keymap(Keys.NoneStr, "<c-i>", "<c-a>", Keys.Noremap) -- increament
-set_keymap(Keys.NoneStr, "<c-d>", "<c-x>", Keys.Noremap) -- decreament
+vim.keymap.set(Keys.NoneStr, "<c-i>", "<c-a>", Keys.Noremap) -- increament
+vim.keymap.set(Keys.NoneStr, "<c-d>", "<c-x>", Keys.Noremap) -- decreament
 
-set_keymap(Keys.N, "L", "$", Keys.None)
-set_keymap(Keys.N, "H", "^", Keys.None)
-set_keymap(Keys.N, "Q", "", Keys.None) -- Disable visual mode
+vim.keymap.set(Keys.N, "L", "$", Keys.None)
+vim.keymap.set(Keys.N, "H", "^", Keys.None)
+vim.keymap.set(Keys.N, "Q", "", Keys.None) -- Disable visual mode
 
-set_keymap(Keys.NoneStr, "<LEADER>fe", "<CMD>edit<CR>", Keys.Noremap)
+vim.keymap.set(Keys.NoneStr, "<LEADER>fe", vim.cmd.edit, Keys.Noremap)
 
-set_keymap(
-	Keys.N, "<Home>",
-	"(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", Keys.NoremapExpr
-)
-set_keymap(
-	Keys.N, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')",
-	Keys.NoremapExpr
-)
-set_keymap(
-	Keys.V, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')",
-	Keys.NoremapExpr
-)
-set_keymap(Keys.I, "<Home>", "<C-o><Home>", Keys.None)
-set_keymap(Keys.I, "<End> ", "<C-o><End>", Keys.None)
+vim.keymap.set(Keys.N, "<Home>", "(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", Keys.NoremapExpr)
+vim.keymap.set(Keys.N, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')", Keys.NoremapExpr)
+vim.keymap.set(Keys.V, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')", Keys.NoremapExpr)
+vim.keymap.set(Keys.I, "<Home>", "<C-o><Home>", Keys.None)
+vim.keymap.set(Keys.I, "<End> ", "<C-o><End>", Keys.None)
 
-set_keymap(Keys.N, "gg", "gg0", Keys.Noremap)
-set_keymap(Keys.NoneStr, "G", "G<End>", Keys.Noremap)
-set_keymap(Keys.NoneStr, "Y", "y$", Keys.Noremap)
+vim.keymap.set(Keys.N, "gg", "gg0", Keys.Noremap)
+vim.keymap.set(Keys.NoneStr, "G", "G<End>", Keys.Noremap)
+vim.keymap.set(Keys.NoneStr, "Y", "y$", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>w", "<c-w>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>w|", "<CMD>vsplit<CR>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>w_", "<CMD>split<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>w", "<c-w>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>w|", "<CMD>vsplit<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>w_", "<CMD>split<CR>", Keys.Noremap)
 
 -- system clipboard
-set_keymap(Keys.N, "<c-c>", "\"+y\"", Keys.Noremap)
-set_keymap(Keys.V, "<c-c>", "\"+y\"", Keys.Noremap)
-set_keymap(Keys.N, "<c-v>", "\"+p\"", Keys.Noremap)
-set_keymap(Keys.I, "<c-v>", "<c-r>+", Keys.Noremap)
-set_keymap(Keys.C, "<c-v>", "<c-r>+", Keys.Noremap)
+vim.keymap.set(Keys.N, "<c-c>", '"+y"', Keys.Noremap)
+vim.keymap.set(Keys.V, "<c-c>", '"+y"', Keys.Noremap)
+vim.keymap.set(Keys.N, "<c-v>", '"+p"', Keys.Noremap)
+vim.keymap.set(Keys.I, "<c-v>", "<c-r>+", Keys.Noremap)
+vim.keymap.set(Keys.C, "<c-v>", "<c-r>+", Keys.Noremap)
 
-set_keymap(Keys.N, "<c-x>", "<c-c>d", Keys.None)
-set_keymap(Keys.I, "<c-x>", "<c-c>d", Keys.None)
-set_keymap(Keys.C, "<c-x>", "<c-c>d", Keys.None)
+vim.keymap.set(Keys.N, "<c-x>", "<c-c>d", Keys.None)
+vim.keymap.set(Keys.I, "<c-x>", "<c-c>d", Keys.None)
+vim.keymap.set(Keys.C, "<c-x>", "<c-c>d", Keys.None)
 
 -- use <c-r> to insert original character without triggering things like auto-pairs
-set_keymap(Keys.I, "<c-r>", "<c-v>", Keys.Noremap)
+vim.keymap.set(Keys.I, "<c-r>", "<c-v>", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>fs", ":w<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>fs", ":w<CR>", Keys.Noremap)
 
-set_keymap(Keys.N, "<F1>", "<esc>", Keys.Noremap)
-set_keymap(Keys.I, "<F1>", "<esc>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<F1>", "<esc>", Keys.Noremap)
+vim.keymap.set(Keys.I, "<F1>", "<esc>", Keys.Noremap)
 
-set_keymap(Keys.N, Keys.N, "nzzzv", Keys.Noremap)
-set_keymap(Keys.N, "N", "Nzzzv", Keys.Noremap)
-set_keymap(Keys.N, "J", "mzJ`z", Keys.Noremap)
+vim.keymap.set(Keys.N, Keys.N, "nzzzv", Keys.Noremap)
+vim.keymap.set(Keys.N, "N", "Nzzzv", Keys.Noremap)
+vim.keymap.set(Keys.N, "J", "mzJ`z", Keys.Noremap)
 
-set_keymap(Keys.I, ",", ",<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, ".", ".<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "!", "!<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "?", "?<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "[", "[<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "]", "]<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "(", "(<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, ")", ")<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "{", "{<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "}", "}<c-g>u", Keys.Noremap)
-set_keymap(Keys.I, "\"", "\"<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, ",", ",<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, ".", ".<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "!", "!<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "?", "?<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "[", "[<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "]", "]<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "(", "(<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, ")", ")<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "{", "{<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, "}", "}<c-g>u", Keys.Noremap)
+vim.keymap.set(Keys.I, '"', '"<c-g>u', Keys.Noremap)
 
-set_keymap(
-	Keys.N, "k", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'k'", Keys.NoremapExpr
-)
-set_keymap(
-	Keys.N, "j", "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'", Keys.NoremapExpr
-)
+vim.keymap.set(Keys.N, "k", '(v:count > 5 ? "m\'" . v:count : "") . \'k\'', Keys.NoremapExpr)
+vim.keymap.set(Keys.N, "j", '(v:count > 5 ? "m\'" . v:count : "") . \'j\'', Keys.NoremapExpr)
 
-set_keymap(Keys.V, "<c-j>", ":m '>+1<CR>gv=gv", Keys.Noremap)
-set_keymap(Keys.V, "<c-k>", ":m '<-2<CR>gv=gv", Keys.Noremap)
-set_keymap(Keys.N, "<c-j>", ":m .+1<CR>==", Keys.Noremap)
-set_keymap(Keys.I, "<c-k>", "<esc>:m .-2<CR>==i", Keys.Noremap)
-set_keymap(Keys.N, "<c-k>", ":m .-1<CR>==", Keys.Noremap)
-set_keymap(Keys.I, "<c-j>", "<esc>:m .+1<CR>==i", Keys.Noremap)
+vim.keymap.set(Keys.V, "<c-j>", ":m '>+1<CR>gv=gv", Keys.Noremap)
+vim.keymap.set(Keys.V, "<c-k>", ":m '<-2<CR>gv=gv", Keys.Noremap)
+vim.keymap.set(Keys.N, "<c-j>", ":m .+1<CR>==", Keys.Noremap)
+vim.keymap.set(Keys.I, "<c-k>", "<esc>:m .-2<CR>==i", Keys.Noremap)
+vim.keymap.set(Keys.N, "<c-k>", ":m .-1<CR>==", Keys.Noremap)
+vim.keymap.set(Keys.I, "<c-j>", "<esc>:m .+1<CR>==i", Keys.Noremap)
 
 -- Add space bellow or above without leaving normal mode
-set_keymap(
-	Keys.N, "[<LEADER>", ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>",
-	Keys.NoremapSilent
-)
-set_keymap(
-	Keys.N, "]<LEADER>", ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>",
-	Keys.NoremapSilent
-)
+vim.keymap.set(Keys.N, "[<LEADER>", ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>", Keys.NoremapSilent)
+vim.keymap.set(Keys.N, "]<LEADER>", ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>", Keys.NoremapSilent)
 
 -- Use simple ; instead of shift + :
-set_keymap(Keys.N, ";", ":", Keys.Noremap)
-set_keymap(Keys.V, ";", ":", Keys.Noremap)
+vim.keymap.set(Keys.N, ";", ":", Keys.Noremap)
+vim.keymap.set(Keys.V, ";", ":", Keys.Noremap)
 
 -- Use this instead of touching Esc key
-set_keymap(Keys.I, "kj", "<Esc>", Keys.Noremap)
-set_keymap(Keys.I, "jk", "<Esc>", Keys.Noremap)
+vim.keymap.set(Keys.I, "kj", "<Esc>", Keys.Noremap)
+vim.keymap.set(Keys.I, "jk", "<Esc>", Keys.Noremap)
 
 -- Better tabbing
-set_keymap(Keys.N, "<", "v<gv<esc>", Keys.Noremap)
-set_keymap(Keys.N, ">", "v>gv<esc>", Keys.Noremap)
-set_keymap(Keys.V, "<", "<gv", Keys.Noremap)
-set_keymap(Keys.V, ">", ">gv", Keys.Noremap)
+vim.keymap.set(Keys.N, "<", "v<gv<esc>", Keys.Noremap)
+vim.keymap.set(Keys.N, ">", "v>gv<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "<", "<gv", Keys.Noremap)
+vim.keymap.set(Keys.V, ">", ">gv", Keys.Noremap)
 
-set_keymap(Keys.V, "`", "<esc>`>a`<esc>`<i`<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "`", "<esc>`>a`<esc>`<i`<esc>", Keys.Noremap)
 
-set_keymap(Keys.V, "(", "<esc>`>a)<esc>`<i(<esc>", Keys.Noremap)
-set_keymap(Keys.V, "'", "<esc>`>a'<esc>`<i'<esc>", Keys.Noremap)
-set_keymap(Keys.V, "<c-{>", "<esc>`>a}<esc>`<i{<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "(", "<esc>`>a)<esc>`<i(<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "'", "<esc>`>a'<esc>`<i'<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "<c-{>", "<esc>`>a}<esc>`<i{<esc>", Keys.Noremap)
 
-set_keymap(Keys.V, ")", "<esc>`>a)<esc>`<i(<esc>", Keys.Noremap)
-set_keymap(Keys.V, "]", "<esc>`>a]<esc>`<i[<esc>", Keys.Noremap)
-set_keymap(Keys.V, "<c-}>", "<esc>`>a}<esc>`<i{<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, ")", "<esc>`>a)<esc>`<i(<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "]", "<esc>`>a]<esc>`<i[<esc>", Keys.Noremap)
+vim.keymap.set(Keys.V, "<c-}>", "<esc>`>a}<esc>`<i{<esc>", Keys.Noremap)
 
-set_keymap(Keys.N, "<LEADER>ne", ":set noexpandtab!<cr>", Keys.Noremap)
-set_keymap(Keys.N, "<LEADER>et", ":set expandtab!<cr>", Keys.Noremap)
 
-vim.api.nvim_create_autocmd(
-	"BufEnter", {
-		pattern = {"*.vim", "*.lua"},
-		group = vim.api.nvim_create_augroup("LuaVimscript", {clear = true}),
-		callback = function()
-			set_keymap(Keys.N, "<LEADER>sf", ":source %<cr>", Keys.Noremap)
-		end
-	}
-)
+vim.keymap.set(Keys.N, "<LEADER>ne", ":set noexpandtab!<cr>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>et", ":set expandtab!<cr>", Keys.Noremap)
 
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.vim", "*.lua" },
+	group = vim.api.nvim_create_augroup("LuaVimscript", { clear = true }),
+	callback = function(tbl)
+		vim.keymap.set(Keys.N, "<LEADER>sf", function()
+			vim.cmd.source({ args = { vim.fn.expand("%") } })
+			print("Sourced file '" .. vim.fn.expand("%") .. "'")
+		end, { noremap = true, silent = true, buffer = tbl.buf })
+	end,
+})

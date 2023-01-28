@@ -35,6 +35,7 @@ local plugins = {
 	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf"), priority = 48 },
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf"), priority = 48 },
 	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf"), priority = 48, },
+	{ "ap/vim-css-color", priority = 48, },
 
 	{ "nvim-tree/nvim-web-devicons", priority = 48 },
 	{ "akinsho/bufferline.nvim", config = RequireFn("plugins.bufferline_conf"), priority = 47 },

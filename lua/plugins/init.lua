@@ -27,16 +27,32 @@ local opt = {}
 local plugins = {
 	{ "lewis6991/impatient.nvim", config = RequireFn("impatient") },
 
-	{ "marko-cerovac/material.nvim", config = RequireFn("plugins.material_conf"), priority = 49 },
+	{ "marko-cerovac/material.nvim", config = RequireFn("plugins.material_conf"), priority = 100 },
 
-	{ "mg979/vim-visual-multi", priority = 48 },
-	{ "tpope/vim-surround", priority = 48 },
+	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf"), prority = 48 },
+	{ "ap/vim-css-color", priority = 48 },
+	{ "chentoast/marks.nvim", priority = 48 },
+	{ "chaoren/vim-wordmotion", priority = 48 },
+	{ "itchyny/vim-cursorword", priority = 48 },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf"), priority = 48 },
+	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf"), priority = 48 },
+	{ "mg979/vim-visual-multi", priority = 48 },
 	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf"), priority = 48 },
+	{ "romainl/vim-cool", priority = 48 },
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf"), priority = 48 },
-	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf"), priority = 48, },
-	{ "ap/vim-css-color", priority = 48, },
-	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
+	{ "tpope/vim-repeat", priority = 48 },
+	{ "tpope/vim-surround", priority = 48 },
+	{ "rcarriga/nvim-notify", prority = 48 },
+	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments"), prority = 48 },
+
+	{ "rcarriga/nvim-notify", prority = 48 },
+	{ "airblade/vim-gitgutter", prority = 48 },
+	{
+		"andymass/vim-matchup",
+		setup = function()
+			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		end,
+	},
 
 	{ "nvim-tree/nvim-web-devicons", priority = 48 },
 	{ "akinsho/bufferline.nvim", config = RequireFn("plugins.bufferline_conf"), priority = 47 },

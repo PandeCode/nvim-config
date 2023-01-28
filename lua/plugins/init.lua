@@ -31,7 +31,7 @@ local plugins = {
 
 	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf"), prority = 48 },
 	{ "ap/vim-css-color", priority = 48 },
-	{ "chentoast/marks.nvim", priority = 48 },
+	{ "chentoast/marks.nvim", config = RequireSetupFn("marks"), priority = 48 },
 	{ "chaoren/vim-wordmotion", priority = 48 },
 	{ "itchyny/vim-cursorword", priority = 48 },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf"), priority = 48 },
@@ -45,10 +45,19 @@ local plugins = {
 	{ "rcarriga/nvim-notify", prority = 48 },
 	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments"), prority = 48 },
 
+	{
+		"ludovicchabant/vim-gutentags",
+		config = function()
+			vim.g.gutentags_cache_dir = vim.fn.expand("~") .. "/.cache/ctags"
+		end,
+		prority = 48,
+	},
+
 	{ "rcarriga/nvim-notify", prority = 48 },
 	{ "airblade/vim-gitgutter", prority = 48 },
 	{
 		"andymass/vim-matchup",
+		prority = 48,
 		setup = function()
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
@@ -116,6 +125,7 @@ local plugins = {
 	},
 
 	{ "hrsh7th/cmp-nvim-lsp", prority = 44 },
+	{ "quangnguyen30192/cmp-nvim-tags", prority = 44 },
 	{ "hrsh7th/cmp-buffer", prority = 44 },
 	{ "hrsh7th/cmp-path", prority = 44 },
 	{ "hrsh7th/cmp-cmdline", prority = 44 },

@@ -3,7 +3,6 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 local has_words_before = function()
-	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
@@ -28,8 +27,6 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		-- ["<Esc>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -60,6 +57,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "treesitter" },
+		{ name = "tags" },
 	}, { { name = "path" }, { name = "buffer" } }),
 })
 

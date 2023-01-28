@@ -36,6 +36,7 @@ local plugins = {
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf"), priority = 48 },
 	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf"), priority = 48, },
 	{ "ap/vim-css-color", priority = 48, },
+	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
 
 	{ "nvim-tree/nvim-web-devicons", priority = 48 },
 	{ "akinsho/bufferline.nvim", config = RequireFn("plugins.bufferline_conf"), priority = 47 },

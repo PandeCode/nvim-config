@@ -34,6 +34,7 @@ local plugins = {
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf"), priority = 48 },
 	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf"), priority = 48 },
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf"), priority = 48 },
+	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf"), priority = 48, },
 
 	{ "nvim-tree/nvim-web-devicons", priority = 48 },
 	{ "akinsho/bufferline.nvim", config = RequireFn("plugins.bufferline_conf"), priority = 47 },
@@ -141,13 +142,19 @@ local plugins = {
 		prority = 41,
 	},
 
-	{ "nvim-lua/plenary.nvim", prority = 40 },
+	{
+		"j-hui/fidget.nvim",
+		config = RequireFn("plugins.fidget_conf"),
+		prority = 40,
+	},
+
+	{ "nvim-lua/plenary.nvim", prority = 39 },
 
 	{
 		"nvim-telescope/telescope.nvim",
-		prority = 39,
+		prority = 38,
 		config = RequireFn("plugins.telescope_conf"),
- 	 },
+	},
 }
 
 require("lazy").setup(plugins, opt)

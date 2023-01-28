@@ -7,7 +7,7 @@ vim.keymap.set(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
 vim.keymap.set(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
 vim.keymap.set(Keys.N, "<A-d>", "<CMD>bd<CR>", Keys.Noremap)
 
-vim.keymap.set(Keys.N, "<LEADER>nw", "%s/\\s*$//", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>nw", "<CMD>%s/\\s*$//<CR>", Keys.Noremap)
 
 vim.keymap.set(Keys.N, "<LEADER>`", "<CMD>edit #<CR>", Keys.Noremap)
 

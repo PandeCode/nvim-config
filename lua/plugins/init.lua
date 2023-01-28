@@ -39,8 +39,6 @@ local plugins = {
 	{ "akinsho/bufferline.nvim", config = RequireFn("plugins.bufferline_conf"), priority = 47 },
 	{ "nvim-lualine/lualine.nvim", config = RequireFn("plugins.lualine_conf"), priority = 47 },
 
-	{ "williamboman/mason.nvim", config = RequireFn("plugins.mason_conf"), prority = 47 },
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -113,8 +111,6 @@ local plugins = {
 		config = RequireFn("plugins.cmp_conf"),
 		priority = 43,
 	},
-
-	{ "williamboman/mason-lspconfig.nvim", config = RequireFn("plugins.mason_lspconfig_conf"), prority = 43 },
 
 	{
 		"folke/neodev.nvim",

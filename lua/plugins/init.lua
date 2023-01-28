@@ -68,9 +68,16 @@ local plugins = {
 	{ "nvim-lualine/lualine.nvim", config = RequireFn("plugins.lualine_conf"), priority = 47 },
 
 	{
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = RequireFn("plugins.dashboard_conf"),
+		priority = 46,
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		priority = 46,
+		priority = 45,
 		config = RequireFn("plugins.treesitter_conf"),
 		ft = {
 			"bash",
@@ -120,31 +127,31 @@ local plugins = {
 		"L3MON4D3/LuaSnip",
 		config = RequireFn("plugins.luasnip_conf"),
 		build = "make install_jsregexp",
-		priority = 45,
+		priority = 44,
 		ft = { "c", "cmake", "cpp", "global", "glsl", "go", "lua", "python", "rust", "sh", "typescriptreact" },
 	},
 
-	{ "hrsh7th/cmp-nvim-lsp", prority = 44 },
-	{ "quangnguyen30192/cmp-nvim-tags", prority = 44 },
-	{ "hrsh7th/cmp-buffer", prority = 44 },
-	{ "hrsh7th/cmp-path", prority = 44 },
-	{ "hrsh7th/cmp-cmdline", prority = 44 },
+	{ "hrsh7th/cmp-nvim-lsp", prority = 43 },
+	{ "quangnguyen30192/cmp-nvim-tags", prority = 43 },
+	{ "hrsh7th/cmp-buffer", prority = 43 },
+	{ "hrsh7th/cmp-path", prority = 43 },
+	{ "hrsh7th/cmp-cmdline", prority = 43 },
 	{
 		"saadparwaiz1/cmp_luasnip",
-		priority = 44,
+		priority = 43,
 		ft = { "c", "cmake", "cpp", "global", "glsl", "go", "lua", "python", "rust", "sh", "typescriptreact" },
 	},
 
 	{
 		"hrsh7th/nvim-cmp",
 		config = RequireFn("plugins.cmp_conf"),
-		priority = 43,
+		priority = 42,
 	},
 
 	{
 		"folke/neodev.nvim",
 		ft = { "lua" },
-		priority = 42,
+		priority = 41,
 		config = RequireFn("plugins.neodev_conf"),
 	},
 
@@ -167,20 +174,20 @@ local plugins = {
 			"vimscript",
 			"go",
 		},
-		prority = 41,
+		prority = 40,
 	},
 
 	{
 		"j-hui/fidget.nvim",
 		config = RequireFn("plugins.fidget_conf"),
-		prority = 40,
+		prority = 39,
 	},
 
-	{ "nvim-lua/plenary.nvim", prority = 39 },
+	{ "nvim-lua/plenary.nvim", prority = 38 },
 
 	{
 		"nvim-telescope/telescope.nvim",
-		prority = 38,
+		prority = 37,
 		config = RequireFn("plugins.telescope_conf"),
 	},
 }

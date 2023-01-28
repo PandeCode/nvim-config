@@ -7,12 +7,15 @@ vim.keymap.set(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
 vim.keymap.set(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
 vim.keymap.set(Keys.N, "<A-d>", "<CMD>bd<CR>", Keys.Noremap)
 
+vim.keymap.set(Keys.N, "<LEADER>nw", "%s/\\s*$//", Keys.Noremap)
+
 vim.keymap.set(Keys.N, "<LEADER>`", "<CMD>edit #<CR>", Keys.Noremap)
 
 vim.keymap.set(Keys.N, "<LEADER>p", '"_dP', Keys.Noremap)
 
 vim.keymap.set(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.Noremap)
-vim.keymap.set(Keys.N, "<LEADER><F2>", "*:%s//", Keys.Noremap)
+
+vim.keymap.set(Keys.N, "<LEADER><F2>", "*:%s//" , Keys.Noremap)
 
 vim.keymap.set(Keys.NoneStr, "<c-i>", "<c-a>", Keys.Noremap) -- increament
 vim.keymap.set(Keys.NoneStr, "<c-d>", "<c-x>", Keys.Noremap) -- decreament
@@ -113,14 +116,3 @@ vim.keymap.set(Keys.V, "<c-}>", "<esc>`>a}<esc>`<i{<esc>", Keys.Noremap)
 
 vim.keymap.set(Keys.N, "<LEADER>ne", ":set noexpandtab!<cr>", Keys.Noremap)
 vim.keymap.set(Keys.N, "<LEADER>et", ":set expandtab!<cr>", Keys.Noremap)
-
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.vim", "*.lua" },
-	group = vim.api.nvim_create_augroup("LuaVimscript", { clear = true }),
-	callback = function(tbl)
-		vim.keymap.set(Keys.N, "<LEADER>sf", function()
-			vim.cmd.source({ args = { vim.fn.expand("%") } })
-			print("Sourced file '" .. vim.fn.expand("%") .. "'")
-		end, { noremap = true, silent = true, buffer = tbl.buf })
-	end,
-})

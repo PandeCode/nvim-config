@@ -7,6 +7,7 @@ vim.keymap.set("n", "g]", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 LSP = {
+	lspconfig = require("lspconfig"),
 	on_attach = function(client, bufnr)
 		-- Enable completion triggered by <c-x><c-o>
 		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -40,3 +41,4 @@ LSP = {
 }
 
 RequireForFileType("lua", "plugins.lsp.lua_conf")
+RequireForFileType("rust", "plugins.lsp.rust_conf")

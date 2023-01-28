@@ -1,3 +1,27 @@
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.vim", "*.lua" },
+	group = vim.api.nvim_create_augroup("SourceLuaVimscript", { clear = true }),
+	callback = function(tbl)
+		vim.keymap.set(Keys.N, "<LEADER>sf", function()
+			vim.cmd.source({ args = { vim.fn.expand("%") } })
+			print("Sourced file '" .. vim.fn.expand("%") .. "'")
+		end, { noremap = true, silent = true, buffer = tbl.buf })
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = {
+		"*/dotfiles/tmux-config/**",
+	},
+	group = vim.api.nvim_create_augroup("SourceTmux", { clear = true }),
+	callback = function(tbl)
+		vim.keymap.set(Keys.N, "<LEADER>sf", function()
+			vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
+			print("Sourced file '" .. vim.fn.expand("%") .. "'")
+		end, { noremap = true, silent = true, buffer = tbl.buf })
+	end,
+})
+
 vim.api.nvim_create_autocmd({
 	"BufWritePre",
 }, {

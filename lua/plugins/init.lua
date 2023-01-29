@@ -195,6 +195,7 @@ local plugins = {
 		"nvim-treesitter/playground",
 		cmd = "TSPlayground",
 		lazy = true,
+		prority = 0,
 	},
 
 	{
@@ -212,6 +213,18 @@ local plugins = {
 		lazy = true,
 		prority = 0,
 	},
+
+	{
+		"mfussenegger/nvim-dap",
+		config = RequireFn("plugins.dap_conf"),
+		prority = 1,
+	},
+
+	{
+		"rcarriga/nvim-dap-ui",
+		config = RequireFn("plugins.dap_ui_conf"),
+		prority = 0,
+	}
 
 }
 

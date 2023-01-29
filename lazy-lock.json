@@ -1,5 +1,5 @@
 {
-  "LuaSnip": { "branch": "master", "commit": "3181cef8a5c6a71f263a28e61651233d7a7afeb2" },
+  "LuaSnip": { "branch": "master", "commit": "94f192cf5f0a1931b3035c2d8affdebec460968c" },
   "bufferline.nvim": { "branch": "main", "commit": "c7492a76ce8218e3335f027af44930576b561013" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "a5c3c8390dfb342d630bdc25941a4d8f433510be" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
@@ -8,6 +8,6 @@
   "cmp-nvim-tags": { "branch": "main", "commit": "de630ce773d249ab5739405a3428a5a29d7e0076" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
-  "dashboard-nvim": { "branch": "master", "commit": "f998a0c19dc70b4cc77cef390394e87d1b82ee73" },
+  "dashboard-nvim": { "branch": "master", "commit": "919331a8c349e5fa0859ac56b6154b270106002e" },
   "fidget.nvim": { "branch": "main", "commit": "44585a0c0085765195e6961c15529ba6c5a2a13b" },
   "impatient.nvim": { "branch": "main", "commit": "c90e273f7b8c50a02f956c24ce4804a47f18162e" },

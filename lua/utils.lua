@@ -1,3 +1,7 @@
+IDE = {
+	name = "Nvim"
+}
+
 function RandFrom(list)
 	return list[math.random(1, #list)]
 end
@@ -38,11 +42,14 @@ function PrintError(text)
 end
 
 function Prequire(path)
-	local status, lib = pcall(require, "path")
+	local status, lib = xpcall(require, function (...)
+		print(...)
+	end, path)
 	if status then
 		return lib
 	else
-		PrintError("Error Loading: '" .. path .. "'")
+		print("Error Loading: '" .. path .. "'")
+		-- PrintError("Error Loading: '" .. path .. "'")
 		return nil
 	end
 end
@@ -53,7 +60,7 @@ function RequireForFileType(ft, module)
 	}, {
 		pattern = ft,
 		callback = function()
-			require(module)
+			Prequire(module)
 		end,
 	})
 end
@@ -64,20 +71,20 @@ function RequireForPattern(pattern, module)
 	}, {
 		pattern = pattern,
 		callback = function()
-			require(module)
+			Prequire(module)
 		end,
 	})
 end
 
 function RequireFn(file)
 	return function()
-		require(file)
+		Prequire(file)
 	end
 end
 
 function RequireSetupFn(file, tbl)
 	return function()
-		require(file).setup(tbl or {})
+		Prequire(file).setup(tbl or {})
 	end
 end
 

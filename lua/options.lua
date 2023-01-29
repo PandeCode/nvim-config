@@ -2,6 +2,16 @@ vim.g.python_recommended_style = 0
 vim.g.python_host_skip_check = 1
 vim.g.loaded_python3_provider = 1
 
+-- vim.o.t_Co = 256
+-- vim.o.t_ut = true
+-- vim.o.shortmess = (vim.o.shortmess .. "c")
+vim.o.expandtab = false
+vim.o.ci = true
+vim.o.pi = true
+-- vim.o.sts = 0
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
 vim.o.autoindent = true
 vim.o.backspace = "indent,eol,start"
 vim.o.backup = false
@@ -24,7 +34,6 @@ vim.o.number = true
 vim.o.pumblend = 20
 vim.o.ruler = true
 vim.o.scrolloff = 3
-vim.o.shiftwidth = 8
 vim.o.showcmd = true
 vim.o.showmatch = true
 vim.o.showtabline = 2
@@ -49,8 +58,16 @@ vim.o.writebackup = false
 -- vim.o.wildmenu = true
 -- " Ignore files
 
-vim.o.wildignore =
-	"*.pyc" .. ",*_build/*" .. ",**/coverage/*" .. ",**/Debug/*" .. ",**/build/*" ..
-		",**/node_modules/*" .. ",**/android/*" .. ",**/ios/*" .. ",**/.git/*"
+vim.o.wildignore = "*.pyc"
+	.. ",*_build/*"
+	.. ",**/coverage/*"
+	.. ",**/Debug/*"
+	.. ",**/build/*"
+	.. ",**/node_modules/*"
+	.. ",**/android/*"
+	.. ",**/ios/*"
+	.. ",**/.git/*"
 
 vim.cmd("source $HOME/.config/nvim/vimscript/options.vim")
+
+

@@ -190,6 +190,29 @@ local plugins = {
 		prority = 37,
 		config = RequireFn("plugins.telescope_conf"),
 	},
+
+	{
+		"nvim-treesitter/playground",
+		cmd = "TSPlayground",
+		lazy = true,
+	},
+
+	{
+		"p00f/clangd_extensions.nvim",
+		config = RequireFn("plugins.clangd_extensions_conf"),
+		ft = { "cpp", "c" },
+		lazy = true,
+		prority = 0,
+	},
+
+	{
+		"simrat39/rust-tools.nvim",
+		config = RequireFn("plugins.rust_tools_conf"),
+		ft = { "rust" },
+		lazy = true,
+		prority = 0,
+	},
+
 }
 
 require("lazy").setup(plugins, opt)

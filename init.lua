@@ -1,8 +1,8 @@
 require("utils")
 
-require("options")
-require("autocmds")
-require("bindings")
-require("commands")
+Prequire("options")
+Prequire("autocmds")
+Prequire("bindings")
+Prequire("commands")
 
-require("plugins")
+Prequire("plugins")

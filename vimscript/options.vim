@@ -6,25 +6,7 @@ if exists('+termguicolors')
   	set termguicolors
 endif
 
-set t_Co=256
-set t_ut=
-set shortmess+="c"
-set noet ci pi sts=0 sw=4 ts=4
-
 syntax sync minlines=256
-
-" assumes set ignorecase smartcase;
-augroup dynamic_smartcase
-    autocmd!
-    autocmd CmdLineEnter : set nosmartcase
-    autocmd CmdLineLeave : set smartcase
-augroup END
-
-
-" Stop annoying you have one more file to edit
-if argc()
-	au VimEnter * args %
-endif
 
 function! GFM()
   	let langs = ['lua', 'json', 'js', 'ts','jsx', 'tsx', 'yaml', 'vim', 'c', 'cpp']
@@ -48,6 +30,7 @@ function s:MkNonExDir(file, buf)
         endif
     endif
 endfunction
+
 augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))

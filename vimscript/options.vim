@@ -13,17 +13,6 @@ set noet ci pi sts=0 sw=4 ts=4
 
 syntax sync minlines=256
 
-autocmd BufNewFile,BufRead *.yuck set filetype=yuck
-autocmd BufNewFile,BufRead *.keys set filetype=keys
-autocmd BufNewFile,BufRead *.shader set filetype=glsl
-autocmd BufNewFile,BufRead *.frag set filetype=glsl
-autocmd BufNewFile,BufRead *.vert set filetype=glsl
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.json set filetype=jsonc
-autocmd BufNewFile,BufRead *.h set filetype=c
-autocmd BufNewFile,BufRead */.config/hypr/**/*.conf set filetype=hypr
-autocmd BufNewFile,BufRead */.config/sway/**/*.conf set filetype=swayconf
-
 " assumes set ignorecase smartcase;
 augroup dynamic_smartcase
     autocmd!

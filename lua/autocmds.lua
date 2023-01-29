@@ -4,7 +4,22 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function(tbl)
 		vim.keymap.set(Keys.N, "<LEADER>sf", function()
 			vim.cmd.source({ args = { vim.fn.expand("%") } })
-			print("Sourced file '" .. vim.fn.expand("%") .. "'")
+			local notify = require("notify")
+			notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = "Nvim" })
+		end, { noremap = true, silent = true, buffer = tbl.buf })
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = {
+		"*/dotfiles/config/xmobar/**",
+	},
+	group = vim.api.nvim_create_augroup("SourceXmobar", { clear = true }),
+	callback = function(tbl)
+		vim.keymap.set(Keys.N, "<LEADER>sf", function()
+			vim.fn.jobstart({ "sh", "-c", '"killall -9 xmobar ; xmobar & disown"' })
+			local notify = require("notify")
+			notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = "Nvim" })
 		end, { noremap = true, silent = true, buffer = tbl.buf })
 	end,
 })
@@ -17,7 +32,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	callback = function(tbl)
 		vim.keymap.set(Keys.N, "<LEADER>sf", function()
 			vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
-			print("Sourced file '" .. vim.fn.expand("%") .. "'")
+			local notify = require("notify")
+			notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = "Nvim" })
 		end, { noremap = true, silent = true, buffer = tbl.buf })
 	end,
 })
@@ -65,3 +81,25 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ on_visual = false })
 	end,
 })
+
+local function set_filetype(pattern, filetype)
+	vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+		pattern = pattern,
+		callback = function()
+			vim.o.filetype = filetype
+		end,
+	})
+end
+
+set_filetype("*/xmobarrc", "haskell")
+set_filetype("*/xmobarrc", "haskell")
+set_filetype("*.yuck", "yuck")
+set_filetype("*.keys", "keys")
+set_filetype("*.shader", "glsl")
+set_filetype("*.frag", "glsl")
+set_filetype("*.vert", "glsl")
+set_filetype("*.tsx", "typescript")
+set_filetype("*.json", "jsonc")
+set_filetype("*.h", "c")
+set_filetype("*/.config/hypr/**/*.conf", "hypr")
+set_filetype("*/.config/sway/**/*.conf", "swayconf")

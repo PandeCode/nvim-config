@@ -6,18 +6,22 @@ vim.keymap.set(Keys.N, "<LEADER>ds", dap.step_over, Keys.Noremap)
 vim.keymap.set(Keys.N, "<LEADER>do", dap.repl.open, Keys.Noremap)
 
 function getcppdbg()
-	vim.cmd([[
+	vim.cmd(
+		[[
 !sh -c "mkdir -p ~/.cache/cppdgb; \
 	cd ~/.cache/cppgdb; \
 	wget -c $(curl -fsSL https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest | jq -r '.assets[] | .browser_download_url' | grep linux.vsix); \
 	chmod +x /extension/debugAdapters/bin/OpenDebugAD7 ./extension/debugAdapters/bin/createdump ./extension/bin/cpptools*"
-]])
+]]
+	)
 end
 
 dap.adapters.cppdbg = {
 	id = "cppdbg",
 	type = "executable",
-	command = vim.fn.expand("~/.cache/cppdgb/extension/debugAdapters/bin/OpenDebugAD7"),
+	command = vim.fn.expand(
+		"~/.cache/cppdgb/extension/debugAdapters/bin/OpenDebugAD7"
+	)
 }
 
 dap.configurations.cpp = {
@@ -29,7 +33,7 @@ dap.configurations.cpp = {
 			return vim.fn.input("bin: ", vim.fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
-		stopAtEntry = true,
+		stopAtEntry = true
 	},
 	{
 		name = "Attach to gdbserver :3849",
@@ -41,6 +45,6 @@ dap.configurations.cpp = {
 		cwd = "${workspaceFolder}",
 		program = function()
 			return vim.fn.input("bin: ", vim.fn.getcwd() .. "/", "file")
-		end,
-	},
+		end
+	}
 }

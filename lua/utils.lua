@@ -42,6 +42,7 @@ function PrintError(text)
 end
 
 function Prequire(path)
+	if 1 then return require(path) end
 	local status, lib = xpcall(require, function (...)
 		print(...)
 	end, path)

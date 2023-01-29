@@ -1,24 +1,19 @@
--- Stop annoying you have one more file to edit
-if vim.fn.argc() then
-	vim.api.nvim_create_autocmd("VimEnter", {
-		pattern = { "*" },
-		command = "args %",
-	})
-end
-
 -- assumes set ignorecase smartcase;
 vim.api.nvim_create_autocmd("CmdLineEnter", {
-	pattern = { ":", },
+	pattern = { ":" },
 	group = vim.api.nvim_create_augroup("dynamic_smartcase", {}),
-	callback = function() vim.o.smartcase = false end,
+	callback = function()
+		vim.o.smartcase = false
+	end,
 })
 
 vim.api.nvim_create_autocmd("CmdLineLeave", {
-	pattern = { ":", },
+	pattern = { ":" },
 	group = vim.api.nvim_create_augroup("dynamic_smartcase", {}),
-	callback = function() vim.o.smartcase = true end,
+	callback = function()
+		vim.o.smartcase = true
+	end,
 })
-
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = { "*.vim", "*.lua" },
@@ -113,12 +108,12 @@ local function set_filetype(pattern, filetype)
 	})
 end
 
-set_filetype("*/xmobarrc",               "haskell")
-set_filetype("*.yuck",                   "yuck")
-set_filetype("*.keys",                   "keys")
-set_filetype("*.shader",                 "glsl")
-set_filetype("*.frag",                   "glsl")
-set_filetype("*.vert",                   "glsl")
-set_filetype("*.json",                   "jsonc")
+set_filetype("*/xmobarrc", "haskell")
+set_filetype("*.yuck", "yuck")
+set_filetype("*.keys", "keys")
+set_filetype("*.shader", "glsl")
+set_filetype("*.frag", "glsl")
+set_filetype("*.vert", "glsl")
+set_filetype("*.json", "jsonc")
 set_filetype("*/.config/hypr/**/*.conf", "hypr")
 set_filetype("*/.config/sway/**/*.conf", "swayconf")

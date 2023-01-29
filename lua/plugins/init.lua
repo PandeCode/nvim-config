@@ -82,7 +82,7 @@ local lsp_ft = {
 	"vimscript",
 	"go",
 }
-local luasnip_ft = { "c", "cmake", "cpp", "global", "glsl", "go", "lua", "python", "rust", "sh", "typescriptreact" }
+local vsnip_ft = { "c", "cmake", "cpp", "global", "glsl", "go", "lua", "python", "rust", "sh", "typescriptreact" }
 
 local plugins = {
 	{ "lewis6991/impatient.nvim", config = RequireFn("impatient") },
@@ -155,21 +155,22 @@ local plugins = {
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
 			{
-				"saadparwaiz1/cmp_luasnip",
-				ft = luasnip_ft,
-				dependencies = {
-					{
-						"L3MON4D3/LuaSnip",
-						config = RequireFn("plugins.luasnip_conf"),
-						build = "make install_jsregexp",
-						ft = luasnip_ft,
+				{
+					"hrsh7th/vim-vsnip",
+					config = function()
+						vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/snippets/")
+					end,
+					ft = vsnip_ft,
+					dependencies = {
+						ft = vsnip_ft,
+						"hrsh7th/cmp-vsnip",
 					},
 				},
 			},
 		},
 	},
 
-	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp")  },
+	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp") },
 	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49 },
 
 	{

@@ -100,6 +100,7 @@ local function gen_enum_funcs(enum_name, bufnr)
 		table.insert(lines, "}")
 	end
 	table.insert(lines, "// clang-format on")
+	table.insert(lines, "")
 
 	vim.api.nvim_buf_set_lines(bufnr, start_from, start_from, false, lines)
 	notify("Added enum functions to '" .. enum_name .. "'", "info", { title = IDE.name })

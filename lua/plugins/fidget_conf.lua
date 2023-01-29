@@ -31,12 +31,7 @@ local spinners = {
 	"earth",
 	"moon",
 	"dots_pulse",
-	"meter",
+	"meter"
 }
 
-
-require"fidget".setup{
-	text = {
-		spinner = RandFrom(spinners)
-	}
-}
+require"fidget".setup {text = {spinner = RandFrom(spinners)}}

@@ -58,16 +58,9 @@ vim.o.writebackup = false
 -- vim.o.wildmenu = true
 -- " Ignore files
 
-vim.o.wildignore = "*.pyc"
-	.. ",*_build/*"
-	.. ",**/coverage/*"
-	.. ",**/Debug/*"
-	.. ",**/build/*"
-	.. ",**/node_modules/*"
-	.. ",**/android/*"
-	.. ",**/ios/*"
-	.. ",**/.git/*"
+vim.o.wildignore =
+	"*.pyc" .. ",*_build/*" .. ",**/coverage/*" .. ",**/Debug/*" .. ",**/build/*" ..
+		",**/node_modules/*" .. ",**/android/*" .. ",**/ios/*" .. ",**/.git/*"
 
 vim.cmd("source $HOME/.config/nvim/vimscript/options.vim")
-
 

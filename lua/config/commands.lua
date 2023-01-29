@@ -1,4 +1,4 @@
-local bang_true = { bang = true }
+local bang_true = {bang = true}
 
 local function gen_new_cmd(name)
 	return function(tbl)
@@ -21,14 +21,13 @@ vim.api.nvim_create_user_command("QW", wq, bang_true)
 vim.api.nvim_create_user_command(
 	"WipeReg",
 	"for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor",
-	{ bang = true }
+	{bang = true}
 )
 
-vim.api.nvim_create_user_command("Scratch", "new | setlocal bt=nofile bh=wipe nobl noswapfile nu", bang_true)
-function Scratch()
-	vim.opt_local.bt = "nofile"
-end
+vim.api.nvim_create_user_command(
+	"Scratch", "new | setlocal bt=nofile bh=wipe nobl noswapfile nu", bang_true
+)
+function Scratch() vim.opt_local.bt = "nofile" end
 
-vim.cmd.command({ args = { "-bar -complete=file", "-nargs=1 E :e <args>" } })
-
+vim.cmd.command({args = {"-bar -complete=file", "-nargs=1 E :e <args>"}})
 

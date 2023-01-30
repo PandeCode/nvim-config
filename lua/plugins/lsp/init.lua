@@ -43,4 +43,3 @@ LSP = {
 }
 
 RequireForFileType("lua", "plugins.lsp.lua_conf")
-RequireForFileType("rust", "plugins.lsp.rust_conf")

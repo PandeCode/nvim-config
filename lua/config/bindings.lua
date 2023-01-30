@@ -1,30 +1,31 @@
 vim.g.mapleader = " "
 -- stylua: ignore start
 
+vim.keymap.set(Keys.N, "<LEADER>me", vim.cmd.mes, Keys.None)
+vim.keymap.set(Keys.N, "<LEADER>fe", vim.cmd.edit, Keys.None)
+
 -- Buffer
-vim.keymap.set(Keys.N, "<LEADER>bp", "<CMD>bp<CR>", Keys.Noremap)
-vim.keymap.set(Keys.N, "<LEADER>bn", "<CMD>bn<CR>", Keys.Noremap)
-vim.keymap.set(Keys.N, "<LEADER>bd", "<CMD>bd<CR>", Keys.Noremap)
-vim.keymap.set(Keys.N, "<A-d>", "<CMD>bd<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>bp", vim.cmd.bp, Keys.None)
+vim.keymap.set(Keys.N, "<LEADER>bn", vim.cmd.bn, Keys.None)
+vim.keymap.set(Keys.N, "<LEADER>bd", vim.cmd.bd, Keys.None)
+vim.keymap.set(Keys.N, "<A-d>", vim.cmd.bd, Keys.Noremap)
 
-vim.keymap.set(Keys.N, "<LEADER>nw", "<CMD>%s/\\s*$//<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>nw", "<CMD>%s/\\s*$//<CR>", Keys.None)
 
-vim.keymap.set(Keys.N, "<LEADER>`", "<CMD>edit #<CR>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>`", "<CMD>edit #<CR>", Keys.None)
 
-vim.keymap.set(Keys.N, "<LEADER>p", "\"_dP", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>p", "\"_dP", Keys.None)
 
-vim.keymap.set(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER>gf", ":e <cfile><cr>", Keys.None)
 
-vim.keymap.set(Keys.N, "<LEADER><F2>", "*:%s//", Keys.Noremap)
+vim.keymap.set(Keys.N, "<LEADER><F2>", "*:%s//", Keys.None)
 
-vim.keymap.set(Keys.NoneStr, "<c-i>", "<c-a>", Keys.Noremap) -- increament
-vim.keymap.set(Keys.NoneStr, "<c-d>", "<c-x>", Keys.Noremap) -- decreament
+vim.keymap.set(Keys.NoneStr, "<A-a>", "<c-a>", Keys.Noremap) -- increament
+vim.keymap.set(Keys.NoneStr, "<A-x>", "<c-x>", Keys.Noremap) -- decreament
 
 vim.keymap.set(Keys.N, "L", "$", Keys.None)
 vim.keymap.set(Keys.N, "H", "^", Keys.None)
 vim.keymap.set(Keys.N, "Q", "", Keys.None) -- Disable visual mode
-
-vim.keymap.set(Keys.NoneStr, "<LEADER>fe", vim.cmd.edit, Keys.Noremap)
 
 vim.keymap.set(
 	Keys.N, "<Home>",

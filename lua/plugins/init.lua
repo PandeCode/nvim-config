@@ -109,6 +109,8 @@ local plugins = {
 		priority = 100
 	},
 
+	"stevearc/dressing.nvim",
+
 	"airblade/vim-gitgutter",
 	"ap/vim-css-color",
 	"chaoren/vim-wordmotion",

@@ -81,8 +81,8 @@ require("clangd_extensions").setup(
 
 				highlights = {detail = "Comment"}
 			},
-			memory_usage = {border = "none"},
-			symbol_info = {border = "none"}
+			memory_usage = {border = "rounded"},
+			symbol_info = {border = "rounded"}
 		}
 	}
 )

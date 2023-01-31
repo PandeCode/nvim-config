@@ -15,37 +15,6 @@ vim.api.nvim_create_autocmd("CmdLineLeave", {
 	end,
 })
 
-local function create_source_binding(pattern, callback, group)
-	vim.api.nvim_create_autocmd("BufEnter", {
-		pattern = pattern,
-		group = vim.api.nvim_create_augroup(group, { clear = true }),
-		callback = function(tbl)
-			local notify = Prequire("notify")
-			vim.keymap.set(Keys.N, "<LEADER>sf", function()
-				callback(tbl)
-				if notify ~= nil then
-					notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = IDE.name })
-				else
-					print("Sourced file '" .. vim.fn.expand("%") .. "'")
-				end
-			end, { noremap = true, silent = true, buffer = tbl.buf })
-		end,
-	})
-end
-
-create_source_binding({ "*.vim", "*.lua" }, function()
-	vim.cmd.source({ args = { vim.fn.expand("%") } })
-end, "SourceVimscriptLua")
-create_source_binding({ "*/config/sxhkd/**" }, function()
-	vim.fn.jobstart({ "sh", "-c", '"killall -9 xmobar ; xmobar & disown"' })
-end, "SourceXmobar")
-create_source_binding({ "*/dotfiles/config/xmobar/**" }, function()
-	vim.fn.jobstart({ "sh", "-c", '"killall -9 xmobar ; xmobar & disown"' })
-end, "SourceXmobar")
-create_source_binding({ "*/dotfiles/tmux-config/**" }, function()
-	vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
-end, "SourceTmux")
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()
@@ -87,6 +56,28 @@ local function set_filetype(pattern, filetype)
 	})
 end
 
+local function create_source_binding(pattern, callback, group)
+	pattern = pattern or {"*"}
+	callback = callback or function () end
+	group = group or RandStr(10)
+
+	vim.api.nvim_create_autocmd("BufEnter", {
+		pattern = pattern,
+		group = vim.api.nvim_create_augroup(group, { clear = true }),
+		callback = function(tbl)
+			local notify = Prequire("notify")
+			vim.keymap.set(Keys.N, "<LEADER>sf", function()
+				callback(tbl)
+				if notify ~= nil then
+					notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = IDE.name .. " : " .. group })
+				else
+					print("Sourced file '" .. vim.fn.expand("%") .. "'")
+				end
+			end, { noremap = true, silent = true, buffer = tbl.buf })
+		end,
+	})
+end
+
 set_filetype("*/xmobarrc", "haskell")
 set_filetype("*.yuck", "yuck")
 set_filetype("*.keys", "keys")
@@ -96,3 +87,19 @@ set_filetype("*.vert", "glsl")
 set_filetype("*.json", "jsonc")
 set_filetype("*/hypr/**/*.conf", "hypr")
 set_filetype("*/sway/*.conf", "swayconfig")
+
+create_source_binding({ "*.vim", "*.lua" }, function()
+	vim.cmd.source({ args = { vim.fn.expand("%") } })
+end, "SourceVimscriptLua")
+create_source_binding({ "*/config/sxhkd/**" }, function()
+	vim.fn.jobstart({ "sh", "-c", '"killall -9 sxhkd ; sxhkd -c ' .. vim.fn.expand("%") .. ' & disown"' })
+end, "SourceSxhkd")
+create_source_binding({ "*/dotfiles/config/xmobar/**" }, function()
+	vim.fn.jobstart({ "sh", "-c", '"killall -9 xmobar ; xmobar & disown"' })
+end, "SourceXmobar")
+create_source_binding({ "*/dotfiles/tmux-config/**" }, function()
+	vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
+end, "SourceTmux")
+create_source_binding({ "*/dotfiles/tmux-config/**" }, function()
+	vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
+end, "SourceTmux")

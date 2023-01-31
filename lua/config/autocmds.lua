@@ -57,8 +57,8 @@ local function set_filetype(pattern, filetype)
 end
 
 local function create_source_binding(pattern, callback, group)
-	pattern = pattern or {"*"}
-	callback = callback or function () end
+	pattern = pattern or { "*" }
+	callback = callback or function() end
 	group = group or RandStr(10)
 
 	vim.api.nvim_create_autocmd("BufEnter", {
@@ -69,7 +69,11 @@ local function create_source_binding(pattern, callback, group)
 			vim.keymap.set(Keys.N, "<LEADER>sf", function()
 				callback(tbl)
 				if notify ~= nil then
-					notify("Sourced file '" .. vim.fn.expand("%") .. "'", "info", { title = IDE.name .. " : " .. group })
+					notify(
+						"Sourced file '" .. vim.fn.expand("%") .. "'",
+						"info",
+						{ title = IDE.name .. " : " .. group }
+					)
 				else
 					print("Sourced file '" .. vim.fn.expand("%") .. "'")
 				end
@@ -100,6 +104,6 @@ end, "SourceXmobar")
 create_source_binding({ "*/dotfiles/tmux-config/**" }, function()
 	vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
 end, "SourceTmux")
-create_source_binding({ "*/dotfiles/tmux-config/**" }, function()
-	vim.fn.jobstart({ "tmux", "source", vim.fn.expand("%") })
-end, "SourceTmux")
+create_source_binding({ "*.cpp" }, function()
+	vim.cmd("!runcpp " .. vim.fn.expand("%"))
+end, "SourceCpp")

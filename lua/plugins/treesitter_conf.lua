@@ -1,3 +1,5 @@
+require("orgmode").setup_ts_grammar()
+
 require("nvim-treesitter.configs").setup({
 	disable = function(lang, buf)
 		local max_filesize = 100 * 1024 -- 100 KB
@@ -9,7 +11,7 @@ require("nvim-treesitter.configs").setup({
 
 	additional_vim_regex_highlighting = true,
 
-	highlight = { enable = true },
+	highlight = { enable = true, additional_vim_regex_highlighting = { "org" } },
 	indent = { enable = true },
 
 	ensure_installed = {

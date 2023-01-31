@@ -175,22 +175,29 @@ local plugins = {
 	},
 
 	{
+		"nvim-orgmode/orgmode",
+		config = RequireFn("orgmode"),
+		ft = { "org" },
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = RequireFn("plugins.treesitter_conf"),
 		ft = treesitter_ft,
+		priority = 49,
 	},
 
 	{
 		"nvim-treesitter/playground",
 		cmd = "TSPlayground",
-		lazy = true,
-		priority = 49,
+		priority = 48,
 	},
 
 	{
 		"hrsh7th/nvim-cmp",
 		config = RequireFn("plugins.cmp_conf"),
+		priority = 48,
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "quangnguyen30192/cmp-nvim-tags" },

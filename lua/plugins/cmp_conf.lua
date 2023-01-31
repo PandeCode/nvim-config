@@ -50,6 +50,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "treesitter" },
 		{ name = "tags" },
+		{ name = "org" },
 	}, { { name = "path" }, { name = "buffer" } }),
 })
 

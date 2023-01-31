@@ -96,6 +96,19 @@ local vsnip_ft = {
 	"typescriptreact",
 }
 
+local doge_ft = {
+	"python",
+	"javaScript",
+	"typeScript",
+	"lua",
+	"java",
+	"cpp",
+	"c",
+	"csharp",
+	"bash",
+	"rust",
+}
+
 local plugins = {
 	{ "lewis6991/impatient.nvim", config = RequireFn("impatient") },
 
@@ -230,18 +243,7 @@ local plugins = {
 	{
 		"kkoomen/vim-doge",
 		build = ":call doge#install()",
-		ft = {
-			"python",
-			"javaScript",
-			"typeScript",
-			"lua",
-			"java",
-			"cpp",
-			"c",
-			"csharp",
-			"bash",
-			"rust",
-		},
+		ft = doge_ft,
 	},
 }
 

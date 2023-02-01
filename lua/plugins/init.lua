@@ -192,15 +192,19 @@ local plugins = {
 		ft = { "org" },
 	},
 
+	{ "mrjones2014/nvim-ts-rainbow", ft = treesitter_ft },
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		ft = treesitter_ft,
 	},
 
+	{ "lukas-reineke/indent-blankline.nvim", config = RequireFn("plugins.indent_blankline_conf"), priority = 49 },
+
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		priority = 48,
+		priority = 49,
 		config = RequireFn("plugins.treesitter_conf"),
 		ft = treesitter_ft,
 	},
@@ -208,7 +212,7 @@ local plugins = {
 	{
 		"nvim-treesitter/playground",
 		cmd = "TSPlayground",
-		priority = 48,
+		priority = 49,
 	},
 
 	{

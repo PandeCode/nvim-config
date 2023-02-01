@@ -148,6 +148,7 @@ local plugins = {
 	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
 	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf") },
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
+	{ "lukas-reineke/indent-blankline.nvim", config = RequireFn("plugins.indent_blankline_conf") },
 
 	{
 		"ludovicchabant/vim-gutentags",

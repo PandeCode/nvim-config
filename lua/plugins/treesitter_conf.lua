@@ -22,6 +22,12 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = 300,
+	},
+
 	textobjects = {
 		select = {
 			enable = true,

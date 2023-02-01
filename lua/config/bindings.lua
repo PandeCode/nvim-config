@@ -113,10 +113,6 @@ vim.keymap.set(
 vim.keymap.set(Keys.N, ";", ":", Keys.Noremap)
 vim.keymap.set(Keys.V, ";", ":", Keys.Noremap)
 
--- Use this instead of touching Esc key
-vim.keymap.set(Keys.I, "kj", "<Esc>", Keys.Noremap)
-vim.keymap.set(Keys.I, "jk", "<Esc>", Keys.Noremap)
-
 -- Better tabbing
 vim.keymap.set(Keys.N, "<", "v<gv<esc>", Keys.Noremap)
 vim.keymap.set(Keys.N, ">", "v>gv<esc>", Keys.Noremap)

@@ -183,9 +183,14 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		ft = treesitter_ft,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		priority = 48,
 		config = RequireFn("plugins.treesitter_conf"),
 		ft = treesitter_ft,
-		priority = 49,
 	},
 
 	{
@@ -230,6 +235,7 @@ local plugins = {
 		"p00f/clangd_extensions.nvim",
 		ft = { "cpp", "c" },
 		config = RequireFn("plugins.clangd_extensions_conf"),
+		lazy = true,
 		priority = 48,
 	},
 	{

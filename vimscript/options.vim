@@ -6,25 +6,25 @@ if argc()
 endif
 
 if exists('+termguicolors')
-  	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-  	set termguicolors
+	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
 endif
 
 syntax sync minlines=256
 
 function! GFM()
-  	let langs = ['lua', 'json', 'js', 'ts','jsx', 'tsx', 'yaml', 'vim', 'c', 'cpp']
+	let langs = ['lua', 'json', 'js', 'ts','jsx', 'tsx', 'yaml', 'vim', 'c', 'cpp']
 
-  	for lang in langs
-    	unlet b:current_syntax
-    	silent! exec printf("syntax include @%s syntax/%s.vim", lang, lang)
-    	exec printf("syntax region %sSnip matchgroup=Snip start='```%s' end='```' contains=@%s",
-                	\ lang, lang, lang)
-  	endfor
-  	let b:current_syntax='mkd'
+	for lang in langs
+		unlet b:current_syntax
+		silent! exec printf("syntax include @%s syntax/%s.vim", lang, lang)
+		exec printf("syntax region %sSnip matchgroup=Snip start='```%s' end='```' contains=@%s",
+					\ lang, lang, lang)
+	endfor
+	let b:current_syntax='mkd'
 
-  	syntax sync fromstart
+	syntax sync fromstart
 endfunction
 
 function s:MkNonExDir(file, buf)

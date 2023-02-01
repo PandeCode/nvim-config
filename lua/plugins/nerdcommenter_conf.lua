@@ -25,9 +25,9 @@ vim.g.NERDTrimTrailingWhitespace = 1
 -- Enable NERDCommenterToggle to check all selected lines is commented or not
 vim.g.NERDToggleCheckAllLines = 1
 
-vim.api.nvim_set_keymap(Keys.I, "<c-_>", "<ESC>:call nerdcommenter#Comment('n', 'toggle')<CR>i", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N, "<c-_>", ":call nerdcommenter#Comment('', 'toggle')<CR>", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.V, "<c-_>", ":call nerdcommenter#Comment('x', 'toggle')<CR>v", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.I, "<c-_>",           "<ESC>:call nerdcommenter#Comment('n', 'toggle')<CR>i", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<c-_>",           ":call nerdcommenter#Comment('',       'toggle')<CR>",  Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<c-_>",           ":call nerdcommenter#Comment('x',      'toggle')<CR>v", Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.I, "<space>c<space>", "<ESC>:call nerdcommenter#Comment('n', 'toggle')<CR>i", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.N, "<space>c<space>", ":call nerdcommenter#Comment('', 'toggle')<CR>", Keys.Noremap)
-vim.api.nvim_set_keymap(Keys.V, "<space>c<space>", ":call nerdcommenter#Comment('x', 'toggle')<CR>v", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.N, "<space>c<space>", ":call nerdcommenter#Comment('',       'toggle')<CR>",  Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<space>c<space>", ":call nerdcommenter#Comment('x',      'toggle')<CR>v", Keys.Noremap)

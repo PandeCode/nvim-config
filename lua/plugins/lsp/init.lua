@@ -5,6 +5,11 @@ vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, Keys.NoremapSilent)
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next, Keys.NoremapSilent)
 vim.keymap.set("n", "<LEADER>q", vim.diagnostic.setloclist, Keys.NoremapSilent)
 
+vim.keymap.set("n", "<LEADER>li", ":LspInfo<CR>", Keys.NoremapSilent)
+vim.keymap.set("n", "<LEADER>lq", ":LspStop<CR>", Keys.NoremapSilent)
+vim.keymap.set("n", "<LEADER>lr", ":LspRestart<CR>", Keys.NoremapSilent)
+vim.keymap.set("n", "<LEADER>ls", ":LspStart<CR>", Keys.NoremapSilent)
+
 LSP = {
 	lspconfig = require("lspconfig"),
 	on_attach = function(client, bufnr)

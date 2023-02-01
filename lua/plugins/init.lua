@@ -67,20 +67,20 @@ local treesitter_ft = {
 	"yaml",
 }
 local lsp_ft = {
-	"lua",
-	"rust",
+	"bash",
 	"c",
 	"cpp",
-	"bash",
+	"glsl",
+	"go",
+	"javascript",
+	"javascriptreact",
 	"json",
 	"jsonc",
-	"javascript",
+	"lua",
+	"rust",
 	"typescript",
-	"javascriptreact",
 	"typescriptreact",
-	"glsl",
 	"vimscript",
-	"go",
 }
 local vsnip_ft = {
 	"c",
@@ -97,16 +97,27 @@ local vsnip_ft = {
 }
 
 local doge_ft = {
-	"python",
-	"javaScript",
-	"typeScript",
-	"lua",
-	"java",
-	"cpp",
-	"c",
-	"csharp",
 	"bash",
+	"c",
+	"cpp",
+	"csharp",
+	"java",
+	"javaScript",
+	"lua",
+	"python",
 	"rust",
+	"typeScript",
+}
+
+local refactoring_ft = {
+	"c",
+	"cpp",
+	"golang",
+	"java",
+	"javascript",
+	"lua",
+	"python",
+	"typescript",
 }
 
 local plugins = {
@@ -115,7 +126,7 @@ local plugins = {
 	{
 		"marko-cerovac/material.nvim",
 		config = RequireFn("plugins.material_conf"),
-		priority = 100,
+		priority = 51,
 	},
 
 	"stevearc/dressing.nvim",
@@ -128,6 +139,7 @@ local plugins = {
 	"rcarriga/nvim-notify",
 	"romainl/vim-cool",
 	"tpope/vim-repeat",
+	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
 	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
 	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
 	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
@@ -254,6 +266,13 @@ local plugins = {
 	},
 
 	{ "kkoomen/vim-doge", build = ":call doge#install()", ft = doge_ft },
+
+	{
+		"ThePrimeagen/refactoring.nvim",
+		config = RequireFn("plugins.refactoring_conf"),
+		ft = refactoring_ft,
+		priority = 0,
+	},
 }
 
 require("lazy").setup(plugins, opt)

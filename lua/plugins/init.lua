@@ -277,6 +277,8 @@ local plugins = {
 		ft = refactoring_ft,
 		priority = 0,
 	},
+
+	"wakatime/vim-wakatime",
 }
 
 require("lazy").setup(plugins, opt)

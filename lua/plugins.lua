@@ -80,10 +80,6 @@ return packer.startup({
 		-- Packer can manage itself
 		use("wbthomason/packer.nvim")
 
-		use_rocks("http")
-
-		use("aduros/ai.vim")
-
 		use({
 			"lewis6991/impatient.nvim",
 			config = function()
@@ -92,6 +88,18 @@ return packer.startup({
 			end,
 		})
 
+
+
+		use_rocks("http")
+
+		use({
+			"marko-cerovac/material.nvim",
+			config = function()
+				require("config.theme")
+			end,
+		})
+
+		use("aduros/ai.vim")
 		-- use({
 		--     "github/copilot.vim",
 		--     config = function()
@@ -224,13 +232,6 @@ return packer.startup({
 			ft = { "docx", "pdf", "doc" },
 			config = function()
 				require("config.office")
-			end,
-		})
-
-		use({
-			"marko-cerovac/material.nvim",
-			config = function()
-				require("config.theme")
 			end,
 		})
 

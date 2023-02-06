@@ -45,3 +45,4 @@ LSP = {
 }
 
 RequireForFileType("lua", "plugins.lsp.lua_conf")
+RequireForFileType("python", "plugins.lsp.python_conf")

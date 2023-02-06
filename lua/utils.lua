@@ -6,7 +6,7 @@ end
 
 function RandStr(length)
 	local res = ""
-	for i = 1, length do
+	for _ = 1, length do
 		res = res .. string.char(math.random(97, 122))
 	end
 	return res
@@ -161,4 +161,58 @@ function PrintTable(tbl, depth, n)
 	if n == 0 then
 		print(" ")
 	end
+end
+
+---@class TSNode
+---@field parent function
+---@field root function(idx?: number): TSNode | nil
+---@field child function(idx?: number): TSNode | nil
+---@field type function(): string
+---@field range function(): string
+
+local TS = {}
+
+--- Find parent node of given type.
+---@param node TSNode
+---@param type string
+---@return TSNode | nil
+TS.find_parent_node = function(node, type)
+  if (node == node:root()) then return nil end
+  if (node:type() == type) then return node end
+  return TS.find_parent_node(node:parent(), type)
+end
+
+--- Find child node of given type.
+---@param node TSNode
+---@param type string
+---@return TSNode | nil
+TS.find_child_node = function(node, type)
+  local child = node:child(0)
+  while child do
+    if (child:type() == type) then return child end
+    child = child:next_sibling()
+  end
+  return nil
+end
+
+--- Set text of given node.
+---@param node TSNode
+---@param text string | table
+---@param bufnr number | nil
+TS.set_node_text = function(node, text, bufnr)
+  local sr, sc, er, ec = node:range()
+  local content = { text }
+  if (type(text) == 'table') then content = text end
+  vim.api.nvim_buf_set_text(bufnr or 0, sr, sc, er, ec, content)
+end
+
+--- Get text of given node.
+---@param node TSNode
+---@param bufnr number | nil
+---@return string | string[]
+TS.get_node_text = function(node, bufnr)
+  local sr, sc, er, ec = node:range()
+  local text = vim.api.nvim_buf_get_text(bufnr or 0, sr, sc, er, ec, {})
+  if (#text == 1) then return text[1] end
+  return text
 end

@@ -77,7 +77,7 @@ local function create_source_binding(pattern, callback, group)
 				else
 					print("Sourced file '" .. vim.fn.expand("%") .. "'")
 				end
-			end, { noremap = true, silent = true, buffer = tbl.buf })
+			end, { silent = true, buffer = tbl.buf })
 		end,
 	})
 end
@@ -85,10 +85,8 @@ end
 set_filetype("*/xmobarrc", "haskell")
 set_filetype("*.yuck", "yuck")
 set_filetype("*.keys", "keys")
-set_filetype("*.shader", "glsl")
-set_filetype("*.frag", "glsl")
-set_filetype("*.vert", "glsl")
-set_filetype("*.json", "jsonc")
+set_filetype({ "*.shader", "*.frag", "*.vert" }, "glsl")
+set_filetype({ "*.json", "*/waybar/config" }, "jsonc")
 set_filetype("*/hypr/**/*.conf", "hypr")
 set_filetype("*/sway/*.conf", "swayconfig")
 
@@ -99,7 +97,7 @@ create_source_binding({ "*/config/sxhkd/**" }, function()
 	vim.fn.jobstart({
 		"sh",
 		"-c",
-		'"killall -9 sxhkd ; sxhkd -c ' .. vim.fn.expand("%") .. ' & disown"',
+		'"killall -9 sxhkd ; sxhkd -c ' .. vim.fn.expand("%") .. ' & disown"'
 	})
 end, "SourceSxhkd")
 create_source_binding({ "*config/xmobar/**" }, function()
@@ -111,3 +109,6 @@ end, "SourceTmux")
 create_source_binding({ "*.cpp" }, function()
 	vim.cmd("!runcpp " .. vim.fn.expand("%"))
 end, "SourceCpp")
+create_source_binding({ "*/waybar/**/*.*" }, function()
+	vim.fn.jobstart({ "sh", "-c", "'!killall -9 waybar ; waybar & disown'" })
+end, "SourceWaybar")

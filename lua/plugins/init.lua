@@ -242,6 +242,13 @@ local plugins = {
 	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49 },
 
 	{
+		"kevinhwang91/nvim-ufo",
+		config = RequireFn("plugins.ufo_conf"),
+		dependencies = { "kevinhwang91/promise-async" },
+		priority = 48,
+	},
+
+	{
 		"folke/neodev.nvim",
 		ft = { "lua" },
 		config = RequireFn("plugins.neodev_conf"),

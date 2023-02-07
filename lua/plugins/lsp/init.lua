@@ -50,5 +50,6 @@ LSP = {
 	capabilities = capabilities
 }
 
+RequireForFileType("sh,bash", "plugins.lsp.bashls_conf")
 RequireForFileType("lua", "plugins.lsp.lua_conf")
 RequireForFileType("python", "plugins.lsp.python_conf")

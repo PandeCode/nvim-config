@@ -7,6 +7,17 @@ vim.keymap.set(Keys.N, "<LEADER>qa", ":noautocmd qall!<cr>", Keys.None)
 vim.keymap.set(Keys.N, "<LEADER>me", ":mes<cr>", Keys.None)
 vim.keymap.set(Keys.N, "<LEADER>fe", vim.cmd.edit, Keys.None)
 
+vim.keymap.set(Keys.N, "<LEADER>x+", function()
+	local filename = vim.fn.expand("%")
+	vim.fn.jobstart({ "chmod", "+x", filename })
+	require( "notify" )("Given execution rights to '" .. filename .. "'", "info", { title = IDE.name })
+end, Keys.None)
+
+vim.keymap.set(Keys.N, "<LEADER>x-", function()
+	local filename = vim.fn.expand("%")
+	vim.fn.jobstart({ "chmod", "-x", filename })
+	require("notify")("Taken away execution rights from '" .. filename .. "'", "info", { title = IDE.name })
+end, Keys.None)
 -- Buffer
 vim.keymap.set(Keys.N, "<LEADER>bp", vim.cmd.bp, Keys.None)
 vim.keymap.set(Keys.N, "<LEADER>bn", vim.cmd.bn, Keys.None)

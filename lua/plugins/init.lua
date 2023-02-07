@@ -25,6 +25,7 @@ end
 local opt = {}
 
 local treesitter_ft = {
+	"sh",
 	"bash",
 	"c",
 	"c_sharp",
@@ -66,7 +67,9 @@ local treesitter_ft = {
 	"vue",
 	"yaml",
 }
+
 local lsp_ft = {
+	"sh",
 	"bash",
 	"c",
 	"cpp",
@@ -82,6 +85,7 @@ local lsp_ft = {
 	"typescriptreact",
 	"vimscript",
 }
+
 local vsnip_ft = {
 	"c",
 	"cmake",
@@ -93,10 +97,12 @@ local vsnip_ft = {
 	"python",
 	"rust",
 	"sh",
+	"bash",
 	"typescriptreact",
 }
 
 local doge_ft = {
+	"sh",
 	"bash",
 	"c",
 	"cpp",
@@ -126,7 +132,7 @@ local plugins = {
 	{
 		"marko-cerovac/material.nvim",
 		config = RequireFn("plugins.material_conf"),
-		priority = 51,
+		priority = 100,
 	},
 
 	"stevearc/dressing.nvim",
@@ -268,6 +274,13 @@ local plugins = {
 		priority = 48,
 	},
 
+	{
+		"b0o/SchemaStore.nvim",
+		ft = { "json", "json5", "jsonc" },
+		config = RequireFn("plugins.schemastore_conf"),
+		priority = 48,
+	},
+
 	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf") },
 
 	{
@@ -286,6 +299,15 @@ local plugins = {
 	},
 
 	"wakatime/vim-wakatime",
+
+	{
+		"folke/which-key.nvim",
+		commnad = "WhichKey",
+		keys = { { "<LEADER>wk", ":WhichKey<cr>", desc = "WhichKey" } },
+		config = function()
+			require("which-key").setup({})
+		end,
+	},
 }
 
 require("lazy").setup(plugins, opt)

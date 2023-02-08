@@ -24,6 +24,13 @@ end
 
 local opt = {}
 
+local dap_ft = {
+	"python",
+	"c",
+	"cpp",
+	"rust",
+}
+
 local treesitter_ft = {
 	"sh",
 	"bash",
@@ -226,7 +233,7 @@ local plugins = {
 		config = RequireFn("plugins.cmp_conf"),
 		priority = 48,
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lsp", ft = lsp_ft },
 			{ "quangnguyen30192/cmp-nvim-tags" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
@@ -245,7 +252,7 @@ local plugins = {
 	},
 
 	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp") },
-	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49 },
+	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
 
 	{
 		"kevinhwang91/nvim-ufo",
@@ -281,11 +288,12 @@ local plugins = {
 		priority = 48,
 	},
 
-	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf") },
+	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft },
 
 	{
 		"rcarriga/nvim-dap-ui",
 		config = RequireFn("plugins.dap_ui_conf"),
+		ft = dap_ft,
 		priority = 49,
 	},
 

@@ -308,6 +308,12 @@ local plugins = {
 			require("which-key").setup({})
 		end,
 	},
+
+	{
+		"Eandrju/cellular-automaton.nvim",
+ 	 	keys= { "<leader>tf", "<cmd>CellularAutomaton make_it_rain<CR>" },
+		command = "CellularAutomaton",
+	}
 }
 
 require("lazy").setup(plugins, opt)

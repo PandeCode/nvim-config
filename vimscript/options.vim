@@ -1,8 +1,9 @@
-filetype indent on
+filetype plugin indent on
 
-" Stop annoying you have one more file to edit
-if argc()
-	lua pcall(vim.cmd, [[au VimEnter * args %]])
+" Avoid E173 (n more file(s) to edit)
+if argc() > 1
+	silent blast " load last buffer
+	silent bfirst " switch back to the first
 endif
 
 if exists('+termguicolors')
@@ -12,20 +13,6 @@ if exists('+termguicolors')
 endif
 
 syntax sync minlines=256
-
-function! GFM()
-	let langs = ['lua', 'json', 'js', 'ts','jsx', 'tsx', 'yaml', 'vim', 'c', 'cpp']
-
-	for lang in langs
-		unlet b:current_syntax
-		silent! exec printf("syntax include @%s syntax/%s.vim", lang, lang)
-		exec printf("syntax region %sSnip matchgroup=Snip start='```%s' end='```' contains=@%s",
-					\ lang, lang, lang)
-	endfor
-	let b:current_syntax='mkd'
-
-	syntax sync fromstart
-endfunction
 
 function s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'

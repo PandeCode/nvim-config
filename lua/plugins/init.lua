@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -253,6 +254,14 @@ local plugins = {
 
 	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp") },
 	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
+	{
+		"simrat39/symbols-outline.nvim",
+		config = RequireSetupFn("symbols-outline"),
+		priority = 49,
+		ft = lsp_ft,
+		command = "SymbolsOutline",
+		keys = { { "<LEADER>so", ":SymbolsOutline<cr>", desc = "SymbolsOutline" } },
+	},
 
 	{
 		"kevinhwang91/nvim-ufo",
@@ -319,9 +328,9 @@ local plugins = {
 
 	{
 		"Eandrju/cellular-automaton.nvim",
- 	 	keys= { "<leader>tf", "<cmd>CellularAutomaton make_it_rain<CR>" },
+		keys = { "<leader>tf", "<cmd>CellularAutomaton make_it_rain<CR>" },
 		command = "CellularAutomaton",
-	}
+	},
 }
 
 require("lazy").setup(plugins, opt)

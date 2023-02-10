@@ -1,9 +1,4 @@
 local notify = require("notify")
-local function get_root(bufnr)
-	local parser = vim.treesitter.get_parser(bufnr, "cpp", {})
-	local tree = parser:parse()[1]
-	return tree:root()
-end
 
 local function gen_enum_funcs(enum_name, bufnr)
 	enum_name = enum_name or vim.fn.expand("<cword>")
@@ -15,7 +10,7 @@ local function gen_enum_funcs(enum_name, bufnr)
 	end
 	local cpp = ft == "cpp"
 
-	local root = get_root(bufnr)
+	local root = TS.get_root(ft, bufnr)
 	local enum_data = vim.treesitter.parse_query("cpp", [[
 	(enum_specifier
 		name: (type_identifier) @name (#eq? @name "]] .. enum_name .. [[")

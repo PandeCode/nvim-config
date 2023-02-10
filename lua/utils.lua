@@ -170,7 +170,17 @@ end
 ---@field type function(): string
 ---@field range function(): string
 
-local TS = {}
+TS = {}
+
+--- Get root node for file
+---@param type string treesitter parser eg cpp, c, java
+---@param bufnr number? buffer number {default current buffer}
+---@return TSNode | nil
+TS.get_root = function(type, bufnr)
+	local parser = vim.treesitter.get_parser(bufnr, type, {})
+	local tree = parser:parse()[1]
+	return tree:root()
+end
 
 --- Find parent node of given type.
 ---@param node TSNode

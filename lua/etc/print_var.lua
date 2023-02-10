@@ -15,6 +15,8 @@ function print_var()
 				return 'print("' .. current_word .. ": { " .. current_word .. '}")'
 			elseif ft == "javascript" or ft == "typescript" or ft == "javascriptreact" or ft == "typescriptreact" then
 				return 'console.log("' .. current_word .. ': ", ' .. current_word .. ");"
+			elseif ft == "sh" or ft == "bash" then
+				return 'echo -n ' .. current_word
 			end
 
 	return 'print("' .. current_word .. ': ", ' .. current_word .. ")"

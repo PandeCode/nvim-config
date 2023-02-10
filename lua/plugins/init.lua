@@ -274,27 +274,27 @@ local plugins = {
 		"folke/neodev.nvim",
 		ft = { "lua" },
 		config = RequireFn("plugins.neodev_conf"),
-		priority = 48,
+		priority = 47,
 	},
 	{
 		"p00f/clangd_extensions.nvim",
 		ft = { "cpp", "c" },
 		config = RequireFn("plugins.clangd_extensions_conf"),
 		lazy = true,
-		priority = 48,
+		priority = 47,
 	},
 	{
 		"simrat39/rust-tools.nvim",
 		ft = { "rust" },
 		config = RequireFn("plugins.rust_tools_conf"),
-		priority = 48,
+		priority = 47,
 	},
 
 	{
 		"b0o/SchemaStore.nvim",
 		ft = { "json", "json5", "jsonc" },
 		config = RequireFn("plugins.schemastore_conf"),
-		priority = 48,
+		priority = 47,
 	},
 
 	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft },

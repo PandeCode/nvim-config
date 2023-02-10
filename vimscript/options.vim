@@ -2,7 +2,7 @@ filetype indent on
 
 " Stop annoying you have one more file to edit
 if argc()
-	au VimEnter * args %
+	lua pcall(vim.cmd, [[au VimEnter * args %]])
 endif
 
 if exists('+termguicolors')

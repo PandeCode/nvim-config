@@ -126,6 +126,7 @@ local doge_ft = {
 local refactoring_ft = {
 	"c",
 	"cpp",
+	"rust",
 	"golang",
 	"java",
 	"javascript",
@@ -281,7 +282,7 @@ local plugins = {
 		ft = { "cpp", "c" },
 		config = RequireFn("plugins.clangd_extensions_conf"),
 		lazy = true,
-		priority = 47,
+		priority = 0,
 	},
 	{
 		"simrat39/rust-tools.nvim",
@@ -294,7 +295,7 @@ local plugins = {
 		"b0o/SchemaStore.nvim",
 		ft = { "json", "json5", "jsonc" },
 		config = RequireFn("plugins.schemastore_conf"),
-		priority = 47,
+		priority = 0,
 	},
 
 	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft },

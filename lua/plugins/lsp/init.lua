@@ -12,8 +12,8 @@ vim.keymap.set("n", "<LEADER>ls", ":LspStart<CR>", Keys.NoremapSilent)
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
 }
 
 LSP = {
@@ -47,11 +47,50 @@ LSP = {
 		-- This is the default in Nvim 0.7+
 		debounce_text_changes = 150,
 	},
-	capabilities = capabilities
+	capabilities = capabilities,
 }
 
-RequireForFileType("sh,bash", "plugins.lsp.bashls_conf")
+local function default_config(server_name, filetypes, settings)
+	return function()
+		LSP.lspconfig[server_name].setup({
+			on_attach = LSP.on_attach,
+			lsp_flags = LSP.lsp_flags,
+			capabilities = LSP.capabilities,
+			filetypes = filetypes,
+			settings = settings,
+		})
+	end
+end
+local function lsp_RunForFileType(ft, server_name)
+	if type(ft) == "table" then
+		ft = table.concat(ft, ",")
+	end
+
+	RunForFileType(ft, default_config("gopls", ft))
+end
+
 RequireForFileType("lua", "plugins.lsp.lua_conf")
 RequireForFileType("python", "plugins.lsp.python_conf")
-RequireForFileType("javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx", "plugins.lsp.tsserver_conf")
-RequireForFileType("go,gomod,gowork,gotmpl", "plugins.lsp.gopls_conf")
+
+lsp_RunForFileType({ "awk" }, "awk_ls")
+lsp_RunForFileType({ "go", "gomod", "gowork", "gotmpl" }, "gopls")
+lsp_RunForFileType({
+	"html",
+	"css",
+	"less",
+	"postcss",
+	"sass",
+	"scss",
+	"javascript",
+	"javascriptreact",
+	"typescript",
+	"typescriptreact",
+}, "tailwind")
+lsp_RunForFileType({ "go", "gomod", "gowork", "gotmpl" }, "gopls")
+lsp_RunForFileType({ "sh", "bash" }, "bashls")
+lsp_RunForFileType({ "cmake" }, "neocmake")
+lsp_RunForFileType({ "css", "scss", "less" }, "cssls")
+lsp_RunForFileType({ "html" }, "html")
+lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, "cssmodules_ls")
+-- lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, "tsserver")
+lsp_RunForFileType({ "vim" }, "vim")

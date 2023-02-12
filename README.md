@@ -1,8 +1,46 @@
 # Nvim Config
+My personal configuration for [https://github.com/neovim/neovim](neovim).
+
+## Supported languages
+ - C
+ - C++
+ - Golang
+ - Lua
+ - Rust
+ - Javascript(react)
+ - Typescript(react)
+ - Vimscript
+
+## Dependencies
+
+### Arch linux
+https://github.com/golang/tools/tree/master/gopls
+
+sudo pacman -S gopls cargo-binstall
+
+### Rust Deps (cargo-binstall installed)
+Decodetalkers/neocmakelsp
+
+```bash
+cargo binstall neocmakelsp
+```
+
+### Node Deps (pnpm installed)
+tailwindlabs/tailwindcss-intellisense
+antonk52/cssmodules-language-server
+hrsh7th/vscode-langservers-extracted
+aca/emmet-ls
+microsoft/pyright
+mads-hartmann/bash-language-server
+Beaglefoot/awk-language-server
+iamcco/vim-language-server
+
+```bash
+pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmodules-language-server emmet-ls pyright bash-language-server awk-language-server vim-language-server
+```
 
 ## Extensions 
 
-|-|-|
 | Extension | Description |
 |-|-|
 | [https://github.com/lewis6991/impatient.nvim](lewis6991/impatient.nvim) | Improve startup time for Neovim |
@@ -62,6 +100,7 @@
 | [https://github.com/wakatime/vim-wakatime](wakatime/vim-wakatime) | Vim plugin for automatic time tracking and metrics generated from your programming activity. |
 | [https://github.com/folke/which-key.nvim](folke/which-key.nvim) | 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing. |
 | [https://github.com/Eandrju/cellular-automaton.nvim](Eandrju/cellular-automaton.nvim) | A useless plugin that might help you cope with stubbornly broken tests or overall lack of sense in life. It lets you execute aesthetically pleasing, cellular automaton animations based on the content of neovim buffer. |
+| [https://github.com/jose-elias-alvarez/typescript.nvim](jose-elias-alvarez/typescript.nvim) | A Lua plugin, written in TypeScript, to write TypeScript (Lua optional). |
 
 ## Future
 https://github.com/nullchilly/CatNvim

@@ -77,22 +77,30 @@ local treesitter_ft = {
 }
 
 local lsp_ft = {
-	"sh",
-	"bash",
-	"c",
 	"cpp",
-	"glsl",
+	"c",
+	"rust",
+	"awk",
+	"bash",
+	"cmake",
+	"css",
 	"go",
+	"gomod",
+	"gotmpl",
+	"gowork",
+	"html",
 	"javascript",
 	"javascriptreact",
-	"json",
-	"jsonc",
+	"less",
 	"lua",
-	"rust",
+	"postcss",
 	"python",
+	"sass",
+	"scss",
+	"sh",
 	"typescript",
 	"typescriptreact",
-	"vimscript",
+	"vim",
 }
 
 local vsnip_ft = {
@@ -117,11 +125,11 @@ local doge_ft = {
 	"cpp",
 	"csharp",
 	"java",
-	"javaScript",
+	"javascript",
 	"lua",
 	"python",
 	"rust",
-	"typeScript",
+	"typescript",
 }
 
 local refactoring_ft = {
@@ -285,11 +293,19 @@ local plugins = {
 		lazy = true,
 		priority = 0,
 	},
+
+	{
+		"jose-elias-alvarez/typescript.nvim",
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+		config = RequireFn("plugins.typescript_conf"),
+		priority = 0,
+	},
+
 	{
 		"simrat39/rust-tools.nvim",
 		ft = { "rust" },
 		config = RequireFn("plugins.rust_tools_conf"),
-		priority = 47,
+		priority = 0,
 	},
 
 	{

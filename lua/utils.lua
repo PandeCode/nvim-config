@@ -61,11 +61,26 @@ function Prequire(path)
 end
 
 function RequireForFileType(ft, module)
+	if type(ft) == "table" then
+		ft = table.concat(ft, ",")
+	end
+
 	vim.api.nvim_create_autocmd({ "Filetype" }, {
 		pattern = ft,
 		callback = function()
 			Prequire(module)
 		end,
+	})
+end
+
+function RunForFileType(ft, func)
+	if type(ft) == "table" then
+		ft = table.concat(ft, ",")
+	end
+
+	vim.api.nvim_create_autocmd({ "Filetype" }, {
+		pattern = ft,
+		callback = func
 	})
 end
 
@@ -184,9 +199,9 @@ end
 ---@param type string
 ---@return TSNode | nil
 TS.find_parent_node = function(node, type)
-  if (node == node:root()) then return nil end
-  if (node:type() == type) then return node end
-  return TS.find_parent_node(node:parent(), type)
+	if (node == node:root()) then return nil end
+	if (node:type() == type) then return node end
+	return TS.find_parent_node(node:parent(), type)
 end
 
 --- Find child node of given type.
@@ -194,12 +209,12 @@ end
 ---@param type string
 ---@return TSNode | nil
 TS.find_child_node = function(node, type)
-  local child = node:child(0)
-  while child do
-    if (child:type() == type) then return child end
-    child = child:next_sibling()
-  end
-  return nil
+	local child = node:child(0)
+	while child do
+		if (child:type() == type) then return child end
+		child = child:next_sibling()
+	end
+	return nil
 end
 
 --- Set text of given node.
@@ -207,10 +222,10 @@ end
 ---@param text string | table
 ---@param bufnr number | nil
 TS.set_node_text = function(node, text, bufnr)
-  local sr, sc, er, ec = node:range()
-  local content = { text }
-  if (type(text) == 'table') then content = text end
-  vim.api.nvim_buf_set_text(bufnr or 0, sr, sc, er, ec, content)
+	local sr, sc, er, ec = node:range()
+	local content = { text }
+	if (type(text) == 'table') then content = text end
+	vim.api.nvim_buf_set_text(bufnr or 0, sr, sc, er, ec, content)
 end
 
 --- Get text of given node.
@@ -218,8 +233,8 @@ end
 ---@param bufnr number | nil
 ---@return string | string[]
 TS.get_node_text = function(node, bufnr)
-  local sr, sc, er, ec = node:range()
-  local text = vim.api.nvim_buf_get_text(bufnr or 0, sr, sc, er, ec, {})
-  if (#text == 1) then return text[1] end
-  return text
+	local sr, sc, er, ec = node:range()
+	local text = vim.api.nvim_buf_get_text(bufnr or 0, sr, sc, er, ec, {})
+	if (#text == 1) then return text[1] end
+	return text
 end

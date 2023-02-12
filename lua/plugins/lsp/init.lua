@@ -62,11 +62,7 @@ local function default_config(server_name, filetypes, settings)
 	end
 end
 local function lsp_RunForFileType(ft, server_name)
-	if type(ft) == "table" then
-		ft = table.concat(ft, ",")
-	end
-
-	RunForFileType(ft, default_config("gopls", ft))
+	RunForFileType(ft, default_config(server_name, ft))
 end
 
 RequireForFileType("lua", "plugins.lsp.lua_conf")
@@ -85,12 +81,12 @@ lsp_RunForFileType({
 	"javascriptreact",
 	"typescript",
 	"typescriptreact",
-}, "tailwind")
+}, "tailwindcss")
 lsp_RunForFileType({ "go", "gomod", "gowork", "gotmpl" }, "gopls")
 lsp_RunForFileType({ "sh", "bash" }, "bashls")
 lsp_RunForFileType({ "cmake" }, "neocmake")
 lsp_RunForFileType({ "css", "scss", "less" }, "cssls")
 lsp_RunForFileType({ "html" }, "html")
 lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, "cssmodules_ls")
--- lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, "tsserver")
+lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptreact" }, "tsserver")
 lsp_RunForFileType({ "vim" }, "vim")

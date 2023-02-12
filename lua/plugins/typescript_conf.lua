@@ -11,9 +11,8 @@ ts.setup({
 			LSP.on_attach(client, bufnr)
 
 			local opts = Keys.NoremapSilent
+			-- vim.keymap.del("n", "<leader>gd", opts)
 			opts.buffer = bufnr
-
-			vim.keymap.del("n", "<leader>gd", opts)
 
 			vim.keymap.set("n", "<leader>tsi", ts.actions.addMissingImports, opts)
 			vim.keymap.set("n", "<leader>tso", ts.actions.organizeImports, opts)

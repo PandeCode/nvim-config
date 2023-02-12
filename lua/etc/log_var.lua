@@ -10,7 +10,9 @@ function log_var()
 	vim.api.nvim_buf_set_lines(bufnr, current_line_number, current_line_number, false, {
 		(function()
 			if ft == "cpp" then
-				return 'std::cout << "' .. current_word .. '" << ' .. current_word .. " << std::endl;"
+				return 'std::cerr << "' .. current_word .. '" << ' .. current_word .. " << std::endl;"
+			elseif ft == "c" then
+				return 'fprintf(stderr, "'..current_word ..': %s ", '..current_word..');';
 			elseif ft == "rust" then
 				return 'println!("' .. current_word .. ': {:?}", ' .. current_word .. ");"
 			elseif ft == "python" then
@@ -28,7 +30,7 @@ function log_var()
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = { "*.cpp", "*.rs", "*.lua", "*.py", "*.js", "*.jsx", "*.ts", "*.tsx" },
+	pattern = { "*.c", "*.cpp", "*.rs", "*.lua", "*.py", "*.js", "*.jsx", "*.ts", "*.tsx" },
 	group = vim.api.nvim_create_augroup("LogVar", { clear = true }),
 	callback = function(tbl)
 		vim.api.nvim_buf_create_user_command(tbl.buf, "LogVar", function(cmd_tbl)

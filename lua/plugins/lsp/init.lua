@@ -53,3 +53,5 @@ LSP = {
 RequireForFileType("sh,bash", "plugins.lsp.bashls_conf")
 RequireForFileType("lua", "plugins.lsp.lua_conf")
 RequireForFileType("python", "plugins.lsp.python_conf")
+RequireForFileType("javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx", "plugins.lsp.tsserver_conf")
+RequireForFileType("go,gomod,gowork,gotmpl", "plugins.lsp.gopls_conf")

@@ -89,6 +89,7 @@ local lsp_ft = {
 	"jsonc",
 	"lua",
 	"rust",
+	"python",
 	"typescript",
 	"typescriptreact",
 	"vimscript",

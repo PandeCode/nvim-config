@@ -1,18 +1,14 @@
 {
-		"React Funtional Component": {
-				"prefix": "rfc",
-				"body": [
-						"import React from 'react'",
-						"",
-						"interface Props { };",
-						"",
-						"export const $TM_FILENAME_BASE: React.FC<Props> = ({ }) =>  {",
-						"    return (",
-						"        <div>",
-						"           ",
-						"        </div>",
-						"    )",
-						"}"
-				]
-		}
+	"React Funtional Component": {
+		"prefix": "rfc",
+		"body": [
+			"interface ${TM_FILENAME_BASE}Props { };",
+			"",
+			"export function $TM_FILENAME_BASE({ }: ${TM_FILENAME_BASE}Props) {",
+			"\treturn (",
+			"\t\t<> $TM_FILENAME_BASE </>",
+			"\t)",
+			"}"
+		]
+	}
 }

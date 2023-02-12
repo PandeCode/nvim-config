@@ -167,9 +167,9 @@ rt.setup({
 			LSP.on_attach(client, bufnr)
 
 			local opts = Keys.NoremapSilent
-			vim.keymap.del("n", "K", opts)
-
 			opts.buffer = bufnr
+
+			vim.keymap.del("n", "K", opts)
 			vim.keymap.del("n", "<LEADER>ca", opts)
 
 			vim.keymap.set("n", "K", rt.hover_actions.hover_actions, opts)

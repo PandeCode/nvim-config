@@ -7,12 +7,6 @@ vim.o.foldenable = true
 
 vim.keymap.set(Keys.N, "zR", ufo.openAllFolds)
 vim.keymap.set(Keys.N, "zM", ufo.closeAllFolds)
-vim.keymap.set(Keys.N, "K", function()
-	local winid = ufo.peekFoldedLinesUnderCursor()
-	if not winid then
-		pcall(vim.lsp.buf.hover)
-	end
-end)
 
 ufo.setup({
     open_fold_hl_timeout = 150,

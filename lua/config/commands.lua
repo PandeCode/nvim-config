@@ -17,7 +17,7 @@ vim.api.nvim_create_user_command("WQ", wq, bang_true)
 vim.api.nvim_create_user_command("Wq", wq, bang_true)
 vim.api.nvim_create_user_command("Qw", wq, bang_true)
 vim.api.nvim_create_user_command("QW", wq, bang_true)
-vim.api.nvim_create_user_command("Q", gen_new_cmd("Q"), bang_true)
+vim.api.nvim_create_user_command("Q", gen_new_cmd("q"), bang_true)
 
 vim.api.nvim_create_user_command(
 	"WipeReg",

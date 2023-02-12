@@ -22,7 +22,7 @@ sudo pacman -S gopls cargo-binstall
 Decodetalkers/neocmakelsp
 
 ```bash
-cargo binstall neocmakelsp
+cargo binstall --no-confirm neocmakelsp
 ```
 
 ### Node Deps (pnpm installed)

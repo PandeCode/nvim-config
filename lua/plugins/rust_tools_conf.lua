@@ -1,6 +1,5 @@
 local rt = require("rust-tools")
 rt.setup({
-
 	tools = { -- rust-tools options
 		-- how to execute terminal commands
 		-- options right now: termopen / quickfix
@@ -154,7 +153,6 @@ rt.setup({
 			},
 		},
 	},
-
 	-- all the opts to send to nvim-lspconfig
 	-- these override the defaults set by rust-tools.nvim
 	-- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
@@ -168,6 +166,51 @@ rt.setup({
 
 			local opts = Keys.NoremapSilent
 			opts.buffer = bufnr
+			vim.keymap.set("n", "<leader>ts", function()
+				vim.ui.select({
+					"Fmt",
+					"Run",
+					"SSR",
+					"Play",
+					"EmitIr",
+					"Expand",
+					"EmitAsm",
+					"LastRun",
+					"FmtRange",
+					"JoinLines",
+					"LastDebug",
+					"OpenCargo",
+					"Runnables",
+					"CodeAction",
+					"HoverRange",
+					"MoveItemUp",
+					"Debuggables",
+					"ExpandMacro",
+					"HoverActions",
+					"MoveItemDown",
+					"ParentModule",
+					"SetInlayHints",
+					"ViewCrateGraph",
+					"ReloadWorkspace",
+					"UnsetInlayHints",
+					"EnableInlayHints",
+					"OpenExternalDocs",
+					"DisableInlayHints",
+					"StartStandaloneServerForBuffer"
+				}, {
+					prompt = "Rust:",
+					format_item = function(item)
+						return "Rust" .. item
+					end,
+				}, function(choice)
+					vim.schedule(function()
+						vim.cmd("Rust" .. choice)
+					end
+					)
+				end)
+			end
+				, opts)
+
 
 			vim.keymap.del("n", "K", opts)
 			vim.keymap.del("n", "<LEADER>ca", opts)
@@ -178,7 +221,6 @@ rt.setup({
 		capabilities = LSP.capabilities,
 		flags = LSP.flags,
 	}, -- rust-analyzer options
-
 	-- debugging stuff
 	dap = {
 		adapter = { type = "executable", command = "lldb-vscode", name = "rt_lldb" },

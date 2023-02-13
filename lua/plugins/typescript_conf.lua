@@ -14,13 +14,27 @@ ts.setup({
 			-- vim.keymap.del("n", "<leader>gd", opts)
 			opts.buffer = bufnr
 
-			vim.keymap.set("n", "<leader>tsi", ts.actions.addMissingImports, opts)
-			vim.keymap.set("n", "<leader>tso", ts.actions.organizeImports, opts)
-			vim.keymap.set("n", "<leader>tsr", ts.actions.removeUnused, opts)
-			vim.keymap.set("n", "<leader>tsf", ts.actions.fixAll, opts)
-			vim.keymap.set("n", "<leader>tsr", ":TypescriptRenameFile<cr>", opts)
 			vim.keymap.set("n", "<leader>gd", ":TypescriptGoToSourceDefinition", opts)
-
+			vim.keymap.set("n", "<leader>ts", function()
+				vim.ui.select({
+					"FixAll",
+					"RenameFile",
+					"RemoveUnused",
+					"OrganizeImports",
+					"AddMissingImports",
+					"GoToSourceDefinition",
+				}, {
+					prompt = "Typescript:",
+					format_item = function(item)
+						return "Typescript" .. item
+					end,
+				}, function(choice)
+					vim.schedule(function()
+						vim.cmd("Typescript" .. choice)
+					end
+					)
+				end)
+			end, opts)
 		end,
 		capabilities = LSP.capabilities,
 		flags = LSP.flags,

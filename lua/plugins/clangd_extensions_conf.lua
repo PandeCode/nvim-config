@@ -12,6 +12,25 @@ require("clangd_extensions").setup({
 				"<Cmd>ClangdSwitchSourceHeader<CR>",
 				Keys.NoremapSilent
 			)
+
+			vim.keymap.set("n", "<leader>lo", function()
+				vim.ui.select({
+					"ClangAST",
+					"ClangdSymbolInfo",
+					"ClangdMemoryUsage",
+					"ClangdSetInlayHints",
+					"ClangdTypeHierarchy",
+					"ClangdToggleInlayHints",
+					"ClangdDisableInlayHints",
+					"ClangdSwitchSourceHeader",
+				}, {
+					prompt = "C/C++:",
+				}, function(choice)
+					vim.schedule(function()
+						vim.cmd(choice)
+					end)
+				end)
+			end, { buffer = bufnr })
 		end,
 		capabilities = LSP.capabilities,
 		flags = LSP.flags,

@@ -27,3 +27,6 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+com -nargs=1 -complete=command Mes
+      \ :execute "tabnew | pu=execute(\'" . <q-args> . "\') | setl nomodified"	

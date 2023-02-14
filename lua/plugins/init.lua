@@ -103,12 +103,13 @@ local lsp_ft = {
 	"vim",
 }
 
-local vsnip_ft = {
+local luasnip_ft = {
 	"c",
 	"cmake",
 	"cpp",
 	"global",
 	"glsl",
+	"lua",
 	"go",
 	"lua",
 	"python",
@@ -251,12 +252,12 @@ local plugins = {
 			{ "hrsh7th/cmp-cmdline" },
 			{
 				{
-					"hrsh7th/vim-vsnip",
-					config = function()
-						vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/snippets/")
-					end,
-					ft = vsnip_ft,
-					dependencies = { ft = vsnip_ft, "hrsh7th/cmp-vsnip" },
+					"L3MON4D3/LuaSnip",
+					config = RequireFn("plugins.luasnip_conf"),
+					version = "<CurrentMajor>.*",
+					build = "make install_jsregexp",
+					ft = luasnip_ft,
+					dependencies = { ft = luasnip_ft, "saadparwaiz1/cmp_luasnip" },
 				},
 			},
 		},

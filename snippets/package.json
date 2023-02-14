@@ -1,0 +1,58 @@
+{
+	"name": "snippets",
+	"engines": {
+		"vscode": "^1.11.0"
+	},
+	"contributes": {
+		"snippets": [
+			{
+				"path": "./c.json",
+				"language": "c"
+			},
+			{
+				"path": "./cmake.json",
+				"language": "cmake"
+			},
+			{
+				"path": "./cpp.json",
+				"language": "cpp"
+			},
+			{
+				"path": "./global.json",
+				"language": "all"
+			},
+			{
+				"path": "./glsl.json",
+				"language": "glsl"
+			},
+			{
+				"path": "./go.json",
+				"language": "go"
+			},
+			{
+				"path": "./lua.json",
+				"language": "lua"
+			},
+			{
+				"path": "./package.json",
+				"language": "package"
+			},
+			{
+				"path": "./python.json",
+				"language": "python"
+			},
+			{
+				"path": "./rust.json",
+				"language": "rust"
+			},
+			{
+				"path": "./sh.json",
+				"language": "sh"
+			},
+			{
+				"path": "./typescriptreact.json",
+				"language": "typescriptreact"
+			}
+		]
+	}
+}

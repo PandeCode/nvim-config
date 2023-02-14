@@ -83,8 +83,8 @@ pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmod
 | [https://github.com/hrsh7th/cmp-buffer](hrsh7th/cmp-buffer) | nvim-cmp source for buffer words |
 | [https://github.com/hrsh7th/cmp-path](hrsh7th/cmp-path) | nvim-cmp source for path |
 | [https://github.com/hrsh7th/cmp-cmdline](hrsh7th/cmp-cmdline) | nvim-cmp source for vim's cmdline |
-| [https://github.com/hrsh7th/vim-vsnip](hrsh7th/vim-vsnip) | Snippet plugin for vim/nvim that supports LSP/VSCode's snippet format. |
-| [https://github.com/hrsh7th/cmp-vsnip](hrsh7th/cmp-vsnip) | nvim-cmp source for vim-vsnip |
+| [https://github.com/L3MON4D3/LuaSnip](L3MON4D3/LuaSnip) | Snippet engine for Neovim written in Lua. |
+| [https://github.com/saadparwaiz1/cmp_luasnip](saadparwaiz1/cmp_luasnip) | luasnip completion source for nvim-cmp |
 | [https://github.com/neovim/nvim-lspconfig](neovim/nvim-lspconfig) | Quickstart configs for Nvim LSP |
 | [https://github.com/j-hui/fidget.nvim](j-hui/fidget.nvim) | Standalone UI for nvim-lsp progress |
 | [https://github.com/kevinhwang91/nvim-ufo](kevinhwang91/nvim-ufo) | Not UFO in the sky, but an ultra fold in Neovim. |

@@ -19,47 +19,156 @@ local fmta = require("luasnip.extras.fmt").fmta
 local conds = require("luasnip.extras.expand_conditions")
 local types = require("luasnip.util.types")
 
+vim.keymap.set({ "i", "s" }, "<c-l>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)()
+	end
+end)
+
 local function copy(args)
 	return args[1]
 end
 
-vim.cmd([[
-" For changing choices in choiceNodes (not strictly necessary for a basic setup).
-imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-]])
+local function get_test_result(pos)
+	return d(pos, function()
+			local nodes = {}
+			table.insert(nodes, "")
 
-ls.setup({})
+			local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+			for _, line in ipairs(lines) do
+				if line:match("anyhow::Result") then
+					table.insert(nodes, t " --> anyhow::Result ")
+					break
+				end
+			end
+
+			return sn(
+					nil,
+					c(1, {
+						t(""),
+						t(" --> Result<(), ()>"),
+						fmt(" --> Result<{}, ()>", { i(1) }),
+						fmt(" --> Result<{}, {}>", { i(1), i(0) }),
+						fmt(" --> Result<(), {}>", { i(1) }),
+					})
+				)
+		end, {})
+end
+
+ls.setup({
+	history = true,
+	-- Update more often, :h events for more info.
+	updateevents = "TextChanged,TextChangedI",
+	ext_opts = {
+		[types.choiceNode] = {
+			active = {
+				virt_text = { { "choiceNode", "Comment" } },
+			},
+		},
+	},
+	-- treesitter-hl has 100, use something higher (default is 200).
+	ext_base_prio = 300,
+	-- minimal increase in priority.
+	ext_prio_increase = 1,
+	enable_autosnippets = true,
+})
 
 require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
 
-ls.add_snippets("javascript", {
-	s("fn", {
-		-- Simple static text.
-		t("//Parameters: "),
-		-- function, first parameter is the function, second the Placeholders
-		-- whose text it gets as input.
-		f(copy, 2),
-		t({ "", "function " }),
-		-- Placeholder/Insert.
-		i(1),
-		t("("),
-		-- Placeholder with initial text.
-		i(2, "int foo"),
-		-- Linebreak
-		t({ ") {", "\t" }),
-		-- Last Placeholder, exit Point of the snippet.
-		i(0),
-		t({ "", "}" }),
-	}),
+ls.add_snippets("all", {
+	s(
+		"todo",
+		fmt("{}: {}", { c(1, { t("BUG"), t("TODO"), t("HACK"), t("WARN"), t("PERF"), t("NOTE"), t("TEST") }), i(0) })
+	),
+	s(
+		"time",
+		fmt(
+			"{}",
+			c(1, {
+				f(function()
+					return os.date("%D -%H:%M")
+				end),
+				f(function()
+					return os.date("%d/%m/%y")
+				end),
+			})
+		)
+	),
+})
+
+ls.add_snippets({ "javascriptreact", "typescriptreact", "javascript", "typescript" }, {
+	s(
+		"fn",
+		fmt(
+			[[
+function {}({}) {{
+	{}
+}}
+]],
+			{
+				i(1),
+				i(2),
+				i(3),
+			}
+		)
+	),
 })
 
 ls.add_snippets("lua", {
 	s(
 		"req",
 		fmt('local {} = require("{}")', {
+			f(function(import_name)
+				local parts = vim.split(import_name[1][1], ".", true)
+				return parts[#parts] or ""
+			end, { 1 }),
 			i(1),
-			rep(1),
 		})
+	),
+	s(
+		"reql",
+		fmt('local {} = require("{}")', {
+			f(function(import_name)
+				print(vim.inspect(import_name))
+				return vim.split(import_name[1][1], "")[1] or ""
+			end, { 1 }),
+			i(1),
+		})
+	),
+})
+
+ls.add_snippets("rust", {
+	s(
+		"cfg",
+		fmt(
+			[[
+#[cfg(test)]
+mod test {{
+{}
+	{}
+}}
+]],
+			{
+				c(1, { t("\tuse super::*;"), t("") }),
+				i(0),
+			}
+		)
+	),
+
+	s(
+		"test",
+		fmt(
+			[[
+#[test]
+fn {}() {}{{
+	{}
+}}
+]],
+			{
+				i(1),
+				get_test_result(2),
+				i(0),
+			}
+		)
 	),
 })

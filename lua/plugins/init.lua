@@ -296,6 +296,14 @@ local plugins = {
 	},
 
 	{
+		"ray-x/go.nvim",
+		priority = 0,
+		config = RequireFn("plugins.go_conf"),
+		ft = { "go", "gomod", "gowork", "gotmpl" },
+		dependencies = { "ray-x/guihua.lua" }
+	},
+
+	{
 		"jose-elias-alvarez/typescript.nvim",
 		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
 		config = RequireFn("plugins.typescript_conf"),

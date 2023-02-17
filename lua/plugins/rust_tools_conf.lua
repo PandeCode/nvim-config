@@ -166,7 +166,7 @@ rt.setup({
 
 			local opts = Keys.NoremapSilent
 			opts.buffer = bufnr
-			vim.keymap.set("n", "<leader>ts", function()
+			vim.keymap.set("n", "<leader>lo", function()
 				vim.ui.select({
 					"Fmt",
 					"Run",

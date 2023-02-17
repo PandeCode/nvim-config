@@ -25,6 +25,14 @@ Decodetalkers/neocmakelsp
 cargo binstall --no-confirm neocmakelsp
 ```
 
+### Go Deps
+
+```bash
+go install github.com/segmentio/golines@latest
+go install mvdan.cc/gofumpt@latest
+```
+
+
 ### Node Deps (pnpm installed)
 tailwindlabs/tailwindcss-intellisense
 antonk52/cssmodules-language-server
@@ -91,6 +99,7 @@ pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmod
 | [https://github.com/kevinhwang91/promise-async](kevinhwang91/promise-async) | Promise & Async in Lua |
 | [https://github.com/folke/neodev.nvim](folke/neodev.nvim) | 💻  Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API. |
 | [https://github.com/p00f/clangd_extensions.nvim](p00f/clangd_extensions.nvim) | Clangd's off-spec features for neovim's LSP client. Use https://sr.ht/~p00f/clangd_extensions.nvim instead |
+| [https://github.com/ray-x/go.nvim](ray-x/go.nvim) | Modern Go dev plugin, based on gopls, treesitter AST, Dap and a variety of go tools. |
 | [https://github.com/simrat39/rust-tools.nvim](simrat39/rust-tools.nvim) | Tools for better development in rust using neovim's builtin lsp |
 | [https://github.com/b0o/SchemaStore.nvim](b0o/SchemaStore.nvim) | 🛍 JSON schemas for Neovim |
 | [https://github.com/mfussenegger/nvim-dap](mfussenegger/nvim-dap) | Debug Adapter Protocol client implementation for Neovim |

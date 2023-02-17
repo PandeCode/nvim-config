@@ -69,7 +69,6 @@ RequireForFileType("lua", "plugins.lsp.lua_conf")
 RequireForFileType("python", "plugins.lsp.python_conf")
 
 lsp_RunForFileType({ "awk" }, "awk_ls")
-lsp_RunForFileType({ "go", "gomod", "gowork", "gotmpl" }, "gopls")
 lsp_RunForFileType({
 	"html",
 	"css",

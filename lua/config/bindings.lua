@@ -1,10 +1,12 @@
 vim.g.mapleader = " "
 -- stylua: ignore start
 
+vim.keymap.set(Keys.N, "<LEADER>sf", vim.cmd.write, Keys.None)
+
 vim.keymap.set(Keys.V, "<LEADER>so", ":sort<cr>", Keys.None)
 vim.keymap.set(Keys.N, "<LEADER>qa", ":noautocmd qall!<cr>", Keys.None)
 
-vim.keymap.set(Keys.N, "<LEADER>me", ":mes<cr>", Keys.None)
+vim.keymap.set(Keys.N, "<LEADER>me", vim.cmd.messages, Keys.None)
 vim.keymap.set(Keys.N, "<LEADER>fe", vim.cmd.edit, Keys.None)
 
 vim.keymap.set(Keys.N, "<LEADER>x+", function()

@@ -347,7 +347,6 @@ local plugins = {
 	{
 		"folke/which-key.nvim",
 		commnad = "WhichKey",
-		keys = { { "<LEADER>wk", ":WhichKey<cr>", desc = "WhichKey" } },
 		config = function()
 			require("which-key").setup({})
 		end,

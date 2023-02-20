@@ -56,17 +56,18 @@ local function set_filetype(pattern, filetype)
 	})
 end
 
-local function create_source_binding(pattern, callback, group)
+local function create_source_binding(pattern, callback, group, binding)
 	pattern = pattern or { "*" }
 	callback = callback or function() end
 	group = group or RandStr(10)
+	binding = binding or "<LEADER>sf"
 
 	vim.api.nvim_create_autocmd("BufEnter", {
 		pattern = pattern,
 		group = vim.api.nvim_create_augroup(group, { clear = true }),
 		callback = function(tbl)
 			local notify = Prequire("notify")
-			vim.keymap.set(Keys.N, "<LEADER>sf", function()
+			vim.keymap.set(Keys.N, binding, function()
 				callback(tbl)
 				if notify ~= nil then
 					notify(
@@ -106,7 +107,7 @@ create_source_binding({ "*config/tmux/**", "*tmux.conf" }, function()
 end, "SourceTmux")
 create_source_binding({ "*.cpp" }, function()
 	vim.cmd("!runcpp " .. vim.fn.expand("%"))
-end, "SourceCpp")
+end, "SourceCpp", "<LEADER>rc")
 create_source_binding({ "*/waybar/**/*.*" }, function()
 	vim.fn.jobstart({ "sh", "-c", "'!killall -9 waybar ; waybar & disown'" })
 end, "SourceWaybar")

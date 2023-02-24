@@ -300,7 +300,7 @@ local plugins = {
 		priority = 0,
 		config = RequireFn("plugins.go_conf"),
 		ft = { "go", "gomod", "gowork", "gotmpl" },
-		dependencies = { "ray-x/guihua.lua" }
+		dependencies = { "ray-x/guihua.lua" },
 	},
 
 	{
@@ -356,6 +356,16 @@ local plugins = {
 		"Eandrju/cellular-automaton.nvim",
 		keys = { "<leader>tf", "<cmd>CellularAutomaton make_it_rain<CR>" },
 		command = "CellularAutomaton",
+	},
+
+	{
+		"Maan2003/lsp_lines.nvim",
+		priority = 0,
+		ft = lsp_ft,
+		config = function()
+			require("lsp_lines").setup()
+			vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = false })
+		end,
 	},
 }
 

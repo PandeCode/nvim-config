@@ -110,6 +110,7 @@ pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmod
 | [https://github.com/folke/which-key.nvim](folke/which-key.nvim) | 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing. |
 | [https://github.com/Eandrju/cellular-automaton.nvim](Eandrju/cellular-automaton.nvim) | A useless plugin that might help you cope with stubbornly broken tests or overall lack of sense in life. It lets you execute aesthetically pleasing, cellular automaton animations based on the content of neovim buffer. |
 | [https://github.com/jose-elias-alvarez/typescript.nvim](jose-elias-alvarez/typescript.nvim) | A Lua plugin, written in TypeScript, to write TypeScript (Lua optional). |
+| [https://github.com/Maan2003/lsp_lines.nvim](Maan2003/lsp_lines.nvim) | renders diagnostics using virtual lines on top of the real line of code |
 
 ## Future
 https://github.com/nullchilly/CatNvim

@@ -17,11 +17,11 @@ ts.setup({
 			vim.keymap.set("n", "<leader>gd", ":TypescriptGoToSourceDefinition", opts)
 			vim.keymap.set("n", "<leader>ts", function()
 				vim.ui.select({
+					"AddMissingImports",
+					"OrganizeImports",
 					"FixAll",
 					"RenameFile",
 					"RemoveUnused",
-					"OrganizeImports",
-					"AddMissingImports",
 					"GoToSourceDefinition",
 				}, {
 					prompt = "Typescript:",

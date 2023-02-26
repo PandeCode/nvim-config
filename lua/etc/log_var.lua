@@ -4,15 +4,16 @@ function log_var()
 	local current_word = vim.fn.expand("<cword>")
 	local ft = vim.bo.ft
 	local current_line_number = vim.fn.line(".")
+	local spacing = "	"
 
 	-- local line = vim.api.nvim_buf_get_lines(bufnr, current_line_number, current_line_number, false)[1]
 
 	vim.api.nvim_buf_set_lines(bufnr, current_line_number, current_line_number, false, {
-		(function()
+		spacing .. (function()
 			if ft == "cpp" then
 				return 'std::cerr << "' .. current_word .. '" << ' .. current_word .. " << std::endl;"
 			elseif ft == "c" then
-				return 'fprintf(stderr, "'..current_word ..': %s ", '..current_word..');';
+				return 'fprintf(stderr, "' .. current_word .. ': %s ", ' .. current_word .. ');';
 			elseif ft == "rust" then
 				return 'println!("' .. current_word .. ': {:?}", ' .. current_word .. ");"
 			elseif ft == "python" then

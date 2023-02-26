@@ -126,8 +126,8 @@ vim.keymap.set(
 )
 
 -- Use simple ; instead of shift + :
-vim.keymap.set(Keys.N, ";", ":", Keys.Noremap)
-vim.keymap.set(Keys.V, ";", ":", Keys.Noremap)
+-- vim.keymap.set(Keys.N, ";", ":", Keys.Noremap)
+-- vim.keymap.set(Keys.V, ";", ":", Keys.Noremap)
 
 -- Better tabbing
 vim.keymap.set(Keys.N, "<", "v<gv<esc>", Keys.Noremap)

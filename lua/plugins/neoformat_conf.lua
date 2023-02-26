@@ -66,6 +66,9 @@ vim.g.neoformat_only_msg_on_error = 0
 vim.api.nvim_set_keymap(Keys.N, "<Space>cf", ":Neoformat<CR>", Keys.Noremap)
 vim.api.nvim_set_keymap(Keys.V, "<Space>cf", ":Neoformat<CR>", Keys.Noremap)
 
+vim.api.nvim_set_keymap(Keys.N, "<Space>nf", ":Neoformat<CR>", Keys.Noremap)
+vim.api.nvim_set_keymap(Keys.V, "<Space>nf", ":Neoformat<CR>", Keys.Noremap)
+
 local wrap_format_stop_blocks = {
 	{ "lua", "-- stylua: ignore start", "-- stylua: ignore end" },
 	{ "python", "# fmt: off", "# fmt: on" },

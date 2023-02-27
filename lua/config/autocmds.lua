@@ -84,6 +84,7 @@ local function create_source_binding(pattern, callback, group, binding)
 end
 
 set_filetype("*/xmobarrc", "haskell")
+set_filetype({"*.ls", "*.v" }, "vlang")
 set_filetype("*.yuck", "yuck")
 set_filetype("*.keys", "keys")
 set_filetype({ "*.shader", "*.frag", "*.vert" }, "glsl")

@@ -21,7 +21,7 @@ local types = require("luasnip.util.types")
 
 vim.keymap.set({ "i", "s" }, "<c-l>", function()
 	if ls.choice_active() then
-		ls.change_choice(1)()
+		ls.change_choice(1)
 	end
 end)
 
@@ -31,32 +31,32 @@ end
 
 local function get_test_result(pos)
 	return d(pos, function()
-			local nodes = {}
-			table.insert(nodes, "")
+		local nodes = {}
+		table.insert(nodes, "")
 
-			local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-			for _, line in ipairs(lines) do
-				if line:match("anyhow::Result") then
-					table.insert(nodes, t " --> anyhow::Result ")
-					break
-				end
+		local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+		for _, line in ipairs(lines) do
+			if line:match("anyhow::Result") then
+				table.insert(nodes, t(" --> anyhow::Result "))
+				break
 			end
+		end
 
-			return sn(
-					nil,
-					c(1, {
-						t(""),
-						t(" --> Result<(), ()>"),
-						fmt(" --> Result<{}, ()>", { i(1) }),
-						fmt(" --> Result<{}, {}>", { i(1), i(0) }),
-						fmt(" --> Result<(), {}>", { i(1) }),
-					})
-				)
-		end, {})
+		return sn(
+			nil,
+			c(1, {
+				t(""),
+				t(" --> Result<(), ()>"),
+				fmt(" --> Result<{}, ()>", { i(1) }),
+				fmt(" --> Result<{}, {}>", { i(1), i(0) }),
+				fmt(" --> Result<(), {}>", { i(1) }),
+			})
+		)
+	end, {})
 end
 
 ls.setup({
-	history = true,
+	history = false,
 	-- Update more often, :h events for more info.
 	updateevents = "TextChanged,TextChangedI",
 	ext_opts = {
@@ -168,6 +168,33 @@ fn {}() {}{{
 				i(1),
 				get_test_result(2),
 				i(0),
+			}
+		)
+	),
+})
+
+ls.add_snippets("cpp", {
+	s(
+		"class",
+		fmt(
+			[[
+class {} {{
+	public:
+		{}
+	private:
+		{}
+}};
+]],
+			{
+				i(1),
+				c(2, { 
+					fmt("Class(){};", {c(1, {
+						t(""),
+						t(" = default"),
+						t(" = delete"),
+					})})
+				}),
+				i(3),
 			}
 		)
 	),

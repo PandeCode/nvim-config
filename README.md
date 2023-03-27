@@ -104,13 +104,15 @@ pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmod
 | [https://github.com/b0o/SchemaStore.nvim](b0o/SchemaStore.nvim) | 🛍 JSON schemas for Neovim |
 | [https://github.com/mfussenegger/nvim-dap](mfussenegger/nvim-dap) | Debug Adapter Protocol client implementation for Neovim |
 | [https://github.com/rcarriga/nvim-dap-ui](rcarriga/nvim-dap-ui) | A UI for nvim-dap |
-| [https://github.com/kkoomen/vim-doge](kkoomen/vim-doge) | (Do)cumentation (Ge)nerator 10+ languages 📚 Generate proper code documentation skeletons with a single keypress. ⚡️🔥 |
+| [https://github.com/danymat/neogen](danymat/neogen) | A better annotation generator. Supports multiple languages and annotation conventions. |
 | [https://github.com/ThePrimeagen/refactoring.nvim](ThePrimeagen/refactoring.nvim) | The Refactoring library based off the Refactoring book by Martin Fowler |
 | [https://github.com/wakatime/vim-wakatime](wakatime/vim-wakatime) | Vim plugin for automatic time tracking and metrics generated from your programming activity. |
 | [https://github.com/folke/which-key.nvim](folke/which-key.nvim) | 💥   Create key bindings that stick. WhichKey is a lua plugin for Neovim 0.5 that displays a popup with possible keybindings of the command you started typing. |
 | [https://github.com/Eandrju/cellular-automaton.nvim](Eandrju/cellular-automaton.nvim) | A useless plugin that might help you cope with stubbornly broken tests or overall lack of sense in life. It lets you execute aesthetically pleasing, cellular automaton animations based on the content of neovim buffer. |
 | [https://github.com/jose-elias-alvarez/typescript.nvim](jose-elias-alvarez/typescript.nvim) | A Lua plugin, written in TypeScript, to write TypeScript (Lua optional). |
 | [https://github.com/Maan2003/lsp_lines.nvim](Maan2003/lsp_lines.nvim) | renders diagnostics using virtual lines on top of the real line of code |
+| [https://github.com/tpope/vim-abolish](tpope/vim-abolish) | abolish.vim: Work with several variants of a word at once |
+
 
 ## Future
 https://github.com/nullchilly/CatNvim

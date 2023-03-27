@@ -120,7 +120,7 @@ local luasnip_ft = {
 	"typescriptreact",
 }
 
-local doge_ft = {
+local neogen_ft = {
 	"sh",
 	"bash",
 	"c",
@@ -165,6 +165,7 @@ local plugins = {
 	"rcarriga/nvim-notify",
 	"romainl/vim-cool",
 	"tpope/vim-repeat",
+	"tpope/vim-abolish",
 	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
 	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
 	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
@@ -334,7 +335,7 @@ local plugins = {
 		priority = 49,
 	},
 
-	{ "kkoomen/vim-doge", build = ":call doge#install()", ft = doge_ft },
+	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf") , ft = neogen_ft, },
 
 	{
 		"ThePrimeagen/refactoring.nvim",

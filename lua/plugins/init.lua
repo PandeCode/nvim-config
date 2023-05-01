@@ -378,6 +378,11 @@ local plugins = {
 			vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = false })
 		end,
 	},
+	{
+		"ollykel/v-vim",
+		priority = 0,
+		ft = {"vlang"},
+	},
 }
 
 require("lazy").setup(plugins, opt)

@@ -1,9 +1,15 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<LEADER>e", vim.diagnostic.open_float, Keys.NoremapSilent)
-vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, Keys.NoremapSilent)
-vim.keymap.set("n", "g]", vim.diagnostic.goto_next, Keys.NoremapSilent)
-vim.keymap.set("n", "<LEADER>q", vim.diagnostic.setloclist, Keys.NoremapSilent)
+vim.keymap.set("n", "<LEADER>e", function()
+	vim.diagnostic.open_float({ float = "rounded" })
+end, Keys.NoremapSilent)
+vim.keymap.set("n", "g[", function()
+	vim.diagnostic.goto_prev({ float = "rounded" })
+end, Keys.NoremapSilent)
+vim.keymap.set("n", "g]", function()
+	vim.diagnostic.goto_next({ float = "rounded" })
+end, Keys.NoremapSilent)
+vim.keymap.set("n", "<LEADER>q", "<CMD>Telescope diagnostics<CR>", Keys.NoremapSilent)
 
 vim.keymap.set("n", "<LEADER>li", ":LspInfo<CR>", Keys.NoremapSilent)
 vim.keymap.set("n", "<LEADER>lq", ":LspStop<CR>", Keys.NoremapSilent)
@@ -15,6 +21,13 @@ capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
+
+local old_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = "rounded"
+	return  old_open_floating_preview(contents, syntax, opts, ...)
+end
 
 LSP = {
 	lspconfig = require("lspconfig"),

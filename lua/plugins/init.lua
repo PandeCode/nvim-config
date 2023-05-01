@@ -77,13 +77,13 @@ local treesitter_ft = {
 }
 
 local lsp_ft = {
-	"cpp",
-	"c",
-	"rust",
 	"awk",
 	"bash",
+	"c",
 	"cmake",
+	"cpp",
 	"css",
+	"dart",
 	"go",
 	"gomod",
 	"gotmpl",
@@ -95,6 +95,7 @@ local lsp_ft = {
 	"lua",
 	"postcss",
 	"python",
+	"rust",
 	"sass",
 	"scss",
 	"sh",
@@ -105,23 +106,23 @@ local lsp_ft = {
 }
 
 local luasnip_ft = {
+	"bash",
 	"c",
 	"cmake",
 	"cpp",
+	"dart",
 	"global",
 	"glsl",
-	"lua",
 	"go",
+	"lua",
 	"lua",
 	"python",
 	"rust",
 	"sh",
-	"bash",
 	"typescriptreact",
 }
 
 local neogen_ft = {
-	"sh",
 	"bash",
 	"c",
 	"cpp",
@@ -131,18 +132,19 @@ local neogen_ft = {
 	"lua",
 	"python",
 	"rust",
+	"sh",
 	"typescript",
 }
 
 local refactoring_ft = {
 	"c",
 	"cpp",
-	"rust",
 	"golang",
 	"java",
 	"javascript",
 	"lua",
 	"python",
+	"rust",
 	"typescript",
 }
 
@@ -265,7 +267,7 @@ local plugins = {
 		},
 	},
 
-	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp") },
+	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
 	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
 	{
 		"simrat39/symbols-outline.nvim",
@@ -316,6 +318,13 @@ local plugins = {
 		"simrat39/rust-tools.nvim",
 		ft = { "rust" },
 		config = RequireFn("plugins.rust_tools_conf"),
+		priority = 0,
+	},
+
+	{
+		"akinsho/flutter-tools.nvim",
+		ft = { "dart" },
+		config = RequireFn("plugins.flutter_tools_conf"),
 		priority = 0,
 	},
 

@@ -325,6 +325,7 @@ local plugins = {
 		"akinsho/flutter-tools.nvim",
 		ft = { "dart" },
 		config = RequireFn("plugins.flutter_tools_conf"),
+		lazy = true,
 		priority = 0,
 	},
 
@@ -344,7 +345,7 @@ local plugins = {
 		priority = 49,
 	},
 
-	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf") , ft = neogen_ft, },
+	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf"), ft = neogen_ft },
 
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -358,9 +359,7 @@ local plugins = {
 	{
 		"folke/which-key.nvim",
 		commnad = "WhichKey",
-		config = function()
-			require("which-key").setup({})
-		end,
+		config = RequireSetupFn("which-key"),
 	},
 
 	{
@@ -381,7 +380,7 @@ local plugins = {
 	{
 		"ollykel/v-vim",
 		priority = 0,
-		ft = {"vlang"},
+		ft = { "vlang" },
 	},
 }
 

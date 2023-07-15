@@ -30,6 +30,9 @@ local dap_ft = {
 	"c",
 	"cpp",
 	"rust",
+	"gd",
+	"gdscript",
+	"gdscript3",
 }
 
 local treesitter_ft = {
@@ -88,6 +91,9 @@ local lsp_ft = {
 	"gomod",
 	"gotmpl",
 	"gowork",
+	"gd",
+	"gdscript",
+	"gdscript3",
 	"html",
 	"javascript",
 	"javascriptreact",
@@ -167,6 +173,7 @@ local plugins = {
 	"rcarriga/nvim-notify",
 	"romainl/vim-cool",
 	"tpope/vim-repeat",
+	"tpope/vim-sleuth",
 	"tpope/vim-abolish",
 	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
 	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
@@ -258,7 +265,7 @@ local plugins = {
 				{
 					"L3MON4D3/LuaSnip",
 					config = RequireFn("plugins.luasnip_conf"),
-					version = "<CurrentMajor>.*",
+					version = "1.*",
 					build = "make install_jsregexp",
 					ft = luasnip_ft,
 					dependencies = { ft = luasnip_ft, "saadparwaiz1/cmp_luasnip" },
@@ -268,7 +275,7 @@ local plugins = {
 	},
 
 	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
-	{ "j-hui/fidget.nvim", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
+	{ "j-hui/fidget.nvim", branch = "legacy",config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
 	{
 		"simrat39/symbols-outline.nvim",
 		config = RequireSetupFn("symbols-outline"),

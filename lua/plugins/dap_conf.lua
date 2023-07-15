@@ -10,9 +10,25 @@ function getcppdbg()
 !sh -c "mkdir -p ~/.cache/cppdgb; \
 	cd ~/.cache/cppgdb; \
 	wget -c $(curl -fsSL https://api.github.com/repos/microsoft/vscode-cpptools/releases/latest | jq -r '.assets[] | .browser_download_url' | grep linux.vsix); \
-	chmod +x /extension/debugAdapters/bin/OpenDebugAD7 ./extension/debugAdapters/bin/createdump ./extension/bin/cpptools*"
+	chmod +x ./extension/debugAdapters/bin/OpenDebugAD7 ./extension/debugAdapters/bin/createdump ./extension/bin/cpptools*"
 ]])
 end
+
+dap.adapters.godot = {
+	type = "server",
+	host = "127.0.0.1",
+	port = 6006,
+}
+
+dap.configurations.gdscript = {
+	{
+		type = "godot",
+		request = "launch",
+		name = "Launch scene",
+		project = "${workspaceFolder}",
+		launch_scene = true,
+	},
+}
 
 dap.adapters.cppdbg = {
 	id = "cppdbg",
@@ -45,5 +61,5 @@ dap.configurations.cpp = {
 	},
 }
 
-dap.configurations.c = dap.configurations.cpp 
-dap.configurations.rust = dap.configurations.cpp 
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp

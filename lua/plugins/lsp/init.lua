@@ -95,6 +95,7 @@ lsp_RunForFileType({
 	"typescriptreact",
 }, "tailwindcss")
 lsp_RunForFileType({ "go", "gomod", "gowork", "gotmpl" }, "gopls")
+lsp_RunForFileType({ "gd", "gdscript", "gdscript3" }, "gdscript")
 lsp_RunForFileType({ "sh", "bash" }, "bashls")
 lsp_RunForFileType({ "cmake" }, "neocmake")
 lsp_RunForFileType({ "css", "scss", "less" }, "cssls")

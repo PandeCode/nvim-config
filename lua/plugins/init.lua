@@ -109,6 +109,7 @@ local lsp_ft = {
 	"typescriptreact",
 	"vim",
 	"vlang",
+	"yaml",
 }
 
 local luasnip_ft = {

@@ -112,7 +112,7 @@ Keys = {
 	N = "n",
 	S = "s",
 	V = "v",
-	NoneStr = "",
+	A = "",
 
 	None = {},
 	Expr = { expr = true },

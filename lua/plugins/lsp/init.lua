@@ -104,3 +104,4 @@ lsp_RunForFileType({ "javascript", "javascriptreact", "typescript", "typescriptr
 lsp_RunForFileType({ "vlang" }, "vls")
 lsp_RunForFileType({ "vim" }, "vim")
 lsp_RunForFileType({ "yaml" }, "yamlls")
+lsp_RunForFileType({ "haskell", "lhaskell" }, "hls")

@@ -129,6 +129,7 @@ Keys = {
 		expr = true,
 	},
 }
+
 ---A helper function to print a table's contents.
 ---@param tbl table @The table to print.
 ---@param depth number @The depth of sub-tables to traverse through and print.

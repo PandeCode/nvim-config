@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cargo build &&
-cp -r lua/debug/librust.so lua/
+cargo build --release&&
+cp -r lua/release/librust.so lua/

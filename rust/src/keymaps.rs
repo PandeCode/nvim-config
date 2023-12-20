@@ -1,9 +1,11 @@
 use nvim_oxi::api::{self, types::Mode};
 use nvim_oxi::{self as oxi};
 use oxi::api::opts::SetKeymapOpts;
-use oxi::Result;
 
-pub fn keymaps() -> Result<()> {
+use miette::Result;
+use oxi::Error;
+
+pub fn keymaps() -> Result<(), Error> {
     api::set_var("mapleader", " ")?;
 
     let n = &Mode::Normal;

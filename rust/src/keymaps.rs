@@ -18,21 +18,26 @@ pub fn keymaps() -> Result<()> {
     let noremap_expr = &(SetKeymapOpts::builder().noremap(true).expr(true).build());
     let noremap_silent = &(SetKeymapOpts::builder().noremap(true).silent(true).build());
 
+    #[rustfmt::skip]
     let keymaps = [
-        (v, "<LEADER>so", ":sort<cr>", none),
-        (n, "<LEADER>qa", ":noautocmd qall!<cr>", none),
-        (n, "<LEADER>sf", ":w<cr>", none),
-        (n, "<LEADER>fe", ":edit<cr>", none),
-        (n, "<LEADER>nw", "<CMD>%s/\\s*$//<CR>", none),
-        (n, "<LEADER>`", "<CMD>edit #<CR>", none),
-        (n, "<LEADER>p", "\"_dP", none),
-        (n, "<LEADER>gf", ":e <cfile><cr>", none),
-        (n, "<LEADER><F2>", "*:%s//", none),
-        (a, "<A-a>", "<c-a>", noremap), // increament
-        (a, "<A-x>", "<c-x>", noremap), // decreament
-        (n, "L", "$", none),
-        (n, "H", "^", none),
-        (n, "Q", "", none), // Disable visual mode
+
+        (v, "<LEADER>so",   ":sort<cr>",             none),
+        (n, "<LEADER>ne",   ":set noexpandtab!<cr>", noremap),
+        (n, "<LEADER>et",   ":set expandtab!<cr>",   noremap),
+        (n, "<LEADER>qa",   ":noautocmd qall!<cr>",  none),
+        (n, "<LEADER>sf",   ":w<cr>",                none),
+        (n, "<LEADER>fe",   ":edit<cr>",             none),
+        (n, "<LEADER>nw",   "<CMD>%s/\\s*$//<CR>",   none),
+        (n, "<LEADER>`",    "<CMD>edit #<CR>",       none),
+        (n, "<LEADER>p",    "\"_dP",                 none),
+        (n, "<LEADER>gf",   ":e <cfile><cr>",        none),
+        (n, "<LEADER><F2>", "*:%s//",                none),
+        (a, "<A-a>",        "<c-a>",                 noremap), // increament
+        (a, "<A-x>",        "<c-x>",                 noremap), // decreament
+        (n, "L",            "$",                     none),
+        (n, "H",            "^",                     none),
+        (n, "Q",            "",                      none),    // Disable visual mode
+        
         (
             n,
             "<Home>",
@@ -51,23 +56,25 @@ pub fn keymaps() -> Result<()> {
             "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')",
             noremap_expr,
         ),
-        (i, "<Home>", "<C-o><Home>", none),
-        (i, "<End> ", "<C-o><End>", none),
-        (n, "gg", "gg0", noremap),
-        (a, "G", "G<End>", noremap),
-        (a, "Y", "y$", noremap),
-        (n, "<LEADER>w", "<c-w>", noremap),
+
+        (i, "<Home>",     "<C-o><Home>",     none),
+        (i, "<End> ",     "<C-o><End>",      none),
+        (n, "gg",         "gg0",             noremap),
+        (a, "G",          "G<End>",          noremap),
+        (a, "Y",          "y$",              noremap),
+        (n, "<LEADER>w",  "<c-w>",           noremap),
         (n, "<LEADER>w|", "<CMD>vsplit<CR>", noremap),
-        (n, "<LEADER>w_", "<CMD>split<CR>", noremap),
+        (n, "<LEADER>w_", "<CMD>split<CR>",  noremap),
         // system clipboard
-        (n, "<c-c>", "\"+y\"", noremap),
-        (v, "<c-c>", "\"+y\"", noremap),
-        (n, "<c-v>", "\"+p\"", noremap),
-        (i, "<c-v>", "<c-r>+", noremap),
-        (c, "<c-v>", "<c-r>+", noremap),
-        (n, "<c-x>", "<c-c>d", none),
-        (i, "<c-x>", "<c-c>d", none),
-        (c, "<c-x>", "<c-c>d", none),
+        (n, "<c-c>",      "\"+y\"",          noremap),
+        (v, "<c-c>",      "\"+y\"",          noremap),
+        (n, "<c-v>",      "\"+p\"",          noremap),
+        (i, "<c-v>",      "<c-r>+",          noremap),
+        (c, "<c-v>",      "<c-r>+",          noremap),
+        (n, "<c-x>",      "<c-c>d",          none),
+        (i, "<c-x>",      "<c-c>d",          none),
+        (c, "<c-x>",      "<c-c>d",          none),
+
         // use <c-r> to insert original character without triggering things like auto-pairs
         (i, "<c-r>", "<c-v>", noremap),
         (n, "<LEADER>fs", ":w<CR>", noremap),
@@ -87,6 +94,7 @@ pub fn keymaps() -> Result<()> {
         (i, "{", "{<c-g>u", noremap),
         (i, "}", "}<c-g>u", noremap),
         (i, "\"", "\"<c-g>u", noremap),
+
         (
             n,
             "k",
@@ -99,6 +107,7 @@ pub fn keymaps() -> Result<()> {
             "(v:count > 5 ? \"m'\" . v:count : \"\") . 'j'",
             noremap_expr,
         ),
+
         (v, "<c-j>", ":m '>+1<CR>gv=gv", noremap),
         (v, "<c-k>", ":m '<-2<CR>gv=gv", noremap),
         (n, "<c-j>", ":m .+1<CR>==", noremap),
@@ -129,8 +138,6 @@ pub fn keymaps() -> Result<()> {
         (v, ")", "<esc>`>a)<esc>`<i(<esc>", noremap),
         (v, "]", "<esc>`>a]<esc>`<i[<esc>", noremap),
         (v, "<c-}>", "<esc>`>a}<esc>`<i{<esc>", noremap),
-        (n, "<LEADER>ne", ":set noexpandtab!<cr>", noremap),
-        (n, "<LEADER>et", ":set expandtab!<cr>", noremap),
     ];
 
     for keymap in keymaps {

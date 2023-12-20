@@ -157,23 +157,13 @@ local refactoring_ft = {
 	"typescript",
 }
 
-local plugins = {
+local vscode_enabled_plugins = {
 	{ "lewis6991/impatient.nvim", config = RequireFn("impatient") },
 
-	{
-		"marko-cerovac/material.nvim",
-		config = RequireFn("plugins.material_conf"),
-		priority = 100,
-	},
-
-	"stevearc/dressing.nvim",
-
-	"airblade/vim-gitgutter",
-	"ap/vim-css-color",
 	"chaoren/vim-wordmotion",
 	"itchyny/vim-cursorword",
 	"mg979/vim-visual-multi",
-	"rcarriga/nvim-notify",
+
 	"romainl/vim-cool",
 	"tpope/vim-repeat",
 	"tpope/vim-sleuth",
@@ -181,8 +171,6 @@ local plugins = {
 	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
 	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
 	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
-	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
-	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
 	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
 	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf") },
@@ -201,6 +189,39 @@ local plugins = {
 		end,
 	},
 
+	{
+		"kevinhwang91/nvim-ufo",
+		config = RequireFn("plugins.ufo_conf"),
+		dependencies = { "kevinhwang91/promise-async" },
+		priority = 48,
+	},
+
+	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf"), ft = neogen_ft },
+	"wakatime/vim-wakatime",
+}
+local vscode_disabled_plugins = {
+
+	{
+		"ThePrimeagen/refactoring.nvim",
+		config = RequireFn("plugins.refactoring_conf"),
+		ft = refactoring_ft,
+		priority = 0,
+	},
+
+	{
+		"marko-cerovac/material.nvim",
+		config = RequireFn("plugins.material_conf"),
+		priority = 100,
+	},
+
+	"stevearc/dressing.nvim",
+
+	"airblade/vim-gitgutter",
+	"ap/vim-css-color",
+	"rcarriga/nvim-notify",
+
+	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
+	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"akinsho/bufferline.nvim",
@@ -278,7 +299,7 @@ local plugins = {
 	},
 
 	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
-	{ "j-hui/fidget.nvim", branch = "legacy",config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
+	{ "j-hui/fidget.nvim", branch = "legacy", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
 	{
 		"simrat39/symbols-outline.nvim",
 		config = RequireSetupFn("symbols-outline"),
@@ -286,13 +307,6 @@ local plugins = {
 		ft = lsp_ft,
 		command = "SymbolsOutline",
 		keys = { { "<LEADER>so", ":SymbolsOutline<cr>", desc = "SymbolsOutline" } },
-	},
-
-	{
-		"kevinhwang91/nvim-ufo",
-		config = RequireFn("plugins.ufo_conf"),
-		dependencies = { "kevinhwang91/promise-async" },
-		priority = 48,
 	},
 
 	{
@@ -329,6 +343,7 @@ local plugins = {
 		ft = { "rust" },
 		config = RequireFn("plugins.rust_tools_conf"),
 		priority = 0,
+		dependencies = { "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
 	},
 
 	{
@@ -354,17 +369,6 @@ local plugins = {
 		ft = dap_ft,
 		priority = 49,
 	},
-
-	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf"), ft = neogen_ft },
-
-	{
-		"ThePrimeagen/refactoring.nvim",
-		config = RequireFn("plugins.refactoring_conf"),
-		ft = refactoring_ft,
-		priority = 0,
-	},
-
-	"wakatime/vim-wakatime",
 
 	{
 		"folke/which-key.nvim",
@@ -393,5 +397,10 @@ local plugins = {
 		ft = { "vlang" },
 	},
 }
+
+local plugins = vscode_enabled_plugins
+if not vim.g.vscode then
+	plugins = TableConcat(plugins, vscode_disabled_plugins)
+end
 
 require("lazy").setup(plugins, opt)

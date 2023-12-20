@@ -153,13 +153,10 @@ rt.setup({
 			},
 		},
 	},
-	-- all the opts to send to nvim-lspconfig
-	-- these override the defaults set by rust-tools.nvim
 	-- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
 	server = {
-		-- standalone file support
-		-- setting it to false may improve startup time
 		standalone = false,
+		-- cmd =  { "ra-multiplex" },
 
 		on_attach = function(client, bufnr)
 			LSP.on_attach(client, bufnr)

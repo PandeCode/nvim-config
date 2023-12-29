@@ -263,6 +263,26 @@ local vscode_disabled_plugins = {
 	{ "lukas-reineke/indent-blankline.nvim", config = RequireFn("plugins.indent_blankline_conf"), priority = 49 },
 
 	{
+		"epwalsh/obsidian.nvim",
+		version = "*",
+		lazy = true,
+		ft = "markdown",
+		event = {
+			"BufReadPre /mnt/g/My Drive/Vault/School/**.md",
+			"BufNewFile /mnt/g/My Drive/Vault/School/**.md",
+			"BufReadPre /mnt/g/My Drive/Vault/Jorunal/**.md",
+			"BufNewFile /mnt/g/My Drive/Vault/Jorunal/**.md",
+		},
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			workspaces = {
+				{ name = "School", path = "/mnt/g/My Drive/Vault/School" },
+				{ name = "Jorunal", path = "/mnt/g/My Drive/Vault/Jorunal" },
+			},
+		},
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		priority = 49,
 		config = RequireFn("plugins.treesitter_conf"),

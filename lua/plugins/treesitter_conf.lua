@@ -1,6 +1,6 @@
 require("orgmode").setup_ts_grammar()
 
-local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 -- Repeat movement with ; and ,
 -- ensure ; goes forward and , goes backward regardless of the last direction
@@ -97,7 +97,7 @@ require("nvim-treesitter.configs").setup({
 			},
 			goto_previous = {
 				["[d"] = "@conditional.outer",
-			}
+			},
 		},
 	},
 	ensure_installed = {
@@ -123,6 +123,8 @@ require("nvim-treesitter.configs").setup({
 		"json5",
 		"kotlin",
 		"lua",
+		"markdown",
+		"markdown_inline",
 		"org",
 		"python",
 		"query",

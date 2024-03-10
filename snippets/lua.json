@@ -1,11 +1,7 @@
 {
-		"Print": {
-				"prefix": "pr",
-				"body": [
-						"print(\"$1\"$2);",
-						"$3"
-				],
-				"description": "Output to console"
-		}
-
+	"Print": {
+		"prefix": "pr",
+		"body": ["print(\"$1\"$2);", "$3"],
+		"description": "Output to console"
+	}
 }

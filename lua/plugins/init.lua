@@ -7,7 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"--filter=blob:none",
 		"--depth=1",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -197,9 +197,22 @@ local vscode_enabled_plugins = {
 	},
 
 	{ "danymat/neogen", config = RequireFn("plugins.neogen_conf"), ft = neogen_ft },
+
 	"wakatime/vim-wakatime",
 }
+
 local vscode_disabled_plugins = {
+	{
+		"folke/zen-mode.nvim",
+		keys = { { "<LEADER>zm", ":ZenMode<cr>", desc = "ZenMode" } },
+		priority = 0,
+	},
+
+	{
+		"folke/twilight.nvim",
+		keys = { { "<LEADER>tl", ":Twilight<cr>", desc = "Twilight" } },
+		priority = 0,
+	},
 
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -268,16 +281,51 @@ local vscode_disabled_plugins = {
 		lazy = true,
 		ft = "markdown",
 		event = {
-			"BufReadPre /mnt/g/My Drive/Vault/School/**.md",
-			"BufNewFile /mnt/g/My Drive/Vault/School/**.md",
-			"BufReadPre /mnt/g/My Drive/Vault/Jorunal/**.md",
-			"BufNewFile /mnt/g/My Drive/Vault/Jorunal/**.md",
+			"BufReadPre /mnt/c/Users/pande/Vault/**.md",
+			"BufNewFile /mnt/c/Users/pande/Vault/**.md",
+			"BufReadPre /mnt/c/Users/pande/Vault/**.md",
+			"BufNewFile /mnt/c/Users/pande/Vault/**.md",
+		},
+		keys = {
+			{
+				"<leader>ob",
+				function()
+					vim.ui.select({
+						"QuickSwitch",
+						"Search",
+						"New",
+						"Link",
+						"Open",
+						"Check",
+						"Today",
+						"Rename",
+						"LinkNew",
+						"PasteImg",
+						"Template",
+						"Tomorrow",
+						"Backlinks",
+						"Workspace",
+						"Yesterday",
+						"FollowLink",
+					}, {
+						prompt = "Obsidian:",
+						format_item = function(item)
+							return "Obsidian" .. item
+						end,
+					}, function(choice)
+						vim.schedule(function()
+							vim.cmd("Obsidian" .. choice)
+						end)
+					end)
+				end,
+			},
+			desc = "Obsidian",
 		},
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			workspaces = {
-				{ name = "School", path = "/mnt/g/My Drive/Vault/School" },
-				{ name = "Jorunal", path = "/mnt/g/My Drive/Vault/Jorunal" },
+				{ name = "School", path = "/mnt/c/Users/pande/Vault/School" },
+				{ name = "Jorunal", path = "/mnt/c/Users/pande/Vault/Jorunal" },
 			},
 		},
 	},

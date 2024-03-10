@@ -68,7 +68,7 @@
 			"set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     \"-Os -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELEASE_INIT        \"-O3 -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT \"-O2 -g\")",
-				"",
+			"",
 			"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
 			"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
 			"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/bin)",
@@ -168,7 +168,7 @@
 			"set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     \"-Os -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELEASE_INIT        \"-O3 -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT \"-O2 -g\")",
-				"",
+			"",
 			"find_package(Threads REQUIRED)",
 			"",
 			"file(GLOB_RECURSE SRC_FILES src/*)",
@@ -186,7 +186,6 @@
 			"target_compile_options(\\${PROJECT_NAME} PUBLIC -pthread)"
 		]
 	},
-
 
 	"Lib Project LINK_DIR": {
 		"prefix": "cmake_lib_link_dir",
@@ -260,7 +259,7 @@
 			"set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     \"-Os -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELEASE_INIT        \"-O3 -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT \"-O2 -g\")",
-				"",
+			"",
 			"set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
 			"set(CMAKE_LIBRARY_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/lib)",
 			"set(CMAKE_RUNTIME_OUTPUT_DIRECTORY \\${CMAKE_BINARY_DIR}/bin)",
@@ -366,7 +365,7 @@
 			"set(CMAKE_CXX_FLAGS_MINSIZEREL_INIT     \"-Os -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELEASE_INIT        \"-O3 -DNDEBUG\")",
 			"set(CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT \"-O2 -g\")",
-				"",
+			"",
 			"find_package(Threads REQUIRED)",
 			"",
 			"file(GLOB_RECURSE SRC_FILES src/*)",

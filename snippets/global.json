@@ -1,4 +1,16 @@
 {
+	"mathjax": {
+		"prefix": "math",
+		"body": [
+			"$$",
+			"\\begin{align}",
+			"& Hello \\\\\\\\",
+			"& World \\\\\\\\",
+			"& End",
+			"\\end{align}",
+			"$$"
+		]
+	},
 	"HEADER COLOR": {
 		"description": "HEADER Color",
 		"prefix": "__HEADER",

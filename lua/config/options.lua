@@ -70,3 +70,4 @@ vim.o.wildignore = "*.pyc"
 	.. ",**/.git/*"
 
 vim.cmd("source $HOME/.config/nvim/vimscript/options.vim")
+vim.cmd("source $HOME/.config/nvim/vimscript/autosave.vim")

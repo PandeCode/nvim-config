@@ -2,6 +2,8 @@ vim.g.python_recommended_style = 0
 vim.g.python_host_skip_check = 1
 vim.g.loaded_python3_provider = 1
 
+vim.o.conceallevel = 1
+
 -- vim.o.t_Co = 256
 -- vim.o.t_ut = true
 -- vim.o.shortmess = (vim.o.shortmess .. "c")

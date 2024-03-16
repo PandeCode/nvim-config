@@ -321,7 +321,19 @@ local vscode_disabled_plugins = {
 			},
 			desc = "Obsidian",
 		},
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{
+				"jbyuki/nabla.nvim",
+				config = function()
+					vim.keymap.set(Keys.N, "<leader>p", ':lua require("nabla").popup()<CR>', Keys.Noremap)
+					-- require("nabla").enable_virt({
+					-- autogen = true, -- auto-regenerate ASCII art when exiting insert mode
+					-- silent = true, -- silents error messages
+					-- })
+				end,
+			},
+		},
 		opts = {
 			workspaces = {
 				{ name = "School", path = "/mnt/c/Users/pande/Vault/School" },
@@ -382,6 +394,13 @@ local vscode_disabled_plugins = {
 		ft = { "lua" },
 		config = RequireFn("plugins.neodev_conf"),
 		priority = 47,
+		lazy = true,
+		event = {
+			"BufReadPre ~/.config/nvim/**.lua",
+			"BufNewFile ~/.config/nvim/**.lua",
+			"BufReadPre ~/.config/nvim/**.lua",
+			"BufNewFile ~/.config/nvim/**.lua",
+		},
 	},
 	{
 		"p00f/clangd_extensions.nvim",

@@ -117,3 +117,4 @@ pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmod
 ## Future
 https://github.com/nullchilly/CatNvim
 https://github.com/noib3/nvim-oxi
+https://github.com/gillescastel/latex-snippets

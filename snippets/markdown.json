@@ -1,0 +1,14 @@
+{
+	"mathjax": {
+		"prefix": "math",
+		"body": [
+			"$$",
+			"\\begin{align}",
+			"& Hello \\\\\\\\",
+			"& World \\\\\\\\",
+			"& End",
+			"\\end{align}",
+			"$$"
+		]
+	}
+}

@@ -153,13 +153,23 @@ rt.setup({
 			},
 		},
 	},
-	-- all the opts to send to nvim-lspconfig
-	-- these override the defaults set by rust-tools.nvim
 	-- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
 	server = {
-		-- standalone file support
-		-- setting it to false may improve startup time
 		standalone = false,
+		settings = {
+			["rust-analyzer"] = {
+				cargo = { buildScripts = { useRustcWrapper = false } },
+			},
+		},
+		-- cmd = {
+		--     (function()
+		--         if string.sub(vim.fn.getcwd() or "", 1, 7) == "/mnt/c/" then
+		--             return "/mnt/c/Users/pande/.cargo/bin/rust-analyzer.exe"
+		--         else
+		--             return "/usr/lib/rustup/bin/rust-analyzer"
+		--         end
+		--     end)(),
+		-- },
 
 		on_attach = function(client, bufnr)
 			LSP.on_attach(client, bufnr)
@@ -196,7 +206,7 @@ rt.setup({
 					"EnableInlayHints",
 					"OpenExternalDocs",
 					"DisableInlayHints",
-					"StartStandaloneServerForBuffer"
+					"StartStandaloneServerForBuffer",
 				}, {
 					prompt = "Rust:",
 					format_item = function(item)
@@ -205,12 +215,9 @@ rt.setup({
 				}, function(choice)
 					vim.schedule(function()
 						vim.cmd("Rust" .. choice)
-					end
-					)
+					end)
 				end)
-			end
-				, opts)
-
+			end, opts)
 
 			vim.keymap.del("n", "K", opts)
 			vim.keymap.del("n", "<LEADER>ca", opts)

@@ -1,20 +1,3 @@
--- assumes set ignorecase smartcase;
-vim.api.nvim_create_autocmd("CmdLineEnter", {
-	pattern = { ":" },
-	group = vim.api.nvim_create_augroup("dynamic_smartcase", {}),
-	callback = function()
-		vim.o.smartcase = false
-	end,
-})
-
-vim.api.nvim_create_autocmd("CmdLineLeave", {
-	pattern = { ":" },
-	group = vim.api.nvim_create_augroup("dynamic_smartcase", {}),
-	callback = function()
-		vim.o.smartcase = true
-	end,
-})
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()

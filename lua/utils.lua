@@ -4,6 +4,13 @@ function RandFrom(list)
 	return list[math.random(1, #list)]
 end
 
+function TableConcat(t1,t2)
+    for i=1,#t2 do
+        t1[#t1+1] = t2[i]
+    end
+    return t1
+end
+
 function RandStr(length)
 	local res = ""
 	for _ = 1, length do
@@ -129,6 +136,7 @@ Keys = {
 		expr = true,
 	},
 }
+
 ---A helper function to print a table's contents.
 ---@param tbl table @The table to print.
 ---@param depth number @The depth of sub-tables to traverse through and print.

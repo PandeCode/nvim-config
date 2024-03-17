@@ -4,4 +4,6 @@ test
 tags
 tags.lock
 tags.temp
-lazy-lock.jsonlazy-lock.json
+lazy-lock.json
+rust/Cargo.lock
+rust/lua/*

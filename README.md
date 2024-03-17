@@ -1,54 +1,27 @@
 # Nvim Config
 
 My personal configuration for [https://github.com/neovim/neovim](neovim).
+Now Powered by Rust 🦀 and Lua 🌙.
 
 ## Supported languages
 
--   C
--   C++
--   Golang
--   Lua
+-   C/C++
 -   Rust
--   Javascript(react)
--   Typescript(react)
--   Vimscript
+-   Golang
+-   Lua & Vimscript
+-   Typescript(with react)
+-   GDscript
 
-## Dependencies
+Features
 
-### Arch linux
+-   Obsidan Editing
 
-https://github.com/golang/tools/tree/master/gopls
+## Setup
 
-sudo pacman -S gopls cargo-binstall
-
-### Rust Deps (cargo-binstall installed)
-
-Decodetalkers/neocmakelsp
+Assumsing go, cargo-bsinstall, pacman(arch btw), pnpm
 
 ```bash
-cargo binstall --no-confirm neocmakelsp
-```
-
-### Go Deps
-
-```bash
-go install github.com/segmentio/golines@latest
-go install mvdan.cc/gofumpt@latest
-```
-
-### Node Deps (pnpm installed)
-
-tailwindlabs/tailwindcss-intellisense
-antonk52/cssmodules-language-server
-hrsh7th/vscode-langservers-extracted
-aca/emmet-ls
-microsoft/pyright
-mads-hartmann/bash-language-server
-Beaglefoot/awk-language-server
-iamcco/vim-language-server
-
-```bash
-pnpm -g install vscode-langservers-extracted @tailwindcss/language-server cssmodules-language-server emmet-ls pyright bash-language-server awk-language-server vim-language-server
+./setup.sh
 ```
 
 ## Extensions

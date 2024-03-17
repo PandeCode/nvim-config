@@ -422,6 +422,13 @@ local vscode_disabled_plugins = {
 		"jose-elias-alvarez/typescript.nvim",
 		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
 		config = RequireFn("plugins.typescript_conf"),
+		priority = 1,
+	},
+
+	{
+		"dmmulroy/ts-error-translator.nvim",
+		ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+		config = RequireSetupFn("ts-error-translator"),
 		priority = 0,
 	},
 

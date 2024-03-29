@@ -11,4 +11,5 @@ Future plugins ? ⚡
  - https://github.com/Bekaboo/dropbar.nvim | https://github.com/utilyre/barbecue.nvim
  - https://github.com/willothy/veil.nvim
 
-
+https://github.com/windwp/nvim-ts-autotag
+https://github.com/honza/vim-snippets

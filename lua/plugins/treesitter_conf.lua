@@ -1,5 +1,3 @@
-require("orgmode").setup_ts_grammar()
-
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 -- Repeat movement with ; and ,

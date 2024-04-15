@@ -313,9 +313,11 @@ local vscode_disabled_plugins = {
 							return "Obsidian" .. item
 						end,
 					}, function(choice)
-						vim.schedule(function()
-							vim.cmd("Obsidian" .. choice)
-						end)
+							if choice ~= nil then
+								vim.schedule(function()
+									vim.cmd("Obsidian" .. choice)
+								end)
+							end
 					end)
 				end,
 			},

@@ -123,6 +123,7 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"markdown",
 		"markdown_inline",
+		"nix",
 		"org",
 		"python",
 		"query",

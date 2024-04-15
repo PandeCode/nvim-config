@@ -158,6 +158,16 @@ local refactoring_ft = {
 }
 
 local vscode_enabled_plugins = {
+	{ "RaafatTurki/hex.nvim", 
+		config = RequireSetupFn("hex"),
+		priority = 0,
+		keys = { 
+			{ "<LEADER>hd", ":HexDump<CR>", desc = "HexDump" },
+			{ "<LEADER>ha", ":HexAssemble<CR>", desc = "HexAssemble" },
+			{ "<LEADER>ht", ":HexToggle<CR>", desc = "HexToggle" }
+		},
+	},
+
 	{ "lewis6991/impatient.nvim", config = RequireFn("impatient") },
 
 	"chaoren/vim-wordmotion",

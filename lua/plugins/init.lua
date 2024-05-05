@@ -37,6 +37,7 @@ local dap_ft = {
 
 local treesitter_ft = {
 	"sh",
+	"kdl",
 	"bash",
 	"c",
 	"c_sharp",
@@ -212,6 +213,8 @@ local vscode_enabled_plugins = {
 }
 
 local vscode_disabled_plugins = {
+	"skywind3000/vim-keysound",
+
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<LEADER>zm", ":ZenMode<cr>", desc = "ZenMode" } },

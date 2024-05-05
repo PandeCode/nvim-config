@@ -6,6 +6,8 @@ Now Powered by Rust 🦀 and Lua 🌙.
 ## Supported languages
 
 -   C/C++
+-   Hex editing
+-   Nix
 -   Rust
 -   Golang
 -   Lua & Vimscript
@@ -18,7 +20,7 @@ Features
 
 ## Setup
 
-Assumsing go, cargo-bsinstall, pacman(arch btw), pnpm
+Nix ... Setup coming soon
 
 ```bash
 ./setup.sh

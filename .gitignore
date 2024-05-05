@@ -7,3 +7,5 @@ tags.temp
 lazy-lock.json
 rust/Cargo.lock
 rust/lua/*
+
+venv

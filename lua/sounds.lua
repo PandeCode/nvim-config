@@ -22,8 +22,8 @@ local function mk_sound(ev, ogg, human_volume)
 	})
 end
 
-mk_sound("BufRead", "start.ogg", 100)
-mk_sound("CursorMovedI", "click.ogg", 100)
-mk_sound("InsertLeave", "toggle.ogg", 100)
-mk_sound("ExitPre", "exit.ogg", 100)
-mk_sound("BufWrite", "save.ogg", 100)
+-- mk_sound("BufRead", "start.ogg", 100)
+-- mk_sound("CursorMovedI", "click.ogg", 100)
+-- mk_sound("InsertLeave", "toggle.ogg", 100)
+-- mk_sound("ExitPre", "exit.ogg", 100)
+-- mk_sound("BufWrite", "save.ogg", 100)

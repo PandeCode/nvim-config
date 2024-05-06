@@ -159,13 +159,14 @@ local refactoring_ft = {
 }
 
 local vscode_enabled_plugins = {
-	{ "RaafatTurki/hex.nvim", 
+	{
+		"RaafatTurki/hex.nvim",
 		config = RequireSetupFn("hex"),
 		priority = 0,
-		keys = { 
-			{ "<LEADER>hd", ":HexDump<CR>", desc = "HexDump" },
+		keys = {
+			{ "<LEADER>hd", ":HexDump<CR>",     desc = "HexDump" },
 			{ "<LEADER>ha", ":HexAssemble<CR>", desc = "HexAssemble" },
-			{ "<LEADER>ht", ":HexToggle<CR>", desc = "HexToggle" }
+			{ "<LEADER>ht", ":HexToggle<CR>",   desc = "HexToggle" }
 		},
 	},
 
@@ -179,13 +180,13 @@ local vscode_enabled_plugins = {
 	"tpope/vim-repeat",
 	"tpope/vim-sleuth",
 	"tpope/vim-abolish",
-	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
-	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
-	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
-	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
-	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
-	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf") },
-	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
+	{ "windwp/nvim-autopairs",    config = RequireSetupFn("nvim-autopairs") },
+	{ "kylechui/nvim-surround",   config = RequireSetupFn("nvim-surround") },
+	{ "chentoast/marks.nvim",     config = RequireSetupFn("marks") },
+	{ "junegunn/vim-easy-align",  config = RequireFn("plugins.easyalign_conf") },
+	{ "mbbill/undotree",          config = RequireFn("plugins.undotree_conf") },
+	{ "preservim/nerdcommenter",  config = RequireFn("plugins.nerdcommenter_conf") },
+	{ "sbdchd/neoformat",         config = RequireFn("plugins.neoformat_conf") },
 
 	{
 		"ludovicchabant/vim-gutentags",
@@ -212,10 +213,9 @@ local vscode_enabled_plugins = {
 	"wakatime/vim-wakatime",
 }
 
-local vscode_disabled_plugins = {
-	"skywind3000/vim-keysound",
 
-	{
+local vscode_disabled_plugins = {
+		{
 		"folke/zen-mode.nvim",
 		keys = { { "<LEADER>zm", ":ZenMode<cr>", desc = "ZenMode" } },
 		priority = 0,
@@ -246,8 +246,8 @@ local vscode_disabled_plugins = {
 	"ap/vim-css-color",
 	"rcarriga/nvim-notify",
 
-	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
-	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
+	{ "folke/todo-comments.nvim",   config = RequireSetupFn("todo-comments") },
+	{ "Iron-E/nvim-libmodal",       config = RequireFn("plugins.libmodal_conf") },
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"akinsho/bufferline.nvim",
@@ -278,7 +278,7 @@ local vscode_disabled_plugins = {
 		ft = { "org" },
 	},
 
-	{ "mrjones2014/nvim-ts-rainbow", ft = treesitter_ft },
+	{ "mrjones2014/nvim-ts-rainbow",         ft = treesitter_ft },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -326,11 +326,11 @@ local vscode_disabled_plugins = {
 							return "Obsidian" .. item
 						end,
 					}, function(choice)
-							if choice ~= nil then
-								vim.schedule(function()
-									vim.cmd("Obsidian" .. choice)
-								end)
-							end
+						if choice ~= nil then
+							vim.schedule(function()
+								vim.cmd("Obsidian" .. choice)
+							end)
+						end
 					end)
 				end,
 			},
@@ -351,7 +351,7 @@ local vscode_disabled_plugins = {
 		},
 		opts = {
 			workspaces = {
-				{ name = "School", path = "/mnt/c/Users/pande/Vault/School" },
+				{ name = "School",  path = "/mnt/c/Users/pande/Vault/School" },
 				{ name = "Jorunal", path = "/mnt/c/Users/pande/Vault/Jorunal" },
 			},
 		},
@@ -375,7 +375,7 @@ local vscode_disabled_plugins = {
 		config = RequireFn("plugins.cmp_conf"),
 		priority = 48,
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp", ft = lsp_ft },
+			{ "hrsh7th/cmp-nvim-lsp",          ft = lsp_ft },
 			{ "quangnguyen30192/cmp-nvim-tags" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
@@ -393,8 +393,8 @@ local vscode_disabled_plugins = {
 		},
 	},
 
-	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
-	{ "j-hui/fidget.nvim", branch = "legacy", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
+	{ "neovim/nvim-lspconfig", ft = lsp_ft,       config = RequireFn("plugins.lsp"),         priority = 50 },
+	{ "j-hui/fidget.nvim",     branch = "legacy", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
 	{
 		"simrat39/symbols-outline.nvim",
 		config = RequireSetupFn("symbols-outline"),

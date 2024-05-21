@@ -260,8 +260,8 @@ local vscode_disabled_plugins = {
 	},
 
 	{
-		"marko-cerovac/material.nvim",
-		config = RequireFn("plugins.material_conf"),
+		"folke/tokyonight.nvim",
+		config = RequireFn("plugins.theme_conf"),
 		priority = 100,
 	},
 

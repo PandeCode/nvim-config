@@ -158,7 +158,10 @@ rt.setup({
 		standalone = false,
 		settings = {
 			["rust-analyzer"] = {
-				cargo = { buildScripts = { useRustcWrapper = false } },
+				cargo = {
+					buildScripts = { useRustcWrapper = false },
+					targetDir = vim.fn.expand("~/.rust_analyzer"),
+				},
 			},
 		},
 		-- cmd = {

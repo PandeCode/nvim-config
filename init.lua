@@ -6,7 +6,5 @@ Prequire("plugins")
 
 Prequire("etc")
 
-Prequire("sounds")
-
 require("rust")
 

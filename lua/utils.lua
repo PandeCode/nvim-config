@@ -1,4 +1,4 @@
-IDE = { name = "Nvim" }
+IDE = { name = "Charon: Ferryman of the dead", description = "Personal Configuration of neovim" }
 
 function RandFrom(list)
 	return list[math.random(1, #list)]
@@ -61,8 +61,8 @@ function Prequire(path)
 	if status then
 		return lib
 	else
-		print("Error Loading: '" .. path .. "'")
-		-- PrintError("Error Loading: '" .. path .. "'")
+		-- print("Error Loading: '" .. path .. "'")
+		PrintError("Error Loading: '" .. path .. "'")
 		return nil
 	end
 end

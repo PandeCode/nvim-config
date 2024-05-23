@@ -215,6 +215,8 @@ local vscode_enabled_plugins = {
 
 
 local vscode_disabled_plugins = {
+	{ 'echasnovski/mini.nvim', version = '*', config = RequireFn("plugins.mini_conf")},
+
 	{
 		"cshuaimin/ssr.nvim",
 		module = "ssr",

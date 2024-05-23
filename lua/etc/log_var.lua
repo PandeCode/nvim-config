@@ -1,5 +1,5 @@
 ---@diagnostic disable-next-line: lowercase-global
-function log_var()
+local function log_var()
 	local bufnr = vim.api.nvim_get_current_buf()
 	local current_word = vim.fn.expand("<cword>")
 	local ft = vim.bo.ft
@@ -15,7 +15,7 @@ function log_var()
 			elseif ft == "c" then
 				return 'fprintf(stderr, "' .. current_word .. ': %s ", ' .. current_word .. ');';
 			elseif ft == "rust" then
-				return 'println!("' .. current_word .. ': {:?}", ' .. current_word .. ");"
+				return 'println!("' .. current_word .. ': {:#?}", ' .. current_word .. ");"
 			elseif ft == "python" then
 				return 'print("' .. current_word .. ": { " .. current_word .. '}")'
 			elseif ft == "javascript" or ft == "typescript" or ft == "javascriptreact" or ft == "typescriptreact" then

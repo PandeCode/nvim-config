@@ -102,6 +102,7 @@ local lsp_ft = {
 	"less",
 	"lhaskell",
 	"lua",
+	"nix",
 	"postcss",
 	"python",
 	"rust",
@@ -215,7 +216,7 @@ local vscode_enabled_plugins = {
 
 
 local vscode_disabled_plugins = {
-	{ 'echasnovski/mini.nvim', version = '*', config = RequireFn("plugins.mini_conf")},
+	{ 'echasnovski/mini.nvim',      version = '*',                              config = RequireFn("plugins.mini_conf") },
 
 	{
 		"cshuaimin/ssr.nvim",
@@ -259,6 +260,10 @@ local vscode_disabled_plugins = {
 		config = RequireFn("plugins.refactoring_conf"),
 		ft = refactoring_ft,
 		priority = 0,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 
 	{

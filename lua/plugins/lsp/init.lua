@@ -81,7 +81,8 @@ end
 RequireForFileType("lua", "plugins.lsp.lua_conf")
 RequireForFileType("python", "plugins.lsp.python_conf")
 
-lsp_RunForFileType({ "nix" }, "nil")
+lsp_RunForFileType({ "nix" }, "nil_ls")
+lsp_RunForFileType({ "vim" }, "vimls")
 
 lsp_RunForFileType({ "awk" }, "awk_ls")
 lsp_RunForFileType({

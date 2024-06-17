@@ -4,11 +4,11 @@ function RandFrom(list)
 	return list[math.random(1, #list)]
 end
 
-function TableConcat(t1,t2)
-    for i=1,#t2 do
-        t1[#t1+1] = t2[i]
-    end
-    return t1
+function TableConcat(t1, t2)
+	for i = 1, #t2 do
+		t1[#t1 + 1] = t2[i]
+	end
+	return t1
 end
 
 function RandStr(length)
@@ -121,6 +121,8 @@ Keys = {
 	V = "v",
 	A = "",
 
+	NX = { "n", "x" },
+
 	None = {},
 	Expr = { expr = true },
 	Silent = { silent = true },
@@ -183,12 +185,6 @@ function PrintTable(tbl, depth, n)
 	end
 end
 
----@class TSNode
----@field parent function
----@field root function(idx?: number): TSNode | nil
----@field child function(idx?: number): TSNode | nil
----@field type function(): string
----@field range function(): string
 
 TS = {}
 

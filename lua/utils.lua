@@ -253,3 +253,31 @@ TS.get_node_text = function(node, bufnr)
 	if (#text == 1) then return text[1] end
 	return text
 end
+
+function scandir(directory)
+    local i, t, popen = 0, {}, io.popen
+    local pfile = popen('ls -a "'..directory..'"')
+    for filename in pfile:lines() do
+        i = i + 1
+        t[i] = filename
+    end
+    pfile:close()
+    return t
+end
+
+function readfile(file)
+	return vim.fn.readfile(vim.fn.expand(file))
+end
+
+function listdir(dir)
+    local files = {}
+    local handle = vim.loop.fs_scandir(vim.fn.expand(dir))
+    if handle then
+        while true do
+            local name, type = vim.loop.fs_scandir_next(handle)
+            if not name then break end
+            table.insert(files, name)
+        end
+    end
+    return files
+end

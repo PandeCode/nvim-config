@@ -54,6 +54,17 @@ function PrintError(text)
 	vim.cmd.echohl({ args = { "None" } })
 end
 
+function Srequire(path)
+	local status, lib = xpcall(require, function(...)
+		-- print(...)
+	end, path)
+	if status then
+		return lib
+	else
+		return nil
+	end
+end
+
 function Prequire(path)
 	local status, lib = xpcall(require, function(...)
 		print(...)

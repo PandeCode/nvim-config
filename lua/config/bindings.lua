@@ -1,18 +1,19 @@
 vim.g.mapleader = " "
+local n = Keys.N
 
 -- stylua: ignore start
 local keymaps = {
-	{ Keys.N, "<LEADER>sf", vim.cmd.write },
-	{ Keys.N, "<LEADER>me", vim.cmd.messages },
-	{ Keys.N, "<LEADER>fe", vim.cmd.edit },
+	{ n, "<LEADER>sf", vim.cmd.write },
+	{ n, "<LEADER>me", vim.cmd.messages },
+	{ n, "<LEADER>fe", vim.cmd.edit },
 	-- Buffer
-	{ Keys.N, "<LEADER>bp", vim.cmd.bp },
-	{ Keys.N, "<LEADER>bn", vim.cmd.bn },
-	{ Keys.N, "<LEADER>bd", vim.cmd.bd },
-	{ Keys.N, "<A-d>", vim.cmd.bd, Keys.Noremap },
+	{ n, "<LEADER>bp", vim.cmd.bp },
+	{ n, "<LEADER>bn", vim.cmd.bn },
+	{ n, "<LEADER>bd", vim.cmd.bd },
+	{ n, "<A-d>", vim.cmd.bd, Keys.Noremap },
 
 	{
-		Keys.N,
+		n,
 		"<LEADER>x+",
 		function()
 			local filename = vim.fn.expand("%")
@@ -22,7 +23,7 @@ local keymaps = {
 	},
 
 	{
-		Keys.N,
+		n,
 		"<LEADER>x-",
 		function()
 			local filename = vim.fn.expand("%")

@@ -1,0 +1,9 @@
+{
+	"shell.nix": {
+		"prefix": "main",
+		"description": "Main file Setup",
+		"body": [
+			""
+		]
+	}
+}

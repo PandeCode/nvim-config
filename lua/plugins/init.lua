@@ -537,6 +537,20 @@ local vscode_disabled_plugins = {
 		priority = 0,
 		ft = { "vlang" },
 	},
+
+	{
+		'mrcjkb/haskell-tools.nvim',
+		version = '^4', -- Recommended
+		psfiority = 0,
+		lazy = false, -- This plugin is already lazy
+	},
+
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
+		end,
+	},
 }
 
 local plugins = vscode_enabled_plugins

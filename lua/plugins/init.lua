@@ -412,6 +412,15 @@ local vscode_disabled_plugins = {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
+			{ "onsails/lspkind.nvim" },
+			{
+				"supermaven-inc/supermaven-nvim",
+				config = function()
+					require("supermaven-nvim").setup({})
+
+					vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
+				end,
+			},
 			{
 				{
 					"L3MON4D3/LuaSnip",
@@ -545,12 +554,6 @@ local vscode_disabled_plugins = {
 		lazy = false, -- This plugin is already lazy
 	},
 
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({})
-		end,
-	},
 }
 
 local plugins = vscode_enabled_plugins

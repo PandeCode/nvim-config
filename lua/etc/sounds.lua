@@ -16,14 +16,14 @@ local function mk_sound(ev, ogg, human_volume)
 	vim.api.nvim_create_autocmd({ ev }, {
 		pattern = "*",
 		callback = function()
-			local path = sound_dir .. ogg
+			local path = sound_dir .. ogg .. ".wav"
 			play_sound(path, human_volume)
 		end,
 	})
 end
 
--- mk_sound("BufRead", "start.ogg", 100)
--- mk_sound("CursorMovedI", "click.ogg", 100)
--- mk_sound("InsertLeave", "toggle.ogg", 100)
--- mk_sound("ExitPre", "exit.ogg", 100)
--- mk_sound("BufWrite", "save.ogg", 100)
+mk_sound("BufRead", "1real", 100)
+mk_sound("CursorMovedI", "space", 100)
+mk_sound("InsertLeave", "backspace", 100)
+mk_sound("ExitPre", "enter", 100)
+mk_sound("BufWrite", "11real", 100)

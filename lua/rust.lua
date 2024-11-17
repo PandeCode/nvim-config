@@ -1,3 +1,3 @@
-vim.cmd [[ set rtp+=~/.config/nvim/rust ]]
+vim.cmd([[ set rtp+=~/.config/nvim/rust ]])
 
 local librust = require("librust")

@@ -11,7 +11,6 @@ end
 
 local sound_dir = vim.fn.expand("~/.config/nvim/sounds/")
 
-
 local function mk_sound(ev, ogg, human_volume)
 	vim.api.nvim_create_autocmd({ ev }, {
 		pattern = "*",

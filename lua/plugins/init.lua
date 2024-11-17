@@ -165,9 +165,9 @@ local vscode_enabled_plugins = {
 		config = RequireSetupFn("hex"),
 		priority = 0,
 		keys = {
-			{ "<LEADER>hd", ":HexDump<CR>",     desc = "HexDump" },
+			{ "<LEADER>hd", ":HexDump<CR>", desc = "HexDump" },
 			{ "<LEADER>ha", ":HexAssemble<CR>", desc = "HexAssemble" },
-			{ "<LEADER>ht", ":HexToggle<CR>",   desc = "HexToggle" }
+			{ "<LEADER>ht", ":HexToggle<CR>", desc = "HexToggle" },
 		},
 	},
 
@@ -181,13 +181,13 @@ local vscode_enabled_plugins = {
 	"tpope/vim-repeat",
 	"tpope/vim-sleuth",
 	"tpope/vim-abolish",
-	{ "windwp/nvim-autopairs",    config = RequireSetupFn("nvim-autopairs") },
-	{ "kylechui/nvim-surround",   config = RequireSetupFn("nvim-surround") },
-	{ "chentoast/marks.nvim",     config = RequireSetupFn("marks") },
-	{ "junegunn/vim-easy-align",  config = RequireFn("plugins.easyalign_conf") },
-	{ "mbbill/undotree",          config = RequireFn("plugins.undotree_conf") },
-	{ "preservim/nerdcommenter",  config = RequireFn("plugins.nerdcommenter_conf") },
-	{ "sbdchd/neoformat",         config = RequireFn("plugins.neoformat_conf") },
+	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
+	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
+	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
+	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
+	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
+	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf") },
+	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
 
 	{
 		"ludovicchabant/vim-gutentags",
@@ -214,16 +214,19 @@ local vscode_enabled_plugins = {
 	"wakatime/vim-wakatime",
 }
 
-
 local vscode_disabled_plugins = {
-	{ 'echasnovski/mini.nvim',      version = '*',                              config = RequireFn("plugins.mini_conf") },
+	{
+		"echasnovski/mini.nvim",
+		version = "*",
+		config = RequireFn("plugins.mini_conf"),
+	},
 
 	{
 		"cshuaimin/ssr.nvim",
 		module = "ssr",
 		-- Calling setup is optional.
 		config = function()
-			require("ssr").setup {
+			require("ssr").setup({
 				border = "rounded",
 				min_width = 50,
 				min_height = 5,
@@ -237,10 +240,12 @@ local vscode_disabled_plugins = {
 					replace_confirm = "<cr>",
 					replace_all = "<leader><cr>",
 				},
-			}
+			})
 
-			vim.keymap.set({ "n", "x" }, "<leader>sr", function() require("ssr").open() end)
-		end
+			vim.keymap.set({ "n", "x" }, "<leader>sr", function()
+				require("ssr").open()
+			end)
+		end,
 	},
 
 	{
@@ -277,8 +282,8 @@ local vscode_disabled_plugins = {
 	"ap/vim-css-color",
 	"rcarriga/nvim-notify",
 
-	{ "folke/todo-comments.nvim",   config = RequireSetupFn("todo-comments") },
-	{ "Iron-E/nvim-libmodal",       config = RequireFn("plugins.libmodal_conf") },
+	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
+	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"akinsho/bufferline.nvim",
@@ -309,7 +314,7 @@ local vscode_disabled_plugins = {
 		ft = { "org" },
 	},
 
-	{ "mrjones2014/nvim-ts-rainbow",         ft = treesitter_ft },
+	{ "mrjones2014/nvim-ts-rainbow", ft = treesitter_ft },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -382,7 +387,7 @@ local vscode_disabled_plugins = {
 		},
 		opts = {
 			workspaces = {
-				{ name = "School",  path = "/mnt/c/Users/pande/Vault/School" },
+				{ name = "School", path = "/mnt/c/Users/pande/Vault/School" },
 				{ name = "Jorunal", path = "/mnt/c/Users/pande/Vault/Jorunal" },
 			},
 		},
@@ -406,7 +411,7 @@ local vscode_disabled_plugins = {
 		config = RequireFn("plugins.cmp_conf"),
 		priority = 48,
 		dependencies = {
-			{ "hrsh7th/cmp-nvim-lsp",          ft = lsp_ft },
+			{ "hrsh7th/cmp-nvim-lsp", ft = lsp_ft },
 			{ "quangnguyen30192/cmp-nvim-tags" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
@@ -433,7 +438,7 @@ local vscode_disabled_plugins = {
 		},
 	},
 
-	{ "zbirenbaum/copilot.lua", config= RequireSetupFn("copilot") }, -- for providers='copilot'
+	{ "zbirenbaum/copilot.lua", config = RequireSetupFn("copilot") }, -- for providers='copilot'
 
 	{
 		"yetone/avante.nvim",
@@ -441,9 +446,9 @@ local vscode_disabled_plugins = {
 		lazy = false,
 		version = false, -- set this if you want to always pull the latest change
 		opts = {
-			provider = "copilot", 
-			auto_suggestions_provider = "copilot", 
-			  behaviour = {
+			provider = "copilot",
+			auto_suggestions_provider = "copilot",
+			behaviour = {
 				auto_suggestions = false, -- Experimental stage
 				auto_set_highlight_group = false,
 			},
@@ -472,7 +477,7 @@ local vscode_disabled_plugins = {
 			},
 			{
 				-- Make sure to set this up properly if you have lazy=true
-				'MeanderingProgrammer/render-markdown.nvim',
+				"MeanderingProgrammer/render-markdown.nvim",
 				opts = {
 					file_types = { "markdown", "Avante" },
 				},
@@ -481,8 +486,14 @@ local vscode_disabled_plugins = {
 		},
 	},
 
-	{ "neovim/nvim-lspconfig", ft = lsp_ft,       config = RequireFn("plugins.lsp"),         priority = 50 },
-	{ "j-hui/fidget.nvim",     branch = "legacy", config = RequireFn("plugins.fidget_conf"), priority = 49, ft = lsp_ft },
+	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
+	{
+		"j-hui/fidget.nvim",
+		branch = "legacy",
+		config = RequireFn("plugins.fidget_conf"),
+		priority = 49,
+		ft = lsp_ft,
+	},
 	{
 		"simrat39/symbols-outline.nvim",
 		config = RequireSetupFn("symbols-outline"),
@@ -595,12 +606,11 @@ local vscode_disabled_plugins = {
 	},
 
 	{
-		'mrcjkb/haskell-tools.nvim',
-		version = '^4', -- Recommended
+		"mrcjkb/haskell-tools.nvim",
+		version = "^4", -- Recommended
 		psfiority = 0,
 		lazy = false, -- This plugin is already lazy
 	},
-
 }
 
 local plugins = vscode_enabled_plugins

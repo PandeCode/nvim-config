@@ -49,13 +49,13 @@ api.nvim_create_autocmd("TextChangedI,TextChanged", {
 							for body_child in func_child:iter_children() do
 								if body_child:type() == "return_statement" then
 									if body_child:child_count() == 1 then
-										local range =  { body_child:range() }
+										local range = { body_child:range() }
 										if range ~= nil then
 											-- pcall(nvim_buf_del_extmark, 0, ns_id, 1)
-											api.nvim_buf_set_extmark(0, ns_id, range[1], range[2] , {
+											api.nvim_buf_set_extmark(0, ns_id, range[1], range[2], {
 												id = 1,
-												virt_text = {{virt_text, "Question"}},
-												virt_text_pos = 'eol'
+												virt_text = { { virt_text, "Question" } },
+												virt_text_pos = "eol",
 											})
 										end
 									end

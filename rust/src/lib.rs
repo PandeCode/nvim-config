@@ -22,5 +22,4 @@ fn librust() -> Result<Dictionary, Error> {
 		("multiply", Object::from(multiply)),
 		("compute", Object::from(compute)),
 	]))
-
 }

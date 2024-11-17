@@ -1,26 +1,25 @@
+use miette::Result;
 use nvim_oxi::api::{self, types::Mode};
 use nvim_oxi::{self as oxi};
 use oxi::api::opts::SetKeymapOpts;
-
-use miette::Result;
 use oxi::Error;
 
 pub fn keymaps() -> Result<(), Error> {
-    api::set_var("mapleader", " ")?;
+	api::set_var("mapleader", " ")?;
 
-    let n = &Mode::Normal;
-    let v = &Mode::Visual;
-    let a = &Mode::NormalVisualOperator;
-    let i = &Mode::Insert;
-    let c = &Mode::CmdLine;
+	let n = &Mode::Normal;
+	let v = &Mode::Visual;
+	let a = &Mode::NormalVisualOperator;
+	let i = &Mode::Insert;
+	let c = &Mode::CmdLine;
 
-    let none = &SetKeymapOpts::default();
+	let none = &SetKeymapOpts::default();
 
-    let noremap = &(SetKeymapOpts::builder().noremap(true).build());
-    let noremap_expr = &(SetKeymapOpts::builder().noremap(true).expr(true).build());
-    let noremap_silent = &(SetKeymapOpts::builder().noremap(true).silent(true).build());
+	let noremap = &(SetKeymapOpts::builder().noremap(true).build());
+	let noremap_expr = &(SetKeymapOpts::builder().noremap(true).expr(true).build());
+	let noremap_silent = &(SetKeymapOpts::builder().noremap(true).silent(true).build());
 
-    #[rustfmt::skip]
+	#[rustfmt::skip]
     let keymaps = [
 
         (v, "<LEADER>so",   ":sort<cr>",             none),
@@ -142,9 +141,9 @@ pub fn keymaps() -> Result<(), Error> {
         (v, "<c-}>", "<esc>`>a}<esc>`<i{<esc>", noremap),
     ];
 
-    for keymap in keymaps {
-        api::set_keymap(*keymap.0, keymap.1, keymap.2, keymap.3)?;
-    }
+	for keymap in keymaps {
+		api::set_keymap(*keymap.0, keymap.1, keymap.2, keymap.3)?;
+	}
 
-    Ok(())
+	Ok(())
 }

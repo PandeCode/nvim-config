@@ -1,14 +1,9 @@
 vim.g.indentLine_fileTypeExclude = { "dashboard" }
 vim.cmd("autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2")
 
-local img_dir     = "~/.config/nvim/startup_images/"
+local img_dir = "~/.config/nvim/startup_images/"
 local image_files = listdir(vim.fn.expand(img_dir))
-local header      = vim.fn.readfile(
-	vim.fn.expand(
-		img_dir .. image_files[
-			math.random(1, #image_files)
-		]
-	))
+local header = vim.fn.readfile(vim.fn.expand(img_dir .. image_files[math.random(1, #image_files)]))
 
 require("dashboard").setup({
 	theme = "hyper",

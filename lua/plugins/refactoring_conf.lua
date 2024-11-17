@@ -6,7 +6,6 @@ local lang_block = {
 	java = true,
 }
 
-
 refactoring.setup({
 	show_success_message = true,
 	prompt_func_return_type = lang_block,
@@ -34,14 +33,16 @@ vim.keymap.set(Keys.N, "<LEADER>ri", ref("Inline Variable"), Keys.NoremapSilentE
 
 require("telescope").load_extension("refactoring")
 
-vim.keymap.set(
-	{ "n", "x" },
-	"<leader>rr",
-	function() require('telescope').extensions.refactoring.refactors() end
-)
+vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+	require("telescope").extensions.refactoring.refactors()
+end)
 
-vim.keymap.set({ "x", "n" }, "<leader>rv", function() require('refactoring').debug.print_var() end)
+vim.keymap.set({ "x", "n" }, "<leader>rv", function()
+	require("refactoring").debug.print_var()
+end)
 -- Supports both visual and normal mode
 
-vim.keymap.set("n", "<leader>rc", function() require('refactoring').debug.cleanup({}) end)
+vim.keymap.set("n", "<leader>rc", function()
+	require("refactoring").debug.cleanup({})
+end)
 -- Supports only normal mode

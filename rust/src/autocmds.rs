@@ -1,7 +1,7 @@
 use miette::Result;
 use nvim_oxi::api;
 use nvim_oxi::{self as oxi};
-use oxi::api::opts::{CreateAutocmdOpts};
+use oxi::api::opts::CreateAutocmdOpts;
 use oxi::Error;
 
 pub fn autocmds() -> Result<(), Error> {

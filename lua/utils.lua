@@ -98,7 +98,7 @@ function RunForFileType(ft, func)
 
 	vim.api.nvim_create_autocmd({ "Filetype" }, {
 		pattern = ft,
-		callback = func
+		callback = func,
 	})
 end
 
@@ -196,7 +196,6 @@ function PrintTable(tbl, depth, n)
 	end
 end
 
-
 TS = {}
 
 --- Get root node for file
@@ -214,8 +213,12 @@ end
 ---@param type string
 ---@return TSNode | nil
 TS.find_parent_node = function(node, type)
-	if (node == node:root()) then return nil end
-	if (node:type() == type) then return node end
+	if node == node:root() then
+		return nil
+	end
+	if node:type() == type then
+		return node
+	end
 	return TS.find_parent_node(node:parent(), type)
 end
 
@@ -226,7 +229,9 @@ end
 TS.find_child_node = function(node, type)
 	local child = node:child(0)
 	while child do
-		if (child:type() == type) then return child end
+		if child:type() == type then
+			return child
+		end
 		child = child:next_sibling()
 	end
 	return nil
@@ -239,7 +244,9 @@ end
 TS.set_node_text = function(node, text, bufnr)
 	local sr, sc, er, ec = node:range()
 	local content = { text }
-	if (type(text) == 'table') then content = text end
+	if type(text) == "table" then
+		content = text
+	end
 	vim.api.nvim_buf_set_text(bufnr or 0, sr, sc, er, ec, content)
 end
 
@@ -250,19 +257,21 @@ end
 TS.get_node_text = function(node, bufnr)
 	local sr, sc, er, ec = node:range()
 	local text = vim.api.nvim_buf_get_text(bufnr or 0, sr, sc, er, ec, {})
-	if (#text == 1) then return text[1] end
+	if #text == 1 then
+		return text[1]
+	end
 	return text
 end
 
 function scandir(directory)
-    local i, t, popen = 0, {}, io.popen
-    local pfile = popen('ls -a "'..directory..'"')
-    for filename in pfile:lines() do
-        i = i + 1
-        t[i] = filename
-    end
-    pfile:close()
-    return t
+	local i, t, popen = 0, {}, io.popen
+	local pfile = popen('ls -a "' .. directory .. '"')
+	for filename in pfile:lines() do
+		i = i + 1
+		t[i] = filename
+	end
+	pfile:close()
+	return t
 end
 
 function readfile(file)
@@ -270,14 +279,16 @@ function readfile(file)
 end
 
 function listdir(dir)
-    local files = {}
-    local handle = vim.loop.fs_scandir(vim.fn.expand(dir))
-    if handle then
-        while true do
-            local name, type = vim.loop.fs_scandir_next(handle)
-            if not name then break end
-            table.insert(files, name)
-        end
-    end
-    return files
+	local files = {}
+	local handle = vim.loop.fs_scandir(vim.fn.expand(dir))
+	if handle then
+		while true do
+			local name, type = vim.loop.fs_scandir_next(handle)
+			if not name then
+				break
+			end
+			table.insert(files, name)
+		end
+	end
+	return files
 end

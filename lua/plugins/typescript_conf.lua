@@ -31,8 +31,7 @@ ts.setup({
 				}, function(choice)
 					vim.schedule(function()
 						vim.cmd("Typescript" .. choice)
-					end
-					)
+					end)
 				end)
 			end, opts)
 		end,

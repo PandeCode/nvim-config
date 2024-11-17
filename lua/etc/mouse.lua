@@ -29,10 +29,24 @@ end
 
 vim.keymap.set(Keys.N, ident, function()
 	local opts = {
-		{ "Cut", function() vim.cmd.normal("x") end },
-		{ "Copy", function() vim.cmd.normal("y") end },
-		{ "Paste", function() vim.cmd.normal("p") end },
-
+		{
+			"Cut",
+			function()
+				vim.cmd.normal("x")
+			end,
+		},
+		{
+			"Copy",
+			function()
+				vim.cmd.normal("y")
+			end,
+		},
+		{
+			"Paste",
+			function()
+				vim.cmd.normal("p")
+			end,
+		},
 	}
 	ShowMenu(opts)
 end, Keys.None)

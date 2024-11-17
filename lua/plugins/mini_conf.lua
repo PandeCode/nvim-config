@@ -1,1 +1,1 @@
-Prequire('mini.animate').setup()
+Prequire("mini.animate").setup()

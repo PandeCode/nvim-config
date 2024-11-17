@@ -13,7 +13,7 @@ local function log_var()
 			if ft == "cpp" then
 				return 'std::cerr << "' .. current_word .. '" << ' .. current_word .. " << std::endl;"
 			elseif ft == "c" then
-				return 'fprintf(stderr, "' .. current_word .. ': %s ", ' .. current_word .. ');';
+				return 'fprintf(stderr, "' .. current_word .. ': %s ", ' .. current_word .. ");"
 			elseif ft == "rust" then
 				return 'println!("' .. current_word .. ': {:#?}", ' .. current_word .. ");"
 			elseif ft == "python" then

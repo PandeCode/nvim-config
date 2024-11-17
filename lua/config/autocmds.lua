@@ -67,7 +67,7 @@ local function create_source_binding(pattern, callback, group, binding)
 end
 
 set_filetype("*/xmobarrc", "haskell")
-set_filetype({"*.ls", "*.v" }, "vlang")
+set_filetype({ "*.ls", "*.v" }, "vlang")
 set_filetype("*.yuck", "yuck")
 set_filetype("*.keys", "keys")
 set_filetype({ "*.shader", "*.frag", "*.vert" }, "glsl")
@@ -75,12 +75,14 @@ set_filetype({ "*.json", "*/waybar/config" }, "jsonc")
 set_filetype("*/hypr/**/*.conf", "hypr")
 set_filetype("*/sway/*.conf", "swayconfig")
 
-create_source_binding({ "*.vim", "*.lua" }, function() vim.cmd.source() end, "SourceVimscriptLua")
+create_source_binding({ "*.vim", "*.lua" }, function()
+	vim.cmd.source()
+end, "SourceVimscriptLua")
 create_source_binding({ "*/config/sxhkd/**" }, function()
 	vim.fn.jobstart({
 		"sh",
 		"-c",
-		'"killall -9 sxhkd ; sxhkd -c ' .. vim.fn.expand("%") .. ' & disown"'
+		'"killall -9 sxhkd ; sxhkd -c ' .. vim.fn.expand("%") .. ' & disown"',
 	})
 end, "SourceSxhkd")
 create_source_binding({ "*config/xmobar/**" }, function()

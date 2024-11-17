@@ -2,7 +2,14 @@ require("clangd_extensions").setup({
 	server = {
 		-- options to pass to nvim-lspconfig
 		-- i.e. the arguments to require("lspconfig").clangd.setup({})
-		root_dir = LSP.lspconfig.util.root_pattern(".git", "premake5.lua", "cmake", "Makefile", "CMakeLists.txt",  "compile_commands.json"),
+		root_dir = LSP.lspconfig.util.root_pattern(
+			".git",
+			"premake5.lua",
+			"cmake",
+			"Makefile",
+			"CMakeLists.txt",
+			"compile_commands.json"
+		),
 		on_attach = function(client, bufnr)
 			LSP.on_attach(client, bufnr)
 

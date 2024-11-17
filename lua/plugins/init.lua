@@ -438,7 +438,17 @@ local vscode_disabled_plugins = {
 		},
 	},
 
-	{ "zbirenbaum/copilot.lua", config = RequireSetupFn("copilot") }, -- for providers='copilot'
+	{
+		"zbirenbaum/copilot.lua",
+		-- config = RequireSetupFn("copilot"),
+		opts = {},
+		dependencies = {
+			{
+				"zbirenbaum/copilot-cmp",
+				opts = { suggestion = { enabled = false }, panel = { enabled = false } },
+			},
+		},
+	},
 
 	{
 		"yetone/avante.nvim",
@@ -457,6 +467,7 @@ local vscode_disabled_plugins = {
 		build = "make",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
+
 			--- The below dependencies are optional,
 			{
 				-- support for image pasting
@@ -487,6 +498,7 @@ local vscode_disabled_plugins = {
 	},
 
 	{ "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 },
+
 	{
 		"j-hui/fidget.nvim",
 		branch = "legacy",

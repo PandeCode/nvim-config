@@ -41,7 +41,7 @@ cmp.setup({
 			preset = 'codicons',
 
 			symbol_map = {
-				Supermaven = "",
+				-- Supermaven = "",
 				-- default symbol map
 				Text = "󰉿",
 				Method = "󰆧",
@@ -113,7 +113,7 @@ cmp.setup({
 	},
 
 	sources = cmp.config.sources({
-		{ name = "supermaven" },
+		-- { name = "supermaven" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },

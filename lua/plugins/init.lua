@@ -261,7 +261,6 @@ local vscode_disabled_plugins = {
 		ft = refactoring_ft,
 		priority = 0,
 		dependencies = {
-			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
@@ -413,14 +412,14 @@ local vscode_disabled_plugins = {
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "onsails/lspkind.nvim" },
-			{
-				"supermaven-inc/supermaven-nvim",
-				config = function()
-					require("supermaven-nvim").setup({})
-
-					vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})
-				end,
-			},
+			-- {
+			--     "supermaven-inc/supermaven-nvim",
+			--     config = function()
+			--         require("supermaven-nvim").setup({})
+			--
+			--         vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", { fg = "#6CC644" })
+			--     end,
+			-- },
 			{
 				{
 					"L3MON4D3/LuaSnip",
@@ -430,6 +429,54 @@ local vscode_disabled_plugins = {
 					ft = luasnip_ft,
 					dependencies = { ft = luasnip_ft, "saadparwaiz1/cmp_luasnip" },
 				},
+			},
+		},
+	},
+
+	{ "zbirenbaum/copilot.lua", config= RequireSetupFn("copilot") }, -- for providers='copilot'
+
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		lazy = false,
+		version = false, -- set this if you want to always pull the latest change
+		opts = {
+			provider = "copilot", 
+			auto_suggestions_provider = "copilot", 
+			  behaviour = {
+				auto_suggestions = false, -- Experimental stage
+				auto_set_highlight_group = false,
+			},
+		},
+		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+		build = "make",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- required for Windows users
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				-- Make sure to set this up properly if you have lazy=true
+				'MeanderingProgrammer/render-markdown.nvim',
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
 			},
 		},
 	},

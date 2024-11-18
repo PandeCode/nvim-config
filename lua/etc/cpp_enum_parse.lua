@@ -1,4 +1,4 @@
-local notify = require("notify")
+local notify = vim.notify
 
 local function gen_enum_funcs(enum_name, bufnr)
 	enum_name = enum_name or vim.fn.expand("<cword>")

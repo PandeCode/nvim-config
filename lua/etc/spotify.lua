@@ -1,4 +1,4 @@
-local notify = require("notify")
+local notify = vim.notify
 
 -- local http_headers = require("http.headers")
 -- local http_request = require("http.request")

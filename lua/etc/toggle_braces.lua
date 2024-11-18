@@ -1,4 +1,4 @@
-local notify = require("notify")
+local notify = vim.notify
 
 local langs = { "typescript", "javascript", "typescriptreact", "javascriptreact", "c", "cpp" }
 local function get_text(ft, query)

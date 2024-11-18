@@ -18,7 +18,7 @@ local keymaps = {
 		function()
 			local filename = vim.fn.expand("%")
 			vim.fn.jobstart({ "chmod", "+x", filename })
-			require("notify")("Given execution rights to '" .. filename .. "'", "info", { title = IDE.name })
+			vim.notify("Given execution rights to '" .. filename .. "'", "info", { title = IDE.name })
 		end,
 	},
 
@@ -28,7 +28,7 @@ local keymaps = {
 		function()
 			local filename = vim.fn.expand("%")
 			vim.fn.jobstart({ "chmod", "-x", filename })
-			require("notify")("Taken away execution rights from '" .. filename .. "'", "info", { title = IDE.name })
+			vim.notify("Taken away execution rights from '" .. filename .. "'", "info", { title = IDE.name })
 		end,
 	},
 }

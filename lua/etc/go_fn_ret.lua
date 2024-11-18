@@ -1,6 +1,6 @@
 local api = vim.api
 local ts = vim.treesitter
-local notify = require("notify")
+local notify = vim.notify
 
 local parsers = require("nvim-treesitter.parsers")
 local ts_utils = require("nvim-treesitter.ts_utils")

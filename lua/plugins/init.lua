@@ -280,12 +280,6 @@ local vscode_disabled_plugins = {
 
 	"airblade/vim-gitgutter",
 	"ap/vim-css-color",
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			Notify = require("notify")
-		end,
-	},
 
 	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
 	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
@@ -628,6 +622,19 @@ local vscode_disabled_plugins = {
 		priority = 0,
 		ft = { "haskell", "cabal" },
 		lazy = false, -- This plugin is already lazy
+	},
+
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = {
+			bigfile = { enabled = true },
+			notifier = { enabled = true },
+			quickfile = { enabled = true },
+			statuscolumn = { enabled = true },
+			words = { enabled = true },
+		},
 	},
 }
 

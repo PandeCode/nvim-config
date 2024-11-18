@@ -58,6 +58,7 @@ NVIM_APPNAME=PandeCode/nvim-config/ nvim
 
 ### ai
 
++ [yetone/avante.nvim](https://dotfyle.com/plugins/yetone/avante.nvim)
 + [supermaven-inc/supermaven-nvim](https://dotfyle.com/plugins/supermaven-inc/supermaven-nvim)
 ### color
 
@@ -73,6 +74,7 @@ NVIM_APPNAME=PandeCode/nvim-config/ nvim
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
 + [simrat39/rust-tools.nvim](https://dotfyle.com/plugins/simrat39/rust-tools.nvim)
++ [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
 ### debugging
 
 + [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
@@ -110,12 +112,19 @@ NVIM_APPNAME=PandeCode/nvim-config/ nvim
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
 + [jose-elias-alvarez/typescript.nvim](https://dotfyle.com/plugins/jose-elias-alvarez/typescript.nvim)
 + [j-hui/fidget.nvim](https://dotfyle.com/plugins/j-hui/fidget.nvim)
++ [onsails/lspkind.nvim](https://dotfyle.com/plugins/onsails/lspkind.nvim)
 + [simrat39/symbols-outline.nvim](https://dotfyle.com/plugins/simrat39/symbols-outline.nvim)
 + [b0o/SchemaStore.nvim](https://dotfyle.com/plugins/b0o/SchemaStore.nvim)
 + [mrcjkb/haskell-tools.nvim](https://dotfyle.com/plugins/mrcjkb/haskell-tools.nvim)
+### markdown-and-latex
+
++ [MeanderingProgrammer/render-markdown.nvim](https://dotfyle.com/plugins/MeanderingProgrammer/render-markdown.nvim)
 ### marks
 
 + [chentoast/marks.nvim](https://dotfyle.com/plugins/chentoast/marks.nvim)
+### media
+
++ [HakonHarnes/img-clip.nvim](https://dotfyle.com/plugins/HakonHarnes/img-clip.nvim)
 ### note-taking
 
 + [jbyuki/nabla.nvim](https://dotfyle.com/plugins/jbyuki/nabla.nvim)
@@ -125,6 +134,7 @@ NVIM_APPNAME=PandeCode/nvim-config/ nvim
 
 + [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 + [ray-x/guihua.lua](https://dotfyle.com/plugins/ray-x/guihua.lua)
 ### plugin-manager
 

@@ -49,11 +49,11 @@ local function create_source_binding(pattern, callback, group, binding)
 		pattern = pattern,
 		group = vim.api.nvim_create_augroup(group, { clear = true }),
 		callback = function(tbl)
-			local notify = Prequire("notify")
+			-- local notify = Prequire("notify")
 			vim.keymap.set(Keys.N, binding, function()
 				callback(tbl)
-				if notify ~= nil then
-					notify(
+				if Notify ~= nil then
+					Notify(
 						"Sourced file '" .. vim.fn.expand("%") .. "'",
 						"info",
 						{ title = IDE.name .. " : " .. group }

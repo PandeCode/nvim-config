@@ -9,3 +9,5 @@ rust/Cargo.lock
 rust/lua/*
 
 venv
+
+profile.json

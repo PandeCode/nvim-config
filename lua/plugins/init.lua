@@ -280,7 +280,12 @@ local vscode_disabled_plugins = {
 
 	"airblade/vim-gitgutter",
 	"ap/vim-css-color",
-	"rcarriga/nvim-notify",
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			Notify = require("notify")
+		end,
+	},
 
 	{ "folke/todo-comments.nvim", config = RequireSetupFn("todo-comments") },
 	{ "Iron-E/nvim-libmodal", config = RequireFn("plugins.libmodal_conf") },
@@ -620,7 +625,8 @@ local vscode_disabled_plugins = {
 	{
 		"mrcjkb/haskell-tools.nvim",
 		version = "^4", -- Recommended
-		psfiority = 0,
+		priority = 0,
+		ft = { "haskell", "cabal" },
 		lazy = false, -- This plugin is already lazy
 	},
 }

@@ -55,9 +55,7 @@ function PrintError(text)
 end
 
 function Srequire(path)
-	local status, lib = xpcall(require, function(...)
-		-- print(...)
-	end, path)
+	local status, lib = pcall(require, path)
 	if status then
 		return lib
 	else
@@ -72,7 +70,6 @@ function Prequire(path)
 	if status then
 		return lib
 	else
-		-- print("Error Loading: '" .. path .. "'")
 		PrintError("Error Loading: '" .. path .. "'")
 		return nil
 	end

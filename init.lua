@@ -1,3 +1,5 @@
+-- require("profile_conf")
+
 require("utils")
 
 Prequire("config")

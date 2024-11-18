@@ -134,7 +134,6 @@ require("nvim-treesitter.configs").setup({
 		"scss",
 		"surface",
 		"svelte",
-		"teal",
 		"toml",
 		"tsx",
 		"typescript",

@@ -160,16 +160,23 @@ rt.setup({
 			["rust-analyzer"] = {
 				cargo = {
 					buildScripts = { useRustcWrapper = false },
-					targetDir = vim.fn.expand("~/.rust_analyzer"),
+					targetDir = vim.fn.expand("~/.cache/target"),
+					-- targetDir = (function()
+					--     if string.sub(vim.fn.getcwd() or "", 1, 7) == "/mnt/c/" then
+					--         return vim.fn.expand("$WIN_HOME.cache/target")
+					--     else
+					--         return vim.fn.expand("~/.cache/target")
+					--     end
+					-- end)(),
 				},
 			},
 		},
 		-- cmd = {
 		--     (function()
 		--         if string.sub(vim.fn.getcwd() or "", 1, 7) == "/mnt/c/" then
-		--             return "/mnt/c/Users/pande/.cargo/bin/rust-analyzer.exe"
+		--             return "rust-analyzer.exe"
 		--         else
-		--             return "/usr/lib/rustup/bin/rust-analyzer"
+		--             return "rust-analyzer"
 		--         end
 		--     end)(),
 		-- },

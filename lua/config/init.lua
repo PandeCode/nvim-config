@@ -4,7 +4,7 @@ Prequire("config.commands")
 Prequire("config.options")
 
 if vim.g.neovide then
-	Prequire("config.neovide")
+	 require("config.neovide")
 end
 
 if vim.g.vscode then

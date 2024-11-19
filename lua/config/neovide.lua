@@ -26,3 +26,5 @@ vim.g.neovide_confirm_quit = false -- true
 -- let g:neovide_input_use_logo = v:false  " v:true on macOS
 
 vim.g.neovide_cursor_vfx_mode = RandFrom(cursor_vfx)
+
+vim.api.nvim_set_keymap('n', '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})

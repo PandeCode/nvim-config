@@ -20,5 +20,6 @@ jobs:
       run: cd rust && sudo apt install luajit pkg-config libluajit-5.1-2 libluajit-5.1-common libluajit-5.1-dev && cargo build --verbose --release && cd ..
     - name: Release
       uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: target/release/librust.so

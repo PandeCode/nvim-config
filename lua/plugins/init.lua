@@ -453,7 +453,7 @@ local vscode_disabled_plugins = {
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		lazy = false,
-		version = false, -- set this if you want to always pull the latest change
+		version = "*", -- set this if you want to always pull the latest change
 		opts = {
 			provider = "copilot",
 			auto_suggestions_provider = "copilot",
@@ -469,11 +469,9 @@ local vscode_disabled_plugins = {
 			--     timeout = 60000, -- Timeout in milliseconds
 			-- },
 		},
-		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-
 			--- The below dependencies are optional,
 			{
 				-- support for image pasting
@@ -534,11 +532,11 @@ local vscode_disabled_plugins = {
 			"BufNewFile ~/.config/nvim/**.lua",
 		},
 	},
+
 	{
 		"p00f/clangd_extensions.nvim",
 		ft = { "cpp", "c" },
 		config = RequireFn("plugins.clangd_extensions_conf"),
-		lazy = true,
 		priority = 0,
 	},
 

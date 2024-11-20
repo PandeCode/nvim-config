@@ -2,6 +2,7 @@
 
 My personal configuration for
 Now Powered by Rust 🦀 and Lua 🌙.
+Compiled rust library in tags.
 
 ## Supported languages
 

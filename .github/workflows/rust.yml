@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
-      run: cd rust && sudo apt install luajit && cargo build --verbose --release && cd ..
+      run: cd rust && sudo apt install luajit pkg-config && cargo build --verbose --release && cd ..
     - name: Release
       uses: softprops/action-gh-release@v2
       with:

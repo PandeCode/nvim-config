@@ -537,6 +537,7 @@ local vscode_disabled_plugins = {
 		"p00f/clangd_extensions.nvim",
 		ft = { "cpp", "c" },
 		config = RequireFn("plugins.clangd_extensions_conf"),
+		dependencies = { { "neovim/nvim-lspconfig", ft = lsp_ft, config = RequireFn("plugins.lsp"), priority = 50 } },
 		priority = 0,
 	},
 

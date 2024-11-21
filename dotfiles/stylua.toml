@@ -1,6 +1,40 @@
-column_width = 120
+# Stylua configuration file
 line_endings = "Unix"
+
+# Indentation settings
 indent_type = "Tabs"
 indent_width = 4
-quote_style = "AutoPreferDouble"
-no_call_parentheses = false
+
+# Quote style for strings
+quote_style = "AutoPreferDouble" # Use double quotes unless single quotes are easier
+
+# Line length settings
+column_width = 120
+
+# Trailing commas in tables
+trailing_comma = "Always" # Adds a trailing comma in multiline tables
+
+# Whether to align fields in multiline tables
+align_table_field = true
+
+# Force semicolon-style statements where possible
+semicolon_style = "Disable"
+
+# Maximum number of empty lines between chunks of code
+no_empty_lines_between_table_groups = true
+
+# Add a newline at the end of the file
+end_of_file_newline = true
+
+# Ensure no trailing whitespace
+no_trailing_whitespace = true
+
+# Do not collapse single-line tables into multiline unless needed
+collapse_simple_statement = false
+
+# Exclude files or directories from being formatted
+ignore_patterns = [
+    "build/**",    # Exclude build directories
+    "**/vendor/**" # Exclude third-party/vendor code
+]
+

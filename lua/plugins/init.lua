@@ -296,12 +296,6 @@ local vscode_disabled_plugins = {
 	},
 
 	{
-		"glepnir/dashboard-nvim",
-		config = RequireFn("plugins.dashboard_conf"),
-		event = "VimEnter",
-	},
-
-	{
 		"nvim-telescope/telescope.nvim",
 		config = RequireFn("plugins.telescope_conf"),
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -634,13 +628,7 @@ local vscode_disabled_plugins = {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		opts = {
-			bigfile = { enabled = true },
-			notifier = { enabled = true },
-			quickfile = { enabled = true },
-			statuscolumn = { enabled = true },
-			words = { enabled = true },
-		},
+		config = RequireFn("plugins.snacks_conf")
 	},
 }
 

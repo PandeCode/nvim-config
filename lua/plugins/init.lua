@@ -186,7 +186,6 @@ local vscode_enabled_plugins = {
 	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
 	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
-	{ "preservim/nerdcommenter", config = RequireFn("plugins.nerdcommenter_conf") },
 	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
 
 	{
@@ -323,10 +322,10 @@ local vscode_disabled_plugins = {
 		lazy = true,
 		ft = "markdown",
 		event = {
-			"BufReadPre /mnt/c/Users/pande/Vault/**.md",
-			"BufNewFile /mnt/c/Users/pande/Vault/**.md",
-			"BufReadPre /mnt/c/Users/pande/Vault/**.md",
-			"BufNewFile /mnt/c/Users/pande/Vault/**.md",
+			"BufReadPre Vault/**.md",
+			"BufNewFile Vault/**.md",
+			"BufReadPre Vault/**.md",
+			"BufNewFile Vault/**.md",
 		},
 		keys = {
 			{
@@ -628,7 +627,54 @@ local vscode_disabled_plugins = {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		config = RequireFn("plugins.snacks_conf")
+		config = RequireFn("plugins.snacks_conf"),
+	},
+
+	{
+
+		"https://github.com/nvimtools/none-ls.nvim",
+		ft = "nu",
+		config = RequireFn("plugins.none_ls_conf"),
+	},
+
+	{
+		"LhKipp/nvim-nu",
+		build = ":TSInstall nu",
+		ft = "nu",
+		opts = {
+			use_lsp_features = true, -- requires https://github.com/jose-elias-alvarez/null-ls.nvim
+			-- lsp_feature: all_cmd_names is the source for the cmd name completion.
+			-- It can be
+			--  * a string, which is evaluated by nushell and the returned list is the source for completions (requires plenary.nvim)
+			--  * a list, which is the direct source for completions (e.G. all_cmd_names = {"echo", "to csv", ...})
+			--  * a function, returning a list of strings and the return value is used as the source for completions
+			all_cmd_names = [[help commands | get name | str join "\n"]],
+		},
+	},
+
+	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		opts = {
+			extensions = {
+				file_browser = {
+					theme = "ivy",
+					-- disables netrw and use telescope-file-browser in its place
+					hijack_netrw = true,
+					mappings = {
+						["i"] = {
+							-- your custom insert mode mappings
+						},
+						["n"] = {
+							-- your custom normal mode mappings
+						},
+					},
+				},
+			},
+		},
+		config = function() 
+			require("telescope").load_extension "file_browser"
+		end
 	},
 }
 

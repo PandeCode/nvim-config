@@ -1,5 +1,6 @@
 mod autocmds;
 mod keymaps;
+mod options;
 
 use miette::Result;
 use nvim_oxi::{self as oxi, Dictionary, Function, Object};
@@ -8,6 +9,7 @@ use oxi::Error;
 #[oxi::plugin]
 fn librust() -> Result<Dictionary, Error> {
 	keymaps::keymaps()?;
+	options::options()?;
 	autocmds::autocmds()?;
 
 	// I leave these functions in to check if the api is working

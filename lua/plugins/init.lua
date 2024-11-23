@@ -23,8 +23,6 @@ function UNINSTALL_LAZY()
 	})
 end
 
-local opt = {}
-
 local dap_ft = {
 	"python",
 	"c",
@@ -61,6 +59,7 @@ local treesitter_ft = {
 	"json5",
 	"kotlin",
 	"lua",
+	"nu",
 	"org",
 	"python",
 	"query",
@@ -181,12 +180,13 @@ local vscode_enabled_plugins = {
 	"tpope/vim-repeat",
 	"tpope/vim-sleuth",
 	"tpope/vim-abolish",
-	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
-	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
-	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
+
+	{ "windwp/nvim-autopairs",   config = RequireSetupFn("nvim-autopairs")    },
+	{ "kylechui/nvim-surround",  config = RequireSetupFn("nvim-surround")     },
+	{ "chentoast/marks.nvim",    config = RequireSetupFn("marks")             },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
-	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
-	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
+	{ "mbbill/undotree",         config = RequireFn("plugins.undotree_conf")  },
+	{ "sbdchd/neoformat",        config = RequireFn("plugins.neoformat_conf") },
 
 	{
 		"ludovicchabant/vim-gutentags",
@@ -194,6 +194,7 @@ local vscode_enabled_plugins = {
 			vim.g.gutentags_cache_dir = vim.fn.expand("~/.cache/ctags")
 		end,
 	},
+
 	{
 		"andymass/vim-matchup",
 		setup = function()
@@ -218,33 +219,6 @@ local vscode_disabled_plugins = {
 		"echasnovski/mini.nvim",
 		version = "*",
 		config = RequireFn("plugins.mini_conf"),
-	},
-
-	{
-		"cshuaimin/ssr.nvim",
-		module = "ssr",
-		-- Calling setup is optional.
-		config = function()
-			require("ssr").setup({
-				border = "rounded",
-				min_width = 50,
-				min_height = 5,
-				max_width = 120,
-				max_height = 25,
-				adjust_window = true,
-				keymaps = {
-					close = "q",
-					next_match = "n",
-					prev_match = "N",
-					replace_confirm = "<cr>",
-					replace_all = "<leader><cr>",
-				},
-			})
-
-			vim.keymap.set({ "n", "x" }, "<leader>sr", function()
-				require("ssr").open()
-			end)
-		end,
 	},
 
 	{
@@ -579,12 +553,13 @@ local vscode_disabled_plugins = {
 		priority = 0,
 	},
 
-	{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft },
+	
 
 	{
 		"rcarriga/nvim-dap-ui",
 		config = RequireFn("plugins.dap_ui_conf"),
 		ft = dap_ft,
+		dependencies = {{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft }, {"nvim-neotest/nvim-nio"}},
 		priority = 49,
 	},
 

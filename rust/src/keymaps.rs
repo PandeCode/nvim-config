@@ -22,6 +22,7 @@ pub fn keymaps() -> Result<(), Error> {
 	#[rustfmt::skip]
 	let keymaps = [
 		(n, "<LEADER>c<LEADER>", ":normal gcc<cr>",       noremap_silent),
+		(v, "<LEADER>c<LEADER>", "gc",                    noremap_silent),
 		(v, "<LEADER>so",        ":sort<cr>",             none),
 		(n, "<LEADER>ne",        ":set noexpandtab!<cr>", noremap),
 		(n, "<LEADER>et",        ":set expandtab!<cr>",   noremap),

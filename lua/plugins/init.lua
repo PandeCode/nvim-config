@@ -181,12 +181,12 @@ local vscode_enabled_plugins = {
 	"tpope/vim-sleuth",
 	"tpope/vim-abolish",
 
-	{ "windwp/nvim-autopairs",   config = RequireSetupFn("nvim-autopairs")    },
-	{ "kylechui/nvim-surround",  config = RequireSetupFn("nvim-surround")     },
-	{ "chentoast/marks.nvim",    config = RequireSetupFn("marks")             },
+	{ "windwp/nvim-autopairs", config = RequireSetupFn("nvim-autopairs") },
+	{ "kylechui/nvim-surround", config = RequireSetupFn("nvim-surround") },
+	{ "chentoast/marks.nvim", config = RequireSetupFn("marks") },
 	{ "junegunn/vim-easy-align", config = RequireFn("plugins.easyalign_conf") },
-	{ "mbbill/undotree",         config = RequireFn("plugins.undotree_conf")  },
-	{ "sbdchd/neoformat",        config = RequireFn("plugins.neoformat_conf") },
+	{ "mbbill/undotree", config = RequireFn("plugins.undotree_conf") },
+	{ "sbdchd/neoformat", config = RequireFn("plugins.neoformat_conf") },
 
 	{
 		"ludovicchabant/vim-gutentags",
@@ -218,29 +218,36 @@ local vscode_disabled_plugins = {
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
+		priority = 1000,
+		lazy = false,
 		config = RequireFn("plugins.mini_conf"),
+	},
+
+	{
+		"folke/snacks.nvim",
+		version = "*",
+		priority = 1000,
+		lazy = false,
+		config = RequireFn("plugins.snacks_conf"),
 	},
 
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<LEADER>zm", ":ZenMode<cr>", desc = "ZenMode" } },
-		priority = 0,
+		lazy = true,
 	},
 
 	{
 		"folke/twilight.nvim",
 		keys = { { "<LEADER>tl", ":Twilight<cr>", desc = "Twilight" } },
-		priority = 0,
+		lazy = true,
 	},
 
 	{
 		"ThePrimeagen/refactoring.nvim",
 		config = RequireFn("plugins.refactoring_conf"),
 		ft = refactoring_ft,
-		priority = 0,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
+		lazy = true,
 	},
 
 	{
@@ -553,13 +560,14 @@ local vscode_disabled_plugins = {
 		priority = 0,
 	},
 
-	
-
 	{
 		"rcarriga/nvim-dap-ui",
 		config = RequireFn("plugins.dap_ui_conf"),
 		ft = dap_ft,
-		dependencies = {{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft }, {"nvim-neotest/nvim-nio"}},
+		dependencies = {
+			{ "mfussenegger/nvim-dap", config = RequireFn("plugins.dap_conf"), ft = dap_ft },
+			{ "nvim-neotest/nvim-nio" },
+		},
 		priority = 49,
 	},
 
@@ -597,19 +605,10 @@ local vscode_disabled_plugins = {
 		ft = { "haskell", "cabal" },
 		lazy = false, -- This plugin is already lazy
 	},
-
 	{
-		"folke/snacks.nvim",
-		priority = 1000,
-		lazy = false,
-		config = RequireFn("plugins.snacks_conf"),
-	},
-
-	{
-
 		"https://github.com/nvimtools/none-ls.nvim",
-		ft = "nu",
 		config = RequireFn("plugins.none_ls_conf"),
+		lazy = true,
 	},
 
 	{
@@ -626,36 +625,36 @@ local vscode_disabled_plugins = {
 			all_cmd_names = [[help commands | get name | str join "\n"]],
 		},
 	},
-
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-		opts = {
-			extensions = {
-				file_browser = {
-					theme = "ivy",
-					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
-					mappings = {
-						["i"] = {
-							-- your custom insert mode mappings
-						},
-						["n"] = {
-							-- your custom normal mode mappings
-						},
-					},
-				},
-			},
-		},
-		config = function() 
-			require("telescope").load_extension "file_browser"
-		end
-	},
 }
 
 local plugins = vscode_enabled_plugins
 if not vim.g.vscode then
 	plugins = TableConcat(plugins, vscode_disabled_plugins)
 end
+
+local opt = {
+	checker = {
+		enabled = true,
+		concurrency = 1,
+	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				-- "matchit",
+				-- "matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
+	-- profiling = {
+	-- loader = true,
+	-- require = true,
+	-- },
+}
 
 require("lazy").setup(plugins, opt)

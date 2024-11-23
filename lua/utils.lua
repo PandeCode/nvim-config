@@ -275,6 +275,9 @@ function readfile(file)
 	return vim.fn.readfile(vim.fn.expand(file))
 end
 
+--- list directory
+---@param dir string
+---@return string[]
 function listdir(dir)
 	local files = {}
 	local handle = vim.loop.fs_scandir(vim.fn.expand(dir))
@@ -288,4 +291,18 @@ function listdir(dir)
 		end
 	end
 	return files
+end
+
+function IsImage(v)
+	local image_extensions = { "jpg", "jpeg", "png", "gif", "bmp", "tiff", "webp", "svg" }
+	local ext = v:match("^.+(%..+)$")
+	if ext then
+		ext = ext:sub(2):lower()
+		for _, image_ext in ipairs(image_extensions) do
+			if ext == image_ext then
+				return true
+			end
+		end
+	end
+	return false
 end

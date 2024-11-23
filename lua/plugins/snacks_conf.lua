@@ -2,16 +2,17 @@ local ascii_dir = vim.fn.getenv("NVIM_ASCII_DIR")
 local image_dir = vim.fn.getenv("NVIM_IMG_DIR")
 
 local env_header = vim.fn.getenv("NVIM_ASCII")
-local header, header_height = nil, nil
+local header = nil
 
 if env_header ~= vim.NIL and env_header ~= "" then
 	header = vim.fn.readfile(env_header)
-	header_height = tonumber(vim.fn.system({ "wc", "-l", env_header }):match("%d+"))
 elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
 	local image_files = listdir(vim.fn.expand(ascii_dir))
 	math.randomseed(os.time())
-	header = vim.fn.expand(ascii_dir .. image_files[math.random(1, #image_files)])
-	header_height = tonumber(vim.fn.system({ "wc", "-l", header }):match("%d+"))
+	header = table.concat(
+		vim.fn.readfile(vim.fn.expand(ascii_dir .. "/" .. image_files[math.random(1, #image_files)])),
+		"\n"
+	)
 end
 
 local env_image = vim.fn.getenv("NVIM_IMG")
@@ -20,16 +21,31 @@ local image_path = nil
 if env_image ~= vim.NIL then
 	image_path = env_image
 elseif image_dir ~= vim.NIL and image_dir ~= "" then
-	local image_files = listdir(vim.fn.expand(image_dir))
-	math.randomseed(os.time())
-	image_path = vim.fn.expand(image_dir .. image_files[math.random(1, #image_files)])
+	image_files = listdir(vim.fn.expand(image_dir))
+	new_image_files = {}
+	for _, value in pairs(image_files) do
+		local l = #value
+		if l > 4 then
+			if IsImage(value) then
+				table.insert(new_image_files, value)
+			end
+		end
+	end
+	if #new_image_files > 0 then
+		math.randomseed(os.time())
+		image_path = vim.fn.expand(image_dir .. "/" .. new_image_files[math.random(1, #new_image_files)])
+	end
 end
 
 require("snacks").setup({
 	bigfile = { enabled = true },
 	dashboard = {
 		enabled = true,
-		header = header,
+
+		preset = {
+			header = header,
+		},
+
 		sections = {
 			{
 				section = "terminal",
@@ -56,24 +72,18 @@ require("snacks").setup({
 
 			{ section = "startup" },
 
+			{ section = "header", pane = 2 },
+
 			{
+				enabled = image_path ~= nil,
 				pane = 2,
 				section = "terminal",
-				cmd = "cat " .. (header or "/dev/null"),
-				height = header_height,
-				enabled = header ~= nil,
+				cmd = "chafa "
+					.. (image_path or "")
+					.. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+				height = 17,
 				padding = 1,
 			},
-			-- {
-			--     enabled = image_path ~= nil,
-			--     pane = 2,
-			--     section = "terminal",
-			--     cmd = "chafa "
-			--         .. (image_path or "")
-			--         .. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
-			--     height = 17,
-			--     padding = 1,
-			-- },
 		},
 	},
 	notifier = {

@@ -54,13 +54,13 @@ vim.g.neoformat_enabled_js = { "prettier" }
 vim.g.neoformat_enabled_json = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_ts = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_jsx = vim.g.neoformat_enabled_js
-vim.g.neoformat_enabled_tsx  = vim.g.neoformat_enabled_js
+vim.g.neoformat_enabled_tsx = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_typescript = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_javascript = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_typescriptreact = vim.g.neoformat_enabled_js
 vim.g.neoformat_enabled_javascriptreact = vim.g.neoformat_enabled_js
 
-vim.g.neoformat_enabled_python = {  "black" }
+vim.g.neoformat_enabled_python = { "black" }
 vim.g.neoformat_cmake_cmakeformat = { args = {}, stdin = 1, exe = "cmake-format" }
 
 vim.api.nvim_set_keymap(Keys.N, "<Space>cf", ":Neoformat<CR>", Keys.NoremapSilent)

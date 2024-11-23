@@ -5,8 +5,11 @@ vim.api.nvim_create_autocmd("BufRead", {
 	callback = function()
 		if neodev_not_loaded then
 			require("neodev").setup({
-				library = { plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim", "luasnip" }, types = true },
-			});
+				library = {
+					plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim", "luasnip" },
+					types = true,
+				},
+			})
 			neodev_not_loaded = false
 		end
 	end,

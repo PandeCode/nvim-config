@@ -1,8 +1,7 @@
-
 local cursor_vfx = { "railgun", "torpedo", "pixiedust", "sonicboom", "ripple", "wireframe" }
 
 vim.g.neovide_cursor_vfx_mode = RandFrom(cursor_vfx)
-vim.api.nvim_set_keymap('n', '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
+vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 vim.g.neovide_scale_factor = 0.78 -- 1
 
 vim.g.neovide_floating_blur_amount_x = 10.0 -- 2.0

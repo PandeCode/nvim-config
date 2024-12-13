@@ -1,0 +1,21 @@
+# Stylua configuration file
+line_endings = "Unix"
+
+# Indentation settings
+indent_type = "Tabs"
+indent_width = 4
+
+# Quote style for strings
+quote_style = "AutoPreferDouble" # Use double quotes unless single quotes are easier
+
+# Line length settings
+column_width = 120
+
+# Do not collapse single-line tables into multiline unless needed
+collapse_simple_statement = "Never"
+
+no_call_parentheses = true
+call_parentheses = "None"
+
+[sort_requires]
+enabled = false

@@ -1,3 +1,11 @@
+
+![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
+![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
+<br/>
+<a href="https://dotfyle.com/PandeCode/nvim-config"><img src="https://dotfyle.com/PandeCode/nvim-config/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/PandeCode/nvim-config"><img src="https://dotfyle.com/PandeCode/nvim-config/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/PandeCode/nvim-config"><img src="https://dotfyle.com/PandeCode/nvim-config/badges/plugin-manager?style=flat" /></a>
+
 # Neovim Configuration
 
 This is the **final** iteration of my Neovim configuration, refined for performance, functionality, and extensibility. Below is an overview of why this rework was necessary and the goals it achieves.

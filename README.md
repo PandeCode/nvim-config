@@ -1,13 +1,57 @@
-This is the final, final, final version of my neovim configuration.
+# Neovim Configuration
 
-Why again:
-    - Performance
-    - Have C and Rust ffi (foreign function interface)
-    - Some plugins now have better alternatives
-    - Replace Obsidian with a neovim like equivalent
-    - Start developing my own plugins
-    - Know every single line of code in this repo
-    - Add acutally working debugging
-    - Keep Windows in mind
-    - Keep NixOS in mind
-    - Keep VS Code in mind
+This is the **final** iteration of my Neovim configuration, refined for performance, functionality, and extensibility. Below is an overview of why this rework was necessary and the goals it achieves.
+
+> currently only works on nixos.
+
+## Why This Configuration?
+
+1. **Performance Optimization**: Ensuring a faster and smoother experience with Neovim.
+2. **C and Rust FFI Integration**: Utilizing foreign function interfaces (FFI) to enhance extensibility and performance.
+3. **Better Plugin Alternatives**: Migrating to modern plugins that align with my workflow.
+4. **Obsidian Replacement/Enchancement**: Adopting a Neovim-based equivalent for note-taking and knowledge management.
+5. **Custom Plugin Development**: Starting to create and maintain my own plugins for tailored functionality.
+6. **Code Ownership**: Understanding every single line of code in this repository.
+7. **Debugging Support**: Adding fully functional debugging tools.
+8. **Cross-Platform Considerations**:
+   - Windows compatibility.
+   - NixOS integration.
+   - VS Code interoperability.
+
+## Features
+
+- **Blazing Fast**: Lightweight configuration optimized for speed. No useless plugins and dumb configurations. (my last version was bloated)
+- **Extensible**: Built to scale with custom plugins and tools.
+- **Developer-Friendly**: Ideal for working with C, Rust, and other languages.
+- **Unified Workflow**: Combines coding, note-taking, and debugging within Neovim.
+- **Cross-Platform**: Tailored to work seamlessly on different operating systems.
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone <repo-url> ~/.config/nvim
+   ```
+
+2. Install dependencies:
+   - Ensure you have Neovim 0.10+ installed.
+   - Follow instructions for language servers, FFI tools, and required plugins.
+  
+   - FII
+       - Run make (currently only nixos) 
+
+3. Launch Neovim:
+   ```bash
+   nvim
+   ```
+
+## Roadmap
+
+- [ ] Develop and document custom plugins.
+- [ ] Expand debugging support for more languages.
+- [ ] Create detailed guides for Windows, NixOS, and VS Code workflows.
+
+---
+
+### Feedback & Contributions
+Feel free to fork, contribute, or share feedback! This repository is a work of passion and continues to evolve.

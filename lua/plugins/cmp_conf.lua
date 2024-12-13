@@ -149,12 +149,12 @@ cmp.setup({
 	sources = cmp.config.sources({
 		-- { name = "supermaven" },
 		{ name = "copilot" },
+		{ name = "cmp_gl" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 		{ name = "treesitter" },
 		{ name = "tags" },
-		{ name = "org" },
 	}, { { name = "path" }, { name = "buffer" } }),
 })
 

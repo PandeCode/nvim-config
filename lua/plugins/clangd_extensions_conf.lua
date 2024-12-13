@@ -62,8 +62,9 @@ LSP.lspconfig["clangd"].setup({
 		-- "--enable-config",
 		-- "--header-insertion-decorators",
 		-- "--header-insertion=iwyu",
+		"--header-insertion-decorators=false",
 		-- "--limit-results=0",
-		-- "--malloc-trim",
+		"--malloc-trim",
 	},
 })
 

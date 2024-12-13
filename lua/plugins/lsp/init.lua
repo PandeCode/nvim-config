@@ -84,6 +84,8 @@ RequireForFileType("python", "plugins.lsp.python_conf")
 lsp_RunForFileType({ "nix" }, "nil_ls")
 lsp_RunForFileType({ "vim" }, "vimls")
 
+lsp_RunForFileType({ "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" }, "glsl_analyzer")
+
 lsp_RunForFileType({ "awk" }, "awk_ls")
 lsp_RunForFileType({
 	"html",

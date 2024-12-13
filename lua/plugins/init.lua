@@ -34,19 +34,21 @@ local dap_ft = {
 }
 
 local treesitter_ft = {
-	"sh",
-	"kdl",
 	"bash",
 	"c",
 	"c_sharp",
 	"cmake",
 	"comment",
+	"comp",
 	"cpp",
 	"css",
 	"dart",
 	"dockerfile",
 	"fish",
+	"frag",
 	"gdscript",
+	"geom",
+	"glsl",
 	"go",
 	"gomod",
 	"graphql",
@@ -57,6 +59,7 @@ local treesitter_ft = {
 	"javascript",
 	"jsdoc",
 	"json5",
+	"kdl",
 	"kotlin",
 	"lua",
 	"nu",
@@ -68,12 +71,16 @@ local treesitter_ft = {
 	"ruby",
 	"rust",
 	"scss",
+	"sh",
 	"surface",
 	"svelte",
 	"teal",
+	"tesc",
+	"tese",
 	"toml",
 	"tsx",
 	"typescript",
+	"vert",
 	"vim",
 	"vue",
 	"yaml",
@@ -84,16 +91,20 @@ local lsp_ft = {
 	"bash",
 	"c",
 	"cmake",
+	"comp",
 	"cpp",
 	"css",
 	"dart",
+	"frag",
+	"gd",
+	"gdscript",
+	"gdscript3",
+	"geom",
+	"glsl",
 	"go",
 	"gomod",
 	"gotmpl",
 	"gowork",
-	"gd",
-	"gdscript",
-	"gdscript3",
 	"haskell",
 	"html",
 	"javascript",
@@ -108,8 +119,11 @@ local lsp_ft = {
 	"sass",
 	"scss",
 	"sh",
+	"tesc",
+	"tese",
 	"typescript",
 	"typescriptreact",
+	"vert",
 	"vim",
 	"vlang",
 	"yaml",
@@ -389,6 +403,15 @@ local vscode_disabled_plugins = {
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
+			{
+				"vurentjie/cmp-gl",
+				ft = { "cpp", "hpp" },
+				config = function()
+					require("cmp_gl").setup({
+						move_cursor = true,
+					})
+				end,
+			},
 			{ "onsails/lspkind.nvim" },
 			-- {
 			--     "supermaven-inc/supermaven-nvim",
@@ -625,6 +648,31 @@ local vscode_disabled_plugins = {
 			all_cmd_names = [[help commands | get name | str join "\n"]],
 		},
 	},
+	{ -- This plugin
+		"Zeioth/compiler.nvim",
+		cmd = { "CompilerOpen", "CompilerToggleResults" },
+		dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
+		keys = {
+			{ "<LEADER>co", ":CompilerOpen<CR>", desc = "CompilerOpen" },
+			{ "<LEADER>ct", ":CompilerToggleResults<CR>", desc = "CompilerToggleResults" },
+			{ "<LEADER>cr", ":CompilerRedo<CR>", desc = "CompilerRedo" },
+			{ "<LEADER>cs", ":CompilerStop<CR>", desc = "CompilerStop" },
+		},
+		opts = {},
+	},
+	{ -- The task runner we use
+		"stevearc/overseer.nvim",
+		commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
+		cmd = { "CompilerOpen" },
+		opts = {
+			task_list = {
+				direction = "right",
+				min_height = 15,
+				max_height = 15,
+				default_detail = 1,
+			},
+		},
+	},
 }
 
 local plugins = vscode_enabled_plugins
@@ -651,10 +699,6 @@ local opt = {
 			},
 		},
 	},
-	-- profiling = {
-	-- loader = true,
-	-- require = true,
-	-- },
 }
 
 require("lazy").setup(plugins, opt)

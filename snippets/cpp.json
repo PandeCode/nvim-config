@@ -9,7 +9,6 @@
 		"description": "cerr",
 		"body": ["std::cerr << $1 << std::endl;"]
 	},
-
 	"read_file_string": {
 		"prefix": "read_file_string",
 		"description": "Read file into string",
@@ -75,7 +74,6 @@
 			"$2"
 		]
 	},
-
 	"Operators": {
 		"prefix": "operators",
 		"description": "std::ostream( Output stream ) operators for data",
@@ -97,7 +95,6 @@
 			"$1"
 		]
 	},
-
 	"SFML Render Entity header": {
 		"prefix": "sfmlRenderEntityHeader",
 		"description": "Class Header Setup",
@@ -107,5 +104,109 @@
 		"prefix": "sfmlRenderEntityDefinition",
 		"description": "Class Header Setup",
 		"body": []
+	},
+	"split_function": {
+		"prefix": "split",
+		"description": "Split string by delimiter",
+		"body": [
+			"std::vector<std::string> split(std::string s, std::string delimiter) {",
+			"\tsize_t pos_start = 0, pos_end, delim_len = delimiter.length();",
+			"\tstd::string token;",
+			"\tstd::vector<std::string> res;",
+			"\twhile((pos_end = s.find(delimiter, pos_start)) != std::string::npos) {",
+			"\t\ttoken = s.substr(pos_start, pos_end - pos_start);",
+			"\t\tpos_start = pos_end + delim_len;",
+			"\t\tres.push_back(token);",
+			"\t}",
+			"\tres.push_back(s.substr(pos_start));",
+			"\treturn res;",
+			"}"
+		]
+	},
+	"read_file_function": {
+		"prefix": "readFile",
+		"description": "Read file into string",
+		"body": [
+			"std::string readFile(std::string filename) {",
+			"\tstd::ifstream file(filename);",
+			"\tif(!file.is_open()) throw std::runtime_error(\"Failed to open file: \" + filename);",
+			"\tfile.seekg(0, std::ios::end);",
+			"\tsize_t size = file.tellg();",
+			"\tfile.seekg(0, std::ios::beg);",
+			"\tstd::string result(size, '\\0');",
+			"\tfile.read(result.data(), size);",
+			"\treturn result;",
+			"}"
+		]
+	},
+	"to_upper_function": {
+		"prefix": "toUpper",
+		"description": "Convert string to uppercase",
+		"body": [
+			"std::string toUpper(std::string str) {",
+			"\tstd::transform(str.begin(), str.end(), str.begin(), ::toupper);",
+			"\treturn str;",
+			"}"
+		]
+	},
+	"to_lower_function": {
+		"prefix": "toLower",
+		"description": "Convert string to lowercase",
+		"body": [
+			"std::string toLower(std::string str) {",
+			"\tstd::transform(str.begin(), str.end(), str.begin(), ::tolower);",
+			"\treturn str;",
+			"}"
+		]
+	},
+	"trim_function": {
+		"prefix": "trim",
+		"description": "Trim whitespace from both ends of a string",
+		"body": [
+			"std::string trim(const std::string& str) {",
+			"\tconst auto strBegin = str.find_first_not_of(\" \");",
+			"\tif (strBegin == std::string::npos) return \"\";",
+			"\tconst auto strEnd = str.find_last_not_of(\" \");",
+			"\tconst auto strRange = strEnd - strBegin + 1;",
+			"\treturn str.substr(strBegin, strRange);",
+			"}"
+		]
+	},
+	"replace_all_function": {
+		"prefix": "replaceAll",
+		"description": "Replace all occurrences of a substring with another substring",
+		"body": [
+			"std::string replaceAll(std::string str, const std::string& from, const std::string& to) {",
+			"\tsize_t start_pos = 0;",
+			"\twhile((start_pos = str.find(from, start_pos)) != std::string::npos) {",
+			"\t\tstr.replace(start_pos, from.length(), to);",
+			"\t\tstart_pos += to.length();",
+			"\t}",
+			"\treturn str;",
+			"}"
+		]
+	},
+	"is_number_function": {
+		"prefix": "isNumber",
+		"description": "Check if a string is a number",
+		"body": [
+			"bool isNumber(const std::string& str) {",
+			"\treturn !str.empty() && std::find_if(str.begin(), str.end(), [](unsigned char c) { return !std::isdigit(c); }) == str.end();",
+			"}"
+		]
+	},
+	"join_function": {
+		"prefix": "join",
+		"description": "Join a vector of strings into a single string with a delimiter",
+		"body": [
+			"std::string join(const std::vector<std::string>& vec, const std::string& delimiter) {",
+			"\tstd::ostringstream oss;",
+			"\tfor (size_t i = 0; i < vec.size(); ++i) {",
+			"\t\tif (i != 0) oss << delimiter;",
+			"\t\toss << vec[i];",
+			"\t}",
+			"\treturn oss.str();",
+			"}"
+		]
 	}
 }

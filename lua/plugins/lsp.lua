@@ -12,14 +12,13 @@ local servers = {
 	neocmake = {},
 	nil_ls = {},
 	tailwindcss = {},
-	vim = {},
 	vimls = {},
 	vls = {},
 	yamlls = {},
 	lua_ls = {
 		settings = {
 			Lua = {
-				diagnostics = { globals = { "vim" } },
+				diagnostics = { globals = { "vim", "FFI_RUST", "Snacks" } },
 				workspace = {
 					library = vim.api.nvim_get_runtime_file("", true),
 					checkThirdParty = false,
@@ -70,17 +69,6 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { "ray-x/lsp_signature.nvim" },
 		config = function()
-			vim.api.nvim_create_autocmd("LspAttach", {
-				callback = function(args)
-					local bufnr = args.buf
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if vim.tbl_contains({ "null-ls" }, client.name) then -- blacklist lsp
-						return
-					end
-					require("lsp_signature").on_attach({}, bufnr)
-				end,
-			})
-
 			local lspconfig = require "lspconfig"
 			for server, config in pairs(servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
@@ -91,14 +79,42 @@ return {
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "InsertEnter",
-		opts = {
-			bind = true,
-			handler_opts = {
-				border = "rounded",
-			},
-		},
-		config = function(_, opts)
-			require("lsp_signature").setup(opts)
+		config = function()
+			require("lsp_signature").setup {
+				bind = true,
+				handler_opts = {
+					border = "rounded",
+				},
+			}
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local bufnr = args.buf
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if vim.tbl_contains({ "null-ls" }, client.name) then -- blacklist lsp
+						return
+					end
+					require("lsp_signature").on_attach({}, bufnr)
+
+					-- Mappings.
+					-- See `:help vim.lsp.*` for documentation on any of the below functions
+					local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+
+					vim.keymap.set("n", "<LEADER>D", vim.lsp.buf.type_definition, bufopts)
+
+					vim.keymap.set("n", "<F2>", "<CMD>Lpsaga rename<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>ca", "<CMD>Lspsaga code_action<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gp", "<CMD>Lspsaga peek_definition<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gP", "<CMD>Lspsaga peek_type_definition<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gd", "<CMD>Lspsaga goto_definition<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gD", "<CMD>Lspsaga goto_type_definition<CR>", bufopts)
+
+					vim.keymap.set("n", "<LEADER>lf", "<CMD>Lspsaga finder tyd+ref+imp+def<CR>", bufopts)
+				end,
+			})
 		end,
 	},
 }

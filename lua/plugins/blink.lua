@@ -33,13 +33,10 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "v0.*",
-
 		dependencies = { "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig" },
-
 		opts = {
-			appearance = {
-				nerd_font_variant = "mono",
-			},
+			appearance = { nerd_font_variant = "mono" },
+			signature = { enabled = true },
 			snippets = {
 				expand = function(snippet)
 					require("luasnip").lsp_expand(snippet)
@@ -54,6 +51,7 @@ return {
 					require("luasnip").jump(direction)
 				end,
 			},
+
 			keymap = {
 				preset = "enter",
 
@@ -67,7 +65,6 @@ return {
 				["<A-8>"] = cmp_i(8),
 				["<A-9>"] = cmp_i(9),
 			},
-			signature = { enabled = true },
 
 			completion = {
 				menu = {
@@ -86,22 +83,7 @@ return {
 			},
 
 			sources = {
-				completion = {
-					enabled_providers = { "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
-					menu = {
-						draw = {
-							columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
-							components = {
-								item_idx = {
-									text = function(ctx)
-										return tostring(ctx.idx)
-									end,
-									highlight = "BlinkCmpItemIdx",
-								},
-							},
-						},
-					},
-				},
+				default = { "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
 				providers = {
 					-- dont show LuaLS require statements when lazydev has items
 					lsp = { fallback_for = { "lazydev" } },

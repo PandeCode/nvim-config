@@ -25,6 +25,8 @@ return {
 			library = {
 				"lazy.nvim",
 				"blink.cmp",
+				"snacks.nvim",
+				"telescope.nvim",
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},

@@ -90,11 +90,10 @@ local M = {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
-		---@type snacks.Config
+		---@type Snacks.Config
 		opts = {
 			animate = {},
 			scroll = {},
-			words = {},
 
 			zen = {},
 			bigfile = {},
@@ -106,7 +105,6 @@ local M = {
 				timeout = 3000,
 			},
 			quickfile = {},
-			statuscolumn = {},
 			words = {},
 			styles = {
 				notification = {

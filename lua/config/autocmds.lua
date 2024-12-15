@@ -34,3 +34,13 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 		vim.opt.relativenumber = true
 	end,
 })
+
+
+-- Make parent folders if they don't exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = "*",
+	callback = function()
+		vim.fn.mkdir(vim.fn.expand("<afile>:p:h"), "p")
+	end,
+})
+

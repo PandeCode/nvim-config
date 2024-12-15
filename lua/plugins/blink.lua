@@ -33,7 +33,7 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "v0.*",
-		dependencies = { "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig" },
+		dependencies = { "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig", "folke/lazydev.nvim" },
 		opts = {
 			appearance = { nerd_font_variant = "mono" },
 			signature = { enabled = true },
@@ -67,10 +67,20 @@ return {
 			},
 
 			completion = {
+				ghost_text = {
+					enabled = false,
+				},
+				documentation = {
+					auto_show = true,
+				},
+
 				menu = {
 					draw = {
-						columns = { { "item_idx" }, { "kind_icon" }, { "label", "label_description", gap = 1 } },
+						treesitter = { "lsp", "buffer", "lazydev" },
+						columns = { { "item_idx" }, { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+
 						components = {
+
 							item_idx = {
 								text = function(ctx)
 									return tostring(ctx.idx)
@@ -85,9 +95,11 @@ return {
 			sources = {
 				default = { "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
 				providers = {
-					-- dont show LuaLS require statements when lazydev has items
 					lsp = { fallback_for = { "lazydev" } },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+				},
+				per_filetype = {
+					-- lua = { 'lsp', 'path' },
 				},
 			},
 		},

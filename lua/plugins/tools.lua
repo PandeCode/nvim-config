@@ -1,5 +1,10 @@
 local M = {
 	{
+		"nvim-treesitter/playground",
+		cmd = "TSPlayground",
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = function()
 			require("nvim-treesitter.install").update { with_sync = true }()
@@ -147,20 +152,13 @@ local M = {
 		opts = {},
 	},
 
-	{ "kylechui/nvim-surround", opts = {} },
-
-	{ "mbbill/undotree", lazy = true, keys = {
-		{ "<leader>ut", ":UndotreeToggle<CR>" },
-	} },
-
-	-- {
-	-- 	"ludovicchabant/vim-gutentags",
-	-- 	config = function()
-	-- 		local cache_dir = vim.fn.expand "~/.cache/ctags"
-	-- 		vim.fn.system { "mkdir", "-p", cache_dir }
-	-- 		vim.g.gutentags_cache_dir = cache_dir
-	-- 	end,
-	-- },
+	{
+		"mbbill/undotree",
+		lazy = true,
+		keys = {
+			{ "<leader>ut", ":UndotreeToggle<CR>", { silent = true, noremap = true } },
+		},
+	},
 
 	{
 		"andymass/vim-matchup",
@@ -169,14 +167,33 @@ local M = {
 		end,
 	},
 
-	-- {
-	--         "kevinhwang91/nvim-ufo",
-	--         config = RequireFn("plugins.ufo_conf"),
-	--         dependencies = { "kevinhwang91/promise-async" },
-	--         priority = 48,
-	-- },
-	--
-	-- { "danymat/neogen", config = RequireFn("plugins.neogen_conf"), ft = neogen_ft },
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = { "kevinhwang91/promise-async" },
+		config = function()
+			vim.o.foldcolumn = "1" -- '0' is not bad
+			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+
+			require("ufo").setup {
+				provider_selector = function(bufnr, filetype, buftype)
+					return { "treesitter", "indent" }
+				end,
+			}
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+		end,
+	},
+
+	{
+		"danymat/neogen",
+		opts = {},
+		config = function()
+			local opts = { noremap = true, silent = true }
+			vim.api.nvim_set_keymap("n", "<Leader>ng", ":lua require('neogen').generate()<CR>", opts)
+		end,
+	},
 
 	"wakatime/vim-wakatime",
 }

@@ -10,10 +10,7 @@ elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
 	local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
 	if image_files ~= nil then
 		math.randomseed(os.time())
-		header = table.concat(
-			image_files[math.random(1, #image_files)],
-			"\n"
-		)
+		header = table.concat(image_files[math.random(1, #image_files)], "\n")
 	end
 end
 
@@ -60,7 +57,7 @@ local dashboard_config = {
 			icon = " ",
 			title = "Git Status",
 			section = "terminal",
-			enabled = vim.fn.isdirectory(".git") == 1,
+			enabled = vim.fn.isdirectory ".git" == 1,
 			cmd = "hub status --short --branch --renames",
 			height = 5,
 			padding = 1,

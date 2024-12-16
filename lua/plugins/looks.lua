@@ -17,7 +17,8 @@ local M = {
 		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
-				separator_style = { "slant", "slope" },
+				-- separator_style = { "slant", "slope" },
+				separator_style = "slant",
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					local s = " "
 					for e, n in pairs(diagnostics_dict) do
@@ -78,61 +79,47 @@ local M = {
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
+		opts = {
+			{
+				options = {
+					icons_enabled = true,
+					theme = "tokyonight",
+					component_separators = { left = "", right = "" },
+					section_separators = { left = "", right = "" },
+					disabled_filetypes = {},
+					always_divide_middle = true,
+				},
+				sections = {
+					lualine_a = { "mode" },
+					lualine_b = {
+						"branch",
+						"diff",
+						{
+							"diagnostics",
+							sources = { "nvim_diagnostic" },
+							symbols = { error = " ", warn = " ", info = " ", hint = " " },
+						},
+					},
+					lualine_c = { "filename" },
+					lualine_x = { "copilot", "encoding", "fileformat", "filetype" }, -- I added copilot here
+					lualine_y = { "progress" },
+					lualine_z = { "location" },
+				},
+				inactive_sections = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = { "filename" },
+					lualine_x = { "location" },
+					lualine_y = {},
+					lualine_z = {},
+				},
+				tabline = {},
+				extensions = {},
+			},
+		},
 	},
 
-	{
-		"echasnovski/mini.nvim",
-		version = false,
-		config = function()
-			require("mini.pairs").setup()
 
-			local miniclue = require "mini.clue"
-			miniclue.setup {
-				triggers = {
-					-- Leader triggers
-					{ mode = "n", keys = "<Leader>" },
-					{ mode = "x", keys = "<Leader>" },
-
-					-- Built-in completion
-					{ mode = "i", keys = "<C-x>" },
-
-					-- `g` key
-					{ mode = "n", keys = "g" },
-					{ mode = "x", keys = "g" },
-
-					-- Marks
-					{ mode = "n", keys = "'" },
-					{ mode = "n", keys = "`" },
-					{ mode = "x", keys = "'" },
-					{ mode = "x", keys = "`" },
-
-					-- Registers
-					{ mode = "n", keys = '"' },
-					{ mode = "x", keys = '"' },
-					{ mode = "i", keys = "<C-r>" },
-					{ mode = "c", keys = "<C-r>" },
-
-					-- Window commands
-					{ mode = "n", keys = "<C-w>" },
-
-					-- `z` key
-					{ mode = "n", keys = "z" },
-					{ mode = "x", keys = "z" },
-				},
-
-				clues = {
-					-- Enhance this by adding descriptions for <Leader> mapping groups
-					miniclue.gen_clues.builtin_completion(),
-					miniclue.gen_clues.g(),
-					miniclue.gen_clues.marks(),
-					miniclue.gen_clues.registers(),
-					miniclue.gen_clues.windows(),
-					miniclue.gen_clues.z(),
-				},
-			}
-		end,
-	},
 
 	{
 		"folke/noice.nvim",
@@ -192,6 +179,9 @@ local M = {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				rust = { "rustfmt" },
+				cpp = { "clang-format" },
+				c = { "clang-format" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 
 				markdown = function(bufnr)

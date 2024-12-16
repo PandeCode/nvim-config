@@ -23,6 +23,7 @@ return {
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
+				"mini.nvim",
 				"lazy.nvim",
 				"blink.cmp",
 				"snacks.nvim",
@@ -35,7 +36,12 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "v0.*",
-		dependencies = { "L3MON4D3/LuaSnip", "neovim/nvim-lspconfig", "folke/lazydev.nvim" },
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+			"neovim/nvim-lspconfig",
+			"folke/lazydev.nvim",
+			"giuxtaposition/blink-cmp-copilot",
+		},
 		opts = {
 			appearance = { nerd_font_variant = "mono" },
 			signature = { enabled = true },
@@ -55,7 +61,7 @@ return {
 			},
 
 			keymap = {
-				preset = "enter",
+				preset = "super-tab",
 
 				["<A-1>"] = cmp_i(1),
 				["<A-2>"] = cmp_i(2),
@@ -95,10 +101,14 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
+				default = { "copilot", "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
 				providers = {
 					lsp = { fallback_for = { "lazydev" } },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+					},
 				},
 				per_filetype = {
 					-- lua = { 'lsp', 'path' },

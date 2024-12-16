@@ -1,3 +1,14 @@
+vim.keymap.set("n", "<LEADER>e", function()
+	vim.diagnostic.open_float { float = "rounded" }
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "g[", function()
+	vim.diagnostic.goto_prev { float = "rounded" }
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "g]", function()
+	vim.diagnostic.goto_next { float = "rounded" }
+end, { noremap = true, silent = true })
+vim.keymap.set("n", "<LEADER>q", "<CMD>Telescope diagnostics<CR>", { noremap = true, silent = true })
+
 local servers = {
 	ast_grep = {},
 	awk_ls = {},
@@ -66,27 +77,10 @@ local servers = {
 
 return {
 	{
-		"neovim/nvim-lspconfig",
-		dependencies = { "ray-x/lsp_signature.nvim" },
+		"nvimdev/lspsaga.nvim",
 		config = function()
-			local lspconfig = require "lspconfig"
-			for server, config in pairs(servers) do
-				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				lspconfig[server].setup(config)
-			end
-		end,
-	},
-	{
-		"ray-x/lsp_signature.nvim",
-		event = "InsertEnter",
-		config = function()
-			require("lsp_signature").setup {
-				bind = true,
-				handler_opts = {
-					border = "rounded",
-				},
-			}
-
+			require("lspsaga").setup {}
+			-- require("lspsaga.symbol.winbar").get_bar()
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local bufnr = args.buf
@@ -115,6 +109,33 @@ return {
 					vim.keymap.set("n", "<LEADER>lf", "<CMD>Lspsaga finder tyd+ref+imp+def<CR>", bufopts)
 				end,
 			})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = { "ray-x/lsp_signature.nvim" },
+		config = function()
+			local lspconfig = require "lspconfig"
+			for server, config in pairs(servers) do
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				lspconfig[server].setup(config)
+			end
+		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "InsertEnter",
+		config = function()
+			require("lsp_signature").setup {
+				bind = true,
+				handler_opts = {
+					border = "rounded",
+				},
+			}
 		end,
 	},
 }

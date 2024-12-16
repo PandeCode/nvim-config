@@ -35,12 +35,28 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	end,
 })
 
-
 -- Make parent folders if they don't exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = "*",
 	callback = function()
-		vim.fn.mkdir(vim.fn.expand("<afile>:p:h"), "p")
+		vim.fn.mkdir(vim.fn.expand "<afile>:p:h", "p")
 	end,
 })
 
+local function set_filetype(pattern, filetype)
+	vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+		pattern = pattern,
+		callback = function()
+			vim.o.filetype = filetype
+		end,
+	})
+end
+
+set_filetype("*/xmobarrc", "haskell")
+set_filetype({ "*.ls", "*.v" }, "vlang")
+set_filetype("*.yuck", "yuck")
+set_filetype("*.keys", "keys")
+set_filetype({ "*.shader", "*.frag", "*.vert" }, "glsl")
+set_filetype({ "*.json", "*/waybar/config" }, "jsonc")
+set_filetype("*/hypr/**/*.conf", "hypr")
+set_filetype("*/sway/*.conf", "swayconfig")

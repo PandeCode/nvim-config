@@ -116,21 +116,22 @@ local M = {
 					-- only_scope = true,
 					-- only_current = true,
 					hl = {
-						"SnacksIndent1",
-						"SnacksIndent2",
-						"SnacksIndent3",
-						"SnacksIndent4",
-						"SnacksIndent5",
-						"SnacksIndent6",
-						"SnacksIndent7",
-						"SnacksIndent8",
+						"RainbowRed",
+						"RainbowYellow",
+						"RainbowBlue",
+						"RainbowOrange",
+						"RainbowGreen",
+						"RainbowViolet",
+						"RainbowCyan",
 					},
 				},
 				-- blank = "∙",
-				chunk = { char = {
-					corner_top = "╭",
-					corner_bottom = "╰",
-				} },
+				chunk = {
+					char = {
+						corner_top = "╭",
+						corner_bottom = "╰",
+					},
+				},
 			},
 		},
 		keys = {
@@ -267,6 +268,22 @@ local M = {
 				end,
 			},
 		},
+		config = function()
+			-- Toggle the profiler
+			Snacks.toggle.profiler():map "<leader>pp"
+			-- Toggle the profiler highlights
+			Snacks.toggle.profiler_highlights():map "<leader>ph"
+
+			vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+			vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+			vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+			vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+			vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+			vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+
+			vim.g.rainbow_delimiters = { highlight = highlight }
+		end,
 		init = function()
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "VeryLazy",

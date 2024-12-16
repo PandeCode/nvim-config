@@ -8,24 +8,14 @@ end
 
 return {
 	{
-		"L3MON4D3/LuaSnip",
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load() -- For friendly-snippets
-			require("luasnip.loaders.from_vscode").lazy_load { paths = vim.fn.expand "~/.config/nvim/snippets" }
-		end,
-		dependencies = { "rafamadriz/friendly-snippets" },
-		version = "v2.*",
-		build = "make install_jsregexp",
-	},
-
-	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
-				"mini.nvim",
-				"lazy.nvim",
 				"blink.cmp",
+				"lazy.nvim",
+				"lualine.nvim",
+				"mini.nvim",
 				"snacks.nvim",
 				"telescope.nvim",
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },

@@ -30,7 +30,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"neovim/nvim-lspconfig",
 			"folke/lazydev.nvim",
-			"giuxtaposition/blink-cmp-copilot",
+			-- "giuxtaposition/blink-cmp-copilot",
 		},
 		opts = {
 			appearance = { nerd_font_variant = "mono" },
@@ -91,14 +91,21 @@ return {
 			},
 
 			sources = {
-				default = { "copilot", "lsp", "luasnip", "path", "snippets", "buffer", "lazydev" },
+				default = { --"copilot",
+					"lsp",
+					"luasnip",
+					"path",
+					"snippets",
+					"buffer",
+					"lazydev",
+				},
 				providers = {
 					lsp = { fallback_for = { "lazydev" } },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-					copilot = {
-						name = "copilot",
-						module = "blink-cmp-copilot",
-					},
+					-- copilot = {
+					-- 	name = "copilot",
+					-- 	module = "blink-cmp-copilot",
+					-- },
 				},
 				per_filetype = {
 					-- lua = { 'lsp', 'path' },

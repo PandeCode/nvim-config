@@ -3,11 +3,13 @@ return {
 		"echasnovski/mini.nvim",
 		version = "*",
 		config = function()
+			-- require("mini.animate").setup()
+			-- require("mini.notify").setup()
+
 			require("mini.cursorword").setup()
 			require("mini.pairs").setup()
-			-- require("mini.animate").setup()
 			require("mini.align").setup()
-			require('mini.move').setup()
+			require("mini.move").setup()
 
 			require("mini.surround").setup {
 				mappings = {
@@ -68,7 +70,7 @@ return {
 					{ mode = "n", keys = "<C-w>" },
 
 					-- `z` key
-					{ mode = "n", keys = "z" },
+					-- { mode = "n", keys = "z" }, -- FIXME: Disables z<CR>
 					{ mode = "x", keys = "z" },
 				},
 

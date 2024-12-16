@@ -1,3 +1,18 @@
+vim.cmd [[
+if argc() > 1
+	silent blast " load last buffer
+	silent bfirst " switch back to the first
+endif
+
+if exists('+termguicolors')
+	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+
+syntax sync minlines=256
+]]
+
 vim.api.nvim_create_user_command("Q", function(opts)
 	vim.cmd("quit" .. (opts.bang and "!" or ""))
 end, { bang = true, bar = true })

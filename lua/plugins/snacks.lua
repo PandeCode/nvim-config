@@ -7,7 +7,7 @@ local header = nil
 if env_header ~= vim.NIL and env_header ~= "" then
 	header = vim.fn.readfile(env_header)
 elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
-	local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
+	image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
 	if image_files ~= nil then
 		math.randomseed(os.time())
 		header = table.concat(image_files[math.random(1, #image_files)], "\n")
@@ -82,39 +82,29 @@ local dashboard_config = {
 	},
 }
 
-local M = {
+return {
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
 		---@type Snacks.Config
 		opts = {
-			animate = {},
-			scroll = {},
-
-			zen = {},
-			bigfile = {},
-
 			dashboard = dashboard_config,
 
-			notifier = {
-				enabled = true,
-				timeout = 3000,
-			},
+			animate = {},
+			scroll = {},
+			zen = {},
+			bigfile = {},
+			notifier = {},
 			quickfile = {},
 			words = {},
-			styles = {
-				notification = {
-					wo = { wrap = true }, -- Wrap notifications
-				},
-			},
 			statuscolumn = {},
 			indent = {
 				enabled = true,
 				indent = {
 					-- blank = { char = "  > " },
 					-- only_scope = true,
-					-- only_current = true,
+					only_current = true,
 					hl = {
 						"RainbowRed",
 						"RainbowYellow",
@@ -135,120 +125,23 @@ local M = {
 			},
 		},
 		keys = {
-			{
-				"<leader>zm",
-				function()
-					Snacks.zen()
-				end,
-				desc = "Toggle Scratch Buffer",
-			},
-			{
-				"<leader>.",
-				function()
-					Snacks.scratch()
-				end,
-				desc = "Toggle Scratch Buffer",
-			},
-			{
-				"<leader>S",
-				function()
-					Snacks.scratch.select()
-				end,
-				desc = "Select Scratch Buffer",
-			},
-			{
-				"<leader>nh",
-				function()
-					Snacks.notifier.show_history()
-				end,
-				desc = "Notification History",
-			},
-			{
-				"<leader>bd",
-				function()
-					Snacks.bufdelete()
-				end,
-				desc = "Delete Buffer",
-			},
-			{
-				"<leader>cR",
-				function()
-					Snacks.rename.rename_file()
-				end,
-				desc = "Rename File",
-			},
-			{
-				"<leader>giB",
-				function()
-					Snacks.gitbrowse()
-				end,
-				desc = "Git Browse",
-			},
-			{
-				"<leader>gib",
-				function()
-					Snacks.git.blame_line()
-				end,
-				desc = "Git Blame Line",
-			},
-			{
-				"<leader>gif",
-				function()
-					Snacks.lazygit.log_file()
-				end,
-				desc = "Lazygit Current File History",
-			},
-			{
-				"<leader>gig",
-				function()
-					Snacks.lazygit()
-				end,
-				desc = "Lazygit",
-			},
-			{
-				"<leader>gil",
-				function()
-					Snacks.lazygit.log()
-				end,
-				desc = "Lazygit Log (cwd)",
-			},
-			{
-				"<leader>un",
-				function()
-					Snacks.notifier.hide()
-				end,
-				desc = "Dismiss All Notifications",
-			},
-			{
-				"<c-/>",
-				function()
-					Snacks.terminal()
-				end,
-				desc = "Toggle Terminal",
-			},
-			{
-				"<c-_>",
-				function()
-					Snacks.terminal()
-				end,
-				desc = "which_key_ignore",
-			},
-			{
-				"]]",
-				function()
-					Snacks.words.jump(vim.v.count1)
-				end,
-				desc = "Next Reference",
-				mode = { "n", "t" },
-			},
-			{
-				"[[",
-				function()
-					Snacks.words.jump(-vim.v.count1)
-				end,
-				desc = "Prev Reference",
-				mode = { "n", "t" },
-			},
+			-- stylua: ignore start
+			{ "<leader>zm",  function() Snacks.zen() end,                     desc = "Toggle Zen Buffer",        },
+			{ "<leader>.",   function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer",        },
+			{ "<leader>S",   function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer",        },
+			{ "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",         },
+			{ "<leader>bd",  function() Snacks.bufdelete() end,               desc = "Delete Buffer",                },
+			{ "<leader>cR",  function() Snacks.rename.rename_file() end,      desc = "Rename File",                  },
+			{ "<leader>giB", function() Snacks.gitbrowse() end,               desc = "Git Browse",                   },
+			{ "<leader>gib", function() Snacks.git.blame_line() end,          desc = "Git Blame Line",               },
+			{ "<leader>gif", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History", },
+			{ "<leader>gig", function() Snacks.lazygit() end,                 desc = "Lazygit",                      },
+			{ "<leader>gil", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)",            },
+			{ "<leader>un",  function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications",    },
+			{ "]]",          function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",               mode = { "n", "t" }, },
+			{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",               mode = { "n", "t" }, },
+			-- stylua: ignore end
+
 			{
 				"<leader>N",
 				desc = "Neovim News",
@@ -268,12 +161,7 @@ local M = {
 				end,
 			},
 		},
-		config = function()
-			-- Toggle the profiler
-			Snacks.toggle.profiler():map "<leader>pp"
-			-- Toggle the profiler highlights
-			Snacks.toggle.profiler_highlights():map "<leader>ph"
-
+		init = function()
 			vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
 			vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
 			vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
@@ -283,8 +171,7 @@ local M = {
 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 
 			vim.g.rainbow_delimiters = { highlight = highlight }
-		end,
-		init = function()
+
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "VeryLazy",
 				callback = function()
@@ -297,7 +184,8 @@ local M = {
 					end
 					vim.print = _G.dd -- Override print to use snacks for `:=` command
 
-					-- Create some toggle mappings
+					Snacks.toggle.profiler():map "<leader>pp"
+					Snacks.toggle.profiler_highlights():map "<leader>ph"
 					Snacks.toggle.option("spell", { name = "Spelling" }):map "<leader>us"
 					Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
 					Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
@@ -316,5 +204,3 @@ local M = {
 		end,
 	},
 }
-
-return M

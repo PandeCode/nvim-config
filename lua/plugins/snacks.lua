@@ -104,7 +104,7 @@ return {
 				indent = {
 					-- blank = { char = "  > " },
 					-- only_scope = true,
-					only_current = true,
+					-- only_current = true,
 					hl = {
 						"RainbowRed",
 						"RainbowYellow",

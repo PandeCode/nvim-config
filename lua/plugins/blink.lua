@@ -30,7 +30,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"neovim/nvim-lspconfig",
 			"folke/lazydev.nvim",
-			-- "giuxtaposition/blink-cmp-copilot",
+			"giuxtaposition/blink-cmp-copilot",
 		},
 		opts = {
 			appearance = { nerd_font_variant = "mono" },
@@ -68,9 +68,6 @@ return {
 				ghost_text = {
 					enabled = false,
 				},
-				documentation = {
-					auto_show = true,
-				},
 
 				menu = {
 					draw = {
@@ -81,7 +78,7 @@ return {
 
 							item_idx = {
 								text = function(ctx)
-									return tostring(ctx.idx)
+									return SUPERSCRIPTS[tostring(ctx.idx)]
 								end,
 								highlight = "BlinkCmpItemIdx",
 							},
@@ -91,7 +88,8 @@ return {
 			},
 
 			sources = {
-				default = { --"copilot",
+				default = {
+					"copilot",
 					"lsp",
 					"luasnip",
 					"path",
@@ -102,14 +100,61 @@ return {
 				providers = {
 					lsp = { fallback_for = { "lazydev" } },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-					-- copilot = {
-					-- 	name = "copilot",
-					-- 	module = "blink-cmp-copilot",
-					-- },
+					copilot = {
+						name = "copilot",
+						module = "blink-cmp-copilot",
+						kind = "Copilot",
+						score_offset = 100,
+						async = true,
+						transform_items = function(_, items)
+							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+							local kind_idx = #CompletionItemKind + 1
+							CompletionItemKind[kind_idx] = "Copilot"
+							for _, item in ipairs(items) do
+								item.kind = kind_idx
+							end
+							return items
+						end,
+					},
 				},
-				per_filetype = {
-					-- lua = { 'lsp', 'path' },
+				appearance = {
+					-- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+					kind_icons = {
+						Copilot = "",
+						Text = "󰉿",
+						Method = "󰊕",
+						Function = "󰊕",
+						Constructor = "󰒓",
+
+						Field = "󰜢",
+						Variable = "󰆦",
+						Property = "󰖷",
+
+						Class = "󱡠",
+						Interface = "󱡠",
+						Struct = "󱡠",
+						Module = "󰅩",
+
+						Unit = "󰪚",
+						Value = "󰦨",
+						Enum = "󰦨",
+						EnumMember = "󰦨",
+
+						Keyword = "󰻾",
+						Constant = "󰏿",
+
+						Snippet = "󱄽",
+						Color = "󰏘",
+						File = "󰈔",
+						Reference = "󰬲",
+						Folder = "󰉋",
+						Event = "󱐋",
+						Operator = "󰪚",
+						TypeParameter = "󰬛",
+					},
 				},
+
+				-- per_filetype = { -- lua = { 'lsp', 'path' }, },
 			},
 		},
 	},

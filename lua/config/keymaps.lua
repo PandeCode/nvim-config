@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.keymap.set("n", "<C-;>", ":", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>wj", "<C-W>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wh", "<C-W>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>wk", "<C-W>k", { noremap = true, silent = true })
@@ -46,3 +48,4 @@ local keymaps = {
 for _, value in pairs(keymaps) do
 	vim.keymap.set(value[1], value[2], value[3], value[4] or Keys.None)
 end
+

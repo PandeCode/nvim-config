@@ -196,6 +196,133 @@ local M = {
 	},
 
 	"wakatime/vim-wakatime",
+	{
+		"https://github.com/nvimtools/none-ls.nvim",
+		config = function()
+			local null_ls = require "null-ls"
+			local helpers = require "null-ls.helpers"
+
+			null_ls.setup {
+				sources = {
+					-- null_ls.builtins.formatting.stylua,
+					null_ls.builtins.completion.spell,
+					-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+				},
+			}
+
+			local markdownlint = {
+				method = null_ls.methods.DIAGNOSTICS,
+				filetypes = { "markdown" },
+				-- null_ls.generator creates an async source
+				-- that spawns the command with the given arguments and options
+				generator = null_ls.generator {
+					command = "markdownlint",
+					args = { "--stdin" },
+					to_stdin = true,
+					from_stderr = true,
+					-- choose an output format (raw, json, or line)
+					format = "line",
+					check_exit_code = function(code, stderr)
+						local success = code <= 1
+
+						if not success then
+							-- can be noisy for things that run often (e.g. diagnostics), but can
+							-- be useful for things that run on demand (e.g. formatting)
+							print(stderr)
+						end
+
+						return success
+					end,
+					-- use helpers to parse the output from string matchers,
+					-- or parse it manually with a function
+					on_output = helpers.diagnostics.from_patterns {
+						{
+							pattern = [[:(%d+):(%d+) [%w-/]+ (.*)]],
+							groups = { "row", "col", "message" },
+						},
+						{
+							pattern = [[:(%d+) [%w-/]+ (.*)]],
+							groups = { "row", "message" },
+						},
+					},
+				},
+			}
+
+			local no_really = {
+				method = null_ls.methods.DIAGNOSTICS,
+				filetypes = { "markdown", "text" },
+				generator = {
+					fn = function(params)
+						local diagnostics = {}
+						-- sources have access to a params object
+						-- containing info about the current file and editor state
+						for i, line in ipairs(params.content) do
+							local col, end_col = line:find "really"
+							if col and end_col then
+								-- null-ls fills in undefined positions
+								-- and converts source diagnostics into the required format
+								table.insert(diagnostics, {
+									row = i,
+									col = col,
+									end_col = end_col + 1,
+									source = "no-really",
+									message = "Don't use 'really!'",
+									severity = vim.diagnostic.severity.WARN,
+								})
+							end
+						end
+						return diagnostics
+					end,
+				},
+			}
+
+			null_ls.register(no_really)
+			null_ls.register(markdownlint)
+
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = true })
+		end,
+		lazy = true,
+	},
+
+	{
+		"LhKipp/nvim-nu",
+		build = ":TSInstall nu",
+		ft = "nu",
+		opts = {
+			use_lsp_features = true, -- requires https://github.com/jose-elias-alvarez/null-ls.nvim
+			-- lsp_feature: all_cmd_names is the source for the cmd name completion.
+			-- It can be
+			--  * a string, which is evaluated by nushell and the returned list is the source for completions (requires plenary.nvim)
+			--  * a list, which is the direct source for completions (e.G. all_cmd_names = {"echo", "to csv", ...})
+			--  * a function, returning a list of strings and the return value is used as the source for completions
+			all_cmd_names = [[help commands | get name | str join "\n"]],
+		},
+	},
+	{ -- This plugin
+		"Zeioth/compiler.nvim",
+		cmd = { "CompilerOpen", "CompilerToggleResults" },
+		dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
+		keys = {
+			{ "<LEADER>co", ":CompilerOpen<CR>", desc = "CompilerOpen" },
+			{ "<LEADER>ct", ":CompilerToggleResults<CR>", desc = "CompilerToggleResults" },
+			{ "<LEADER>cr", ":CompilerRedo<CR>", desc = "CompilerRedo" },
+			{ "<LEADER>cs", ":CompilerStop<CR>", desc = "CompilerStop" },
+		},
+		opts = {},
+	},
+	{ -- The task runner we use
+		"stevearc/overseer.nvim",
+		commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
+		cmd = { "CompilerOpen" },
+		opts = {
+			task_list = {
+				direction = "right",
+				min_height = 15,
+				max_height = 15,
+				default_detail = 1,
+			},
+		},
+	},
 }
 
 return M

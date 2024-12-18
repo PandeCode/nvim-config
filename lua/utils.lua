@@ -20,8 +20,8 @@ function RandStr(length)
 end
 
 function GetVisualSelection()
-	local s_start = vim.fn.getpos("'<")
-	local s_end = vim.fn.getpos("'>")
+	local s_start = vim.fn.getpos "'<"
+	local s_end = vim.fn.getpos "'>"
 	local n_lines = math.abs(s_end[2] - s_start[2]) + 1
 	local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false)
 	lines[1] = string.sub(lines[1], s_start[3], -1)
@@ -141,3 +141,59 @@ Keys = {
 		expr = true,
 	},
 }
+
+-- stylua: ignore start
+SUPERSCRIPTS = {
+    ["0"] = "⁰", ["1"] = "¹", ["2"] = "²", ["3"] = "³",
+    ["4"] = "⁴", ["5"] = "⁵", ["6"] = "⁶", ["7"] = "⁷",
+    ["8"] = "⁸", ["9"] = "⁹",
+    ["a"] = "ᵃ", ["b"] = "ᵇ", ["c"] = "ᶜ", ["d"] = "ᵈ",
+    ["e"] = "ᵉ", ["f"] = "ᶠ", ["g"] = "ᶢ", ["h"] = "ʰ",
+    ["i"] = "ⁱ", ["j"] = "ʲ", ["k"] = "ᵏ", ["l"] = "ˡ",
+    ["m"] = "ᵐ", ["n"] = "ⁿ", ["o"] = "ᵒ", ["p"] = "ᵖ",
+    ["r"] = "ʳ", ["s"] = "ˢ", ["t"] = "ᵗ", ["u"] = "ᵘ",
+    ["v"] = "ᵛ", ["w"] = "ʷ", ["x"] = "ˣ", ["y"] = "ʸ",
+    ["z"] = "ᶻ",
+    ["A"] = "ᴬ", ["B"] = "ᴮ", ["D"] = "ᴰ", ["E"] = "ᴱ",
+    ["G"] = "ᴳ", ["H"] = "ᴴ", ["I"] = "ᴵ", ["J"] = "ᴶ",
+    ["K"] = "ᴷ", ["L"] = "ᴸ", ["M"] = "ᴹ", ["N"] = "ᴺ",
+    ["O"] = "ᴼ", ["P"] = "ᴾ", ["R"] = "ᴿ", ["T"] = "ᵀ",
+    ["U"] = "ᵁ", ["V"] = "ⱽ", ["W"] = "ᵂ",
+    ["+"] = "⁺", ["-"] = "⁻", ["="] = "⁼", ["("] = "⁽",
+    [")"] = "⁾"
+}
+
+SUBSCRIPTS = {
+    ["0"] = "₀", ["1"] = "₁", ["2"] = "₂", ["3"] = "₃",
+    ["4"] = "₄", ["5"] = "₅", ["6"] = "₆", ["7"] = "₇",
+    ["8"] = "₈", ["9"] = "₉",
+    ["a"] = "ₐ", ["e"] = "ₑ", ["h"] = "ₕ", ["i"] = "ᵢ",
+    ["j"] = "ⱼ", ["k"] = "ₖ", ["l"] = "ₗ", ["m"] = "ₘ",
+    ["n"] = "ₙ", ["o"] = "ₒ", ["p"] = "ₚ", ["r"] = "ᵣ",
+    ["s"] = "ₛ", ["t"] = "ₜ", ["u"] = "ᵤ", ["v"] = "ᵥ",
+    ["x"] = "ₓ",
+    ["+"] = "₊", ["-"] = "₋", ["="] = "₌", ["("] = "₍",
+    [")"] = "₎"
+}
+-- stylua: ignore end
+
+local function applyMapping(s, map)
+	local result = ""
+
+	for i = 1, #s do
+		local char = s:sub(i, i)
+		if map[char] then
+			result = result .. map[char]
+		end
+	end
+
+	return result
+end
+
+function ToSuperscript(s)
+	return applyMapping(s, SUPERSCRIPTS)
+end
+
+function ToSubscript(s)
+	return applyMapping(s, SUBSCRIPTS)
+end

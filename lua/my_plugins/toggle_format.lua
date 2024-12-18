@@ -73,4 +73,3 @@ end
 for _, top_format_stop_block in ipairs(top_format_stop_blocks) do
 	add_top_format_stop_block(top_format_stop_block[1], top_format_stop_block[2])
 end
-

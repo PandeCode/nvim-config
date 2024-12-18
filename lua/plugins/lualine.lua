@@ -1,3 +1,32 @@
+local function copilot_lualine()
+	return {
+		"copilot",
+		-- Default values
+		symbols = {
+			status = {
+				icons = {
+					enabled = " ",
+					sleep = " ", -- auto-trigger disabled
+					disabled = " ",
+					warning = " ",
+					unknown = " ",
+				},
+				hl = {
+					enabled = "#50FA7B",
+					sleep = "#AEB7D0",
+					disabled = "#6272A4",
+					warning = "#FFB86C",
+					unknown = "#FF5555",
+				},
+			},
+			spinners = require("copilot-lualine.spinners").dots,
+			spinner_color = "#6272A4",
+		},
+		show_colors = true,
+		show_loading = true,
+	}
+end
+
 return {
 	{ "AndreM222/copilot-lualine" },
 	{
@@ -189,32 +218,7 @@ return {
 				end,
 			}
 
-			ins_left {
-				"copilot",
-				-- Default values
-				symbols = {
-					status = {
-						icons = {
-							enabled = " ",
-							sleep = " ", -- auto-trigger disabled
-							disabled = " ",
-							warning = " ",
-							unknown = " ",
-						},
-						hl = {
-							enabled = "#50FA7B",
-							sleep = "#AEB7D0",
-							disabled = "#6272A4",
-							warning = "#FFB86C",
-							unknown = "#FF5555",
-						},
-					},
-					spinners = require("copilot-lualine.spinners").dots,
-					spinner_color = "#6272A4",
-				},
-				show_colors = true,
-				show_loading = true,
-			}
+			ins_left(copilot_lualine())
 
 			-- Add components to right sections
 			ins_right {

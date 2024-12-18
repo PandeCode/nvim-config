@@ -14,7 +14,7 @@ local M = {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
-
+		lazy = false,
 		keys = {
 			{ "<LEADER>1", "<CMD>BufferLineGoToBuffer 1<CR>" },
 			{ "<LEADER>2", "<CMD>BufferLineGoToBuffer 2<CR>" },
@@ -26,12 +26,11 @@ local M = {
 			{ "<LEADER>8", "<CMD>BufferLineGoToBuffer 8<CR>" },
 			{ "<LEADER>9", "<CMD>BufferLineGoToBuffer 9<CR>" },
 		},
-
 		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
-				-- separator_style = { "slant", "slope" },
-				separator_style = "slant",
+				 -- separator_style = { "slant", "slope" },
+				separator_style = "slope",
 				diagnostics_indicator = function(count, level, diagnostics_dict, context)
 					local s = " "
 					for e, n in pairs(diagnostics_dict) do
@@ -113,6 +112,8 @@ local M = {
 		---@type conform.setupOpts
 		opts = {
 			formatters_by_ft = {
+				-- nix = { "nixfmt" },
+				nix = { "nixfmt" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				rust = { "rustfmt" },

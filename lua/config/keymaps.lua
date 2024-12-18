@@ -48,4 +48,3 @@ local keymaps = {
 for _, value in pairs(keymaps) do
 	vim.keymap.set(value[1], value[2], value[3], value[4] or Keys.None)
 end
-

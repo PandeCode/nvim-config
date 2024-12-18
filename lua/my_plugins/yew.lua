@@ -31,12 +31,12 @@ YEW = {
 		end,
 
 		reload = function()
-			vim.cmd([[source ~/.config/nvim/lua/personal/yew.lua]])
+			vim.cmd [[source ~/.config/nvim/lua/personal/yew.lua]]
 			notify("Reloading Yew tools", "info", { title = "Yew" })
 		end,
 
 		edit = function()
-			vim.cmd([[edit ~/.config/nvim/lua/personal/yew.lua]])
+			vim.cmd [[edit ~/.config/nvim/lua/personal/yew.lua]]
 		end,
 
 		new_component = function(name)
@@ -53,4 +53,3 @@ YEW = {
 		end,
 	},
 }
-

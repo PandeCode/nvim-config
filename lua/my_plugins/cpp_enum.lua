@@ -1,5 +1,5 @@
 local function gen_enum_funcs(enum_name, bufnr)
-	enum_name = enum_name or vim.fn.expand("<cword>")
+	enum_name = enum_name or vim.fn.expand "<cword>"
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local ft = vim.bo[bufnr].filetype
 	if ft ~= "cpp" and ft ~= "c" then
@@ -109,4 +109,3 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.keymap.set("n", "<LEADER>ge", gen_enum_funcs, { buffer = tbl.buf })
 	end,
 })
-

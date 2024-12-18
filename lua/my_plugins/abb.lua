@@ -5,5 +5,3 @@ vim.cmd [[
    endfunc
    iabbr <silent> if if ()<Left><C-R>=Eatchar('\s')<CR>
 ]]
-
-

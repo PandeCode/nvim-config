@@ -5,7 +5,6 @@ local function copy_selection(prompt_bufnr)
 	vim.notify(value, nil, { title = "Copied", icon = "󰅍" })
 end
 
-
 return {
 	{
 		"nvim-telescope/telescope.nvim",

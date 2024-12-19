@@ -15,13 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
-local profile_opts = {profiling = {
-		loader = false,
-		require = false,
-	}}
-
--- Setup lazy.nvim
-require("lazy").setup {
+local opts = {
 	spec = {
 		{ import = "plugins" },
 	},
@@ -46,7 +40,14 @@ require("lazy").setup {
 			},
 		},
 	},
-
-	
 }
 
+if vim.env.PRO then
+	opts.profiling = {
+		loader = false,
+		require = false,
+	}
+end
+
+-- Setup lazy.nvim
+require("lazy").setup(opts)

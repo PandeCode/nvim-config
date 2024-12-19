@@ -50,9 +50,21 @@ local M = {
 		lazy = false,
 		priority = 1000,
 		opts = { style = "night" },
-
 		config = function()
-			vim.cmd [[colorscheme tokyonight ]]
+			vim.cmd [[colorscheme tokyonight-night ]]
+
+			IsTransparent = false
+			function ToggleBackground()
+				if IsTransparent then
+					vim.cmd "hi Normal guifg=#c0caf5 guibg=#1a1b26 | hi LineNr ctermfg=11 guifg=#3b4261| hi SignColumn ctermfg=14 ctermbg=242 guifg=#3b4261 guibg=#1a1b26"
+					IsTransparent = false
+				else
+					vim.cmd [[hi Normal ctermbg=NONE guibg=NONE | hi LineNr ctermbg=NONE guibg=NONE | hi SignColumn ctermbg=NONE guibg=NONE]]
+					IsTransparent = true
+				end
+			end
+
+			vim.keymap.set("n", "<LEADER>bt", ToggleBackground, { noremap = true, silent = true })
 		end,
 	},
 

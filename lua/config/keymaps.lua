@@ -14,14 +14,16 @@ vim.keymap.set("n", "<leader>bp", ":bp<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "gg", "gg0", { noremap = true, silent = true })
 vim.keymap.set("n", "G", "G$", { noremap = true, silent = true })
 
+vim.keymap.set("n", "jk", "<esc>", { noremap = true, silent = true })
+
 local n = Keys.N
 
 local keymaps = {
 	{ n, "<LEADER>me", vim.cmd.messages },
 	-- Buffer
-	{ n, "<LEADER>bp", vim.cmd.bp, Keys.NOremapSilent },
-	{ n, "<LEADER>bn", vim.cmd.bn, Keys.NOremapSilent },
-	{ n, "<LEADER>bd", vim.cmd.bd, Keys.NOremapSilent },
+	{ n, "<LEADER>bp", vim.cmd.bp, Keys.NoremapSilent },
+	{ n, "<LEADER>bn", vim.cmd.bn, Keys.NoremapSilent },
+	{ n, "<LEADER>bd", vim.cmd.bd, Keys.NoremapSilent },
 	{ n, "<A-d>", vim.cmd.bd, Keys.NoremapSilent },
 
 	{

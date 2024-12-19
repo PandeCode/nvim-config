@@ -1,0 +1,37 @@
+{
+  "Nix Module Template": {
+    "prefix": "nix-module",
+    "body": [
+      "{ config, pkgs, lib, ... }:",
+      "",
+      "with lib;",
+      "",
+      "let",
+      "  myPackage = pkgs.hello; # Example package",
+      "in",
+      "{",
+      "  options.${TM_FILENAME_BASE}.enable = mkOption {",
+      "    type = types.bool;",
+      "    default = false;",
+      "    description = \"Enable the example service provided by ${TM_FILENAME_BASE}.\";",
+      "  };",
+      "",
+      "  config = mkIf config.${TM_FILENAME_BASE}.enable {",
+      "    # Add the package to the system's environment",
+      "    environment.systemPackages = [ myPackage ];",
+      "",
+      "    # Add a simple systemd service",
+      "    systemd.services.${TM_FILENAME_BASE}Service = {",
+      "      description = \"An example service for ${TM_FILENAME_BASE}\";",
+      "      wantedBy = [ \"multi-user.target\" ];",
+      "      serviceConfig = {",
+      "        ExecStart = \"${myPackage}/bin/hello\";",
+      "      };",
+      "    };",
+      "  };",
+      "}"
+    ],
+    "description": "A basic Nix module with an option and a systemd service."
+  }
+}
+

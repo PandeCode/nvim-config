@@ -15,6 +15,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	end
 end
 vim.opt.rtp:prepend(lazypath)
+local profile_opts = {profiling = {
+		loader = false,
+		require = false,
+	}}
 
 -- Setup lazy.nvim
 require("lazy").setup {
@@ -23,7 +27,26 @@ require("lazy").setup {
 	},
 	rocks = { enabled = false },
 	install = { colorscheme = { "darkblue" } },
-	checker = { enabled = true },
+	checker = { enabled = false },
+	change_detection = { enabled = false },
 	git = { throttle = { enabled = true } },
 	ui = { browser = true, border = "rounded" },
+
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
+
+	
 }
+

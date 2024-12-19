@@ -11,20 +11,53 @@ return {
 			require("mini.align").setup()
 			require("mini.move").setup()
 
+			local ts_input = require("mini.surround").gen_spec.input.treesitter
+
 			require("mini.surround").setup {
 				mappings = {
-					add = "ys", -- Add surrounding in Normal and Visual modes
-					delete = "ds", -- Delete surrounding
-					replace = "cs", -- Replace surrounding
+					add = "ys",
+					delete = "ds",
+					find = "",
+					find_left = "",
+					highlight = "",
+					replace = "cs",
+					update_n_lines = "",
 
-					find = "", -- Find surrounding (to the right)
-					find_left = "", -- Find surrounding (to the left)
-					highlight = "", -- Highlight surrounding
-					update_n_lines = "", -- Update `n_lines`
-					suffix_last = "", -- Suffix to search with "prev" method
-					suffix_next = "", -- Suffix to search with "next" method
+					-- Add this only if you don't want to use extended mappings
+					suffix_last = "",
+					suffix_next = "",
+				},
+				search_method = "cover_or_next",
+				custom_surroundings = {
+					f = {
+						input = ts_input { outer = "@call.outer", inner = "@call.inner" },
+					},
+
+					-- Make `)` insert parts with spaces. `input` pattern stays the same.
+					[")"] = { output = { left = "( ", right = " )" } },
+
+					-- Use function to compute surrounding info
+					["*"] = {
+						input = function()
+							local n_star = MiniSurround.user_input "Number of * to find"
+							local many_star = string.rep("%*", tonumber(n_star) or 1)
+							return { many_star .. "().-()" .. many_star }
+						end,
+						output = function()
+							local n_star = MiniSurround.user_input "Number of * to output"
+							local many_star = string.rep("*", tonumber(n_star) or 1)
+							return { left = many_star, right = many_star }
+						end,
+					},
 				},
 			}
+
+			-- Remap adding surrounding to Visual mode selection
+			vim.keymap.del("x", "ys")
+			vim.keymap.set("x", "S", [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
+
+			-- Make special mapping for "add surrounding for line"
+			vim.keymap.set("n", "yss", "ys_", { remap = true })
 
 			local hipatterns = require "mini.hipatterns"
 			hipatterns.setup {

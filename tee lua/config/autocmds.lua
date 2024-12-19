@@ -11,10 +11,11 @@ if exists('+termguicolors')
 endif
 
 syntax sync minlines=256
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cnoremap w!! execute 'write !sudo tee % >/dev/null' <bar> edit!
 ]]
+
+vim.api.nvim_create_user_command("SW", function(opts)
+	vim.cmd "w !sudo tee %"
+end, { bang = true, bar = true })
 
 vim.api.nvim_create_user_command("Q", function(opts)
 	vim.cmd("quit" .. (opts.bang and "!" or ""))

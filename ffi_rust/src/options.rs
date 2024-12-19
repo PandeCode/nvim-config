@@ -15,6 +15,7 @@ pub fn options() -> Result<(), Error> {
         };
     }
 
+    set_opt!("nformats", "alpha");
     set_opt!("conceallevel", 1);
 
     // set_opt!("t_Co", 256);

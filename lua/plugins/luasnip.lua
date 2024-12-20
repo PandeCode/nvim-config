@@ -81,13 +81,7 @@ return {
 			}
 
 			ls.add_snippets("all", {
-				s(
-					"todo",
-					fmt(
-						"{}: {}",
-						{ c(1, { t "BUG", t "TODO", t "HACK", t "WARN", t "PERF", t "NOTE", t "TEST" }), i(0) }
-					)
-				),
+				s("todo", fmt("{}: {}", { c(1, { t "TODO", t "HACK", t "FIXME", t "NOTE" }), i(0) })),
 				s(
 					"time",
 					fmt(

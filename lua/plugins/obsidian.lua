@@ -1,6 +1,8 @@
 return {
 	{
 		"HakonHarnes/img-clip.nvim",
+		lazy = true,
+		ft = { "markdown" },
 		event = "VeryLazy",
 		opts = {
 			default = {
@@ -15,6 +17,7 @@ return {
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
+		lazy = true,
 		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
 		opts = {
 			file_types = { "markdown" },

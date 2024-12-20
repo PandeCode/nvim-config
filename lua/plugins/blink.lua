@@ -12,6 +12,7 @@ return {
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
+				"nvim-dap-ui",
 				"blink.cmp",
 				"lazy.nvim",
 				"lualine.nvim",

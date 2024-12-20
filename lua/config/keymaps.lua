@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader>bp", ":bp<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "gg", "gg0", { noremap = true, silent = true })
 vim.keymap.set("n", "G", "G$", { noremap = true, silent = true })
 
-vim.keymap.set("n", "jk", "<esc>", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<esc>", { noremap = true, silent = true })
 
 local n = Keys.N
 

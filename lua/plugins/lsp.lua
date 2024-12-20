@@ -116,8 +116,8 @@ return {
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 
-					vim.keymap.set("n", "<F2>",       ":Lpsaga rename<CR>", bufopts)
 					vim.keymap.set("n", "<LEADER>ca", ":Lspsaga code_action<CR>", bufopts)
+					vim.keymap.set("n", "<F2>", ":Lspsaga rename<CR>", bufopts)
 
 					vim.keymap.set("n", "gd", ":Lspsaga peek_definition<CR>", bufopts)
 					vim.keymap.set("n", "gD", ":Lspsaga peek_type_definition<CR>", bufopts)

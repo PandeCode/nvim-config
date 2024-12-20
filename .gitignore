@@ -1,2 +1,3 @@
 lua/libffi_rust.so
+ffi_rust/target
 test

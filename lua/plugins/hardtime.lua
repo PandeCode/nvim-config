@@ -1,9 +1,10 @@
-return {
+local M= {
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim" },
 		opts = {
 			disabled_filetypes = { "qf", "lazy", "oil" },
+			disabel_mouse = false,
 			hints = {
 				["[dcyvV][ia][%(%)]"] = {
 					message = function(keys)
@@ -21,3 +22,5 @@ return {
 		},
 	},
 }
+
+return {}

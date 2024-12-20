@@ -1,0 +1,46 @@
+{
+  "nvim group": {
+    "prefix": "group",
+    "body": [
+      "local group = vim.api.nvim_create_augroup('nvim_${TM_FILENAME_BASE}', { clear = true })"
+    ],
+    "description": "A basic nvim augroup"
+  },
+  "nvim autocmd": {
+    "prefix": "autocmd",
+    "body": [
+      "vim.api.nvim_create_autocmd({ ${1|BufRead,BufWrite,BufEnter,BufLeave,TextChanged,TextYankPost|} }, {",
+      "  pattern = '${2:*}',",
+      "  callback = function()",
+      "    ${3:-- Your code here}",
+      "  end,",
+      "  group = ${4:group}",
+      "})"
+    ],
+    "description": "A basic nvim autocmd cycling through events"
+  },
+  "nvim command": {
+    "prefix": "command",
+    "body": [
+      "vim.api.nvim_create_user_command(",
+      "  '${1:CommandName}',",
+      "  function(${2:args})",
+      "    ${3:-- Your command logic here}",
+      "  end,",
+      "  {",
+      "    ${4|nargs=0,nargs=1,nargs=*,range,bang|}${5:, complete = '${6:function_name}'}",
+      "  }",
+      ")"
+    ],
+    "description": "Create a user-defined command in Neovim"
+  },
+    "nvim highlight": {
+    "prefix": "highlight",
+    "body": [
+      "vim.api.nvim_set_hl(0, '${1:GroupName}', {",
+      "  ${2|fg = '#FFFFFF',bg = '#000000',italic = true,bold = true,underline = true|}",
+      "})"
+    ],
+    "description": "Define a highlight group"
+  }
+}

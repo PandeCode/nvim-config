@@ -33,6 +33,10 @@ return {
 						input = ts_input { outer = "@call.outer", inner = "@call.inner" },
 					},
 
+					b = {
+						input = ts_input { outer = "@block.out", inner = "@block.inner" },
+					},
+
 					-- Make `)` insert parts with spaces. `input` pattern stays the same.
 					[")"] = { output = { left = "( ", right = " )" } },
 

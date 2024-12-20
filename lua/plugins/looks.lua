@@ -1,14 +1,3 @@
-local function first(bufnr, ...)
-	local conform = require "conform"
-	for i = 1, select("#", ...) do
-		local formatter = select(i, ...)
-		if conform.get_formatter_info(formatter, bufnr).available then
-			return formatter
-		end
-	end
-	return select(1, ...)
-end
-
 local M = {
 	{
 		"akinsho/bufferline.nvim",
@@ -65,6 +54,7 @@ local M = {
 			end
 
 			vim.keymap.set("n", "<LEADER>bt", ToggleBackground, { noremap = true, silent = true })
+			ToggleBackground()
 		end,
 	},
 
@@ -92,65 +82,6 @@ local M = {
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 		},
-	},
-
-	{
-		"stevearc/conform.nvim",
-		cmd = { "ConformInfo" },
-		keys = {
-			{
-				-- Customize or remove this keymap to your liking
-				"<leader>cf",
-				function()
-					require("conform").format({ async = true }, function(err)
-						if not err then
-							local mode = vim.api.nvim_get_mode().mode
-							if vim.startswith(string.lower(mode), "v") then
-								vim.api.nvim_feedkeys(
-									vim.api.nvim_replace_termcodes("<Esc>", true, false, true),
-									"n",
-									true
-								)
-							end
-						end
-					end)
-				end,
-				mode = "",
-				desc = "Format buffer",
-			},
-		},
-		-- This will provide type hinting with LuaLS
-		---@module "conform"
-		---@type conform.setupOpts
-		opts = {
-			formatters_by_ft = {
-				-- nix = { "nixfmt" },
-				nix = { "alejandra" },
-				lua = { "stylua" },
-				python = { "isort", "black" },
-				rust = { "rustfmt" },
-				cpp = { "clang-format" },
-				c = { "clang-format" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
-
-				markdown = function(bufnr)
-					return { first(bufnr, "prettierd", "prettier"), "injected" }
-				end,
-			},
-			default_format_opts = {
-				lsp_format = "fallback",
-			},
-			format_on_save = { timeout_ms = 500 },
-			formatters = {
-				shfmt = {
-					prepend_args = { "-i", "2" },
-				},
-			},
-		},
-		init = function()
-			-- If you want the formatexpr, here is the place to set it
-			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-		end,
 	},
 
 	{

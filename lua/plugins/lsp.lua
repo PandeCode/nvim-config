@@ -116,16 +116,15 @@ return {
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 
-					vim.keymap.set("n", "<LEADER>D", vim.lsp.buf.type_definition, bufopts)
+					vim.keymap.set("n", "<F2>",       ":Lpsaga rename<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>ca", ":Lspsaga code_action<CR>", bufopts)
 
-					vim.keymap.set("n", "<F2>", "<CMD>Lpsaga rename<CR>", bufopts)
-					vim.keymap.set("n", "<LEADER>ca", "<CMD>Lspsaga code_action<CR>", bufopts)
-					vim.keymap.set("n", "<LEADER>gp", "<CMD>Lspsaga peek_definition<CR>", bufopts)
-					vim.keymap.set("n", "<LEADER>gP", "<CMD>Lspsaga peek_type_definition<CR>", bufopts)
-					vim.keymap.set("n", "<LEADER>gd", "<CMD>Lspsaga goto_definition<CR>", bufopts)
-					vim.keymap.set("n", "<LEADER>gD", "<CMD>Lspsaga goto_type_definition<CR>", bufopts)
+					vim.keymap.set("n", "gd", ":Lspsaga peek_definition<CR>", bufopts)
+					vim.keymap.set("n", "gD", ":Lspsaga peek_type_definition<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gd", ":Lspsaga goto_definition<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>gD", ":Lspsaga goto_type_definition<CR>", bufopts)
 
-					vim.keymap.set("n", "<LEADER>lf", "<CMD>Lspsaga finder tyd+ref+imp+def<CR>", bufopts)
+					vim.keymap.set("n", "<LEADER>lf", ":Lspsaga finder tyd+ref+imp+def<CR>", bufopts)
 				end,
 			})
 		end,

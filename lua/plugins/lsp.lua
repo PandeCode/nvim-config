@@ -65,6 +65,11 @@ local servers = {
 	rust_analyzer = {
 		-- cmd = { "rust-analyzer" },
 		cmd = vim.lsp.rpc.connect("127.0.0.1", 27631),
+		completion = {
+			capable = {
+				snippets = "add_parenthesis",
+			},
+		},
 		settings = {
 			["rust-analyzer"] = {
 				lspMux = {
@@ -91,6 +96,9 @@ local servers = {
 				},
 			},
 		},
+	},
+	clangd = {
+		capabilities = { offsetEncoding = { "utf-16" } },
 	},
 }
 

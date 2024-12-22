@@ -1,28 +1,42 @@
 return {
-
-	{
-		"giuxtaposition/blink-cmp-copilot",
-		dependencies = { "zbirenbaum/copilot.lua" },
-	},
-
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		build = ":Copilot auth",
 		event = "InsertEnter",
-		opts = {
-			suggestion = { enabled = false },
-			panel = { enabled = false },
-			-- suggestion = {
-			-- 	enabled = true,
-			-- 	auto_trigger = true,
-			-- 	keymap = {
-			-- 		accept = false, -- handled by nvim-cmp / blink.cmp
-			-- 		next = "<M-]>",
-			-- 		prev = "<M-[>",
-			-- 	},
-			-- },
-		},
+		config = function()
+			require("copilot").setup {
+				panel = { enabled = false },
+				suggestion = {
+					enabled = true,
+					auto_trigger = false, -- use next and prev keymaps to trigger
+					hide_during_completion = true,
+					debounce = 75,
+					keymap = {
+						accept = "<M-l>",
+						accept_word = false,
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
+			}
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "BlinkCmpCompletionMenuOpen",
+				callback = function()
+					require("copilot.suggestion").dismiss()
+					vim.b.copilot_suggestion_hidden = true
+				end,
+			})
+
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "BlinkCmpCompletionMenuClose",
+				callback = function()
+					vim.b.copilot_suggestion_hidden = false
+				end,
+			})
+		end,
 	},
 
 	{

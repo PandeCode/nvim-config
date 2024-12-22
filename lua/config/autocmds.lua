@@ -78,3 +78,37 @@ set_filetype({ "*.shader", "*.frag", "*.vert" }, "glsl")
 set_filetype({ "*.json", "*/waybar/config" }, "jsonc")
 set_filetype("*/hypr/**/*.conf", "hypr")
 set_filetype("*/sway/*.conf", "swayconfig")
+
+-- https://nvchad.com/docs/recipes/
+
+-- This autocmd will restore cursor position on file open
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
+	callback = function()
+		local line = vim.fn.line "'\""
+		if
+			line > 1
+			and line <= vim.fn.line "$"
+			and vim.bo.filetype ~= "commit"
+			and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
+		then
+			vim.cmd 'normal! g`"'
+		end
+	end,
+})
+
+-- This is a WSL specific setting to use the Windows clipboard for + and * registers
+if vim.fn.filereadable "/proc/sys/fs/binfmt_misc/WSLInterop" == 1 then
+	vim.g.clipboard = {
+		name = "WslClipboard",
+		copy = {
+			["+"] = "clip.exe",
+			["*"] = "clip.exe",
+		},
+		paste = {
+			["+"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			["*"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+end

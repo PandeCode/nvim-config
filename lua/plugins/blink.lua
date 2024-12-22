@@ -1,3 +1,12 @@
+vim.keymap.set("n", "<leader>bo", function()
+	vim.b.completion = not vim.b.completion
+	if vim.b.completion then
+		vim.notify "Enabled completion"
+	else
+		vim.notify("Disabled completion", "warn")
+	end
+end, { noremap = true, silent = true })
+
 local function cmp_i(i)
 	return {
 		function(cmp)
@@ -31,11 +40,10 @@ return {
 			"L3MON4D3/LuaSnip",
 			"neovim/nvim-lspconfig",
 			"folke/lazydev.nvim",
-			"giuxtaposition/blink-cmp-copilot",
 		},
+		---@type blink.cmp.Config
 		opts = {
-			appearance = { nerd_font_variant = "mono" },
-			signature = { enabled = true },
+			signature = { enabled = true, window = { border = "single" } },
 			snippets = {
 				expand = function(snippet)
 					require("luasnip").lsp_expand(snippet)
@@ -66,31 +74,48 @@ return {
 			},
 
 			completion = {
+				list = { selection = "manual" },
 				ghost_text = {
 					enabled = false,
 				},
 
 				menu = {
+					border = "single",
 					draw = {
 						treesitter = { "lsp", "buffer", "lazydev" },
-						columns = { { "item_idx" }, { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+						columns = {
+							{ "item_idx" },
+							{ "label", "label_description", gap = 1 },
+							{ "kind_icon", "kind", gap = 1 },
+						},
 
 						components = {
-
+							kind_icon = {
+								ellipsis = false,
+								text = function(ctx)
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
+								end,
+								-- Optionally, you may also use the highlights from mini.icons
+								highlight = function(ctx)
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
+								end,
+							},
 							item_idx = {
 								text = function(ctx)
-									return SUPERSCRIPTS[tostring(ctx.idx)]
+									return SUPERSCRIPTS[tostring(ctx.idx)] or SUPERSCRIPTS["1"] .. SUPERSCRIPTS["0"]
 								end,
 								highlight = "BlinkCmpItemIdx",
 							},
 						},
 					},
 				},
+				documentation = { window = { border = "single" } },
 			},
 
 			sources = {
 				default = {
-					"copilot",
 					"lsp",
 					"luasnip",
 					"path",
@@ -99,64 +124,11 @@ return {
 					"lazydev",
 				},
 				providers = {
-					lsp = { fallback_for = { "lazydev" } },
+					lsp = { fallbacks = { "lazydev" } },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-					copilot = {
-						name = "copilot",
-						module = "blink-cmp-copilot",
-						kind = "Copilot",
-						score_offset = 100,
-						async = true,
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "Copilot"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
-						end,
-					},
 				},
-				appearance = {
-					-- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
-					kind_icons = {
-						Copilot = "",
-						Text = "󰉿",
-						Method = "󰊕",
-						Function = "󰊕",
-						Constructor = "󰒓",
-
-						Field = "󰜢",
-						Variable = "󰆦",
-						Property = "󰖷",
-
-						Class = "󱡠",
-						Interface = "󱡠",
-						Struct = "󱡠",
-						Module = "󰅩",
-
-						Unit = "󰪚",
-						Value = "󰦨",
-						Enum = "󰦨",
-						EnumMember = "󰦨",
-
-						Keyword = "󰻾",
-						Constant = "󰏿",
-
-						Snippet = "󱄽",
-						Color = "󰏘",
-						File = "󰈔",
-						Reference = "󰬲",
-						Folder = "󰉋",
-						Event = "󱐋",
-						Operator = "󰪚",
-						TypeParameter = "󰬛",
-					},
-				},
-
-				-- per_filetype = { -- lua = { 'lsp', 'path' }, },
 			},
+			-- per_filetype = { -- lua = { 'lsp', 'path' }, },
 		},
 	},
 }

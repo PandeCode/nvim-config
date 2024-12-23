@@ -17,34 +17,43 @@ local servers = {
 	hls = {},
 	html = {},
 	neocmake = {},
-	-- nil_ls = {},
 	tailwindcss = {},
 	vimls = {},
 	vls = {},
 	yamlls = {},
-	nixd = {
-		{
-			cmd = { "nixd" },
-			settings = {
-				nixd = {
-					nixpkgs = {
-						expr = "import <nixpkgs> { }",
-					},
-					formatting = {
-						command = { "nixfmt" },
-					},
-					options = {
-						nixos = {
-							expr = '(builtins.getFlake "~/dotnix/flake.nix").nixosConfigurations.wslnix.options',
-						},
-						home_manager = {
-							expr = '(builtins.getFlake "~/dotnix/flake.nix").homeConfigurations.shawn.options',
-						},
-					},
-				},
+
+	nil_ls = {
+		settings = {
+			["nil"] = {
+				formatting = { command = { "alejandra" } },
 			},
 		},
 	},
+
+	-- nixd = {
+	-- 	{
+	-- 		cmd = { "nixd" },
+	-- 		settings = {
+	-- 			nixd = {
+	-- 				nixpkgs = {
+	-- 					expr = "import <nixpkgs> { }",
+	-- 				},
+	-- 				formatting = {
+	-- 					command = { "nixfmt" },
+	-- 				},
+	-- 				options = {
+	-- 					nixos = {
+	-- 						expr = '(builtins.getFlake "~/dotnix/flake.nix").nixosConfigurations.wslnix.options',
+	-- 					},
+	-- 					home_manager = {
+	-- 						expr = '(builtins.getFlake "~/dotnix/flake.nix").homeConfigurations.shawn.options',
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+
 	lua_ls = {
 		settings = {
 			Lua = {

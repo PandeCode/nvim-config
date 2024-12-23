@@ -80,7 +80,7 @@ return {
 				},
 
 				menu = {
-					border = "single",
+					border = "rounded",
 					draw = {
 						treesitter = { "lsp", "buffer", "lazydev" },
 						columns = {

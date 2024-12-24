@@ -9,7 +9,7 @@ local function gen_enum_funcs(enum_name, bufnr)
 	local cpp = ft == "cpp"
 
 	local root = TS.get_root(ft, bufnr)
-	local enum_data = vim.treesitter.parse_query("cpp", [[
+	local enum_data = vim.treesitter.query.parse("cpp", [[
 	(enum_specifier
 		name: (type_identifier) @name (#eq? @name "]] .. enum_name .. [[")
 		(enumerator_list

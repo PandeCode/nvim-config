@@ -1,9 +1,5 @@
 return {
 	{
-		"nvim-treesitter/playground",
-		cmd = "TSPlayground",
-	},
-	{
 		"nvim-treesitter/nvim-treesitter",
 		build = function()
 			require("nvim-treesitter.install").update { with_sync = true }()
@@ -23,20 +19,22 @@ return {
 				textobjects = {
 					select = {
 						enable = true,
-
-						-- Automatically jump forward to textobj, similar to targets.vim
 						lookahead = true,
-
 						keymaps = {
-							-- You can use the capture groups defined in textobjects.scm
 							["af"] = "@function.outer",
 							["if"] = "@function.inner",
+
+							["ai"] = "@conditional.outer",
+							["ii"] = "@conditional.inner",
+
+							["al"] = "@loop.outer",
+							["il"] = "@loop.inner",
 
 							["ib"] = "@block.inner",
 							["ab"] = "@block.outer",
 
-							["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
-							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
 
 							["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
 						},

@@ -1,5 +1,4 @@
 local ascii_dir = vim.fn.getenv "NVIM_ASCII_DIR"
-local image_dir = vim.fn.getenv "NVIM_IMG_DIR"
 
 local env_header = vim.fn.getenv "NVIM_ASCII"
 local header = nil
@@ -7,22 +6,23 @@ local header = nil
 if env_header ~= vim.NIL and env_header ~= "" then
 	header = vim.fn.readfile(env_header)
 elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
-	image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
+	local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
 	if image_files ~= nil then
 		math.randomseed(os.time())
-		header = table.concat(image_files[math.random(1, #image_files)], "\n")
+		header = table.concat { image_files[math.random(1, #image_files)], "\n" }
 	end
 end
 
 local env_image = vim.fn.getenv "NVIM_IMG"
+local image_dir = vim.fn.getenv "NVIM_IMG_DIR"
 local image_path = nil
 
 if env_image ~= vim.NIL then
 	image_path = env_image
 elseif image_dir ~= vim.NIL and image_dir ~= "" then
-	image_files = FFI_RUST.list_dir(vim.fn.expand(image_dir))
+	local image_files = FFI_RUST.list_dir(vim.fn.expand(image_dir))
 	if image_files ~= nil then
-		new_image_files = {}
+		local new_image_files = {}
 		for _, value in pairs(image_files) do
 			local l = #value
 			if l > 4 then

@@ -112,3 +112,19 @@ if vim.fn.filereadable "/proc/sys/fs/binfmt_misc/WSLInterop" == 1 then
 		cache_enabled = 0,
 	}
 end
+
+-- A per project shadafile
+-- https://www.reddit.com/r/neovim/comments/1hkpgar/a_per_project_shadafile/
+vim.opt.shadafile = (function()
+	local data = vim.fn.stdpath "data"
+
+	local cwd = vim.fn.getcwd()
+	cwd = vim.fs.root(cwd, ".git") or cwd
+
+	local cwd_b64 = vim.base64.encode(cwd)
+
+	local file = vim.fs.joinpath(data, "project_shada", cwd_b64)
+	vim.fn.mkdir(vim.fs.dirname(file), "p")
+
+	return file
+end)()

@@ -60,7 +60,16 @@ return {
 			},
 
 			keymap = {
-				preset = "super-tab",
+
+				-- stylua: ignore start
+				preset         = "default",
+				["<S-Tab>"]    = { "select_prev",               "snippet_backward", "fallback" },
+				["<Tab>"]      = { "select_next",               "snippet_forward",  "fallback" },
+				["<CR>"]       = { "accept",                    "fallback" },
+				-- ["<Esc>"]      = { "hide",                      "fallback" },
+				["<PageUp>"]   = { "scroll_documentation_up",   "fallback" },
+				["<PageDown>"] = { "scroll_documentation_down", "fallback" },
+				-- stylua: ignore end
 
 				["<A-1>"] = cmp_i(1),
 				["<A-2>"] = cmp_i(2),

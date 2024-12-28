@@ -1,0 +1,297 @@
+{
+  "HTTP Headers": {
+    "prefix": "http-headers",
+    "body": [
+      "GET https://example.org/news",
+      "User-Agent: Mozilla/5.0",
+      "Accept: */*",
+      "Accept-Language: en-US,en;q=0.5",
+      "Accept-Encoding: gzip, deflate, br",
+      "Connection: keep-alive"
+    ],
+    "description": "A simple GET with headers"
+  },
+  "Query Params": {
+    "prefix": "query-params",
+    "body": [
+      "GET https://example.org/news",
+      "[QueryStringParams]",
+      "order: newest",
+      "search: something to search",
+      "count: 100"
+    ],
+    "description": "Query Params"
+  },
+  "Query Params URL": {
+    "prefix": "query-params-url",
+    "body": [
+      "GET https://example.org/news?order=newest&search=something%20to%20search&count=100"
+    ],
+    "description": "Query Params in URL"
+  },
+  "Basic Authentication": {
+    "prefix": "basic-auth",
+    "body": ["GET https://example.org/protected", "[BasicAuth]", "bob: secret"],
+    "description": "Basic Authentication"
+  },
+  "Authorization Header": {
+    "prefix": "auth-header",
+    "body": [
+      "# Authorization header value can be computed with `echo -n 'bob:secret' | base64`",
+      "GET https://example.org/protected",
+      "Authorization: Basic Ym9iOnNlY3JldA=="
+    ],
+    "description": "Authorization Header"
+  },
+  "Passing Data between Requests": {
+    "prefix": "pass-data",
+    "body": [
+      "POST https://sample.org/orders",
+      "HTTP 201",
+      "[Captures]",
+      "order_id: jsonpath \"$.order.id\"",
+      "",
+      "GET https://sample.org/orders/{{order_id}}",
+      "HTTP 200"
+    ],
+    "description": "Passing Data between Requests"
+  },
+  "Sending HTML Form Data": {
+    "prefix": "html-form-data",
+    "body": [
+      "POST https://example.org/contact",
+      "[FormParams]",
+      "default: false",
+      "token: {{token}}",
+      "email: john.doe@rookie.org",
+      "number: 33611223344"
+    ],
+    "description": "Sending HTML Form Data"
+  },
+  "Sending Multipart Form Data": {
+    "prefix": "multipart-form-data",
+    "body": [
+      "POST https://example.org/upload",
+      "[MultipartFormData]",
+      "field1: value1",
+      "field2: file,example.txt;",
+      "# One can specify the file content type:",
+      "field3: file,example.zip; application/zip"
+    ],
+    "description": "Sending Multipart Form Data"
+  },
+  "Posting a JSON Body": {
+    "prefix": "json-body",
+    "body": [
+      "POST https://example.org/api/tests",
+      "{",
+      "    \"id\": \"456\",",
+      "    \"evaluate\": true",
+      "}"
+    ],
+    "description": "Posting a JSON Body"
+  },
+  "Templating a JSON Body": {
+    "prefix": "template-json-body",
+    "body": [
+      "PUT https://example.org/api/hits",
+      "Content-Type: application/json",
+      "{",
+      "    \"key0\": \"{{a_string}}\",",
+      "    \"key1\": {{a_bool}},",
+      "    \"key2\": {{a_null}},",
+      "    \"key3\": {{a_number}}",
+      "}"
+    ],
+    "description": "Templating a JSON Body"
+  },
+  "Using GraphQL Query": {
+    "prefix": "graphql-query",
+    "body": [
+      "POST https://example.org/starwars/graphql",
+      "```graphql",
+      "{",
+      "  human(id: \"1000\") {",
+      "    name",
+      "    height(unit: FOOT)",
+      "  }",
+      "}",
+      "```"
+    ],
+    "description": "Using GraphQL Query"
+  },
+  "Testing Response": {
+    "prefix": "test-response",
+    "body": [
+      "# A request with (almost) no check:",
+      "GET https://foo.com",
+      "",
+      "# A status code check:",
+      "GET https://foo.com",
+      "HTTP 200",
+      "",
+      "# A test on response body",
+      "GET https://foo.com",
+      "HTTP 200",
+      "[Asserts]",
+      "jsonpath \"$.state\" == \"running\""
+    ],
+    "description": "Testing Response"
+  },
+  "Testing Status Code": {
+    "prefix": "test-status-code",
+    "body": ["GET https://example.org/order/435", "HTTP 200"],
+    "description": "Testing Status Code"
+  },
+  "Testing Response Headers": {
+    "prefix": "test-response-headers",
+    "body": [
+      "GET https://example.org/index.html",
+      "HTTP 200",
+      "Set-Cookie: theme=light",
+      "Set-Cookie: sessionToken=abc123; Expires=Wed, 09 Jun 2021 10:18:14 GMT"
+    ],
+    "description": "Testing Response Headers"
+  },
+  "Testing REST APIs": {
+    "prefix": "test-rest-apis",
+    "body": [
+      "GET https://example.org/order",
+      "screencapability: low",
+      "HTTP 200",
+      "[Asserts]",
+      "jsonpath \"$.validated\" == true",
+      "jsonpath \"$.userInfo.firstName\" == \"Franck\"",
+      "jsonpath \"$.userInfo.lastName\" == \"Herbert\"",
+      "jsonpath \"$.hasDevice\" == false",
+      "jsonpath \"$.links\" count == 12",
+      "jsonpath \"$.state\" != null",
+      "jsonpath \"$.order\" matches \"^order-\\\\d{8}$\"",
+      "jsonpath \"$.order\" matches /^order-\\d{8}$/     # Alternative syntax with regex literal",
+      "jsonpath \"$.created\" isIsoDate"
+    ],
+    "description": "Testing REST APIs"
+  },
+  "Testing HTML Response": {
+    "prefix": "test-html-response",
+    "body": [
+      "GET https://example.org",
+      "HTTP 200",
+      "Content-Type: text/html; charset=UTF-8",
+      "[Asserts]",
+      "xpath \"string(/html/head/title)\" contains \"Example\" # Check title",
+      "xpath \"count(//p)\" == 2  # Check the number of p",
+      "xpath \"//p\" count == 2  # Similar assert for p",
+      "xpath \"boolean(count(//h2))\" == false  # Check there is no h2",
+      "xpath \"//h2\" not exists  # Similar assert for h2",
+      "xpath \"string(//div[1])\" matches /Hello.*/"
+    ],
+    "description": "Testing HTML Response"
+  },
+  "Testing Set-Cookie Attributes": {
+    "prefix": "test-set-cookie",
+    "body": [
+      "GET https://example.org/home",
+      "HTTP 200",
+      "[Asserts]",
+      "cookie \"JSESSIONID\" == \"8400BAFE2F66443613DC38AE3D9D6239\"",
+      "cookie \"JSESSIONID[Value]\" == \"8400BAFE2F66443613DC38AE3D9D6239\"",
+      "cookie \"JSESSIONID[Expires]\" contains \"Wed, 13 Jan 2021\"",
+      "cookie \"JSESSIONID[Secure]\" exists",
+      "cookie \"JSESSIONID[HttpOnly]\" exists",
+      "cookie \"JSESSIONID[SameSite]\" == \"Lax\""
+    ],
+    "description": "Testing Set-Cookie Attributes"
+  },
+  "Testing Bytes Content": {
+    "prefix": "test-bytes-content",
+    "body": [
+      "GET https://example.org/data.tar.gz",
+      "HTTP 200",
+      "[Asserts]",
+      "sha256 == hex,039058c6f2c0cb492c533b0a4d14ef77cc0f78abccced5287d84a1a2011cfb81;"
+    ],
+    "description": "Testing Bytes Content"
+  },
+  "SSL Certificate": {
+    "prefix": "ssl-certificate",
+    "body": [
+      "GET https://example.org",
+      "HTTP 200",
+      "[Asserts]",
+      "certificate \"Subject\" == \"CN=example.org\"",
+      "certificate \"Issuer\" == \"C=US, O=Let's Encrypt, CN=R3\"",
+      "certificate \"Expire-Date\" daysAfterNow > 15",
+      "certificate \"Serial-Number\" matches /[\\da-f]+/"
+    ],
+    "description": "SSL Certificate"
+  },
+  "Checking Full Body": {
+    "prefix": "check-full-body",
+    "body": [
+      "GET https://example.org/api/cats/123",
+      "HTTP 200",
+      "{",
+      "  \"name\" : \"Purrsloud\",",
+      "  \"species\" : \"Cat\",",
+      "  \"favFoods\" : [\"wet food\", \"dry food\", \"<strong>any</strong> food\"],",
+      "  \"birthYear\" : 2016,",
+      "  \"photo\" : \"https://learnwebcode.github.io/json-example/images/cat-2.jpg\"",
+      "}"
+    ],
+    "description": "Checking Full Body"
+  },
+  "Testing Endpoint Performance": {
+    "prefix": "test-endpoint-performance",
+    "body": [
+      "GET https://sample.org/helloworld",
+      "HTTP *",
+      "[Asserts]",
+      "duration < 1000   # Check that response time is less than one second"
+    ],
+    "description": "Testing Endpoint Performance"
+  },
+  "Using SOAP APIs": {
+    "prefix": "soap-api",
+    "body": [
+      "POST https://example.org/InStock",
+      "Content-Type: application/soap+xml; charset=utf-8",
+      "SOAPAction: \"http://www.w3.org/2003/05/soap-envelope\"",
+      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+      "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:m=\"https://example.org\">",
+      "  <soap:Header></soap:Header>",
+      "  <soap:Body>",
+      "    <m:GetStockPrice>",
+      "      <m:StockName>GOOG</m:StockName>",
+      "    </m:GetStockPrice>",
+      "  </soap:Body>",
+      "</soap:Envelope>",
+      "HTTP 200"
+    ],
+    "description": "Using SOAP APIs"
+  },
+  "Capturing and Using a CSRF Token": {
+    "prefix": "csrf-token",
+    "body": [
+      "GET https://example.org",
+      "HTTP 200",
+      "[Captures]",
+      "csrf_token: xpath \"string(//meta[@name='_csrf_token']/@content)\"",
+      "",
+      "POST https://example.org/login?user=toto&password=1234",
+      "X-CSRF-TOKEN: {{csrf_token}}",
+      "HTTP 302"
+    ],
+    "description": "Capturing and Using a CSRF Token"
+  },
+  "Checking Byte Order Mark (BOM) in Response Body": {
+    "prefix": "check-bom",
+    "body": [
+      "GET https://example.org/data.bin",
+      "HTTP 200",
+      "[Asserts]",
+      "bytes startsWith hex,efbbbf;"
+    ],
+    "description": "Checking Byte Order Mark (BOM) in Response Body"
+  }
+}

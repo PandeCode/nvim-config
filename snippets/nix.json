@@ -34,4 +34,3 @@
     "description": "A basic Nix module with an option and a systemd service."
   }
 }
-

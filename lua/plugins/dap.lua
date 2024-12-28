@@ -1,4 +1,4 @@
-return {
+local M = {
 	{
 		"rcarriga/nvim-dap-ui",
 		lazy = true,
@@ -53,3 +53,5 @@ return {
 		end,
 	},
 }
+
+return {}

@@ -1,0 +1,34 @@
+{
+  "Yew useState and useEffect": {
+    "prefix": "use_effect",
+    "body": [
+      "let state = use_state(|| {});",
+      "{",
+      "let state = state.clone();",
+      "\tuse_effect(move || {",
+      "\t\twasm_bindgen_futures::spawn_local(async move {",
+      "\t\t\tlet state = state.clone();",
+      "\t\t\tstate.set(())",
+      "\t\t});",
+      "\t});",
+      "}"
+    ],
+    "description": "Yew useState and useEffect with async function"
+  },
+  "New Yew function component": {
+    "prefix": "yewfc",
+    "body": [
+      "#[derive(PartialEq, Properties)]",
+      "pub struct ${1:ComponentName}Props {}",
+      "",
+      "#[function_component]",
+      "pub fn $1(props: &${1}Props) -> Html {",
+      "\tlet ${1}Props {} = props;",
+      "\thtml! {",
+      "\t\t<${2:div}>$0</${2}>",
+      "\t}",
+      "}"
+    ],
+    "description": "Create a minimal Yew function component"
+  }
+}

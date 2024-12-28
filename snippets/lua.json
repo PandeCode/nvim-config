@@ -34,7 +34,7 @@
     ],
     "description": "Create a user-defined command in Neovim"
   },
-    "nvim highlight": {
+  "nvim highlight": {
     "prefix": "highlight",
     "body": [
       "vim.api.nvim_set_hl(0, '${1:GroupName}', {",

@@ -143,10 +143,35 @@ return {
 				padding = { left = 0, right = 1 }, -- We don't need space before this
 			}
 
+			-- https://github.com/rachartier/dotfiles/blob/main/.config/nvim/lua/plugins/ui/lualine.lua
 			ins_left {
 				-- mode component
 				function()
-					return ""
+					local kirby_default = "(>*-*)>"
+
+					local mode_kirby = {
+						n = "<(•ᴗ•)>",
+						i = "<(•o•)>",
+						v = "(v•-•)v",
+						[""] = "(v•-•)>",
+						V = "(>•-•)>",
+						c = kirby_default,
+						no = "<(•ᴗ•)>",
+						s = kirby_default,
+						S = kirby_default,
+						[""] = kirby_default,
+						ic = kirby_default,
+						R = kirby_default,
+						Rv = kirby_default,
+						cv = "<(•ᴗ•)>",
+						ce = "<(•ᴗ•)>",
+						r = kirby_default,
+						rm = kirby_default,
+						["r?"] = kirby_default,
+						["!"] = "<(•ᴗ•)>",
+						t = "<(•ᴗ•)>",
+					}
+					return mode_kirby[vim.fn.mode()]
 				end,
 				color = function()
 					-- auto change color according to neovims mode

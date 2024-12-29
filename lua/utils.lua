@@ -16,7 +16,13 @@ function TableMerge(t1, t2)
 end
 
 function RandFrom(list)
+	math.randomseed(os.time())
 	return list[math.random(1, #list)]
+end
+
+function RandBool()
+	math.randomseed(os.time())
+	return math.random(0, 1) == 1
 end
 
 function TableConcat(t1, t2)
@@ -211,4 +217,25 @@ end
 
 function ToSubscript(s)
 	return applyMapping(s, SUBSCRIPTS)
+end
+
+-- https://github.com/rachartier/dotfiles/blob/main/.config/nvim/lua/utils.lua
+--- Converts a value to a list
+---@param value any # any value that will be converted to a list
+---@return any[] # the listified version of the value
+function ToList(value)
+	if value == nil then
+		return {}
+	elseif vim.islist(value) then
+		return value
+	elseif type(value) == "table" then
+		local list = {}
+		for _, item in ipairs(value) do
+			table.insert(list, item)
+		end
+
+		return list
+	else
+		return { value }
+	end
 end

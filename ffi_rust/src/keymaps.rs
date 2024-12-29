@@ -18,6 +18,7 @@ pub fn keymaps() -> Result<(), Error> {
     let noremap = &(SetKeymapOpts::builder().noremap(true).build());
     let noremap_expr = &(SetKeymapOpts::builder().noremap(true).expr(true).build());
     let noremap_silent = &(SetKeymapOpts::builder().noremap(true).silent(true).build());
+    let silent = &(SetKeymapOpts::builder().silent(true).build());
 
     #[rustfmt::skip]
 	let keymaps = [
@@ -28,7 +29,7 @@ pub fn keymaps() -> Result<(), Error> {
 		(n, "<LEADER>et",        ":set expandtab!<cr>",   noremap),
 		(n, "<LEADER>qa",        ":noautocmd qall!<cr>",  none),
 		(n, "<LEADER>sf",        ":w<cr>",                none),
-		(n, "<LEADER>fe",        ":edit<cr>",             none),
+		(n, "<LEADER>fe",        ":edit<cr>",             silent),
 		(n, "<LEADER>nw",        "<CMD>%s/\\s*$//<CR>",   none),
 		(n, "<LEADER>`",         "<CMD>edit #<CR>",       none),
 		(n, "<LEADER>p",         "\"_dP",                 none),

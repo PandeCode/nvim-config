@@ -108,6 +108,10 @@ local servers = {
 	},
 	clangd = {
 		capabilities = { offsetEncoding = { "utf-16" } },
+		on_attach = function()
+			vim.keymap.set("n", "<leader>si", ":ClangdShowSymbolInfo<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>gh", ":ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true })
+		end,
 	},
 }
 
@@ -115,7 +119,11 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
-			require("lspsaga").setup {}
+			require("lspsaga").setup {
+				lightbulb = {
+					enable = false,
+				},
+			}
 			-- require("lspsaga.symbol.winbar").get_bar()
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
@@ -133,7 +141,10 @@ return {
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 
-					vim.keymap.set("n", "<LEADER>ca", ":Lspsaga code_action<CR>", bufopts)
+					vim.keymap.set("n", "<leader>ca", function()
+						require("tiny-code-action").code_action()
+					end, { noremap = true, silent = true })
+
 					vim.keymap.set("n", "<F2>", ":Lspsaga rename<CR>", bufopts)
 
 					vim.keymap.set("n", "gd", ":Lspsaga peek_definition<CR>", bufopts)
@@ -150,7 +161,28 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
-
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "LspAttach",
+		priority = 1000,
+		config = function()
+			vim.diagnostic.config { virtual_text = false }
+			require("tiny-inline-diagnostic").setup()
+		end,
+	},
+	{
+		"rachartier/tiny-code-action.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		event = "LspAttach",
+		config = function()
+			require("tiny-code-action").setup {
+				backend = "delta",
+			}
+		end,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = { "ray-x/lsp_signature.nvim" },

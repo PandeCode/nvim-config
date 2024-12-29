@@ -4,7 +4,7 @@ local env_header = vim.fn.getenv "NVIM_ASCII"
 local header = nil
 
 if env_header ~= vim.NIL and env_header ~= "" then
-	header = vim.fn.readfile(env_header)
+	header = env_header
 elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
 	local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
 	if image_files ~= nil then
@@ -44,8 +44,54 @@ local dashboard_config = {
 	sections = {
 		{
 			section = "terminal",
-			cmd = "colorscript -e square",
-			height = 5,
+			cmd = (function()
+				if header == nil or RandBool() then
+					return "colorscript -e "
+						.. RandFrom {
+							"kaisen",
+							"doom-outlined",
+							-- "elfman",
+							-- "pacman",
+							-- "pinguco",
+							--
+							-- "alpha",
+							-- "six",
+							-- "arch",
+							-- "bars",
+							-- "blocks1",
+							-- "blocks2",
+							-- "colorbars",
+							-- "colorwheel",
+							-- "crowns",
+							-- "crunch",
+							-- "crunchbang",
+							-- "darthvader",
+							-- "debian",
+							-- "dna",
+							-- "fade",
+							-- "ghosts",
+							-- "guns",
+							-- "illumina",
+							-- "thebat",
+							-- "spectrum",
+							-- "space-invaders",
+							-- "suckless",
+							-- "thebat2",
+							-- "tiefighter1",
+							-- "tiefighter2",
+							-- "zwaves",
+							-- "rally-x",
+							-- "rails",
+							--
+							-- "pukeskull",
+							-- "xmonad",
+							-- "tux",
+						}
+				else
+					return "cat " .. header
+				end
+			end)(),
+			-- height = 20,
 			padding = 1,
 		},
 
@@ -67,15 +113,18 @@ local dashboard_config = {
 
 		{ section = "startup" },
 
-		{ section = "header", pane = 2 },
-
 		{
-			enabled = image_path ~= nil,
 			pane = 2,
 			section = "terminal",
-			cmd = "chafa "
-				.. (image_path or "")
-				.. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+			cmd = (function()
+				if image_path == nil or RandBool() then
+					return "pokemon-colorscripts -r"
+				else
+					return "chafa "
+						.. (image_path or "")
+						.. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1"
+				end
+			end)(),
 			height = 17,
 			padding = 1,
 		},
@@ -125,21 +174,21 @@ return {
 			},
 		},
 		keys = {
-			-- stylua: ignore start
-			{ "<leader>zm",  function() Snacks.zen() end,                     desc = "Toggle Zen Buffer",        },
-			{ "<leader>.",   function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer",        },
-			{ "<leader>S",   function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer",        },
-			{ "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",         },
-			{ "<leader>bd",  function() Snacks.bufdelete() end,               desc = "Delete Buffer",                },
-			{ "<leader>cR",  function() Snacks.rename.rename_file() end,      desc = "Rename File",                  },
-			{ "<leader>giB", function() Snacks.gitbrowse() end,               desc = "Git Browse",                   },
-			{ "<leader>gib", function() Snacks.git.blame_line() end,          desc = "Git Blame Line",               },
-			{ "<leader>gif", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History", },
-			{ "<leader>gig", function() Snacks.lazygit() end,                 desc = "Lazygit",                      },
-			{ "<leader>gil", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)",            },
-			{ "<leader>un",  function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications",    },
-			{ "]]",          function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",               mode = { "n", "t" }, },
-			{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",               mode = { "n", "t" }, },
+-- stylua: ignore start
+{ "<leader>zm",  function() Snacks.zen() end,                     desc = "Toggle Zen Buffer",        },
+{ "<leader>.",   function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer",        },
+{ "<leader>S",   function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer",        },
+{ "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",         },
+{ "<leader>bd",  function() Snacks.bufdelete() end,               desc = "Delete Buffer",                },
+{ "<leader>cR",  function() Snacks.rename.rename_file() end,      desc = "Rename File",                  },
+{ "<leader>giB", function() Snacks.gitbrowse() end,               desc = "Git Browse",                   },
+{ "<leader>gib", function() Snacks.git.blame_line() end,          desc = "Git Blame Line",               },
+{ "<leader>gif", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History", },
+{ "<leader>gig", function() Snacks.lazygit() end,                 desc = "Lazygit",                      },
+{ "<leader>gil", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)",            },
+{ "<leader>un",  function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications",    },
+{ "]]",          function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",               mode = { "n", "t" }, },
+{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",               mode = { "n", "t" }, },
 			-- stylua: ignore end
 
 			{

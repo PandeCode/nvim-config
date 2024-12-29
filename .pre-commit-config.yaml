@@ -14,10 +14,10 @@ repos:
     hooks:
       - id: stylua-github
         exclude: ^ffi_rust/
-  - repo: https://github.com/doublify/pre-commit-rust
-    rev: v1.0
-    hooks:
-      - id: fmt
-        files: ^ffi_rust/
-      - id: cargo-check
-        files: ^ffi_rust/
+  # - repo: https://github.com/doublify/pre-commit-rust
+  #   rev: v1.0
+  #   hooks:
+  #     - id: fmt
+  #       files: ^ffi_rust/
+  #     - id: cargo-check
+  #       files: ^ffi_rust/

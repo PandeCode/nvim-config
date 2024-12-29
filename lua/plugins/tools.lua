@@ -182,6 +182,7 @@ local M = {
 	{
 		"stevearc/conform.nvim",
 		cmd = { "ConformInfo" },
+		keys = { { "<leader>ci", ":ConformInfo<CR>" } },
 		-- This will provide type hinting with LuaLS
 		---@module "conform"
 		---@type conform.setupOpts

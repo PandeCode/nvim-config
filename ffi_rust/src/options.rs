@@ -33,7 +33,7 @@ pub fn options() -> Result<(), Error> {
     set_opt!("autoindent");
     set_opt!("backspace", "indent,eol,start");
     set_opt!("backup", false);
-    set_opt!("clipboard", "unnamed");
+    // set_opt!("clipboard", "unnamed");
     set_opt!("cmdheight", 1);
     set_opt!("completeopt", "menu,menuone,noselect");
     set_opt!("confirm");

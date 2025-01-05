@@ -1,103 +1,47 @@
-local ascii_dir = vim.fn.getenv "NVIM_ASCII_DIR"
-
-local env_header = vim.fn.getenv "NVIM_ASCII"
-local header = nil
-
-if env_header ~= vim.NIL and env_header ~= "" then
-	header = env_header
-elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
-	local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
-	if image_files ~= nil then
-		math.randomseed(os.time())
-		header = table.concat { image_files[math.random(1, #image_files)], "\n" }
-	end
-end
-
-local env_image = vim.fn.getenv "NVIM_IMG"
-local image_dir = vim.fn.getenv "NVIM_IMG_DIR"
-local image_path = nil
-
-if env_image ~= vim.NIL then
-	image_path = env_image
-elseif image_dir ~= vim.NIL and image_dir ~= "" then
-	local image_files = FFI_RUST.list_dir(vim.fn.expand(image_dir))
-	if image_files ~= nil then
-		local new_image_files = {}
-		for _, value in pairs(image_files) do
-			local l = #value
-			if l > 4 then
-				if FFI_RUST.is_image(value) then
-					table.insert(new_image_files, value)
-				end
-			end
-		end
-		if #new_image_files > 0 then
-			math.randomseed(os.time())
-			image_path = new_image_files[math.random(1, #new_image_files)]
-		end
-	end
-end
+local my_ascii = GET_MY_ASCII()
+local image_path = GET_IMAGE_PATH()
 
 local dashboard_config = {
-	preset = { header = header },
+	preset = { header = my_ascii },
 
 	sections = {
-		{
-			section = "terminal",
-			cmd = (function()
-				if header == nil or RandBool() then
-					return "colorscript -e "
-						.. RandFrom {
+		(function()
+			if RandBool() then
+				if my_ascii == nil or RandBool() then
+					return {
+						section = "terminal",
+						cmd = "colorscript -e " .. RandFrom {
 							"kaisen",
 							"doom-outlined",
-							-- "elfman",
-							-- "pacman",
-							-- "pinguco",
-							--
-							-- "alpha",
-							-- "six",
-							-- "arch",
-							-- "bars",
-							-- "blocks1",
-							-- "blocks2",
-							-- "colorbars",
-							-- "colorwheel",
-							-- "crowns",
-							-- "crunch",
-							-- "crunchbang",
-							-- "darthvader",
-							-- "debian",
-							-- "dna",
-							-- "fade",
-							-- "ghosts",
-							-- "guns",
-							-- "illumina",
-							-- "thebat",
-							-- "spectrum",
-							-- "space-invaders",
-							-- "suckless",
-							-- "thebat2",
-							-- "tiefighter1",
-							-- "tiefighter2",
-							-- "zwaves",
-							-- "rally-x",
-							-- "rails",
-							--
-							-- "pukeskull",
-							-- "xmonad",
-							-- "tux",
-						}
+							"elfman",
+							"pacman",
+							"pinguco",
+							-- "alpha", "six", "arch", "bars", "blocks1", "blocks2", "colorbars", "colorwheel", "crowns", "crunch", "crunchbang", "darthvader", "debian", "dna", "fade", "ghosts", "guns", "illumina", "thebat", "spectrum", "space-invaders", "suckless", "thebat2", "tiefighter1", "tiefighter2", "zwaves", "rally-x", "rails",
+							-- "pukeskull", "xmonad", "tux",
+						},
+						height = 25,
+						padding = 1,
+					}
 				else
-					return "cat " .. header
+					return { section = "header" }
 				end
-			end)(),
-			-- height = 20,
-			padding = 1,
-		},
-
-		{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-		{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-		{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+			else
+				return {
+					section = "terminal",
+					cmd = (function()
+						if image_path == nil or RandBool() then
+							return "pokemon-colorscripts -r"
+						else
+							return "chafa "
+								.. (image_path or "")
+								.. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1"
+						end
+					end)(),
+					height = 17,
+					padding = 1,
+				}
+			end
+		end)(),
 
 		{
 			icon = " ",
@@ -112,22 +56,6 @@ local dashboard_config = {
 		},
 
 		{ section = "startup" },
-
-		{
-			pane = 2,
-			section = "terminal",
-			cmd = (function()
-				if image_path == nil or RandBool() then
-					return "pokemon-colorscripts -r"
-				else
-					return "chafa "
-						.. (image_path or "")
-						.. " --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1"
-				end
-			end)(),
-			height = 17,
-			padding = 1,
-		},
 	},
 }
 
@@ -152,8 +80,8 @@ return {
 				enabled = true,
 				indent = {
 					-- blank = { char = "  > " },
-					-- only_scope = true,
-					-- only_current = true,
+					only_scope = true,
+					only_current = true,
 					hl = {
 						"RainbowRed",
 						"RainbowYellow",

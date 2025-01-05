@@ -1,9 +1,15 @@
-return {
+local M = {
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		build = ":Copilot auth",
-		event = "InsertEnter",
+		-- event = "InsertEnter",
+		lazy = true,
+		keys = {
+			{ "<M-]>", "" },
+			{ "<M-[>", "" },
+			{ "<M-l>", "" },
+		},
 		config = function()
 			require("copilot").setup {
 				panel = { enabled = false },
@@ -45,6 +51,7 @@ return {
 		build = "make",
 		lazy = true,
 		version = "*",
+		keys = { { "<leader>aa", "" }, { "<leader>ae", "" } },
 		opts = {
 			provider = "copilot",
 		},
@@ -55,3 +62,10 @@ return {
 		},
 	},
 }
+
+if vim.env.NO_AI then
+	vim.print "No  AI"
+	return {}
+else
+	return M
+end

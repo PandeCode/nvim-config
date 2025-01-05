@@ -1,18 +1,66 @@
 IDE = { name = "CharonNvim: Necrology editor for CharonOS", description = "Personal Configuration of neovim" }
 
-function TableMerge(t1, t2)
+function DeepCopy(o, seen)
+	seen = seen or {}
+	if o == nil then
+		return nil
+	end
+	if seen[o] then
+		return seen[o]
+	end
+
+	local no
+	if type(o) == "table" then
+		no = {}
+		seen[o] = no
+
+		for k, v in next, o, nil do
+			no[deepcopy(k, seen)] = deepcopy(v, seen)
+		end
+		setmetatable(no, deepcopy(getmetatable(o), seen))
+	else -- number, string, boolean, etc
+		no = o
+	end
+	return no
+end
+
+function Dump(o)
+	if type(o) == "table" then
+		local s = "{ "
+		for k, v in pairs(o) do
+			if type(k) ~= "number" then
+				k = '"' .. k .. '"'
+			end
+			s = s .. "[" .. k .. "] = " .. Dump(v) .. ","
+		end
+		return s .. "} "
+	else
+		return tostring(o)
+	end
+end
+
+function Merge(t1, t2)
+	local ret = DeepCopy(t1)
 	for k, v in pairs(t2) do
 		if type(v) == "table" then
-			if type(t1[k] or false) == "table" then
-				tableMerge(t1[k] or {}, t2[k] or {})
+			if type(ret[k] or false) == "table" then
+				Merge(ret[k] or {}, t2[k] or {})
 			else
-				t1[k] = v
+				ret[k] = v
 			end
 		else
-			t1[k] = v
+			ret[k] = v
 		end
 	end
-	return t1
+	return ret
+end
+
+function Concat(t1, t2)
+	local ret = DeepCopy(t1)
+	for i = 1, #t2 do
+		ret[#ret + 1] = t2[i]
+	end
+	return ret
 end
 
 function RandFrom(list)
@@ -23,13 +71,6 @@ end
 function RandBool()
 	math.randomseed(os.time())
 	return math.random(0, 1) == 1
-end
-
-function TableConcat(t1, t2)
-	for i = 1, #t2 do
-		t1[#t1 + 1] = t2[i]
-	end
-	return t1
 end
 
 function RandStr(length)
@@ -52,21 +93,6 @@ function GetVisualSelection()
 		lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
 	end
 	return table.concat(lines, "\n")
-end
-
-function Dump(o)
-	if type(o) == "table" then
-		local s = "{ "
-		for k, v in pairs(o) do
-			if type(k) ~= "number" then
-				k = '"' .. k .. '"'
-			end
-			s = s .. "[" .. k .. "] = " .. Dump(v) .. ","
-		end
-		return s .. "} "
-	else
-		return tostring(o)
-	end
 end
 
 TS = {}
@@ -238,4 +264,67 @@ function ToList(value)
 	else
 		return { value }
 	end
+end
+
+function RunCmd(cmd)
+	local f = io.popen(cmd)
+	local output = f:read "*a"
+	f:close()
+	return output
+end
+
+function GET_MY_ASCII()
+	local ascii_dir = vim.fn.getenv "NVIM_ASCII_DIR"
+	local env_header_file = vim.fn.getenv "NVIM_ASCII_FILE"
+	local env_header = vim.fn.getenv "NVIM_ASCII"
+
+	if env_header ~= vim.NIL and env_header ~= "" then
+		return env_header
+	elseif env_header_file ~= vim.NIL and env_header_file ~= "" then
+		return vim.fn.readfile(env_header)
+	elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
+		local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
+		if image_files ~= nil then
+			return vim.fn.readfile(RandFrom(image_files))
+		end
+		-- WARN: Could not file a file
+	end
+end
+
+function GET_IMAGE_PATH()
+	local env_image = vim.fn.getenv "NVIM_IMG"
+	local image_dir = vim.fn.getenv "NVIM_IMG_DIR"
+
+	if env_image ~= vim.NIL then
+		return env_image
+	elseif image_dir ~= vim.NIL and image_dir ~= "" then
+		local image_files = FFI_RUST.list_dir(vim.fn.expand(image_dir))
+
+		if image_files ~= nil and #image_files ~= 0 then
+			local new_image_files = {}
+			for _, value in pairs(image_files) do
+				local l = #value
+				if l > 4 then
+					if FFI_RUST.is_image(value) then
+						table.insert(new_image_files, value)
+					end
+				end
+			end
+			if #new_image_files > 0 then
+				return (RandFrom(new_image_files))
+			end
+			-- WARN: Could not file a file
+		end
+	end
+end
+
+--- Join Paths
+---@param path_1 ?string|string[]
+---@param path_2 ?string|string[]
+---@return string
+function PathJoin(path_1, path_2)
+	return vim.fn.resolve(table.concat({
+		(type(path_1) == "table" and { table.concat(path_1, "/") } or { (path_1 or "") })[1],
+		(type(path_2) == "table" and { table.concat(path_2, "/") } or { (path_2 or "") })[1],
+	}, "/"))
 end

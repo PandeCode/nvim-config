@@ -16,6 +16,16 @@ syntax sync minlines=256
 cnoremap w!! execute 'write !sudo tee % >/dev/null' <bar> edit!
 ]]
 
+vim.api.nvim_create_user_command("Gitadd", function()
+	vim.cmd "!git add %"
+end, {})
+vim.api.nvim_create_user_command("Chmodx", function()
+	vim.cmd "!chmod +x %"
+end, {})
+vim.api.nvim_create_user_command("Rmf", function()
+	vim.cmd "!rm -f %"
+end, {})
+
 vim.api.nvim_create_user_command("Q", function(opts)
 	vim.cmd("quit" .. (opts.bang and "!" or ""))
 end, { bang = true, bar = true })

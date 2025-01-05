@@ -134,10 +134,22 @@ local M = {
 	{
 		"danymat/neogen",
 		opts = {},
-		config = function()
-			local opts = { noremap = true, silent = true }
-			vim.api.nvim_set_keymap("n", "<Leader>ng", ":lua require('neogen').generate()<CR>", opts)
-		end,
+		-- ft = {
+		-- 	"lua",
+		-- 	"typescriptreact",
+		-- 	"typescript",
+		-- 	"sh",
+		-- 	"c",
+		-- 	"cs",
+		-- 	"cpp",
+		-- 	"go",
+		-- 	"javascript",
+		-- 	"javascriptreact",
+		-- 	"lua",
+		-- 	"python",
+		-- 	"rust",
+		-- },
+		keys = { { "<Leader>ng", ':lua require("neogen").generate({snippet_engine = "luasnip"})<CR>' } },
 	},
 
 	{
@@ -229,13 +241,16 @@ local M = {
 				shfmt = {
 					prepend_args = { "-i", "2" },
 				},
+				stylua = {
+					prepend_args = { "-g", "!xmake.lua" },
+				},
 			},
 		},
 		init = function()
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 			vim.keymap.set("", "<leader>cf", function()
-				require("conform").format({ async = true, timeout_ms = 500, lsp_format = "fallback" }, function(err)
+				require("conform").format({ async = false, timeout_ms = 500, lsp_fallabck = true }, function(err)
 					if not err then
 						local mode = vim.api.nvim_get_mode().mode
 						if vim.startswith(string.lower(mode), "v") then

@@ -2,7 +2,7 @@
 ---@param pattern string Pattern to match filenames
 ---@param text string Template text to insert
 ---@param pos table {row, col} Cursor position after inserting text
-local function CreateTemplate(pattern, text, pos)
+local function createTemplate(pattern, text, pos)
 	-- Create an autocommand to handle the event
 	vim.api.nvim_create_autocmd("BufNewFile", {
 		pattern = pattern, -- Match the given file pattern
@@ -21,8 +21,43 @@ local function CreateTemplate(pattern, text, pos)
 	})
 end
 
--- Examples of template usage
-CreateTemplate(
+createTemplate(
+	"*.sh",
+	[[#!/usr/bin/env bash
+]],
+	{ 2, 1 }
+)
+
+createTemplate(
+	"default.nix",
+	[[_ :{
+	imports = [
+
+	];
+}]],
+	{ 2, 1 }
+)
+
+createTemplate(
+	"modules/**.nix",
+	[[{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.;
+in {
+  options..enable = lib.mkEnableOption "enable ";
+
+  config = lib.mkIf cfg.enable {
+
+  };
+}]],
+	{ 12, 1 }
+)
+
+createTemplate(
 	"*.nix",
 	[[{...}: {
 
@@ -30,7 +65,7 @@ CreateTemplate(
 	{ 2, 2 }
 )
 
-CreateTemplate(
+createTemplate(
 	"main.py",
 	[[def main():
     print()
@@ -40,7 +75,7 @@ if __name__ == "__main__":
 	{ 2, 7 }
 )
 
-CreateTemplate(
+createTemplate(
 	"main.cpp",
 	[[#include <iostream>
 
@@ -49,4 +84,34 @@ int main() {
     return 0;
 }]],
 	{ 3, 5 }
+)
+createTemplate(
+	"lua/plugins/*.lua",
+	[[return {
+
+}]],
+	{ 2, 2 }
+)
+
+createTemplate(
+	"shell.nix",
+	[[{pkgs ? import <nixpkgs> {}}:
+pkgs.mkShell {
+  buildInputs = with pkgs; [
+
+  ];
+  # nativeBuildInputs = with pkgs; [];
+
+  shellHook = ''
+    # export PATH=$PATH:
+  '';
+}]],
+	{ 4, 2 }
+)
+
+createTemplate(
+	".direnv",
+	[[use nix
+#use flake]],
+	{ 4, 2 }
 )

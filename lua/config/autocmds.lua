@@ -17,11 +17,17 @@ cnoremap w!! execute 'write !sudo tee % >/dev/null' <bar> edit!
 ]]
 
 vim.api.nvim_create_user_command("Gitadd", function()
+	local filename = vim.fn.expand "%"
 	vim.cmd "!git add %"
+	vim.notify("Git added '" .. filename .. "'", "info", { title = IDE.name })
 end, {})
+
 vim.api.nvim_create_user_command("Chmodx", function()
-	vim.cmd "!chmod +x %"
+	local filename = vim.fn.expand "%"
+	vim.fn.jobstart { "chmod", "-x", filename }
+	vim.notify("Given execution rights to '" .. filename .. "'", "info", { title = IDE.name })
 end, {})
+
 vim.api.nvim_create_user_command("Rmf", function()
 	vim.cmd "!rm -f %"
 end, {})
@@ -138,3 +144,17 @@ vim.opt.shadafile = (function()
 
 	return file
 end)()
+-- let mk_dyn_case = |b| {
+--     CreateAutocmdOpts::builder()
+--         .desc("Dynamic Smartcase")
+--         .patterns([":"])
+--         // .group("dynamic_smartcase")
+--         .callback(move |_| {
+--             api::set_option("smartcase", b)?;
+--             Ok::<bool, Error>(false)
+--         })
+--         .build()
+-- };
+--
+-- api::create_autocmd(["CmdLineEnter"], &mk_dyn_case(false))?;
+-- api::create_autocmd(["CmdLineLeave"], &mk_dyn_case(true))?;

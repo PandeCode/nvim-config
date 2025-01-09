@@ -18,7 +18,10 @@ end
 return {
 	{
 		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
+		event = {
+			"BufReadPre nvim/**.lua",
+			"BufNewFile nvim/**.lua",
+		},
 		opts = {
 			library = {
 				"nvim-dap-ui",

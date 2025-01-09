@@ -1,5 +1,5 @@
-local my_ascii = GET_MY_ASCII()
-local image_path = GET_IMAGE_PATH()
+local my_ascii = GetAscii()
+local image_path = GetImage()
 
 local dashboard_config = {
 	preset = { header = my_ascii },
@@ -103,20 +103,20 @@ return {
 		},
 		keys = {
 -- stylua: ignore start
-{ "<leader>zm",  function() Snacks.zen() end,                     desc = "Toggle Zen Buffer",        },
-{ "<leader>.",   function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer",        },
-{ "<leader>S",   function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer",        },
-{ "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",         },
-{ "<leader>bd",  function() Snacks.bufdelete() end,               desc = "Delete Buffer",                },
-{ "<leader>cR",  function() Snacks.rename.rename_file() end,      desc = "Rename File",                  },
-{ "<leader>giB", function() Snacks.gitbrowse() end,               desc = "Git Browse",                   },
-{ "<leader>gib", function() Snacks.git.blame_line() end,          desc = "Git Blame Line",               },
-{ "<leader>gif", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History", },
-{ "<leader>gig", function() Snacks.lazygit() end,                 desc = "Lazygit",                      },
-{ "<leader>gil", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)",            },
-{ "<leader>un",  function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications",    },
-{ "]]",          function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",               mode = { "n", "t" }, },
-{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",               mode = { "n", "t" }, },
+{ "<leader>zm",  function() Snacks.zen() end,	                 desc = "Toggle Zen Buffer",        },
+{ "<leader>.",   function() Snacks.scratch() end,	             desc = "Toggle Scratch Buffer",        },
+{ "<leader>S",   function() Snacks.scratch.select() end,	      desc = "Select Scratch Buffer",        },
+{ "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",	     },
+{ "<leader>bd",  function() Snacks.bufdelete() end,	           desc = "Delete Buffer",                },
+{ "<leader>cR",  function() Snacks.rename.rename_file() end,	  desc = "Rename File",                  },
+{ "<leader>giB", function() Snacks.gitbrowse() end,	           desc = "Git Browse",                   },
+{ "<leader>gib", function() Snacks.git.blame_line() end,	      desc = "Git Blame Line",               },
+{ "<leader>gif", function() Snacks.lazygit.log_file() end,	    desc = "Lazygit Current File History", },
+{ "<leader>gig", function() Snacks.lazygit() end,	             desc = "Lazygit",                      },
+{ "<leader>gil", function() Snacks.lazygit.log() end,	         desc = "Lazygit Log (cwd)",            },
+{ "<leader>un",  function() Snacks.notifier.hide() end,	       desc = "Dismiss All Notifications",    },
+{ "]]",	      function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",               mode = { "n", "t" }, },
+{ "[[",	      function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",               mode = { "n", "t" }, },
 			-- stylua: ignore end
 
 			{

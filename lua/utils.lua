@@ -1,5 +1,29 @@
 IDE = { name = "CharonNvim: Necrology editor for CharonOS", description = "Personal Configuration of neovim" }
 
+function ListDir(dir)
+	return vim.fn.globpath(dir, "*", false, true)
+end
+
+function IsImage(file)
+	local extensions = { ".jpeg", ".webp", ".png", ".jpg", ".gif" }
+	for _, ext in ipairs(extensions) do
+		if file:sub(-#ext) == ext then
+			return true
+		end
+	end
+	return false
+end
+
+function Tenary(condition, ifTrue, ifFalse)
+	local val = nil
+	if condition then
+		val = ifTrue
+	else
+		val = ifFalse
+	end
+	return Eval(val)
+end
+
 function DeepCopy(o, seen)
 	seen = seen or {}
 	if o == nil then
@@ -191,36 +215,36 @@ Keys = {
 
 -- stylua: ignore start
 SUPERSCRIPTS = {
-    ["0"] = "⁰", ["1"] = "¹", ["2"] = "²", ["3"] = "³",
-    ["4"] = "⁴", ["5"] = "⁵", ["6"] = "⁶", ["7"] = "⁷",
-    ["8"] = "⁸", ["9"] = "⁹",
-    ["a"] = "ᵃ", ["b"] = "ᵇ", ["c"] = "ᶜ", ["d"] = "ᵈ",
-    ["e"] = "ᵉ", ["f"] = "ᶠ", ["g"] = "ᶢ", ["h"] = "ʰ",
-    ["i"] = "ⁱ", ["j"] = "ʲ", ["k"] = "ᵏ", ["l"] = "ˡ",
-    ["m"] = "ᵐ", ["n"] = "ⁿ", ["o"] = "ᵒ", ["p"] = "ᵖ",
-    ["r"] = "ʳ", ["s"] = "ˢ", ["t"] = "ᵗ", ["u"] = "ᵘ",
-    ["v"] = "ᵛ", ["w"] = "ʷ", ["x"] = "ˣ", ["y"] = "ʸ",
-    ["z"] = "ᶻ",
-    ["A"] = "ᴬ", ["B"] = "ᴮ", ["D"] = "ᴰ", ["E"] = "ᴱ",
-    ["G"] = "ᴳ", ["H"] = "ᴴ", ["I"] = "ᴵ", ["J"] = "ᴶ",
-    ["K"] = "ᴷ", ["L"] = "ᴸ", ["M"] = "ᴹ", ["N"] = "ᴺ",
-    ["O"] = "ᴼ", ["P"] = "ᴾ", ["R"] = "ᴿ", ["T"] = "ᵀ",
-    ["U"] = "ᵁ", ["V"] = "ⱽ", ["W"] = "ᵂ",
-    ["+"] = "⁺", ["-"] = "⁻", ["="] = "⁼", ["("] = "⁽",
-    [")"] = "⁾"
+	["0"] = "⁰", ["1"] = "¹", ["2"] = "²", ["3"] = "³",
+	["4"] = "⁴", ["5"] = "⁵", ["6"] = "⁶", ["7"] = "⁷",
+	["8"] = "⁸", ["9"] = "⁹",
+	["a"] = "ᵃ", ["b"] = "ᵇ", ["c"] = "ᶜ", ["d"] = "ᵈ",
+	["e"] = "ᵉ", ["f"] = "ᶠ", ["g"] = "ᶢ", ["h"] = "ʰ",
+	["i"] = "ⁱ", ["j"] = "ʲ", ["k"] = "ᵏ", ["l"] = "ˡ",
+	["m"] = "ᵐ", ["n"] = "ⁿ", ["o"] = "ᵒ", ["p"] = "ᵖ",
+	["r"] = "ʳ", ["s"] = "ˢ", ["t"] = "ᵗ", ["u"] = "ᵘ",
+	["v"] = "ᵛ", ["w"] = "ʷ", ["x"] = "ˣ", ["y"] = "ʸ",
+	["z"] = "ᶻ",
+	["A"] = "ᴬ", ["B"] = "ᴮ", ["D"] = "ᴰ", ["E"] = "ᴱ",
+	["G"] = "ᴳ", ["H"] = "ᴴ", ["I"] = "ᴵ", ["J"] = "ᴶ",
+	["K"] = "ᴷ", ["L"] = "ᴸ", ["M"] = "ᴹ", ["N"] = "ᴺ",
+	["O"] = "ᴼ", ["P"] = "ᴾ", ["R"] = "ᴿ", ["T"] = "ᵀ",
+	["U"] = "ᵁ", ["V"] = "ⱽ", ["W"] = "ᵂ",
+	["+"] = "⁺", ["-"] = "⁻", ["="] = "⁼", ["("] = "⁽",
+	[")"] = "⁾"
 }
 
 SUBSCRIPTS = {
-    ["0"] = "₀", ["1"] = "₁", ["2"] = "₂", ["3"] = "₃",
-    ["4"] = "₄", ["5"] = "₅", ["6"] = "₆", ["7"] = "₇",
-    ["8"] = "₈", ["9"] = "₉",
-    ["a"] = "ₐ", ["e"] = "ₑ", ["h"] = "ₕ", ["i"] = "ᵢ",
-    ["j"] = "ⱼ", ["k"] = "ₖ", ["l"] = "ₗ", ["m"] = "ₘ",
-    ["n"] = "ₙ", ["o"] = "ₒ", ["p"] = "ₚ", ["r"] = "ᵣ",
-    ["s"] = "ₛ", ["t"] = "ₜ", ["u"] = "ᵤ", ["v"] = "ᵥ",
-    ["x"] = "ₓ",
-    ["+"] = "₊", ["-"] = "₋", ["="] = "₌", ["("] = "₍",
-    [")"] = "₎"
+	["0"] = "₀", ["1"] = "₁", ["2"] = "₂", ["3"] = "₃",
+	["4"] = "₄", ["5"] = "₅", ["6"] = "₆", ["7"] = "₇",
+	["8"] = "₈", ["9"] = "₉",
+	["a"] = "ₐ", ["e"] = "ₑ", ["h"] = "ₕ", ["i"] = "ᵢ",
+	["j"] = "ⱼ", ["k"] = "ₖ", ["l"] = "ₗ", ["m"] = "ₘ",
+	["n"] = "ₙ", ["o"] = "ₒ", ["p"] = "ₚ", ["r"] = "ᵣ",
+	["s"] = "ₛ", ["t"] = "ₜ", ["u"] = "ᵤ", ["v"] = "ᵥ",
+	["x"] = "ₓ",
+	["+"] = "₊", ["-"] = "₋", ["="] = "₌", ["("] = "₍",
+	[")"] = "₎"
 }
 -- stylua: ignore end
 
@@ -266,6 +290,13 @@ function ToList(value)
 	end
 end
 
+function Eval(val)
+	if type(val) == "function" then
+		return val()
+	end
+	return val
+end
+
 function RunCmd(cmd)
 	local f = io.popen(cmd)
 	local output = f:read "*a"
@@ -273,39 +304,45 @@ function RunCmd(cmd)
 	return output
 end
 
-function GET_MY_ASCII()
+function IsEmpty(str)
+	return str == nil or str == vim.NIL or str == ""
+end
+
+function GetAscii()
 	local ascii_dir = vim.fn.getenv "NVIM_ASCII_DIR"
 	local env_header_file = vim.fn.getenv "NVIM_ASCII_FILE"
 	local env_header = vim.fn.getenv "NVIM_ASCII"
 
-	if env_header ~= vim.NIL and env_header ~= "" then
+	if not IsEmpty(env_header) then
 		return env_header
-	elseif env_header_file ~= vim.NIL and env_header_file ~= "" then
+	elseif not IsEmpty(env_header_file) then
 		return vim.fn.readfile(env_header)
-	elseif ascii_dir ~= vim.NIL and ascii_dir ~= "" then
-		local image_files = FFI_RUST.list_dir(vim.fn.expand(ascii_dir))
-		if image_files ~= nil then
-			return vim.fn.readfile(RandFrom(image_files))
+	elseif not IsEmpty(ascii_dir) then
+		local image_files = ListDir(vim.fn.expand(ascii_dir))
+		if image_files ~= nil and #image_files > 0 then
+			local file = RandFrom(image_files)
+			print(file)
+			return vim.fn.readfile(file)
 		end
-		-- WARN: Could not file a file
+		-- WARN: Could not find a file
 	end
 end
 
-function GET_IMAGE_PATH()
+function GetImage()
 	local env_image = vim.fn.getenv "NVIM_IMG"
 	local image_dir = vim.fn.getenv "NVIM_IMG_DIR"
 
 	if env_image ~= vim.NIL then
 		return env_image
 	elseif image_dir ~= vim.NIL and image_dir ~= "" then
-		local image_files = FFI_RUST.list_dir(vim.fn.expand(image_dir))
+		local image_files = ListDir(vim.fn.expand(image_dir))
 
 		if image_files ~= nil and #image_files ~= 0 then
 			local new_image_files = {}
 			for _, value in pairs(image_files) do
 				local l = #value
 				if l > 4 then
-					if FFI_RUST.is_image(value) then
+					if IsImage(value) then
 						table.insert(new_image_files, value)
 					end
 				end
@@ -318,10 +355,6 @@ function GET_IMAGE_PATH()
 	end
 end
 
---- Join Paths
----@param path_1 ?string|string[]
----@param path_2 ?string|string[]
----@return string
 function PathJoin(path_1, path_2)
 	return vim.fn.resolve(table.concat({
 		(type(path_1) == "table" and { table.concat(path_1, "/") } or { (path_1 or "") })[1],

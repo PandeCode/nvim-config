@@ -46,24 +46,27 @@ local servers = {
 		on_attach = function()
 			local util = require "lspconfig.util"
 
-			local function print_pdf()
-				local current_file_path = vim.api.nvim_buf_get_name(0)
-				local full_file_path_with_pdf = current_file_path:gsub("%.%w+$", ".pdf")
+			local function mk_print(ft)
+				return function()
+					local current_file_path = vim.api.nvim_buf_get_name(0)
+					local full_file_path_with_pdf = current_file_path:gsub("%.%w+$", "." .. ft)
 
-				local params = {
-					command = "print-pdf",
-					arguments = { full_file_path_with_pdf },
-				}
-				local clients = util.get_lsp_clients {
-					bufnr = vim.api.nvim_get_current_buf(),
-					name = "mpls",
-				}
-				for _, client in ipairs(clients) do
-					client.request("workspace/executeCommand", params, nil, 0)
+					local params = {
+						command = "print-" .. ft,
+						arguments = { full_file_path_with_pdf },
+					}
+					local clients = util.get_lsp_clients {
+						bufnr = vim.api.nvim_get_current_buf(),
+						name = "mpls",
+					}
+					for _, client in ipairs(clients) do
+						client.request("workspace/executeCommand", params, nil, 0)
+					end
 				end
 			end
 
-			vim.api.nvim_create_user_command("MplsPrintPdf", print_pdf, { nargs = 0 })
+			vim.api.nvim_create_user_command("MplsPrintPDF", mk_print "pdf", { nargs = 0 })
+			vim.api.nvim_create_user_command("MplsPrintHTML", mk_print "html", { nargs = 0 })
 		end,
 	},
 	bashls = {},

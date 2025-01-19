@@ -68,9 +68,9 @@ return {
 		opts = {
 			dashboard = dashboard_config,
 
-			animate = {},
-			scroll = {},
-			zen = {},
+			-- animate = {},
+			-- scroll = {},
+			zen = { enabled = false },
 			bigfile = {},
 			notifier = {},
 			quickfile = {},
@@ -103,7 +103,7 @@ return {
 		},
 		keys = {
 -- stylua: ignore start
-{ "<leader>zm",  function() Snacks.zen() end,	                 desc = "Toggle Zen Buffer",        },
+-- { "<leader>zm",  function() Snacks.zen() end,	                 desc = "Toggle Zen Buffer",        },
 { "<leader>.",   function() Snacks.scratch() end,	             desc = "Toggle Scratch Buffer",        },
 { "<leader>S",   function() Snacks.scratch.select() end,	      desc = "Select Scratch Buffer",        },
 { "<leader>nh",  function() Snacks.notifier.show_history() end,   desc = "Notification History",	     },

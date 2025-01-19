@@ -1,3 +1,7 @@
+if vim.g.vscode ~= nil then
+	return {}
+end
+
 local M = {
 	{
 		"zbirenbaum/copilot.lua",
@@ -5,11 +9,6 @@ local M = {
 		build = ":Copilot auth",
 		-- event = "InsertEnter",
 		lazy = true,
-		keys = {
-			{ "<M-]>", "" },
-			{ "<M-[>", "" },
-			{ "<M-l>", "" },
-		},
 		config = function()
 			require("copilot").setup {
 				panel = { enabled = false },
@@ -47,11 +46,9 @@ local M = {
 
 	{
 		"yetone/avante.nvim",
-		event = "VeryLazy",
 		build = "make",
-		lazy = true,
 		version = "*",
-		keys = { { "<leader>aa", "" }, { "<leader>ae", "" } },
+		cmd = "Avante",
 		opts = {
 			provider = "copilot",
 		},

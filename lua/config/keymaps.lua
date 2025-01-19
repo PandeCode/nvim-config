@@ -73,8 +73,7 @@ local keymaps = {
 	-- use <c-r> to insert original character without triggering things like auto-pairs
 	{ i, "<c-r>", "<c-v>", noremap },
 	{ n, "<LEADER>fs", ":w<CR>", noremap },
-	{ n, "<F1>", "<ESC>", noremap },
-	{ i, "<F1>", "<ESC>", noremap },
+	{ n, "<LEADER>fq", ":q<CR>", noremap },
 	{ n, "n", "nzzzv", noremap },
 	{ n, "N", "Nzzzv", noremap },
 	{ n, "J", "mzJ`z", noremap },

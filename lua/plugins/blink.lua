@@ -17,6 +17,21 @@ end
 
 return {
 	{
+		"justinsgithub/wezterm-types",
+		event = {
+			"BufReadPre wezterm/**.lua",
+			"BufNewFile wezterm/**.lua",
+		},
+	},
+	{
+		"LelouchHe/xmake-luals-addon",
+		event = {
+			"BufReadPre xmake.lua",
+			"BufNewFile xmake.lua",
+		},
+	},
+
+	{
 		"folke/lazydev.nvim",
 		event = {
 			"BufReadPre nvim/**.lua",
@@ -32,6 +47,8 @@ return {
 				"snacks.nvim",
 				"telescope.nvim",
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				{ path = "wezterm-types", mods = { "wezterm" } },
+				{ path = "xmake-luals-addon/library", files = { "xmake.lua" } },
 			},
 		},
 	},
@@ -46,24 +63,12 @@ return {
 		},
 		---@type blink.cmp.Config
 		opts = {
-			signature = { enabled = true, window = { border = "single" } },
-			snippets = {
-				expand = function(snippet)
-					require("luasnip").lsp_expand(snippet)
-				end,
-				active = function(filter)
-					if filter and filter.direction then
-						return require("luasnip").jumpable(filter.direction)
-					end
-					return require("luasnip").in_snippet()
-				end,
-				jump = function(direction)
-					require("luasnip").jump(direction)
-				end,
-			},
-
+			signature = { window = { border = "single" } },
+			snippets = { preset = "luasnip" },
 			keymap = {
-
+				cmdline = {
+					preset = "super-tab",
+				},
 				-- stylua: ignore start
 				preset         = "default",
 				["<S-Tab>"]    = { "select_prev",               "snippet_backward", "fallback" },
@@ -84,63 +89,56 @@ return {
 				["<A-8>"] = cmp_i(8),
 				["<A-9>"] = cmp_i(9),
 			},
-
-			completion = {
-				list = { selection = "manual" },
-				ghost_text = {
-					enabled = false,
-				},
-
-				menu = {
-					border = "rounded",
-					draw = {
-						treesitter = { "lsp", "buffer", "lazydev" },
-						columns = {
-							{ "item_idx" },
-							{ "label", "label_description", gap = 1 },
-							{ "kind_icon", "kind", gap = 1 },
-						},
-
-						components = {
-							kind_icon = {
-								ellipsis = false,
-								text = function(ctx)
-									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-									return kind_icon
-								end,
-								-- Optionally, you may also use the highlights from mini.icons
-								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-									return hl
-								end,
-							},
-							item_idx = {
-								text = function(ctx)
-									return SUPERSCRIPTS[tostring(ctx.idx)] or SUPERSCRIPTS["1"] .. SUPERSCRIPTS["0"]
-								end,
-								highlight = "BlinkCmpItemIdx",
-							},
-						},
+			sources = {
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
 					},
 				},
-				documentation = { window = { border = "single" } },
 			},
-
-			sources = {
-				default = {
-					"lsp",
-					"luasnip",
-					"path",
-					"snippets",
-					"buffer",
-					"lazydev",
-				},
-				providers = {
-					lsp = { fallbacks = { "lazydev" } },
-					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-				},
-			},
-			-- per_filetype = { -- lua = { 'lsp', 'path' }, },
+			-- 	completion = {
+			-- 		list = { selection = "manual" },
+			-- 		ghost_text = {
+			-- 			enabled = false,
+			-- 		},
+			--
+			-- 		menu = {
+			-- 			border = "rounded",
+			-- 			draw = {
+			-- 				treesitter = { "lsp", "buffer", "lazydev" },
+			-- 				columns = {
+			-- 					{ "item_idx" },
+			-- 					{ "label", "label_description", gap = 1 },
+			-- 					{ "kind_icon", "kind", gap = 1 },
+			-- 				},
+			--
+			-- 				components = {
+			-- 					kind_icon = {
+			-- 						ellipsis = false,
+			-- 						text = function(ctx)
+			-- 							local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+			-- 							return kind_icon
+			-- 						end,
+			-- 						-- Optionally, you may also use the highlights from mini.icons
+			-- 						highlight = function(ctx)
+			-- 							local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+			-- 							return hl
+			-- 						end,
+			-- 					},
+			-- 					item_idx = {
+			-- 						text = function(ctx)
+			-- 							return SUPERSCRIPTS[tostring(ctx.idx)] or SUPERSCRIPTS["1"] .. SUPERSCRIPTS["0"]
+			-- 						end,
+			-- 						highlight = "BlinkCmpItemIdx",
+			-- 					},
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 		documentation = { window = { border = "single" } },
+			-- 	},
 		},
 	},
 }

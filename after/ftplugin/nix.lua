@@ -1,32 +1,47 @@
-local ts_utils = require "nvim-treesitter.ts_utils"
+vim.keymap.set("n", "<leader>ex", function()
+	local binding_node = TS.GetNodeAtCursorByName "binding"
+	local attrpath_node = TS.GetNodeAtCursorByName "attrpath"
+	local attr_node = TS.GetNodeAtCursorByName "identifier"
 
-local function expand_nix_set()
-	local parser = vim.treesitter.get_parser(0, "nix")
-	local tree = parser:parse()[1]
-	local root = tree:root()
-	local cursor = vim.api.nvim_win_get_cursor(0)
-	local node = ts_utils.get_node_at_cursor()
-
-	while node and node:type() ~= "binding" do
-		node = node:parent()
-	end
-
-	if not node then
-		vim.notify("No valid Nix set found at the cursor", vim.log.levels.ERROR)
+	if binding_node == nil or attrpath_node == nil or attr_node == nil then
 		return
 	end
 
-	-- Get the text of the node
-	local text = vim.treesitter.get_node_text(node, 0)
-	local expanded = text:gsub("(%w+)%.(%w+)%s*=%s*{", "%1 = { %2 = {"):gsub(";%s*}", "; }; }")
+	local attr = vim.treesitter.get_node_text(attr_node, 0)
+	local expression = vim.treesitter.get_node_text(binding_node:child(2), 0)
+	local attrpath = Func.filter(
+		Func.map(TS.GetNodeChildren(attrpath_node), function(child)
+			return vim.treesitter.get_node_text(child, 0)
+		end),
+		function(text)
+			return text ~= nil and text ~= "."
+		end
+	)
 
-	vim.print(expanded) -- Debug output
+	local final_str = ""
+	local found = false
+	for i, child in ipairs(attrpath) do
+		if attr ~= child then
+			if not found then
+				final_str = final_str .. child .. "."
+			else
+				final_str = final_str .. child
+				if i ~= #attrpath then
+					final_str = final_str .. "."
+				end
+			end
+		elseif attr == child then
+			if i == #attrpath then
+				return vim.notify("Final node, Cannot Expand", vim.log.levels.WARN)
+			end
+			final_str = final_str .. child .. " = { \n"
+			found = true
+		end
+	end
+	final_str = final_str .. " = " .. expression .. ";\n };"
 
-	-- Replace the lines of the node with expanded content
-	local start_row, _, end_row, _ = node:range()
-	local expanded_lines = vim.split(expanded, "\n", { trimempty = true })
-	vim.api.nvim_buf_set_lines(0, start_row, end_row + 1, false, expanded_lines)
-end
+	local start_row, start_col, end_row, end_col = binding_node:range()
+	vim.api.nvim_buf_set_text(0, start_row, start_col, end_row, end_col, vim.fn.split(final_str, "\n"))
 
--- Map the function to a keybinding
-vim.keymap.set("n", "<leader>es", expand_nix_set, { noremap = true, silent = true })
+	vim.notify "Set expanded!"
+end, { noremap = true, silent = true })

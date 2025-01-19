@@ -46,9 +46,9 @@ createTemplate(
   config,
   ...
 }: let
-  cfg = config.;
+  cfg = config.module;
 in {
-  options..enable = lib.mkEnableOption "enable ";
+  options.module.enable = lib.mkEnableOption "enable module";
 
   config = lib.mkIf cfg.enable {
 

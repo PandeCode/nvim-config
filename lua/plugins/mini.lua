@@ -10,6 +10,16 @@ return {
 			require("mini.pairs").setup()
 			require("mini.align").setup()
 			require("mini.move").setup()
+			require("mini.splitjoin").setup()
+			require("mini.trailspace").setup()
+
+			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+				pattern = "*",
+				callback = function()
+					MiniTrailspace.trim()
+					MiniTrailspace.trim_last_lines()
+				end,
+			})
 
 			local ts_input = require("mini.surround").gen_spec.input.treesitter
 
@@ -66,11 +76,15 @@ return {
 			local hipatterns = require "mini.hipatterns"
 			hipatterns.setup {
 				highlighters = {
-					-- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
 					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+					error = { pattern = "%f[%w]()ERROR()%f[%W]", group = "MiniHipatternsFixme" },
+					err = { pattern = "%f[%w]()ERR()%f[%W]", group = "MiniHipatternsFixme" },
+					bug = { pattern = "%f[%w]()BUG()%f[%W]", group = "MiniHipatternsFixme" },
 					hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+					warn = { pattern = "%f[%w]()WARN()%f[%W]", group = "MiniHipatternsHack" },
 					todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 					note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+					info = { pattern = "%f[%w]()INFO()%f[%W]", group = "MiniHipatternsNote" },
 
 					-- Highlight hex color strings (`#rrggbb`) using that color
 					hex_color = hipatterns.gen_highlighter.hex_color(),

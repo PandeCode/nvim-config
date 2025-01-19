@@ -24,7 +24,7 @@ end, {})
 
 vim.api.nvim_create_user_command("Chmodx", function()
 	local filename = vim.fn.expand "%"
-	vim.fn.jobstart { "chmod", "-x", filename }
+	vim.cmd "!chmod +x %"
 	vim.notify("Given execution rights to '" .. filename .. "'", "info", { title = IDE.name })
 end, {})
 

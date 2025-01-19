@@ -1,3 +1,7 @@
+if vim.g.vscode ~= nil then
+	return {}
+end
+
 local lsp = {
 	-- Lsp server name .
 	function()
@@ -49,7 +53,7 @@ local function copilot_lualine()
 end
 
 return {
-	{ "AndreM222/copilot-lualine" },
+	{ "AndreM222/copilot-lualine", lazy = true },
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -247,7 +251,13 @@ return {
 
 			ins_left(copilot_lualine())
 
-			-- Add components to right sections
+			ins_right {
+				function()
+					local wc = vim.fn.wordcount()
+					return tostring(wc.words) .. " w"
+				end,
+			}
+
 			ins_right {
 				"o:encoding", -- option component same as &encoding in viml
 				fmt = string.upper, -- I'm not sure why it's upper case either ;)

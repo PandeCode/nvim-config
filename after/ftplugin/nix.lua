@@ -9,13 +9,13 @@ vim.keymap.set("n", "<leader>ex", function()
 
 	local attr = vim.treesitter.get_node_text(attr_node, 0)
 	local expression = vim.treesitter.get_node_text(binding_node:child(2), 0)
-	local attrpath = Func.filter(
-		Func.map(TS.GetNodeChildren(attrpath_node), function(child)
-			return vim.treesitter.get_node_text(child, 0)
-		end),
+	local attrpath = vim.tbl_filter(
 		function(text)
 			return text ~= nil and text ~= "."
-		end
+		end,
+		vim.tbl_map(function(child)
+			return vim.treesitter.get_node_text(child, 0)
+		end, TS.GetNodeChildren(attrpath_node))
 	)
 
 	local final_str = ""

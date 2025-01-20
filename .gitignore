@@ -1,4 +1,3 @@
-lua/libffi_rust.so
-ffi_rust/target
 test
-ffi_rust/.direnv
+.envrc
+.spotify_tokens.json

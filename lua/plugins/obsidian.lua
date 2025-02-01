@@ -30,8 +30,8 @@ return {
 		lazy = true,
 		ft = "markdown",
 		event = {
-			"BufReadPre Vault/**.md",
-			"BufNewFile Vault/**.md",
+			"BufReadPre Vaults/**.md",
+			"BufNewFile Vaults/**.md",
 		},
 		keys = {
 			{
@@ -92,8 +92,7 @@ return {
 			ui = { enable = false },
 
 			workspaces = {
-				{ name = "School", path = "/mnt/c/Users/pande/Vault/School" },
-				{ name = "Jorunal", path = "/mnt/c/Users/pande/Vault/Jorunal" },
+				{ name = "School", path = vim.fs.normalize "~/Vaults/School" },
 			},
 		},
 	},

@@ -48,7 +48,7 @@ local M = {
 		"yetone/avante.nvim",
 		build = "make",
 		version = "*",
-		cmd = "Avante",
+		cmd = "AvanteAsk",
 		opts = {
 			provider = "copilot",
 		},

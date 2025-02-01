@@ -57,7 +57,7 @@ local options = {
 	-- wildmode = "longest,list,full";
 	-- wildmenu";
 	-- " Ignore files;
-	wildignore = "*.pyc,*_build/*,**/coverage/*,**/Debug/*,**/build/*,**/node_modules/*,**/android/*,**/ios/*,**/.git/*",
+	wildignore = "*.pyc,*_build/*,**/coverage/*,**/Debug/*,**/build/*,**/node_modules/*,**/android/*,**/ios/*,**/.git/*,*.lock",
 }
 
 for k, v in pairs(options) do

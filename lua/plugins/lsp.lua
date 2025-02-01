@@ -83,46 +83,46 @@ local servers = {
 	vls = {},
 	yamlls = {},
 
-	-- nil_ls = {
-	-- 	settings = {
-	-- 		["nil"] = {
-	-- 			formatting = { command = { "alejandra" } },
-	-- 		},
-	-- 	},
-	-- },
-
-	nixd = {
-		cmd = { "nixd", "--inlay-hints=true" },
+	nil_ls = {
 		settings = {
-			nixd = {
-				nixpkgs = {
-					-- expr = "import <nixpkgs> { }",
-					expr = 'import (builtins.getFlake "' .. flake_dir .. '").inputs.nixpkgs { }',
-				},
-
+			["nil"] = {
 				formatting = { command = { "alejandra" } },
-
-				options = {
-					nixos = {
-						expr = '(builtins.getFlake "'
-							.. flake_dir
-							.. '").nixosConfigurations.'
-							.. hostname
-							.. ".options",
-					},
-					home_manager = {
-						expr = '(builtins.getFlake "'
-							.. flake_dir
-							.. '").homeConfigurations."'
-							.. whoami
-							.. "@"
-							.. hostname
-							.. '".options',
-					},
-				},
 			},
 		},
 	},
+
+	-- nixd = {
+	-- 	cmd = { "nixd", "--inlay-hints=true" },
+	-- 	settings = {
+	-- 		nixd = {
+	-- 			nixpkgs = {
+	-- 				-- expr = "import <nixpkgs> { }",
+	-- 				expr = 'import (builtins.getFlake "' .. flake_dir .. '").inputs.nixpkgs { }',
+	-- 			},
+	--
+	-- 			formatting = { command = { "alejandra" } },
+	--
+	-- 			options = {
+	-- 				nixos = {
+	-- 					expr = '(builtins.getFlake "'
+	-- 						.. flake_dir
+	-- 						.. '").nixosConfigurations.'
+	-- 						.. hostname
+	-- 						.. ".options",
+	-- 				},
+	-- 				home_manager = {
+	-- 					expr = '(builtins.getFlake "'
+	-- 						.. flake_dir
+	-- 						.. '").homeConfigurations."'
+	-- 						.. whoami
+	-- 						.. "@"
+	-- 						.. hostname
+	-- 						.. '".options',
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 
 	lua_ls = {
 		settings = {

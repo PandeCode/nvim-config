@@ -62,4 +62,4 @@ This is the **final** iteration of my Neovim configuration, refined for performa
 ---
 
 ### Feedback & Contributions
-Feel free to fork, contribute, or share feedback! This repository is a work of passion and continues to evolve.
+Feel free to fork, contribute, or share feedback! This repository is a work of passion and continues to evolve to reach heights of Tpope, junegunn, folke, shougo and echasnovski.

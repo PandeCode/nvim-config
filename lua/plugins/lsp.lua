@@ -1,7 +1,10 @@
 -- stylua: ignore start
 vim.keymap.set("n", "<LEADER>e", function() vim.diagnostic.open_float { float = "rounded" } end, {noremap = true, silent = true })
-vim.keymap.set("n", "g[", function() vim.diagnostic.jump { count=-1 , float = "rounded" } end, { noremap = true, silent = true })
-vim.keymap.set("n", "g]", function() vim.diagnostic.jump { count=1, float = "rounded" } end, { noremap = true, silent = true })
+-- vim.keymap.set("n", "g[", function() vim.diagnostic.jump { count=-1 , float = "rounded" } end, { noremap = true, silent = true })
+-- vim.keymap.set("n", "g]", function() vim.diagnostic.jump { count=1, float = "rounded" } end, { noremap = true, silent = true })
+vim.keymap.set("n", "g[", function() vim.diagnostic.goto_prev() end, { noremap = true, silent = true })
+vim.keymap.set("n", "g]", function() vim.diagnostic.goto_next() end, { noremap = true, silent = true })
+
 vim.keymap.set("n", "<LEADER>q", "<CMD>Telescope diagnostics<CR>", { noremap = true, silent = true })
 -- stylua: ignore end
 

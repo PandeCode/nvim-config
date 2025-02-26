@@ -1,5 +1,5 @@
-local client_id = vim.env.SPOTIFY_CLIENT_ID or vim.fn.system "head -n 1 ~/.config/spotify_client" -- or vim.fn.system "pass spotify.nvim/client-id"
-local client_secret = vim.env.SPOTIFY_CLIENT_SECRET or vim.fn.system "tail -n 1 ~/.config/spotify_client" -- or vim.fn.system "pass spotify.nvim/client-secret"
+local client_id = vim.fn.trim( vim.env.SPOTIFY_CLIENT_ID or vim.fn.system "head  -n 1 ~/.config/spotify_client") -- or vim.fn.system "pass spotify.nvim/client-id"
+local client_secret = vim.fn.trim(vim.env.SPOTIFY_CLIENT_SECRET or vim.fn.system "tail -n 1 ~/.config/spotify_client") -- or vim.fn.system "pass spotify.nvim/client-secret"
 
 if not client_id or not client_secret or client_id == "" or client_secret == "" then
 	vim.notify("Spotify client credentials are missing", vim.log.levels.ERROR)

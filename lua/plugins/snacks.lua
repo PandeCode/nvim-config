@@ -72,6 +72,7 @@ return {
 			-- scroll = {},
 			zen = { enabled = false },
 			bigfile = {},
+			image = {},
 			notifier = {},
 			quickfile = {},
 			words = {},

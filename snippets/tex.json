@@ -1,0 +1,195 @@
+{
+  // Document Structure
+  "Document Setup": {
+    "prefix": "doc",
+    "body": [
+      "\\documentclass{${1|article,report,book,letter|}}",
+      "\\usepackage[${2:options}]{${3:package}}",
+      "\\title{${4:Title}}",
+      "\\author{${5:Author}}",
+      "\\date{${6:\\today}}",
+      "",
+      "\\begin{document}",
+      "\\maketitle",
+      "$0",
+      "\\end{document}"
+    ],
+    "description": "Basic LaTeX document structure"
+  },
+
+  // Sections
+  "Section": {
+    "prefix": "sec",
+    "body": "\\section{${1:Section Title}}",
+    "description": "Section heading"
+  },
+  "Subsection": {
+    "prefix": "sub",
+    "body": "\\subsection{${1:Subsection Title}}",
+    "description": "Subsection heading"
+  },
+
+  // Environments
+  "Equation Environment": {
+    "prefix": "eq",
+    "body": [
+      "\\begin{equation}",
+      "\t${1:equation}",
+      "\\end{equation}"
+    ],
+    "description": "Numbered equation environment"
+  },
+  "Align Environment": {
+    "prefix": "align",
+    "body": [
+      "\\begin{align}",
+      "\t${1:equation} \\\\",
+      "\t${2:equation}",
+      "\\end{align}"
+    ],
+    "description": "Aligned equations environment"
+  },
+  "Itemize Environment": {
+    "prefix": "item",
+    "body": [
+      "\\begin{itemize}",
+      "\t\\item ${1:Item 1}",
+      "\t\\item ${2:Item 2}",
+      "\\end{itemize}"
+    ],
+    "description": "Bulleted list environment"
+  },
+  "Figure Environment": {
+    "prefix": "fig",
+    "body": [
+      "\\begin{figure}[${1:htbp}]",
+      "\t\\centering",
+      "\t\\includegraphics[width=${2:0.8\\textwidth}]{${3:image}}",
+      "\t\\caption{${4:Caption}}",
+      "\t\\label{fig:${5:label}}",
+      "\\end{figure}"
+    ],
+    "description": "Figure environment with image"
+  },
+
+  // Math Symbols
+  "Fraction": {
+    "prefix": "frac",
+    "body": "\\frac{${1:numerator}}{${2:denominator}}",
+    "description": "Fraction"
+  },
+  "Summation": {
+    "prefix": "sum",
+    "body": "\\sum_{${1:i=1}}^{${2:n}} ${3:term}",
+    "description": "Summation notation"
+  },
+  "Integral": {
+    "prefix": "int",
+    "body": "\\int_{${1:a}}^{${2:b}} ${3:integrand}\\,d${4:x}",
+    "description": "Integral expression"
+  },
+  "Greek Letters": {
+    "prefix": "greek",
+    "body": "\\${1|alpha,beta,gamma,delta,epsilon,theta,lambda,mu,pi,sigma,omega|}",
+    "description": "Greek letter"
+  },
+
+  // Text Formatting
+  "Bold Text": {
+    "prefix": "bold",
+    "body": "\\textbf{${1:text}}",
+    "description": "Bold text"
+  },
+  "Italic Text": {
+    "prefix": "italic",
+    "body": "\\textit{${1:text}}",
+    "description": "Italic text"
+  },
+  "Underline Text": {
+    "prefix": "under",
+    "body": "\\underline{${1:text}}",
+    "description": "Underlined text"
+  },
+  "URL Link": {
+    "prefix": "url",
+    "body": "\\url{${1:https://example.com}}",
+    "description": "Hyperlink"
+  },
+
+  // References
+  "Label": {
+    "prefix": "lbl",
+    "body": "\\label{${1|sec:,eq:,fig:,tab:|}${2:label}}",
+    "description": "Cross-reference label"
+  },
+  "Reference": {
+    "prefix": "ref",
+    "body": "\\ref{${1:label}}",
+    "description": "Cross-reference"
+  },
+  "Citation": {
+    "prefix": "cite",
+    "body": "\\cite{${1:key}}",
+    "description": "Bibliography citation"
+  },
+
+  // Tables
+  "Table Environment": {
+    "prefix": "table",
+    "body": [
+      "\\begin{table}[${1:htbp}]",
+      "\t\\centering",
+      "\t\\caption{${2:Caption}}",
+      "\t\\label{tab:${3:label}}",
+      "\t\\begin{tabular}{${4:c|c}}",
+      "\t\t${5:Header1} & ${6:Header2} \\\\",
+      "\t\t\\hline",
+      "\t\t${7:Data1} & ${8:Data2} \\\\",
+      "\t\\end{tabular}",
+      "\\end{table}"
+    ],
+    "description": "Table environment with tabular"
+  },
+
+  // Theorems
+  "Theorem Environment": {
+    "prefix": "thm",
+    "body": [
+      "\\begin{theorem}",
+      "\t${1:Theorem content}",
+      "\\end{theorem}"
+    ],
+    "description": "Theorem environment (requires amsthm)"
+  },
+  "Proof Environment": {
+    "prefix": "proof",
+    "body": [
+      "\\begin{proof}",
+      "\t${1:Proof content}",
+      "\\end{proof}"
+    ],
+    "description": "Proof environment (requires amsthm)"
+  },
+
+  // Matrices
+  "Matrix": {
+    "prefix": "matrix",
+    "body": [
+      "\\begin{${1|matrix,pmatrix,bmatrix,Bmatrix,vmatrix,Vmatrix|}",
+      "\t${2:1} & ${3:0} \\\\",
+      "\t${4:0} & ${5:1}",
+      "\\end{$1}"
+    ],
+    "description": "Matrix environment (requires amsmath)"
+  },
+
+  // Bibliography
+  "Bibliography": {
+    "prefix": "bib",
+    "body": [
+      "\\bibliographystyle{${1|plain,unsrt,alpha,abbrv|}}",
+      "\\bibliography{${2:references}}"
+    ],
+    "description": "Bibliography section"
+  }
+}

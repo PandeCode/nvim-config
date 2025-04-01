@@ -65,10 +65,14 @@ return {
 		opts = {
 			signature = { window = { border = "single" } },
 			snippets = { preset = "luasnip" },
-			keymap = {
-				cmdline = {
+			cmdline = {
+				keymap = {
 					preset = "super-tab",
 				},
+			},
+			keymap = {
+
+
 				-- stylua: ignore start
 				preset         = "default",
 				["<S-Tab>"]    = { "select_prev",               "snippet_backward", "fallback" },

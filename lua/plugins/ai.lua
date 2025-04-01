@@ -12,6 +12,7 @@ local M = {
 		config = function()
 			require("copilot").setup {
 				panel = { enabled = false },
+                  copilot_model = "gpt-4o-copilot",  -- gpt-35-turbo
 				suggestion = {
 					enabled = true,
 					auto_trigger = false, -- use next and prev keymaps to trigger

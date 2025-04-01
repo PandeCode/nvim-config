@@ -9,7 +9,8 @@ vim.keymap.set("n", "<LEADER>q", "<CMD>Telescope diagnostics<CR>", { noremap = t
 -- stylua: ignore end
 
 -- local flake_file = PathJoin(vim.fn.getenv "HOME", "/dotnix/flake.nix")
-local flake_dir = PathJoin(vim.fn.getenv "HOME", "/dotnix/")
+local flake_dir = vim.fs.normalize "~/dotnix"
+local nvim_flake_dir = vim.fs.normalize "~/nvimcat"
 local hostname = (RunCmd "hostname"):sub(1, -2)
 local whoami = (RunCmd "whoami"):sub(1, -2)
 
@@ -37,6 +38,9 @@ local ft = {
 }
 
 local servers = {
+    ts_ls = {},
+	marksman = {},
+	digestif = {},
 	awk_ls = {},
 	mpls = {
 		cmd = {
@@ -74,7 +78,7 @@ local servers = {
 	},
 	bashls = {},
 	cssls = {},
-	cssmodules_ls = {},
+	-- cssmodules_ls = {},
 	gdscript = {},
 	glsl_analyzer = {},
 	gopls = {},
@@ -86,46 +90,47 @@ local servers = {
 	vls = {},
 	yamlls = {},
 
-	nil_ls = {
-		settings = {
-			["nil"] = {
-				formatting = { command = { "alejandra" } },
-			},
-		},
-	},
-
-	-- nixd = {
-	-- 	cmd = { "nixd", "--inlay-hints=true" },
+	-- nil_ls = {
 	-- 	settings = {
-	-- 		nixd = {
-	-- 			nixpkgs = {
-	-- 				-- expr = "import <nixpkgs> { }",
-	-- 				expr = 'import (builtins.getFlake "' .. flake_dir .. '").inputs.nixpkgs { }',
-	-- 			},
-	--
+	-- 		["nil"] = {
 	-- 			formatting = { command = { "alejandra" } },
-	--
-	-- 			options = {
-	-- 				nixos = {
-	-- 					expr = '(builtins.getFlake "'
-	-- 						.. flake_dir
-	-- 						.. '").nixosConfigurations.'
-	-- 						.. hostname
-	-- 						.. ".options",
-	-- 				},
-	-- 				home_manager = {
-	-- 					expr = '(builtins.getFlake "'
-	-- 						.. flake_dir
-	-- 						.. '").homeConfigurations."'
-	-- 						.. whoami
-	-- 						.. "@"
-	-- 						.. hostname
-	-- 						.. '".options',
-	-- 				},
-	-- 			},
 	-- 		},
 	-- 	},
 	-- },
+
+	nixd = {
+		cmd = { "nixd", "--inlay-hints=true" },
+		settings = {
+			nixd = {
+				nixpkgs = { expr = 'import (builtins.getFlake "' .. nvim_flake_dir .. '").inputs.nixpkgs { }' },
+				nixCats = { expr = 'import (builtins.getFlake "' .. nvim_flake_dir .. '").inputs.nixCats { }' },
+
+				formatting = { command = { "alejandra" } },
+
+				options = {
+					full = { expr = '(builtins.getFlake "' .. nvim_flake_dir .. '").full.options' },
+					minimal = { expr = '(builtins.getFlake "' .. nvim_flake_dir .. '").minimal.options' },
+
+					nixos = {
+						expr = '(builtins.getFlake "'
+							.. flake_dir
+							.. '").nixosConfigurations.'
+							.. hostname
+							.. ".options",
+					},
+					home_manager = {
+						expr = '(builtins.getFlake "'
+							.. flake_dir
+							.. '").homeConfigurations."'
+							.. whoami
+							.. "@"
+							.. hostname
+							.. '".options',
+					},
+				},
+			},
+		},
+	},
 
 	lua_ls = {
 		settings = {
@@ -133,7 +138,7 @@ local servers = {
 				diagnostics = { globals = { "vim", "FFI_RUST", "Snacks" } },
 				workspace = {
 					library = vim.api.nvim_get_runtime_file("", true),
-					checkThirdParty = false,
+					checkThirdParty = true,
 				},
 				telemetry = { enable = false },
 				completion = {
@@ -329,9 +334,8 @@ live preview of markdown files in your browser while you edit them in your favor
 
 	{
 		"https://github.com/nvimtools/none-ls.nvim",
-		ft = {
-			"nu",
-			-- "markdown", "nix"
+		keys = {
+			{ "<leader>nl", ":lua vim.print('Activated None LS')<CR>" },
 		},
 		config = function()
 			local null_ls = require "null-ls"
@@ -339,13 +343,23 @@ live preview of markdown files in your browser while you edit them in your favor
 			null_ls.setup {
 				sources = {
 					null_ls.builtins.code_actions.proselint,
-					null_ls.builtins.code_actions.statix,
 					null_ls.builtins.completion.spell,
-					null_ls.builtins.diagnostics.markdownlint,
 					null_ls.builtins.diagnostics.misspell,
-					null_ls.builtins.diagnostics.statix,
 				},
 			}
+
+			RunForFileType("markdown", function()
+				null_ls.register(null_ls.builtins.diagnostics.markdownlint)
+			end)
+
+			RunForFileType("nix", function()
+				null_ls.register(null_ls.builtins.diagnostics.statix)
+			end)
+
+			RunForFileType("nix", function()
+				null_ls.register(null_ls.builtins.diagnostics.statix)
+				null_ls.register(null_ls.builtins.code_actions.statix)
+			end)
 
 			-- local no_really = {
 			-- 	method = null_ls.methods.DIAGNOSTICS,

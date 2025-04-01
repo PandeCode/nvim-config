@@ -1,4 +1,7 @@
 local M = {
+
+	"tpope/vim-eunuch",
+
 	{
 		"stevearc/oil.nvim",
 		lazy = false,
@@ -207,6 +210,8 @@ local M = {
 				rust   = { "rustfmt"      },
 				cpp    = { "clang-format" },
 				c      = { "clang-format" },
+
+				tex      = { "tex-fmt" },
 
 				javascript      = { "prettierd" },
 				typescript      = { "prettierd" },

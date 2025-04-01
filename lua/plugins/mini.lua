@@ -11,7 +11,17 @@ return {
 			require("mini.align").setup()
 			require("mini.move").setup()
 			require("mini.splitjoin").setup()
+
 			require("mini.trailspace").setup()
+
+			vim.api.nvim_create_autocmd("FileType", {
+				group = vim.api.nvim_create_augroup("disable_mini_plugins", { clear = true }),
+				pattern = { "snacks_dashboard" },
+				callback = function(data)
+					vim.b[data.buf].minitrailspace_disable = true
+					vim.api.nvim_buf_call(data.buf, MiniTrailspace.unhighlight)
+				end,
+			})
 
 			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 				pattern = "*",

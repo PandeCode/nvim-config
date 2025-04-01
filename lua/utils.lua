@@ -1,5 +1,25 @@
 IDE = { name = "CharonNvim: Necrology editor for CharonOS", description = "Personal Configuration of neovim" }
 
+function RunForFileType(ft, func)
+	if type(ft) == "table" then
+		ft = table.concat(ft, ",")
+	end
+
+	vim.api.nvim_create_autocmd({ "Filetype" }, {
+		pattern = ft,
+		callback = func,
+	})
+end
+
+function RequireForPattern(pattern, module)
+	vim.api.nvim_create_autocmd({ "BufEnter" }, {
+		pattern = pattern,
+		callback = function()
+			require(module)
+		end,
+	})
+end
+
 function ListDir(dir)
 	return vim.fn.globpath(dir, "*", false, true)
 end

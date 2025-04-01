@@ -144,6 +144,7 @@ vim.opt.shadafile = (function()
 
 	return file
 end)()
+
 -- let mk_dyn_case = |b| {
 --     CreateAutocmdOpts::builder()
 --         .desc("Dynamic Smartcase")

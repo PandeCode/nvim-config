@@ -255,6 +255,10 @@ Keys = {
 		script = true,
 		expr = true,
 	},
+
+	Remap = {
+		remap = true,
+    }
 }
 
 -- stylua: ignore start

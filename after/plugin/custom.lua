@@ -13,7 +13,7 @@ end
 -- Function to source the custom_nvim.lua file
 function source_custom_config()
 	local cwd = vim.fn.getcwd()
-	local custom_config_path = cwd .. "/custom_nvim.lua"
+	local custom_config_path = cwd .. "/.nvimrc.lua"
 
 	if file_exists(custom_config_path) then
 		vim.notify("Sourcing custom config from: " .. custom_config_path, vim.log.levels.INFO)

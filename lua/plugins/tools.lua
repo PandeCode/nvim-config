@@ -169,22 +169,10 @@ local M = {
 			all_cmd_names = [[help commands | get name | str join "\n"]],
 		},
 	},
-	{ -- This plugin
-		"Zeioth/compiler.nvim",
-		cmd = { "CompilerOpen", "CompilerToggleResults" },
-		dependencies = { "stevearc/overseer.nvim", "nvim-telescope/telescope.nvim" },
-		keys = {
-			{ "<LEADER>co", ":CompilerOpen<CR>", desc = "CompilerOpen" },
-			{ "<LEADER>ct", ":CompilerToggleResults<CR>", desc = "CompilerToggleResults" },
-			{ "<LEADER>cr", ":CompilerRedo<CR>", desc = "CompilerRedo" },
-			{ "<LEADER>cs", ":CompilerStop<CR>", desc = "CompilerStop" },
-		},
-		opts = {},
-	},
-	{ -- The task runner we use
+	{
 		"stevearc/overseer.nvim",
-		commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
-		cmd = { "CompilerOpen" },
+		cmd = { "OverseerRun" },
+        keys = {"<leader>or", ":OverseerRun<CR>"},
 		opts = {
 			task_list = {
 				direction = "right",
@@ -204,21 +192,23 @@ local M = {
 		opts = {
 			formatters_by_ft = {
 				-- stylua: ignore start
-				nix    = { "alejandra"    },
-				lua    = { "stylua"       },
-				python = { "black"        },
-				rust   = { "rustfmt"      },
-				cpp    = { "clang-format" },
-				c      = { "clang-format" },
+				nix	= { "alejandra"	},
+				lua	= { "stylua"	   },
+				python = { "black"		},
+				rust   = { "rustfmt"	  },
+				cpp	= { "clang-format" },
+				c	  = { "clang-format" },
+				fennel  = { "fnlfmt" },
 
-				tex      = { "tex-fmt" },
 
-				javascript      = { "prettierd" },
-				typescript      = { "prettierd" },
+				tex	  = { "tex-fmt" },
+
+				javascript	  = { "prettierd" },
+				typescript	  = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
-				json            = { "prettierd" },
-				markdown        = { "prettierd" },
+				json			= { "prettierd" },
+				markdown		= { "prettierd" },
 				-- stylua: ignore end
 			},
 			default_format_opts = {
@@ -265,6 +255,14 @@ local M = {
 				end)
 			end, { desc = "Format code" })
 		end,
+	},
+	{
+		"jiaoshijie/undotree",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = true,
+		keys = { -- load the plugin only when using it's keybinding:
+			{ "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+		},
 	},
 }
 

@@ -40,38 +40,23 @@ local M = {
 
 	{
 		"rachartier/tiny-devicons-auto-colors.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "VeryLazy",
 		config = function()
-			require("tiny-devicons-auto-colors").setup { colors = ToList(require "tokyonight.colors.night") }
+			require("tiny-devicons-auto-colors").setup { colors = ToList(require("mini.base16").config.palette) }
 		end,
 	},
 
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = { style = "night" },
-		config = function()
-			vim.cmd [[colorscheme tokyonight-night ]]
-
-			IsTransparent = false
-			function ToggleBackground()
-				if IsTransparent then
-					vim.cmd "hi Normal guifg=#c0caf5 guibg=#1a1b26 | hi LineNr ctermfg=11 guifg=#3b4261| hi SignColumn ctermfg=14 ctermbg=242 guifg=#3b4261 guibg=#1a1b26"
-					IsTransparent = false
-				else
-					vim.cmd [[hi Normal ctermbg=NONE guibg=NONE | hi LineNr ctermbg=NONE guibg=NONE | hi SignColumn ctermbg=NONE guibg=NONE]]
-					IsTransparent = true
-				end
-			end
-
-			vim.keymap.set("n", "<LEADER>bt", ToggleBackground, { noremap = true, silent = true })
-			ToggleBackground()
-		end,
-	},
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = { style = "night" },
+	-- 	config = function()
+	-- 		vim.cmd [[colorscheme tokyonight-night ]]
+	--
+	-- 	end,
+	-- },
 
 	{
 		"folke/noice.nvim",
@@ -114,6 +99,109 @@ local M = {
 					require "hover.providers.fold_preview"
 					require "hover.providers.man"
 					require "hover.providers.dictionary"
+
+					require("hover").register {
+						name = "Tailwind",
+						priority = 1,
+						enabled = function(bufnr)
+							if "lua" == vim.fn.getbufvar(bufnr, "&filetype") then
+								return true
+							end
+							return false
+						end,
+						execute = function(opts, done)
+							local cword = vim.fn.expand "<cword>"
+
+							local base_descriptions = {
+								base00 = {
+									"Primary Background – Darkest Layer",
+									"Forms the foundation for the entire UI background.",
+									"Often used for editor background or root containers.",
+								},
+								base01 = {
+									"Secondary Background – Elevated Shade",
+									"Provides subtle contrast against the base background.",
+									"Used for panels, sidebars, or secondary surfaces.",
+								},
+								base02 = {
+									"Selection Highlight Background",
+									"Indicates selected items or active highlights.",
+									"Balances visibility without overpowering text.",
+								},
+								base03 = {
+									"Comments and Inactive Elements",
+									"Applies to comments, invisible characters, or guide lines.",
+									"Lower visual priority, often gray or muted.",
+								},
+								base04 = {
+									"Muted Foreground – Secondary Text",
+									"Used for non-essential or auxiliary text.",
+									"Labels, placeholders, or subdued notes.",
+								},
+								base05 = {
+									"Primary Foreground – Main Text",
+									"Default color for regular readable text.",
+									"Applies to most content, code, and UI labels.",
+								},
+								base06 = {
+									"Bright Foreground – Highlight Text",
+									"Used for strong emphasis or important UI elements.",
+									"Often applied to active items or headings.",
+								},
+								base07 = {
+									"Light Background – Emphasized UI Areas",
+									"Brightest shade in the theme.",
+									"Typically used for inline code blocks or selected backgrounds.",
+								},
+								base08 = {
+									"Critical Elements – Errors & Variables",
+									"Marks error messages, exceptions, and mutable variables.",
+									"Stands out for immediate attention.",
+								},
+								base09 = {
+									"Numeric & Boolean Values",
+									"Highlights numeric constants, booleans, and enums.",
+									"Useful for distinguishing fixed values in code.",
+								},
+								base0A = {
+									"Structural Elements – Classes & Tags",
+									"Emphasizes class names, markup tags, and data types.",
+									"Defines the skeleton of code structures.",
+								},
+								base0B = {
+									"Literals & Strings",
+									"Used for string values and quoted literals.",
+									"Reflects static data in code.",
+								},
+								base0C = {
+									"Support Constructs – RegEx & Helpers",
+									"Marks auxiliary patterns, regex, and helper keywords.",
+									"Often associated with tools and diagnostics.",
+								},
+								base0D = {
+									"Executable Elements – Functions & Methods",
+									"Represents callable code units: functions, methods, and lambdas.",
+									"Essential for understanding logic flow.",
+								},
+								base0E = {
+									"Language Keywords & Control Flow",
+									"Identifies language-level reserved words and flow-control terms.",
+									"For example: `if`, `else`, `return`, `while`.",
+								},
+								base0F = {
+									"Deprecated or Legacy Components",
+									"Highlights outdated code, unstable APIs, or transitional elements.",
+									"Useful for signaling migration or refactor needs.",
+								},
+							}
+
+							for key, description in pairs(base_descriptions) do
+								if string.find(cword, key) then
+									done { lines = description, filetype = "markdown" }
+								end
+							end
+						end,
+					}
 				end,
 				preview_opts = {
 					border = "single",

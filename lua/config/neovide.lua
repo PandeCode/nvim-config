@@ -16,7 +16,7 @@ vim.g.neovide_scale_factor = 0.78 -- 1
 vim.g.neovide_floating_blur_amount_x = 10.0 -- 2.0
 vim.g.neovide_floating_blur_amount_y = 10.0 -- 2.0
 
-vim.g.neovide_transparency = 0.9 -- 0
+vim.g.neovide_opacity = 0.8 -- 0
 
 -- vim.g.neovide_scroll_animation_length = -- 0.3
 
@@ -35,6 +35,15 @@ vim.g.neovide_title_background_color =
 
 vim.g.neovide_title_text_color = "pink"
 
-  vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+vim.keymap.set("n", "<C-+>", function()
+	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+end, { silent = true })
+vim.keymap.set("n", "<C-=>", function()
+	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+end, { silent = true })
+vim.keymap.set("n", "<C-->", function()
+	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+end, { silent = true })
+vim.keymap.set("n", "<C-0>", function()
+	vim.g.neovide_scale_factor = 1
+end, { silent = true })

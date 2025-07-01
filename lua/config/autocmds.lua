@@ -145,6 +145,13 @@ vim.opt.shadafile = (function()
 	return file
 end)()
 
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
 -- let mk_dyn_case = |b| {
 --     CreateAutocmdOpts::builder()
 --         .desc("Dynamic Smartcase")

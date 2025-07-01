@@ -2,16 +2,13 @@ return {
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
+		priority = 999,
 		config = function()
-			-- require("mini.animate").setup()
-			-- require("mini.notify").setup()
-
 			require("mini.cursorword").setup()
 			require("mini.pairs").setup()
 			require("mini.align").setup()
 			require("mini.move").setup()
 			require("mini.splitjoin").setup()
-
 			require("mini.trailspace").setup()
 
 			vim.api.nvim_create_autocmd("FileType", {
@@ -84,8 +81,30 @@ return {
 			vim.keymap.set("n", "yss", "ys_", { remap = true })
 
 			local hipatterns = require "mini.hipatterns"
+
 			hipatterns.setup {
 				highlighters = {
+					-- vec3(1.0, 0.5, 0.0)
+
+					vec3 = {
+						pattern = "vec3%([%.%d%s,]*%)",
+						group = function(_, _, data)
+							local r, g, b = data.full_match:match "%((.*),(.*),(.*)%)"
+							if not r or not g or not b then
+								return nil
+							end
+							return hipatterns.compute_hex_color_group(
+								string.format(
+									"#%02X%02X%02X",
+									math.min(math.max(math.floor(tonumber(r) * 255), 0), 255),
+									math.min(math.max(math.floor(tonumber(g) * 255), 0), 255),
+									math.min(math.max(math.floor(tonumber(b) * 255), 0), 255)
+								),
+								"bg"
+							)
+						end,
+					},
+
 					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
 					error = { pattern = "%f[%w]()ERROR()%f[%W]", group = "MiniHipatternsFixme" },
 					err = { pattern = "%f[%w]()ERR()%f[%W]", group = "MiniHipatternsFixme" },
@@ -96,7 +115,23 @@ return {
 					note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 					info = { pattern = "%f[%w]()INFO()%f[%W]", group = "MiniHipatternsNote" },
 
-					-- Highlight hex color strings (`#rrggbb`) using that color
+					base00 = { pattern = "base00", group = "GP_base00" },
+					base01 = { pattern = "base01", group = "GP_base01" },
+					base02 = { pattern = "base02", group = "GP_base02" },
+					base03 = { pattern = "base03", group = "GP_base03" },
+					base04 = { pattern = "base04", group = "GP_base04" },
+					base05 = { pattern = "base05", group = "GP_base05" },
+					base06 = { pattern = "base06", group = "GP_base06" },
+					base07 = { pattern = "base07", group = "GP_base07" },
+					base08 = { pattern = "base08", group = "GP_base08" },
+					base09 = { pattern = "base09", group = "GP_base09" },
+					base0A = { pattern = "base0A", group = "GP_base0A" },
+					base0B = { pattern = "base0B", group = "GP_base0B" },
+					base0C = { pattern = "base0C", group = "GP_base0C" },
+					base0D = { pattern = "base0D", group = "GP_base0D" },
+					base0E = { pattern = "base0E", group = "GP_base0E" },
+					base0F = { pattern = "base0F", group = "GP_base0F" },
+
 					hex_color = hipatterns.gen_highlighter.hex_color(),
 				},
 			}

@@ -1,4 +1,5 @@
-return {
+
+local M = {} or {
 	{
 		"L3MON4D3/LuaSnip",
 		config = function()
@@ -209,3 +210,5 @@ class {} {{
 		build = "make install_jsregexp",
 	},
 }
+
+return M

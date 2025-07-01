@@ -6,9 +6,10 @@ local a = Keys.A
 local i = Keys.I
 local v = Keys.V
 local c = Keys.C
-local none = Keys.None
+local x = Keys.X
 local silent = Keys.Silent
 local noremap = Keys.Noremap
+local remap = Keys.Remap
 local noremap_expr = Keys.Noremap
 local noremap_silent = Keys.NoremapSilent
 
@@ -25,36 +26,35 @@ local keymaps = {
 	{ n, "<LEADER>me", vim.cmd.messages },
 
 	-- Buffer
-	{ n, "<LEADER>bp", vim.cmd.bp, Keys.NoremapSilent },
-	{ n, "<LEADER>bn", vim.cmd.bn, Keys.NoremapSilent },
-	{ n, "<LEADER>bd", vim.cmd.bd, Keys.NoremapSilent },
-	{ n, "<A-d>", vim.cmd.bd, Keys.NoremapSilent },
+	{ n, "<LEADER>bp", vim.cmd.bp, noremap_silent },
+	{ n, "<LEADER>bn", vim.cmd.bn, noremap_silent },
+	{ n, "<A-d>", vim.cmd.bd, noremap_silent },
 
 	{ n, "<LEADER>c<LEADER>", ":normal gcc<cr>", noremap_silent },
 	{ v, "<LEADER>c<LEADER>", "gc", noremap_silent },
-	{ v, "<LEADER>so", ":sort<cr>", none },
+	{ v, "<LEADER>so", ":sort<cr>" },
 	{ n, "<LEADER>ne", ":set noexpandtab!<cr>:%s/    /\t/<cr>", noremap_silent },
 	{ n, "<LEADER>et", ":set expandtab!<cr>", noremap },
-	{ n, "<LEADER>qa", ":noautocmd qall!<cr>", none },
-	{ n, "<LEADER>sf", ":w<cr>", none },
+	{ n, "<LEADER>qa", ":noautocmd qall!<cr>" },
+	{ n, "<LEADER>sf", ":w<cr>" },
 	{ n, "<LEADER>fe", ":edit<cr>", silent },
-	{ n, "<LEADER>nw", "<CMD>%s/\\s*$--<CR>", none },
-	{ n, "<LEADER>`", "<CMD>edit #<CR>", none },
-	{ n, "<LEADER>p", '"_dP', none },
-	{ n, "<LEADER>gf", ":e <cfile><cr>", none },
-	{ n, "<LEADER><F2>", "*:%s--", none },
+	{ n, "<LEADER>nw", "<CMD>%s/\\s*$--<CR>" },
+	{ n, "<LEADER>`", "<CMD>edit #<CR>" },
+	{ n, "<LEADER>p", '"_dP' },
+	{ n, "<LEADER>gf", ":e <cfile><cr>" },
+	{ n, "<LEADER><F2>", "*:%s--" },
 	{ a, "<A-a>", "<c-a>", noremap }, -- increament
 	{ a, "<A-x>", "<c-x>", noremap }, -- decreament
-	{ n, "L", "$", none },
-	{ n, "H", "^", none },
-	{ n, "Q", "", none }, -- Disable visual mode
+	{ n, "L", "$" },
+	{ n, "H", "^" },
+	{ n, "Q", "" }, -- Disable visual mode
 
 	{ n, "<Home>", "(col('.') == matchend(getline('.'), '^\\s*')+1 ? '0' : '^')", noremap_expr },
 	{ n, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$' : 'g_')", noremap_expr },
 	{ v, "<End>", "(col('.') == match(getline('.'), '\\s*$') ? '$h' : 'g_')", noremap_expr },
 
-	{ i, "<Home>", "<C-o><Home>", none },
-	{ i, "<End> ", "<C-o><End>", none },
+	{ i, "<Home>", "<C-o><Home>" },
+	{ i, "<End> ", "<C-o><End>" },
 	{ n, "gg", "gg0", noremap },
 	{ a, "G", "G<End>", noremap },
 	{ a, "Y", "y$", noremap },
@@ -67,9 +67,9 @@ local keymaps = {
 	{ n, "<c-v>", '"+p"', noremap },
 	{ i, "<c-v>", "<c-r>+", noremap },
 	{ c, "<c-v>", "<c-r>+", noremap },
-	{ n, "<c-x>", "<c-c>d", none },
-	{ i, "<c-x>", "<c-c>d", none },
-	{ c, "<c-x>", "<c-c>d", none },
+	{ n, "<c-x>", "<c-c>d" },
+	{ i, "<c-x>", "<c-c>d" },
+	{ c, "<c-x>", "<c-c>d" },
 	-- use <c-r> to insert original character without triggering things like auto-pairs
 	{ i, "<c-r>", "<c-v>", noremap },
 	{ n, "<LEADER>fs", ":w<CR>", noremap },
@@ -89,20 +89,9 @@ local keymaps = {
 	{ i, "}", "}<c-g>u", noremap },
 	{ i, '"', '"<c-g>u', noremap },
 
-	-- { n, "k", [[(v:count > 5 ? "m'" . v:count : "") . 'k']], noremap_expr },
-	-- { n, "j", [[(v:count > 5 ? "m'" . v:count : "") . 'j']], noremap_expr },
-
-	-- Now handled by treewalker.nvim
-	-- (v, "<c-j>", ":m '>+1<CR>gv=gv", noremap},
-	-- (v, "<c-k>", ":m '<-2<CR>gv=gv", noremap},
-	-- (n, "<c-j>", ":m .+1<CR>==", noremap},
-	-- (i, "<c-k>", "<ESC>:m .-2<CR>==i", noremap},
-	-- (n, "<c-k>", ":m .-1<CR>==", noremap},
-	-- (i, "<c-j>", "<ESC>:m .+1<CR>==i", noremap},
-
 	-- Add space bellow or above without leaving normal mode
-	{ n, "[<LEADER>", ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>", noremap_silent },
-	{ n, "]<LEADER>", ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>", noremap_silent },
+	{ n, "<LEADER>j", ":<c-u>put!=repeat([''],v:count)<bar>']+1<cr>", noremap_silent },
+	{ n, "<LEADER>k", ":<c-u>put =repeat([''],v:count)<bar>'[-1<cr>", noremap_silent },
 
 	{ n, "<", "v<gv<ESC>", noremap },
 	{ n, ">", "v>gv<ESC>", noremap },
@@ -115,8 +104,52 @@ local keymaps = {
 	{ v, ")", "<ESC>`>a)<ESC>`<i(<ESC>", noremap },
 	{ v, "]", "<ESC>`>a]<ESC>`<i[<ESC>", noremap },
 	{ v, "<c-}>", "<ESC>`>a}<ESC>`<i{<ESC>", noremap },
+
+	{
+		n,
+		"j",
+		function()
+			if vim.v.count > 0 then
+				return "m'" .. vim.v.count .. "j"
+			end
+			return "j"
+		end,
+		{ expr = true },
+	},
+
+	{
+		n,
+		"k",
+		function()
+			if vim.v.count > 0 then
+				return "m'" .. vim.v.count .. "k"
+			end
+			return "k"
+		end,
+		{ expr = true },
+	},
+
+	{ x, "/", "<Esc>/\\%V" },
+
+	{ i, "<c-f>", "<c-g>u<Esc>[s1z=gi<c-g>u", noremap },
 }
 
+vim.keymap.set("x", "I", function()
+	return vim.fn.mode() == "V" and "^<C-v>I" or "I"
+end, { expr = true })
+vim.keymap.set("x", "A", function()
+	return vim.fn.mode() == "V" and "$<C-v>A" or "A"
+end, { expr = true })
+
+vim.cmd [[
+noremap Y "+y
+nnoremap YY "+yy
+nnoremap / /\v
+vnoremap / /\v
+
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+]]
+
 for _, value in pairs(keymaps) do
-	vim.keymap.set(value[1], value[2], value[3], value[4] or Keys.None)
+	vim.keymap.set(value[1], value[2], value[3], value[4] or {})
 end

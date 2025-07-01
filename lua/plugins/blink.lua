@@ -55,7 +55,7 @@ return {
 
 	{
 		"saghen/blink.cmp",
-		version = "v0.*",
+		version = "1.*",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"neovim/nvim-lspconfig",
@@ -63,6 +63,7 @@ return {
 		},
 		---@type blink.cmp.Config
 		opts = {
+			fuzzy = { implementation = "prefer_rust_with_warning" },
 			signature = { window = { border = "single" } },
 			snippets = { preset = "luasnip" },
 			cmdline = {

@@ -1,7 +1,5 @@
 -- stylua: ignore start
 vim.keymap.set("n", "<LEADER>e", function() vim.diagnostic.open_float { float = "rounded" } end, {noremap = true, silent = true })
--- vim.keymap.set("n", "g[", function() vim.diagnostic.jump { count=-1 , float = "rounded" } end, { noremap = true, silent = true })
--- vim.keymap.set("n", "g]", function() vim.diagnostic.jump { count=1, float = "rounded" } end, { noremap = true, silent = true })
 vim.keymap.set("n", "g[", function() vim.diagnostic.goto_prev() end, { noremap = true, silent = true })
 vim.keymap.set("n", "g]", function() vim.diagnostic.goto_next() end, { noremap = true, silent = true })
 
@@ -38,7 +36,7 @@ local ft = {
 }
 
 local servers = {
-    ts_ls = {},
+	fennel_ls = {},
 	marksman = {},
 	digestif = {},
 	awk_ls = {},
@@ -77,7 +75,7 @@ local servers = {
 		end,
 	},
 	bashls = {},
-	cssls = {},
+	-- cssls = {},
 	-- cssmodules_ls = {},
 	gdscript = {},
 	glsl_analyzer = {},
@@ -85,10 +83,11 @@ local servers = {
 	hls = {},
 	html = {},
 	neocmake = {},
-	tailwindcss = { ft = { "html", "javascriptreact", "typescriptreact" } },
+	tailwindcss = {},
 	vimls = {},
 	vls = {},
 	yamlls = {},
+	jsonls = {},
 
 	-- nil_ls = {
 	-- 	settings = {
@@ -132,23 +131,24 @@ local servers = {
 		},
 	},
 
-	lua_ls = {
-		settings = {
-			Lua = {
-				diagnostics = { globals = { "vim", "FFI_RUST", "Snacks" } },
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
-					checkThirdParty = true,
-				},
-				telemetry = { enable = false },
-				completion = {
-					callSnippet = "Replace",
-					keywordSnippet = "Both",
-					workspaceWord = true,
-				},
-			},
-		},
-	},
+	-- lua_ls = {
+	-- 	settings = {
+	-- 		Lua = {
+	-- 			diagnostics = { globals = { "vim", "Snacks" } },
+	-- 			workspace = {
+	-- 				library = vim.api.nvim_get_runtime_file("", true),
+	-- 				checkThirdParty = true,
+	-- 			},
+	-- 			telemetry = { enable = false },
+	-- 			completion = {
+	-- 				callSnippet = "Replace",
+	-- 				keywordSnippet = "Both",
+	-- 				workspaceWord = true,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+
 	rust_analyzer = {
 		cmd = { "rust-analyzer" },
 		-- cmd = vim.lsp.rpc.connect("127.0.0.1", 27631),
@@ -218,13 +218,20 @@ local servers = {
 	-- 		},
 	-- 	},
 	-- },
-	clangd = {
+	ccls = {
 		capabilities = { offsetEncoding = { "utf-16" } },
 		on_attach = function()
-			vim.keymap.set("n", "<leader>si", ":ClangdShowSymbolInfo<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>gh", ":ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>gh", ":CclsSwitchSourceHeader<CR>", { noremap = true, silent = true })
 		end,
 	},
+
+	-- clangd = {
+	-- 	capabilities = { offsetEncoding = { "utf-16" } },
+	-- 	on_attach = function()
+	-- 		vim.keymap.set("n", "<leader>si", ":ClangdShowSymbolInfo<CR>", { noremap = true, silent = true })
+	-- 		vim.keymap.set("n", "<leader>gh", ":ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true })
+	-- 	end,
+	-- },
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -271,15 +278,6 @@ local M = {
 			"nvim-treesitter/nvim-treesitter", -- optional
 			"nvim-tree/nvim-web-devicons", -- optional
 		},
-	},
-	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		event = "LspAttach",
-		priority = 1000,
-		config = function()
-			vim.diagnostic.config { virtual_text = false }
-			require("tiny-inline-diagnostic").setup()
-		end,
 	},
 	{
 		"rachartier/tiny-code-action.nvim",
@@ -334,9 +332,9 @@ live preview of markdown files in your browser while you edit them in your favor
 
 	{
 		"https://github.com/nvimtools/none-ls.nvim",
-		keys = {
-			{ "<leader>nl", ":lua vim.print('Activated None LS')<CR>" },
-		},
+		-- keys = {
+		-- { "<leader>nl", ":lua vim.print('Activated None LS')<CR>" },
+		-- },
 		config = function()
 			local null_ls = require "null-ls"
 
@@ -344,7 +342,7 @@ live preview of markdown files in your browser while you edit them in your favor
 				sources = {
 					null_ls.builtins.code_actions.proselint,
 					null_ls.builtins.completion.spell,
-					null_ls.builtins.diagnostics.misspell,
+					null_ls.builtins.diagnostics.codespell,
 				},
 			}
 
@@ -354,38 +352,52 @@ live preview of markdown files in your browser while you edit them in your favor
 
 			RunForFileType("nix", function()
 				null_ls.register(null_ls.builtins.diagnostics.statix)
-			end)
-
-			RunForFileType("nix", function()
-				null_ls.register(null_ls.builtins.diagnostics.statix)
 				null_ls.register(null_ls.builtins.code_actions.statix)
 			end)
 
-			-- local no_really = {
-			-- 	method = null_ls.methods.DIAGNOSTICS,
-			-- 	filetypes = { "markdown", "text" },
-			-- 	generator = {
-			-- 		fn = function(params)
-			-- 			local diagnostics = {}
-			-- 			for i, line in ipairs(params.content) do
-			-- 				local col, end_col = line:find "really"
-			-- 				if col and end_col then
-			-- 					table.insert(diagnostics, {
-			-- 						row = i,
-			-- 						col = col,
-			-- 						end_col = end_col + 1,
-			-- 						source = "no-really",
-			-- 						message = "Don't use 'really!'",
-			-- 						severity = vim.diagnostic.severity.WARN,
-			-- 					})
-			-- 				end
-			-- 			end
-			-- 			return diagnostics
-			-- 		end,
-			-- 	},
-			-- }
-			--
-			-- null_ls.register(no_really)
+			local problems = {
+				-- Zero Width Space (ZWSP)
+				{ pattern = "\226\128\139", name = "ZERO WIDTH SPACE", replacement = "" },
+				-- Non-breaking Space (NBSP)
+				{ pattern = "\194\160", name = "NON-BREAKING SPACE", replacement = " " },
+				-- Zero Width No-Break Space (BOM, ZWNBSP)
+				{ pattern = "\239\187\191", name = "BYTE ORDER MARK", replacement = "" },
+				-- Zero Width Joiner (ZWJ)
+				{ pattern = "\226\128\141", name = "ZERO WIDTH JOINER", replacement = "" },
+				-- Right-to-Left Mark (RLM)
+				{ pattern = "\226\128\142", name = "RIGHT-TO-LEFT MARK", replacement = "" },
+				-- Left-to-Right Mark (LRM)
+				{ pattern = "\226\128\143", name = "LEFT-TO-RIGHT MARK", replacement = "" },
+			}
+
+			local no_problems = {
+				method = null_ls.methods.DIAGNOSTICS,
+				filetypes = { "*" },
+				generator = {
+					fn = function(params)
+						local diagnostics = {}
+
+						for i, line in ipairs(params.content) do
+							for _, problem in ipairs(problems) do
+								local col, end_col = line:find(problem)
+								if col and end_col then
+									table.insert(diagnostics, {
+										row = i,
+										col = col,
+										end_col = end_col + 1,
+										source = "no-really",
+										message = problem.name,
+										severity = vim.diagnostic.severity.WARN,
+									})
+								end
+							end
+						end
+						return diagnostics
+					end,
+				},
+			}
+
+			null_ls.register(no_problems)
 		end,
 		lazy = true,
 	},

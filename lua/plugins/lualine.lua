@@ -65,19 +65,19 @@ return {
 
 			-- Color table for highlights
 			-- stylua: ignore
-			local colors = {
-  	  	  	  bg       = '#202328',
-  	  	  	  fg       = '#bbc2cf',
-  	  	  	  yellow   = '#ECBE7B',
-  	  	  	  cyan     = '#008080',
-  	  	  	  darkblue = '#081633',
-  	  	  	  green    = '#98be65',
-  	  	  	  orange   = '#FF8800',
-  	  	  	  violet   = '#a9a1e1',
-  	  	  	  magenta  = '#c678dd',
-  	  	  	  blue     = '#51afef',
-  	  	  	  red      = '#ec5f67',
-			}
+local colors = {
+    bg       = MiniBase16 and MiniBase16.config.palette.base00 or '#202328',
+    fg       = MiniBase16 and MiniBase16.config.palette.base05 or '#bbc2cf',
+    yellow   = MiniBase16 and MiniBase16.config.palette.base0A or '#ECBE7B',
+    cyan     = MiniBase16 and MiniBase16.config.palette.base0C or '#008080',
+    darkblue = MiniBase16 and MiniBase16.config.palette.base02 or '#081633',
+    green    = MiniBase16 and MiniBase16.config.palette.base0B or '#98be65',
+    orange   = MiniBase16 and MiniBase16.config.palette.base09 or '#FF8800',
+    violet   = MiniBase16 and MiniBase16.config.palette.base0E or '#a9a1e1',
+    magenta  = MiniBase16 and MiniBase16.config.palette.base0D or '#c678dd',
+    blue     = MiniBase16 and MiniBase16.config.palette.base0D or '#51afef',
+    red      = MiniBase16 and MiniBase16.config.palette.base08 or '#ec5f67',
+}
 			-- stylua: ignore end
 
 			local conditions = {
